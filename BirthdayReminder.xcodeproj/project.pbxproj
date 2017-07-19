@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B06883581F1EEB2D00831AA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883571F1EEB2D00831AA6 /* AppDelegate.swift */; };
-		B068835A1F1EEB2D00831AA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883591F1EEB2D00831AA6 /* ViewController.swift */; };
+		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
+		B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */; };
+		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
+		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
+		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
+		B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
+		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPersonalDataFromServerViewController.swift; sourceTree = "<group>"; };
+		B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPersonalInfoViewController.swift; sourceTree = "<group>"; };
+		B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGettingFromServerViewController.swift; sourceTree = "<group>"; };
+		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B06883571F1EEB2D00831AA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B06883591F1EEB2D00831AA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B068835C1F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B068835E1F1EEB2D00831AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B06883611F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B06883631F1EEB2D00831AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B06883791F1EECEA00831AA6 /* FileManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManaging.swift; path = "Universal/File&DataManaging/FileManaging.swift"; sourceTree = "<group>"; };
+		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Universal/Network/Network.swift; sourceTree = "<group>"; };
+		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B049DC9C1F1EEE31008634C5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
+				B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */,
+				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B068834B1F1EEB2D00831AA6 = {
 			isa = PBXGroup;
 			children = (
+				B06883721F1EEC9D00831AA6 /* Universal */,
 				B06883561F1EEB2D00831AA6 /* BirthdayReminder */,
 				B06883551F1EEB2D00831AA6 /* Products */,
+				B22BCE9328D65D5E0F0246C3 /* Pods */,
+				C36CBA21C215B6052304E768 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +80,56 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
-				B06883571F1EEB2D00831AA6 /* AppDelegate.swift */,
-				B06883591F1EEB2D00831AA6 /* ViewController.swift */,
+				B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */,
+				B049DC9C1F1EEE31008634C5 /* Controllers */,
 				B068835B1F1EEB2D00831AA6 /* Main.storyboard */,
 				B068835E1F1EEB2D00831AA6 /* Assets.xcassets */,
 				B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */,
 				B06883631F1EEB2D00831AA6 /* Info.plist */,
 			);
 			path = BirthdayReminder;
+			sourceTree = "<group>";
+		};
+		B06883721F1EEC9D00831AA6 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				B06883771F1EECBE00831AA6 /* File&Data Managing */,
+				B06883781F1EECD400831AA6 /* Network */,
+			);
+			name = Universal;
+			sourceTree = "<group>";
+		};
+		B06883771F1EECBE00831AA6 /* File&Data Managing */ = {
+			isa = PBXGroup;
+			children = (
+				B06883791F1EECEA00831AA6 /* FileManaging.swift */,
+			);
+			name = "File&Data Managing";
+			sourceTree = "<group>";
+		};
+		B06883781F1EECD400831AA6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B068837B1F1EECF100831AA6 /* Network.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		B22BCE9328D65D5E0F0246C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */,
+				BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C36CBA21C215B6052304E768 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +139,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B06883661F1EEB2D00831AA6 /* Build configuration list for PBXNativeTarget "BirthdayReminder" */;
 			buildPhases = (
+				F40D5D1B16061A1051AD9097 /* [CP] Check Pods Manifest.lock */,
 				B06883501F1EEB2D00831AA6 /* Sources */,
 				B06883511F1EEB2D00831AA6 /* Frameworks */,
 				B06883521F1EEB2D00831AA6 /* Resources */,
+				AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */,
+				339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -91,12 +162,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CaptainYukinoshitaHachiman;
 				TargetAttributes = {
 					B06883531F1EEB2D00831AA6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,13 +204,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F40D5D1B16061A1051AD9097 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B06883501F1EEB2D00831AA6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B068835A1F1EEB2D00831AA6 /* ViewController.swift in Sources */,
-				B06883581F1EEB2D00831AA6 /* AppDelegate.swift in Sources */,
+				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
+				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
+				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
+				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
+				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
+				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +385,7 @@
 		};
 		B06883671F1EEB2D00831AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F248CK9C8M;
@@ -274,6 +399,7 @@
 		};
 		B06883681F1EEB2D00831AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = F248CK9C8M;
@@ -304,6 +430,7 @@
 				B06883681F1EEB2D00831AA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

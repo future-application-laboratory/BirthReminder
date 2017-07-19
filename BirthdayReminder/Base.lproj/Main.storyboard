@@ -1,26 +1,173 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="Q42-TR-MOL">
+            <objects>
+                <viewController id="L7a-Tq-nag" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n35-VN-Pqi"/>
+                        <viewControllerLayoutGuide type="bottom" id="2dV-1Y-0A0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="J6o-ke-Vzg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CHb-Xh-m3B"/>
+                    <connections>
+                        <segue destination="vpa-0V-8ab" kind="show" id="LLR-Is-Fyb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sc7-Uz-RmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2079" y="1235"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LbW-2u-uUX">
+            <objects>
+                <navigationController id="hl5-32-VsJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UhG-E6-7PW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vpa-0V-8ab" kind="relationship" relationship="rootViewController" id="y9r-O2-ufT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aBb-RA-b6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2991" y="673"/>
+        </scene>
+        <!--Animes-->
+        <scene sceneID="QSj-fa-pW3">
+            <objects>
+                <viewController id="vpa-0V-8ab" customClass="AnimeGettingFromServerViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Urj-nN-rc8"/>
+                        <viewControllerLayoutGuide type="bottom" id="ide-0Y-Cgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="hXj-Jd-Tia">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E5I-wa-qJ9">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="animeCell" rowHeight="100" id="eq3-J2-pWE">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eq3-J2-pWE" id="KKS-zB-4t9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vpa-0V-8ab" id="NNP-Wy-aJG"/>
+                                    <outlet property="delegate" destination="vpa-0V-8ab" id="gw7-O7-V4H"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43734325639999999" green="1" blue="0.60780881389999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="E5I-wa-qJ9" firstAttribute="leading" secondItem="hXj-Jd-Tia" secondAttribute="leading" id="DC4-Eu-QTC"/>
+                            <constraint firstItem="ide-0Y-Cgv" firstAttribute="top" secondItem="E5I-wa-qJ9" secondAttribute="bottom" id="mWi-bA-r3L"/>
+                            <constraint firstItem="E5I-wa-qJ9" firstAttribute="top" secondItem="Urj-nN-rc8" secondAttribute="bottom" id="slr-Et-ARq"/>
+                            <constraint firstAttribute="trailing" secondItem="E5I-wa-qJ9" secondAttribute="trailing" id="umW-Lp-qLe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Animes" id="Qde-DH-bvt"/>
+                    <connections>
+                        <outlet property="tableView" destination="E5I-wa-qJ9" id="ZKu-VC-4su"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showAnimeDetail" id="GRJ-oI-Xf1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MbN-5t-Tnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-729.375" y="392.95774647887322"/>
+        </scene>
+        <!--Get Personal Data From Server View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GetPersonalDataFromServerViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILb-sN-ksc">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mainBirthCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalDetailFromAnime" rowHeight="100" id="c2N-oB-8qd">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c2N-oB-8qd" id="drT-e1-B0L">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="t7W-X5-ClN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="AxF-1P-52S"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43734325641458904" green="1" blue="0.60780881393805919" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ILb-sN-ksc" secondAttribute="bottom" id="5gv-Cy-kFk"/>
+                            <constraint firstItem="ILb-sN-ksc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ypv-b6-UhV"/>
+                            <constraint firstAttribute="trailing" secondItem="ILb-sN-ksc" secondAttribute="trailing" id="ZiN-Vd-Tdz"/>
+                            <constraint firstItem="ILb-sN-ksc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yFr-Ij-B1q"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vTd-Kj-oYV">
+                        <barButtonItem key="rightBarButtonItem" title="Add all" id="9XD-xJ-yY8"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="ILb-sN-ksc" id="SMy-DK-L34"/>
+                        <segue destination="OpM-Re-fMk" kind="show" identifier="showCharacterDetail" id="nSE-l3-X21"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="293" y="27"/>
+        </scene>
+        <!--Detailed Personal Info View Controller-->
+        <scene sceneID="rNu-lM-znT">
+            <objects>
+                <viewController id="OpM-Re-fMk" customClass="DetailedPersonalInfoViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8iV-qi-MFp"/>
+                        <viewControllerLayoutGuide type="bottom" id="kjO-AP-Xpp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="Zgx-a9-Djv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBs-9U-btv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1352" y="-239"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="LLR-Is-Fyb"/>
+    </inferredMetricsTieBreakers>
 </document>
