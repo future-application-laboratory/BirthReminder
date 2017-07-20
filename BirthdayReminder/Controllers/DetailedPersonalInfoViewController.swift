@@ -35,14 +35,22 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     
     @IBOutlet weak var clearButton: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBOutlet weak var doneButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if personalData.name == "" {
+            cancelButton.isHidden = true
+            navigationItem.title = "Create new"
+        }
         if !personalData.status {
             let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink)
             personalData.picData = UIImagePNGRepresentation(image)!
             personalData.status = true
         }
-        clearButton.isEnabled = true
+        clearButton.isEnabled = (personalData.picData != Data())
         nameField.text = personalData.name
         imageView.image = UIImage(data: personalData.picData)
         let birth = getIntBirth()
@@ -95,12 +103,16 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
         //Save data
         if newPersonalData.status {
             let navigationController = view.window?.rootViewController as! UINavigationController
-            let controller = navigationController.viewControllers[2] as! GetPersonalDataFromServerViewController
-            controller.tableViewData = controller.tableViewData.filter { person in
-                person.name != personalData.name
+            if navigationController.viewControllers[2] is DetailedPersonalInfoFromServerViewController {
+                navigationController.popViewController(animated: true)
+            }else{
+                let controller = navigationController.viewControllers[2] as! GetPersonalDataFromServerViewController
+                controller.tableViewData = controller.tableViewData.filter { person in
+                    person.name != personalData.name
+                }
+                controller.tableView.reloadData()
+                dismiss(animated: true, completion: nil)
             }
-            controller.tableView.reloadData()
-            dismiss(animated: true, completion: nil)
             BirthPeopleManager().persist(Person: newPersonalData)
         }
     }
@@ -118,7 +130,12 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     }
     
     @IBAction func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        let navigationController = view.window?.rootViewController as! UINavigationController
+        if navigationController.viewControllers[2] is DetailedPersonalInfoFromServerViewController {
+            navigationController.popViewController(animated: true)
+        }else{
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func clearPic(_ sender: Any) {
