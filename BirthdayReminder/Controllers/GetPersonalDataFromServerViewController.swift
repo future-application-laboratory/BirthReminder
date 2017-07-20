@@ -13,7 +13,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     var anime:Anime?
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+    @IBOutlet weak var addAllButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +26,14 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             self.tableViewData.forEach() { data in
                 let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink)
                 data.picData = UIImagePNGRepresentation(pic) ?? Data()
+                data.status = true
                 OperationQueue.main.addOperation {
                     self.tableView.reloadData()
                 }
             }
         }
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewData.count
@@ -62,7 +65,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         }
         return finalResult
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         performSegue(withIdentifier: "showCharacterDetail", sender: tableViewData[row])
@@ -75,10 +78,30 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCharacterDetail" {
-            let controller = segue.destination as! DetailedPersonalInfoViewController
+            let controller = segue.destination as! DetailedPersonalInfoFromServerViewController
             controller.personalData = sender as! BirthPeople
         }
     }
     
+    @IBAction func storeAll(_ sender: Any) {
+        let navigationController = view.window?.rootViewController as! UINavigationController
+        let controller = navigationController.viewControllers[1] as! AnimeGettingFromServerViewController
+        controller.animes = controller.animes.filter { anime in
+            anime.id != self.anime!.id
+        }
+        controller.tableView.reloadData()
+        navigationController.popViewController(animated: true)
+        tableViewData.forEach { person in
+            if person.picData == Data() {
+                let newPerson = BirthPeopleManager().creatBirthPeople(name: person.name, stringedBirth: person.stringedBirth, picLink: person.picLink)
+                let image = ReminderDataNetworkController().get(PicFromStringedUrl: newPerson.picLink)
+                newPerson.status = true
+                newPerson.picData = UIImagePNGRepresentation(image) ?? Data()
+                BirthPeopleManager().persist(Person: newPerson)
+            }else{
+                BirthPeopleManager().persist(Person: person)
+            }
+        }
+    }
+    
 }
-

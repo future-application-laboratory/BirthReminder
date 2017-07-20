@@ -10,7 +10,7 @@ import UIKit
 
 class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var animes = [Anime]()
-    
+
     let networkController = ReminderDataNetworkController()
     
     @IBOutlet weak var tableView: UITableView!

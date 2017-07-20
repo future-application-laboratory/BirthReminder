@@ -33,6 +33,7 @@
 		B06883631F1EEB2D00831AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B06883791F1EECEA00831AA6 /* FileManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManaging.swift; path = "Universal/File&DataManaging/FileManaging.swift"; sourceTree = "<group>"; };
 		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Universal/Network/Network.swift; sourceTree = "<group>"; };
+		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,8 +81,8 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
-				B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */,
 				B049DC9C1F1EEE31008634C5 /* Controllers */,
+				B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */,
 				B068835B1F1EEB2D00831AA6 /* Main.storyboard */,
 				B068835E1F1EEB2D00831AA6 /* Assets.xcassets */,
 				B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */,
@@ -127,6 +128,7 @@
 		C36CBA21C215B6052304E768 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */,
 				9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */,
 			);
 			name = Frameworks;
