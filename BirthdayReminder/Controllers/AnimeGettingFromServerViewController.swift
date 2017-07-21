@@ -39,9 +39,9 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
         loadingLabel.textColor = UIColor.white
         loadingLabel.font = UIFont(name: "Pingfang SC", size: 20)
         loadingLabel.snp.makeConstraints { constraint in
-            constraint.bottom.equalTo(square)
+            constraint.bottom.equalTo(square).offset(-10)
             constraint.centerX.equalTo(square)
-            constraint.height.equalTo(30)
+            constraint.height.equalTo(50)
         }
         
         tableView.backgroundView?.backgroundColor = UIColor.clear

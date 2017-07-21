@@ -11,9 +11,9 @@ import UIKit
 import RealmSwift
 
 class BirthPeople:Object {
-    @objc dynamic var name:String = ""
-    @objc dynamic var stringedBirth:String = ""
-    @objc dynamic var picData:Data = Data()
+    @objc dynamic var name = ""
+    @objc dynamic var stringedBirth = ""
+    @objc dynamic var picData = Data()
     @objc dynamic var picLink = ""
     @objc dynamic var status = false
 }
@@ -34,7 +34,7 @@ class Anime {
 }
 
 class BirthPeopleManager {
-    let realmQueue = DispatchQueue(label: "Realm", qos: .userInteractive)
+    let realmQueue = DispatchQueue(label: "Realm", qos: .background)
     
     func persist(Person:BirthPeople) {
         let realm = try! Realm()
@@ -45,59 +45,38 @@ class BirthPeopleManager {
         }
     }
     
-    func getPersistedBirthPeople() -> [BirthPeople]{
-        var people = [BirthPeople]()
+    func getPersistedBirthPeople() -> [BirthPeople] {
+        var finalResults = [BirthPeople]()
         var status = false
         realmQueue.async {
             let realm = try! Realm()
             let objects = realm.objects(BirthPeople.self)
-            people = objects.map {$0}
+            objects.forEach { object in
+                let name = object.name
+                let birth = object.stringedBirth
+                let data = object.picData
+                let person = self.creatBirthPeople(name: name,stringedBirth: birth,picData: data)
+                finalResults.append(person)
+            }
             status = true
         }
         while !status {
             Thread.sleep(forTimeInterval: 0.1)
         }
-        return people
+        return finalResults
     }
     
-    func creatBirthPeople(name:String,stringedBirth:String,pic:UIImage?) -> BirthPeople {
-        var person:BirthPeople?
-        let data = UIImagePNGRepresentation(pic ?? UIImage()) ?? Data()
-        var status = false
-        realmQueue.async {
-            person = BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":data])
-            status = true
-        }
-        while !status {
-            Thread.sleep(forTimeInterval: 0.1)
-        }
-        return person!
+    func creatBirthPeople(name:String,stringedBirth:String,pic:UIImage) -> BirthPeople {
+        let data = UIImagePNGRepresentation(pic) ?? Data()
+        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":data])
     }
     
     func creatBirthPeople(name:String,stringedBirth:String,picData:Data) -> BirthPeople {
-        var person:BirthPeople?
-        var status = false
-        realmQueue.async {
-            person = BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":picData])
-            status = true
-        }
-        while !status {
-            Thread.sleep(forTimeInterval: 0.1)
-        }
-        return person!
+        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":picData])
     }
     
     func creatBirthPeople(name:String,stringedBirth:String,picLink:String) -> BirthPeople {
-        var person:BirthPeople?
-        var status = false
-        realmQueue.async {
-            person = BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picLink":picLink])
-            status = true
-        }
-        while !status {
-            Thread.sleep(forTimeInterval: 0.1)
-        }
-        return person!
+        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picLink":picLink])
     }
     
 }

@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import RealmSwift
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //Store data in Realm into App Group
+        var config = Realm.Configuration()
+        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")
+        let realmUrl = container!.appendingPathComponent("default.realm")
+        config.fileURL = realmUrl
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
 
