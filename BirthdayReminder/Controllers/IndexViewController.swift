@@ -16,6 +16,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = UIColor.clear
         upDateData()
     }
     
@@ -34,6 +35,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = person.stringedBirth
         cell.imageView?.image = UIImage(data: person.picData)
+        cell.backgroundColor = UIColor.clear
         return cell
     }
     
@@ -46,4 +48,23 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let row = indexPath.row
+            let name = data![row].name
+            let birth = data![row].stringedBirth
+            data?.remove(at: row)
+            tableView.reloadData()
+            BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
+        }
+    }
+
 }

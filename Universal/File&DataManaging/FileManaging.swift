@@ -79,5 +79,16 @@ class BirthPeopleManager {
         return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picLink":picLink])
     }
     
+    func deleteBirthPeople(whichFollows:String) {
+        self.realmQueue.async {
+            let realm = try! Realm()
+            if let objectGoingToDelete = realm.objects(BirthPeople.self).filter(whichFollows).first {
+                try! realm.write {
+                    realm.delete(objectGoingToDelete)
+                }
+            }
+        }
+    }
+    
 }
 
