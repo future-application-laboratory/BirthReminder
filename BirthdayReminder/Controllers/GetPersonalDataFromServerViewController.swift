@@ -21,6 +21,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = .none
+        
         view.addSubview(loadingView)
         loadingView.center = view.center
         
@@ -34,6 +36,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             self.tableViewData = self.getDetailedData(withAnimes: [self.anime!])
             OperationQueue.main.addOperation {
                 self.loadingView.stop()
+                self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
             }
             self.tableViewData.forEach() { data in
@@ -98,13 +101,12 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     
     @IBAction func storeAll(_ sender: Any) {
-        let navigationController = view.window?.rootViewController as! UINavigationController
-        let controller = navigationController.viewControllers[1] as! AnimeGettingFromServerViewController
+        let controller = (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![1] as! AnimeGettingFromServerViewController
         controller.animes = controller.animes.filter { anime in
             anime.id != self.anime!.id
         }
         controller.tableView.reloadData()
-        navigationController.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
         tableViewData.forEach { person in
             if person.picData == Data() {
                 let newPerson = BirthPeopleManager().creatBirthPeople(name: person.name, stringedBirth: person.stringedBirth, picLink: person.picLink)

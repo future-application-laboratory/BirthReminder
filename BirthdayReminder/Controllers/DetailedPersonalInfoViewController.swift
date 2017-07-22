@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-    var personalData = BirthPeople()
+    var personalData = BirthPeopleManager().creatBirthPeople(name: "", stringedBirth: "01-01", picData: Data())
     let monthDict = [
         1:31,
         2:29,
@@ -27,6 +27,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     ]
     
     var newPersonalData = BirthPeople()
+    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -41,21 +42,23 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if personalData.name == "" {
-            cancelButton.isHidden = true
-            navigationItem.title = "Create new"
-        }
-        if !personalData.status {
+        
+        tableView.separatorStyle = .none
+        
+        if !personalData.status && personalData.picLink != ""{
             let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink)
             personalData.picData = UIImagePNGRepresentation(image)!
             personalData.status = true
         }
+        
         clearButton.isEnabled = (personalData.picData != Data())
         nameField.text = personalData.name
         imageView.image = UIImage(data: personalData.picData)
+        
         let birth = getIntBirth()
         pickerView.selectRow(birth.0, inComponent: 0, animated: true)
         pickerView.selectRow(birth.1, inComponent: 1, animated: true)
+        
         newPersonalData = BirthPeopleManager().creatBirthPeople(name: personalData.name, stringedBirth: personalData.stringedBirth, picData: personalData.picData)
         newPersonalData.status = true
     }
@@ -100,22 +103,18 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     }
     
     @IBAction func onDone(_ sender: Any) {
-        //Save data
-        if newPersonalData.status {
-            let navigationController = view.window?.rootViewController as! UINavigationController
-            if navigationController.viewControllers[2] is DetailedPersonalInfoFromServerViewController {
-                navigationController.popViewController(animated: true)
-            }else{
-                let controller = navigationController.viewControllers[2] as! GetPersonalDataFromServerViewController
-                controller.tableViewData = controller.tableViewData.filter { person in
-                    person.name != personalData.name
-                }
-                controller.tableView.reloadData()
-                dismiss(animated: true, completion: nil)
+        if (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![0] is DetailedPersonalInfoFromServerViewController{
+            navigationController?.popViewController(animated: true)
+        }else{
+            let controller = (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![1] as! GetPersonalDataFromServerViewController
+            controller.tableViewData = controller.tableViewData.filter { person in
+                person.name != personalData.name
             }
-            BirthPeopleManager().persist(Person: newPersonalData)
+            dismiss(animated: true, completion: nil)
         }
+        BirthPeopleManager().persist(Person: newPersonalData)
     }
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         clearButton.isEnabled = true
@@ -130,12 +129,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     }
     
     @IBAction func cancel(_ sender: Any) {
-        let navigationController = view.window?.rootViewController as! UINavigationController
-        if navigationController.viewControllers[2] is DetailedPersonalInfoFromServerViewController {
-            navigationController.popViewController(animated: true)
-        }else{
-            dismiss(animated: true, completion: nil)
-        }
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func clearPic(_ sender: Any) {
@@ -145,7 +139,6 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     }
     
     @IBAction func changePic(_ sender: Any) {
-        
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let picker = UIImagePickerController()
             picker.delegate = self

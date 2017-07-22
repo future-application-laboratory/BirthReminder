@@ -20,6 +20,8 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorStyle = .none
+        
         //Loading Progress Viewer
         view.addSubview(loadingView)
         loadingView.center = view.center
@@ -33,6 +35,7 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
             self.animes = self.networkController.getListOfAnimes()
             OperationQueue.main.addOperation {
                 self.loadingView.stop()
+                self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
             }
             self.animes.forEach { anime in
