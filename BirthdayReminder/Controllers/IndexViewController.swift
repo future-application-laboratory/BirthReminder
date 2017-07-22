@@ -62,9 +62,13 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let name = data![row].name
             let birth = data![row].stringedBirth
             data?.remove(at: row)
-            tableView.reloadData()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
         }
     }
 
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
 }

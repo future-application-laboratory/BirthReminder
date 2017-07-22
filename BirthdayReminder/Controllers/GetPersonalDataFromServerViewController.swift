@@ -16,13 +16,26 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     @IBOutlet weak var addAllButton: UIBarButtonItem!
     
+    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addSubview(loadingView)
+        loadingView.center = view.center
+        
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
-        tableViewData = getDetailedData(withAnimes: [anime!])
-        tableView.reloadData()
+        
         ReminderDataNetworkController().networkQueue.async {
+            OperationQueue.main.addOperation {
+                self.loadingView.start()
+            }
+            self.tableViewData = self.getDetailedData(withAnimes: [self.anime!])
+            OperationQueue.main.addOperation {
+                self.loadingView.stop()
+                self.tableView.reloadData()
+            }
             self.tableViewData.forEach() { data in
                 let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink)
                 data.picData = UIImagePNGRepresentation(pic) ?? Data()
@@ -32,6 +45,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                 }
             }
         }
+        
     }
     
     

@@ -13,9 +13,7 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
     var animes = [Anime]()
 
     let networkController = ReminderDataNetworkController()
-    let progressView = UIActivityIndicatorView()
-    let square = RoundedSquareCanvas(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
-    let loadingLabel = UILabel()
+    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -23,37 +21,18 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
         super.viewDidLoad()
         
         //Loading Progress Viewer
-        view.addSubview(progressView)
-        view.addSubview(square)
-        view.addSubview(loadingLabel)
-        view.bringSubview(toFront: square)
-        view.bringSubview(toFront: progressView)
-        view.bringSubview(toFront: loadingLabel)
-        progressView.color = UIColor.white
-        progressView.backgroundColor = UIColor.gray
-        progressView.center = view.center
-        progressView.startAnimating()
-        square.center = view.center
-        loadingLabel.text = "Loading"
-        loadingLabel.textAlignment = .center
-        loadingLabel.textColor = UIColor.white
-        loadingLabel.font = UIFont(name: "Pingfang SC", size: 20)
-        loadingLabel.snp.makeConstraints { constraint in
-            constraint.bottom.equalTo(square).offset(-10)
-            constraint.centerX.equalTo(square)
-            constraint.height.equalTo(50)
-        }
+        view.addSubview(loadingView)
+        loadingView.center = view.center
         
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
         networkController.networkQueue.async {
+            OperationQueue.main.addOperation {
+                self.loadingView.start()
+            }
             self.animes = self.networkController.getListOfAnimes()
             OperationQueue.main.addOperation {
-                self.progressView.stopAnimating()
-                self.square.removeFromSuperview()
-                self.loadingLabel.removeFromSuperview()
-            }
-            OperationQueue.main.addOperation {
+                self.loadingView.stop()
                 self.tableView.reloadData()
             }
             self.animes.forEach { anime in
@@ -132,6 +111,52 @@ class RoundedSquareCanvas: UIView {
         UIColor.lightGray.setStroke()
         path.fill()
         path.stroke()
+    }
+    
+}
+
+class LoadingView:UIView {
+    let progressView = UIActivityIndicatorView()
+    var square:RoundedSquareCanvas?
+    let loadingLabel = UILabel()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        square = RoundedSquareCanvas(frame: frame)
+        self.addSubview(progressView)
+        self.addSubview(square!)
+        self.addSubview(loadingLabel)
+        self.bringSubview(toFront: square!)
+        self.bringSubview(toFront: progressView)
+        self.bringSubview(toFront: loadingLabel)
+        progressView.color = UIColor.white
+        progressView.backgroundColor = UIColor.gray
+        progressView.center = self.center
+        loadingLabel.text = "Loading"
+        loadingLabel.textAlignment = .center
+        loadingLabel.textColor = UIColor.white
+        loadingLabel.font = UIFont(name: "Pingfang SC", size: 20)
+        loadingLabel.snp.makeConstraints { constraint in
+            constraint.bottom.equalTo(square!).offset(-10)
+            constraint.centerX.equalTo(square!)
+            constraint.height.equalTo(50)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func start() {
+        progressView.startAnimating()
+        loadingLabel.isHidden = false
+        square?.isHidden = false
+    }
+    
+    func stop() {
+        progressView.stopAnimating()
+        loadingLabel.isHidden = true
+        square?.isHidden = true
     }
     
 }
