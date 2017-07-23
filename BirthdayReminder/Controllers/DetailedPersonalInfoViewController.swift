@@ -37,11 +37,11 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
-    
-    @IBOutlet weak var doneButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cancelButton.isHidden = (personalData.name == "")
         
         tableView.separatorStyle = .none
         
@@ -103,15 +103,8 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     }
     
     @IBAction func onDone(_ sender: Any) {
-        if (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![0] is DetailedPersonalInfoFromServerViewController{
-            navigationController?.popViewController(animated: true)
-        }else{
-            let controller = (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![1] as! GetPersonalDataFromServerViewController
-            controller.tableViewData = controller.tableViewData.filter { person in
-                person.name != personalData.name
-            }
-            dismiss(animated: true, completion: nil)
-        }
+        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
         BirthPeopleManager().persist(Person: newPersonalData)
     }
     

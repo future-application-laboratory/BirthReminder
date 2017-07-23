@@ -371,6 +371,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="B46-jF-37D"/>
                     <connections>
+                        <outlet property="cancelButton" destination="t5C-R9-Jtk" id="WkN-bs-D3W"/>
                         <outlet property="clearButton" destination="a6P-sQ-2n6" id="awG-XX-2uN"/>
                         <outlet property="imageView" destination="ctS-7R-2NE" id="9OM-AK-N1W"/>
                         <outlet property="nameField" destination="juj-gd-Nd4" id="hJO-OS-pe1"/>
@@ -548,9 +549,8 @@
                     <tabBarItem key="tabBarItem" title="Blank Template" id="tgX-BL-dZt"/>
                     <navigationItem key="navigationItem" title="Blank" id="S9Z-x1-Hu7"/>
                     <connections>
-                        <outlet property="cancelButton" destination="7fb-hl-Vv7" id="ziw-Vx-s91"/>
+                        <outlet property="cancelButton" destination="7fb-hl-Vv7" id="fRt-Ow-QA4"/>
                         <outlet property="clearButton" destination="UPn-Tl-eeq" id="kfn-4o-99G"/>
-                        <outlet property="doneButton" destination="Iyt-2K-aix" id="5dg-CW-cLh"/>
                         <outlet property="imageView" destination="aq1-aW-guq" id="dY4-g7-wdd"/>
                         <outlet property="nameField" destination="gEu-Fu-7Q5" id="snP-ub-cXP"/>
                         <outlet property="pickerView" destination="Oqv-xh-AAE" id="kvx-1S-fwA"/>

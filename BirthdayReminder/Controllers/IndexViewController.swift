@@ -17,7 +17,6 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.clear
-        upDateData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,9 +31,13 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "mainCell")
         let person = self.data![indexPath.row]
+        let imageView = cell.imageView
+        imageView?.image = UIImage(data: person.picData)
+        let layer = imageView?.layer
+        layer?.masksToBounds = true
+        layer?.cornerRadius = 5
         cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = person.stringedBirth
-        cell.imageView?.image = UIImage(data: person.picData)
+        cell.detailTextLabel?.text = person.stringedBirth.toFormattedDate()
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -45,6 +48,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func upDateData() {
         data = BirthPeopleManager().getPersistedBirthPeople()
+        data = BirthComputer().compute(withBirthdayPeople: data!)
         tableView.reloadData()
     }
     
@@ -62,7 +66,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let name = data![row].name
             let birth = data![row].stringedBirth
             data?.remove(at: row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .fade)
             BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
         }
     }
