@@ -13,9 +13,11 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     
     var data:[BirthPeople]?
+    var status = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 100
         tableView.backgroundColor = UIColor.clear
     }
     
@@ -36,8 +38,11 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
+        cell.textLabel?.snp.makeConstraints { constraint in
+            //constraint.weight.equalTo(300)
+        }
         cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = person.stringedBirth.toFormattedDate()
+        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays(withType: .formatted) : person.stringedBirth.toLocalizedDate()
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -73,6 +78,11 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    @IBAction func changeDateDisplayingType(_ sender: Any) {
+        status = !status
+        tableView.reloadData()
     }
     
 }
