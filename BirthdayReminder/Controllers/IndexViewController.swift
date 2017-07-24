@@ -37,9 +37,10 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont(name: "PingFangTC-Light", size: 20)
+        cell.textLabel?.font = UIFont(name: "PingFangTC-Light", size: 18)
         cell.textLabel?.textColor = UIColor.white
-        cell.detailTextLabel?.font = UIFont(name: "PingFangSC-Semibold",size: 18)
+        cell.detailTextLabel?.font = UIFont(name: "PingFangSC-Semibold",size: 16)
+        cell.detailTextLabel?.numberOfLines = 2
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays(withType: .formatted) : person.stringedBirth.toLocalizedDate()
