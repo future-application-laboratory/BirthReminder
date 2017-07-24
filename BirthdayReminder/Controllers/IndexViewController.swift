@@ -17,7 +17,6 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 100
         tableView.backgroundColor = UIColor.clear
     }
     
@@ -38,9 +37,10 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.snp.makeConstraints { constraint in
-            //constraint.weight.equalTo(300)
-        }
+        cell.textLabel?.font = UIFont(name: "PingFangTC-Light", size: 20)
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.font = UIFont(name: "PingFangSC-Semibold",size: 18)
+        cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays(withType: .formatted) : person.stringedBirth.toLocalizedDate()
         cell.backgroundColor = UIColor.clear

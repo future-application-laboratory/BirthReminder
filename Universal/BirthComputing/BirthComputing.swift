@@ -99,26 +99,32 @@ extension String {
         let formatter = DateFormatter()
         switch withType {
         case .formatted:
-            var leftDays:Double
+            var leftDays:TimeInterval
             formatter.dateFormat = "yyyy-MM-dd"
             if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
-                if date.timeIntervalSinceNow < -86400 {
+                leftDays = date.timeIntervalSinceNow / (24 * 60 * 60)
+                if leftDays < -1 {
                     let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
                     leftDays = nextDate.timeIntervalSinceNow / (24 * 60 * 60)
-                }else if (date.timeIntervalSinceNow >= -86400) && (date.timeIntervalSinceNow < 0){
+                }else if (leftDays >= -1) && (leftDays < 0) {
                     return "Today"
-                }else{
-                    leftDays = date.timeIntervalSinceNow / (24 * 60 * 60)
                 }
             }else{
                 return nil
             }
-            if leftDays.truncatingRemainder(dividingBy: 1.0) != 0 {
-                return String(Int(leftDays) + 1) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
-            }else{
-                return String(leftDays) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
+            if leftDays.truncatingRemainder(dividingBy: 1) != 0 {
+                leftDays = TimeInterval(Int(leftDays) + 1)
             }
-            
+            switch leftDays {
+            case 1:
+                return NSLocalizedString("Today", comment: "today")
+            case 2:
+                return NSLocalizedString("Tomorror", comment: "tomorrow")
+            case 3:
+                return NSLocalizedString("The day after tomorrow", comment: "theDayAfterTomorrow")
+            default:
+                return String(Int(leftDays)) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
+            }
         default:
             formatter.dateStyle = .long
             if let date = formatter.date(from: self) {
