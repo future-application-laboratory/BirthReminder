@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,6 +43,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.43734325639999999" green="1" blue="0.60780881389999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BBp-CL-GUf" firstAttribute="top" secondItem="pAJ-An-Tzr" secondAttribute="bottom" constant="6" id="0aF-rY-p8U"/>
                             <constraint firstItem="mTs-mD-hfz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="2.5" id="7Sn-of-tx1"/>
@@ -54,6 +55,9 @@
                             <constraint firstItem="pAJ-An-Tzr" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="26" id="wEM-AJ-2Yu"/>
                             <constraint firstItem="BBp-CL-GUf" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="z05-Xb-mKq"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1Xm-6V-7xs" appends="YES" id="fSJ-nl-GKF"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -68,6 +72,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="1Xm-6V-7xs">
+                    <connections>
+                        <action selector="onChange:" destination="M4Y-Lb-cyx" id="NUP-d3-wkC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="33.600000000000001" y="38.680659670164921"/>
         </scene>

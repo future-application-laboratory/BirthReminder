@@ -17,6 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var imageView: UIImageView!
     
     var data = [BirthPeople]()
+    var status = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let realmUrl = container!.appendingPathComponent("default.realm")
         config.fileURL = realmUrl
         Realm.Configuration.defaultConfiguration = config
-        
-        
-        data = BirthPeopleManager().getPersistedBirthPeople()
-        data = BirthComputer().compute(withBirthdayPeople: data)
-        
-        nameLabel.text = data[0].name
-        birthLabel.text = data[0].stringedBirth.toLocalizedDate()
-        let picData = data[0].picData
-        imageView.image = UIImage(data: picData)
-        // Do any additional setup after loading the view from its nib.
+        upDateContent()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,4 +50,18 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(.newData)
     }
     
+    @IBAction func onChange(_ sender: Any) {
+        status = !status
+        upDateContent()
+    }
+    
+    func upDateContent() {
+        data = BirthPeopleManager().getPersistedBirthPeople()
+        data = BirthComputer().compute(withBirthdayPeople: data)
+        
+        nameLabel.text = data[0].name
+        birthLabel.text = status ? data[0].stringedBirth.toLocalizedDate() : data[0].stringedBirth.toLeftDays(withType: .formatted)
+        let picData = data[0].picData
+        imageView.image = UIImage(data: picData)
+    }
 }
