@@ -79,7 +79,7 @@ class BirthComputer {
 
 extension String {
     
-    func toLocalizedDate() -> String? {
+    func toLocalizedDate(withStyle:DateFormatter.Style) -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
@@ -95,44 +95,33 @@ extension String {
         return nil
     }
     
-    func toLeftDays(withType:stringedDateType) -> String? {
+    func toLeftDays() -> String? {
         let formatter = DateFormatter()
-        switch withType {
-        case .formatted:
-            var leftDays:TimeInterval
-            formatter.dateFormat = "yyyy-MM-dd"
-            if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
-                leftDays = date.timeIntervalSinceNow / (24 * 60 * 60)
-                if leftDays < -1 {
-                    let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
-                    leftDays = nextDate.timeIntervalSinceNow / (24 * 60 * 60)
-                }else if (leftDays >= -1) && (leftDays < 0) {
-                    return "Today"
-                }
-            }else{
-                return nil
+        var leftDays:TimeInterval
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
+            leftDays = date.timeIntervalSinceNow / (24 * 60 * 60)
+            if leftDays < -1 {
+                let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
+                leftDays = nextDate.timeIntervalSinceNow / (24 * 60 * 60)
+            }else if (leftDays >= -1) && (leftDays < 0) {
+                return "Today"
             }
-            if leftDays.truncatingRemainder(dividingBy: 1) != 0 {
-                leftDays = TimeInterval(Int(leftDays) + 1)
-            }
-            switch leftDays {
-            case 1:
-                return NSLocalizedString("Today", comment: "today")
-            case 2:
-                return NSLocalizedString("Tomorror", comment: "tomorrow")
-            case 3:
-                return NSLocalizedString("The day after tomorrow", comment: "theDayAfterTomorrow")
-            default:
-                return String(Int(leftDays)) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
-            }
-        default:
-            formatter.dateStyle = .long
-            if let date = formatter.date(from: self) {
-                formatter.dateFormat = "yyyy-MM-dd"
-                let formattedDate = formatter.string(from: date)
-                return formattedDate.toLeftDays(withType: .formatted)
-            }
+        }else{
             return nil
+        }
+        if leftDays.truncatingRemainder(dividingBy: 1) != 0 {
+            leftDays = TimeInterval(Int(leftDays) + 1)
+        }
+        switch leftDays {
+        case 1:
+            return NSLocalizedString("Today", comment: "today")
+        case 2:
+            return NSLocalizedString("Tomorror", comment: "tomorrow")
+        case 3:
+            return NSLocalizedString("The day after tomorrow", comment: "theDayAfterTomorrow")
+        default:
+            return String(Int(leftDays)) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
         }
     }
     

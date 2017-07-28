@@ -60,7 +60,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         data = BirthComputer().compute(withBirthdayPeople: data)
         
         nameLabel.text = data[0].name
-        birthLabel.text = status ? data[0].stringedBirth.toLocalizedDate() : data[0].stringedBirth.toLeftDays(withType: .formatted)
+        birthLabel.text = status ? data[0].stringedBirth.toLocalizedDate(withStyle: .long) : data[0].stringedBirth.toLeftDays()
         let picData = data[0].picData
         imageView.image = UIImage(data: picData)
     }

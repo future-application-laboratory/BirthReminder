@@ -8,8 +8,10 @@
 
 import UIKit
 import RealmSwift
+import WatchConnectivity
 
 class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var data:[BirthPeople]?
@@ -43,7 +45,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.detailTextLabel?.numberOfLines = 2
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays(withType: .formatted) : person.stringedBirth.toLocalizedDate()
+        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays() : person.stringedBirth.toLocalizedDate(withStyle: .full)
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -56,6 +58,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         data = BirthPeopleManager().getPersistedBirthPeople()
         data = BirthComputer().compute(withBirthdayPeople: data!)
         tableView.reloadData()
+        AppDelegate().syncWithAppleWatch()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -76,7 +79,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
         }
     }
-
+    
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
     }

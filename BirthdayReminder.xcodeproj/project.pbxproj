@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E405989F5D9D1F4EF650F20 /* Pods_WatchReminder_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */; };
 		A2BAC35B74533B7DB3F04C77 /* Pods_TodayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */; };
 		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
 		B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */; };
@@ -24,8 +25,21 @@
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
 		B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
+		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
+		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		B0811C961F282F1B0006CBC5 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
+		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
+		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
+		B0990F271F27578400D26557 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F2D1F27578400D26557 /* InterfaceController.swift */; };
+		B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F2F1F27578400D26557 /* ExtensionDelegate.swift */; };
+		B0990F321F27578400D26557 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F311F27578400D26557 /* NotificationController.swift */; };
+		B0990F341F27578400D26557 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F331F27578400D26557 /* ComplicationController.swift */; };
+		B0990F361F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F351F27578400D26557 /* Assets.xcassets */; };
+		B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0990F1A1F27578400D26557 /* WatchReminder.app */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
+		BFB5047F77A3B507044C8A4B /* Pods_WatchReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +49,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = B029294B1F26E79000AD0BC1;
 			remoteInfo = TodayReminder;
+		};
+		B0990F281F27578400D26557 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0990F251F27578400D26557;
+			remoteInfo = "WatchReminder Extension";
+		};
+		B0990F381F27578400D26557 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0990F191F27578400D26557;
+			remoteInfo = WatchReminder;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -50,12 +78,39 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0990F401F27578400D26557 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B0990F271F27578400D26557 /* WatchReminder Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0990F421F27578400D26557 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D2452C6F7D244535CEBA1BB /* Pods-TodayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayReminder/Pods-TodayReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C54B0B2F3D2C0117261B9E5 /* Pods-WatchReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder/Pods-WatchReminder.debug.xcconfig"; sourceTree = "<group>"; };
+		33E262D0E585E260D06E684A /* Pods-WatchReminder Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder Extension/Pods-WatchReminder Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		3E2139BC150FA7CF22F90796 /* Pods-TodayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayReminder/Pods-TodayReminder.release.xcconfig"; sourceTree = "<group>"; };
 		661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C018A4F3B568D7BACFD8F20 /* Pods-WatchReminder Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder Extension/Pods-WatchReminder Extension.release.xcconfig"; sourceTree = "<group>"; };
 		9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPersonalDataFromServerViewController.swift; sourceTree = "<group>"; };
@@ -76,13 +131,35 @@
 		B06883791F1EECEA00831AA6 /* FileManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileManaging.swift; path = "Universal/File&DataManaging/FileManaging.swift"; sourceTree = "<group>"; };
 		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Universal/Network/Network.swift; sourceTree = "<group>"; };
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
+		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
+		B0990F1A1F27578400D26557 /* WatchReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0990F1D1F27578400D26557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		B0990F1F1F27578400D26557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0990F211F27578400D26557 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0990F261F27578400D26557 /* WatchReminder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchReminder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0990F2C1F27578400D26557 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		B0990F2D1F27578400D26557 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		B0990F2F1F27578400D26557 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		B0990F311F27578400D26557 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		B0990F331F27578400D26557 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		B0990F351F27578400D26557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0990F371F27578400D26557 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthComputing.swift; path = Universal/BirthComputing/BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
+		BDAF7163C173B4E61D812358 /* Pods-WatchReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder/Pods-WatchReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6A449275943E71A2DF2DD293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFB5047F77A3B507044C8A4B /* Pods_WatchReminder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B02929491F26E79000AD0BC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,6 +174,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0990F231F27578400D26557 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E405989F5D9D1F4EF650F20 /* Pods_WatchReminder_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +216,8 @@
 				B06883721F1EEC9D00831AA6 /* Universal */,
 				B06883561F1EEB2D00831AA6 /* BirthdayReminder */,
 				B029294F1F26E79000AD0BC1 /* TodayReminder */,
+				B0990F1B1F27578400D26557 /* WatchReminder */,
+				B0990F2A1F27578400D26557 /* WatchReminder Extension */,
 				B06883551F1EEB2D00831AA6 /* Products */,
 				B22BCE9328D65D5E0F0246C3 /* Pods */,
 				C36CBA21C215B6052304E768 /* Frameworks */,
@@ -142,6 +229,8 @@
 			children = (
 				B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */,
 				B029294C1F26E79000AD0BC1 /* TodayReminder.appex */,
+				B0990F1A1F27578400D26557 /* WatchReminder.app */,
+				B0990F261F27578400D26557 /* WatchReminder Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +275,39 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		B0990F1B1F27578400D26557 /* WatchReminder */ = {
+			isa = PBXGroup;
+			children = (
+				B0990F1C1F27578400D26557 /* Interface.storyboard */,
+				B0990F1F1F27578400D26557 /* Assets.xcassets */,
+				B0990F211F27578400D26557 /* Info.plist */,
+			);
+			path = WatchReminder;
+			sourceTree = "<group>";
+		};
+		B0990F2A1F27578400D26557 /* WatchReminder Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B0990F2D1F27578400D26557 /* InterfaceController.swift */,
+				B0811C931F282DA00006CBC5 /* TableRowController.swift */,
+				B0990F2F1F27578400D26557 /* ExtensionDelegate.swift */,
+				B0990F311F27578400D26557 /* NotificationController.swift */,
+				B0990F331F27578400D26557 /* ComplicationController.swift */,
+				B0990F351F27578400D26557 /* Assets.xcassets */,
+				B0990F371F27578400D26557 /* Info.plist */,
+				B0990F2B1F27578400D26557 /* Supporting Files */,
+			);
+			path = "WatchReminder Extension";
+			sourceTree = "<group>";
+		};
+		B0990F2B1F27578400D26557 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0990F2C1F27578400D26557 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B0AB99D41F244E7F006C8F29 /* BirthComputing */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +323,10 @@
 				BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */,
 				0D2452C6F7D244535CEBA1BB /* Pods-TodayReminder.debug.xcconfig */,
 				3E2139BC150FA7CF22F90796 /* Pods-TodayReminder.release.xcconfig */,
+				33E262D0E585E260D06E684A /* Pods-WatchReminder Extension.debug.xcconfig */,
+				7C018A4F3B568D7BACFD8F20 /* Pods-WatchReminder Extension.release.xcconfig */,
+				1C54B0B2F3D2C0117261B9E5 /* Pods-WatchReminder.debug.xcconfig */,
+				BDAF7163C173B4E61D812358 /* Pods-WatchReminder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -212,6 +338,8 @@
 				9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */,
 				B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */,
 				661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */,
+				723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */,
+				1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,16 +377,58 @@
 				AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */,
 				339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */,
 				B029295C1F26E79000AD0BC1 /* Embed App Extensions */,
+				B0990F421F27578400D26557 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				B02929571F26E79000AD0BC1 /* PBXTargetDependency */,
+				B0990F391F27578400D26557 /* PBXTargetDependency */,
 			);
 			name = BirthdayReminder;
 			productName = BirthdayReminder;
 			productReference = B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B0990F191F27578400D26557 /* WatchReminder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0990F411F27578400D26557 /* Build configuration list for PBXNativeTarget "WatchReminder" */;
+			buildPhases = (
+				DA6D959BFD52AEAC3069A1F1 /* [CP] Check Pods Manifest.lock */,
+				B0990F181F27578400D26557 /* Resources */,
+				B0990F401F27578400D26557 /* Embed App Extensions */,
+				6A449275943E71A2DF2DD293 /* Frameworks */,
+				DDD615EDE40C57C8726F3ED1 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0990F291F27578400D26557 /* PBXTargetDependency */,
+			);
+			name = WatchReminder;
+			productName = WatchReminder;
+			productReference = B0990F1A1F27578400D26557 /* WatchReminder.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		B0990F251F27578400D26557 /* WatchReminder Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0990F3F1F27578400D26557 /* Build configuration list for PBXNativeTarget "WatchReminder Extension" */;
+			buildPhases = (
+				E8342BCD87DCC8CAEA9DBE4A /* [CP] Check Pods Manifest.lock */,
+				B0990F221F27578400D26557 /* Sources */,
+				B0990F231F27578400D26557 /* Frameworks */,
+				B0990F241F27578400D26557 /* Resources */,
+				69C2AB6B7D78EE5F6DA90CC2 /* [CP] Embed Pods Frameworks */,
+				FAED70E64B820AB5AAFE2BFE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchReminder Extension";
+			productName = "WatchReminder Extension";
+			productReference = B0990F261F27578400D26557 /* WatchReminder Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -292,6 +462,27 @@
 							};
 						};
 					};
+					B0990F191F27578400D26557 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = F248CK9C8M;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					B0990F251F27578400D26557 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = F248CK9C8M;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
+					};
 				};
 			};
 			buildConfigurationList = B068834F1F1EEB2D00831AA6 /* Build configuration list for PBXProject "BirthdayReminder" */;
@@ -309,6 +500,8 @@
 			targets = (
 				B06883531F1EEB2D00831AA6 /* BirthdayReminder */,
 				B029294B1F26E79000AD0BC1 /* TodayReminder */,
+				B0990F191F27578400D26557 /* WatchReminder */,
+				B0990F251F27578400D26557 /* WatchReminder Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -332,6 +525,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0990F181F27578400D26557 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0990F201F27578400D26557 /* Assets.xcassets in Resources */,
+				B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0990F241F27578400D26557 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0990F361F27578400D26557 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -348,6 +558,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69C2AB6B7D78EE5F6DA90CC2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchReminder Extension/Pods-WatchReminder Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */ = {
@@ -395,6 +620,51 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		DA6D959BFD52AEAC3069A1F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDD615EDE40C57C8726F3ED1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchReminder/Pods-WatchReminder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8342BCD87DCC8CAEA9DBE4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		F40D5D1B16061A1051AD9097 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +678,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FAED70E64B820AB5AAFE2BFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WatchReminder Extension/Pods-WatchReminder Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -438,6 +723,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0990F221F27578400D26557 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0990F321F27578400D26557 /* NotificationController.swift in Sources */,
+				B0990F341F27578400D26557 /* ComplicationController.swift in Sources */,
+				B0811C961F282F1B0006CBC5 /* FileManaging.swift in Sources */,
+				B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */,
+				B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */,
+				B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */,
+				B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -445,6 +744,16 @@
 			isa = PBXTargetDependency;
 			target = B029294B1F26E79000AD0BC1 /* TodayReminder */;
 			targetProxy = B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */;
+		};
+		B0990F291F27578400D26557 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0990F251F27578400D26557 /* WatchReminder Extension */;
+			targetProxy = B0990F281F27578400D26557 /* PBXContainerItemProxy */;
+		};
+		B0990F391F27578400D26557 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0990F191F27578400D26557 /* WatchReminder */;
+			targetProxy = B0990F381F27578400D26557 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -471,6 +780,14 @@
 				B06883611F1EEB2D00831AA6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B0990F1C1F27578400D26557 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0990F1D1F27578400D26557 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -511,6 +828,7 @@
 		B06883641F1EEB2D00831AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -562,6 +880,7 @@
 		B06883651F1EEB2D00831AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -635,6 +954,85 @@
 			};
 			name = Release;
 		};
+		B0990F3B1F27578400D26557 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C54B0B2F3D2C0117261B9E5 /* Pods-WatchReminder.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				IBSC_MODULE = WatchReminder_Extension;
+				INFOPLIST_FILE = WatchReminder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		B0990F3C1F27578400D26557 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDAF7163C173B4E61D812358 /* Pods-WatchReminder.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				IBSC_MODULE = WatchReminder_Extension;
+				INFOPLIST_FILE = WatchReminder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		B0990F3D1F27578400D26557 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33E262D0E585E260D06E684A /* Pods-WatchReminder Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				INFOPLIST_FILE = "WatchReminder Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		B0990F3E1F27578400D26557 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C018A4F3B568D7BACFD8F20 /* Pods-WatchReminder Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				INFOPLIST_FILE = "WatchReminder Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +1059,24 @@
 			buildConfigurations = (
 				B06883671F1EEB2D00831AA6 /* Debug */,
 				B06883681F1EEB2D00831AA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0990F3F1F27578400D26557 /* Build configuration list for PBXNativeTarget "WatchReminder Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0990F3D1F27578400D26557 /* Debug */,
+				B0990F3E1F27578400D26557 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0990F411F27578400D26557 /* Build configuration list for PBXNativeTarget "WatchReminder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0990F3B1F27578400D26557 /* Debug */,
+				B0990F3C1F27578400D26557 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

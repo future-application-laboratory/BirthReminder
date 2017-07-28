@@ -35,7 +35,7 @@ class Anime {
 
 class BirthPeopleManager {
     let realmQueue = DispatchQueue(label: "Realm", qos: .background)
-    
+    var realm:Realm!
     func persist(Person:BirthPeople) {
         let realm = try! Realm()
         try! realm.write{
@@ -49,8 +49,7 @@ class BirthPeopleManager {
         var finalResults = [BirthPeople]()
         var status = false
         realmQueue.async {
-            let realm = try! Realm()
-            let objects = realm.objects(BirthPeople.self)
+            let objects = self.realm.objects(BirthPeople.self)
             objects.forEach { object in
                 let name = object.name
                 let birth = object.stringedBirth
@@ -81,11 +80,26 @@ class BirthPeopleManager {
     
     func deleteBirthPeople(whichFollows:String) {
         self.realmQueue.async {
-            let realm = try! Realm()
-            if let objectGoingToDelete = realm.objects(BirthPeople.self).filter(whichFollows).first {
-                try! realm.write {
-                    realm.delete(objectGoingToDelete)
+            if let objectGoingToDelete = self.realm.objects(BirthPeople.self).filter(whichFollows).first {
+                try! self.realm.write {
+                    self.realm.delete(objectGoingToDelete)
                 }
+            }
+        }
+    }
+    
+    init() {
+        realmQueue.async {
+            self.realm = try! Realm()
+        }
+    }
+    
+    init(withUrl:URL) {
+        realmQueue.async {
+            do{
+                self.realm = try Realm(fileURL: withUrl)
+            }catch{
+                print(error)
             }
         }
     }
