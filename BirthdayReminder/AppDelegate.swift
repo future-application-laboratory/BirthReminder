@@ -72,16 +72,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         if WCSession.isSupported() {
             let session = WCSession.default()
             if session.isWatchAppInstalled {
-                let tempPath = URL(fileURLWithPath: NSTemporaryDirectory() + "/tmp")
-                let manager = BirthPeopleManager(withUrl: tempPath)
-                manager.realmQueue.async {
-                    let defualtManager = BirthPeopleManager()
-                    try! manager.realm.write {
-                        manager.realm.deleteAll()
-                        manager.realm.add(defualtManager.getPersistedBirthPeople())
-                    }
+                session.outstandingFileTransfers.forEach { transfer in
+                    transfer.cancel()
                 }
-                session.transferFile(tempPath, metadata: nil)
+                do {
+                    let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")
+                    let realmUrl = container!.appendingPathComponent("default.realm")
+                    let manager = FileManager()
+                    let tempRealmUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("temp.realm")
+                    try manager.copyItem(at: realmUrl, to: tempRealmUrl)
+                    session.transferFile(tempRealmUrl, metadata: nil)
+                    try manager.removeItem(at: tempRealmUrl)
+                }catch{
+                    print(error)
+                }
             }
         }
     }

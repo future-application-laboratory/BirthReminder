@@ -45,7 +45,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.detailTextLabel?.numberOfLines = 2
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays() : person.stringedBirth.toLocalizedDate(withStyle: .full)
+        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays() : person.stringedBirth.toLocalizedDate(withStyle: .long)
         cell.backgroundColor = UIColor.clear
         return cell
     }

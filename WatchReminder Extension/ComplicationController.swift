@@ -11,10 +11,11 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    let supportedComplicationFamilies:[CLKComplicationFamily] = [.utilitarianLarge,.modularLarge]
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
-        handler([.forward, .backward])
+        handler([])
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
@@ -33,7 +34,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+        guard supportedComplicationFamilies.contains(complication.family) else {
+            handler(nil)
+            return
+        }
+        
+        let people = BirthPeopleManager().getPersistedBirthPeople()
+        guard !people.isEmpty else {
+            handler(nil)
+            return
+        }
+        
+        let current = BirthComputer().compute(withBirthdayPeople: people)[0]
+        let complication = getComplication(forFamily: complication.family, withName: current.name, stringDate: current.stringedBirth)
+        let timeLineEntry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: complication!)
+        handler(timeLineEntry)
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -50,7 +65,44 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        let complication = getComplication(forFamily: complication.family, withName: "比企谷 八幡", stringDate: "08-08")
+        handler(complication)
+    }
+    
+    func getComplication(forFamily:CLKComplicationFamily,withName:String,stringDate:String) -> CLKComplicationTemplate? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard var date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + stringDate) else {
+            return nil
+        }
+        if date.timeIntervalSinceNow < -86400 {
+            date = formatter.date(from: BirthComputer().get(Year: .next) + "-" + stringDate )!
+        }
+        return getComplication(forFamily: forFamily, withName: withName, date: date)
+    }
+    
+    func getComplication(forFamily:CLKComplicationFamily,withName:String,date:Date) -> CLKComplicationTemplate? {
+        switch forFamily {
+        case .modularLarge:
+            let template = CLKComplicationTemplateModularLargeStandardBody()
+            let dateProvider = CLKDateTextProvider(date: date, units: [.month,.day,.weekday])
+            let nameProvider = CLKSimpleTextProvider(text: withName)
+            let leftDaysProvider = CLKRelativeDateTextProvider(date: date, style: .natural, units: [.month,.day,.hour,.minute,.second])
+            template.headerTextProvider = nameProvider
+            template.body1TextProvider = leftDaysProvider
+            template.body2TextProvider = dateProvider
+            return template
+        case .utilitarianLarge:
+            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+            let formatter = DateFormatter()
+            formatter.dateFormat = NSLocalizedString("dateFormat",comment: "dateFormat")
+            let localizedDate = formatter.string(from: date)
+            let nameAndDateProvider = CLKSimpleTextProvider(text: withName + " " + localizedDate, shortText: localizedDate)
+            template.textProvider = nameAndDateProvider
+            return template
+        default:
+            return nil
+        }
     }
     
 }

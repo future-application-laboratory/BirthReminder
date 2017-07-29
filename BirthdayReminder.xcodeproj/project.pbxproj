@@ -20,6 +20,10 @@
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B05952F41F26E839008AD597 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
+		B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
+		B05E192D1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
+		B05E192E1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
+		B05E192F1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
@@ -123,6 +127,7 @@
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
+		B05E192B1F2C1A34003104C5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Universal/Localization/Localizable.strings; sourceTree = "<group>"; };
 		B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B068835C1F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B068835E1F1EEB2D00831AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +215,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		B05E192A1F2C19E0003104C5 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				B05E192B1F2C1A34003104C5 /* Localizable.strings */,
+			);
+			name = Localization;
+			sourceTree = "<group>";
+		};
 		B068834B1F1EEB2D00831AA6 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +265,7 @@
 		B06883721F1EEC9D00831AA6 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				B05E192A1F2C19E0003104C5 /* Localization */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
 				B06883771F1EECBE00831AA6 /* File&Data Managing */,
 				B06883781F1EECD400831AA6 /* Network */,
@@ -476,6 +490,7 @@
 					B0990F251F27578400D26557 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -512,6 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */,
+				B05E192D1F2C1A34003104C5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */,
+				B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */,
 				B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */,
 				B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */,
 			);
@@ -530,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F201F27578400D26557 /* Assets.xcassets in Resources */,
+				B05E192E1F2C1A34003104C5 /* Localizable.strings in Resources */,
 				B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F361F27578400D26557 /* Assets.xcassets in Resources */,
+				B05E192F1F2C1A34003104C5 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

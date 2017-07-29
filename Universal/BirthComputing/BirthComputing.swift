@@ -85,10 +85,10 @@ extension String {
         if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
             if date.timeIntervalSinceNow < -86400 {
                 let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
-                formatter.dateStyle = .long
+                formatter.dateStyle = withStyle
                 return formatter.string(from: nextDate)
             }else{
-                formatter.dateStyle = .long
+                formatter.dateStyle = withStyle
                 return formatter.string(from: date)
             }
         }
@@ -123,11 +123,6 @@ extension String {
         default:
             return String(Int(leftDays)) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
         }
-    }
-    
-    enum stringedDateType {
-        case localized
-        case formatted
     }
     
 }

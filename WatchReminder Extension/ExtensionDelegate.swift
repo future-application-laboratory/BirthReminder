@@ -10,7 +10,7 @@ import WatchKit
 import RealmSwift
 import WatchConnectivity
 
-class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate{
+class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate {
     
     func applicationDidFinishLaunching() {
         
@@ -19,6 +19,8 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate{
         session.delegate = self
         session.activate()
         
+        let defaults = UserDefaults()
+        defaults.set(true, forKey: "startup")
     }
     
     func applicationDidBecomeActive() {
@@ -61,8 +63,17 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate{
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
         let fileManager = FileManager()
         let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("default.realm")
-        try! fileManager.removeItem(at: url)
+        try? fileManager.removeItem(at: url)
         try! fileManager.moveItem(at: file.fileURL, to: url)
+        
+        let defaults = UserDefaults()
+        defaults.set(true, forKey: "dataBaseIsUpdated")
+        
+        //Update the complications
+        let server = CLKComplicationServer.sharedInstance()
+        server.activeComplications?.forEach { complication in
+            server.reloadTimeline(for: complication)
+        }
     }
     
 }

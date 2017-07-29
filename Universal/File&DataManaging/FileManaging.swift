@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import RealmSwift
 
+let realmQueue = DispatchQueue(label: "Realm", qos: .background)
+
 class BirthPeople:Object {
     @objc dynamic var name = ""
     @objc dynamic var stringedBirth = ""
@@ -34,7 +36,6 @@ class Anime {
 }
 
 class BirthPeopleManager {
-    let realmQueue = DispatchQueue(label: "Realm", qos: .background)
     var realm:Realm!
     func persist(Person:BirthPeople) {
         let realm = try! Realm()
@@ -79,7 +80,7 @@ class BirthPeopleManager {
     }
     
     func deleteBirthPeople(whichFollows:String) {
-        self.realmQueue.async {
+        realmQueue.async {
             if let objectGoingToDelete = self.realm.objects(BirthPeople.self).filter(whichFollows).first {
                 try! self.realm.write {
                     self.realm.delete(objectGoingToDelete)

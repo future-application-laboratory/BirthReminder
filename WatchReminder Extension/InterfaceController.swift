@@ -13,43 +13,23 @@ import RealmSwift
 class InterfaceController: WKInterfaceController {
     
     @IBOutlet var table: WKInterfaceTable!
-    var status = true
+    var status = false
     var tableData = [BirthPeople]()
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        
+        reloadDataSource()
+        reloadTable()
     }
     
     override func willActivate() {
-        super.willActivate()
-        
-        var count:Int?
-        
-        let manager = BirthPeopleManager()
-        manager.realmQueue.async {
-            count = manager.realm.objects(BirthPeople.self).count
+        let defaults = UserDefaults()
+        let isUpdated = defaults.bool(forKey: "dataBaseIsUpdated")
+        if isUpdated {
+            reloadDataSource()
+            reloadTable()
+            defaults.set(false, forKey: "dataBaseIsUpdated")
         }
-        
-        while count == nil {
-            Thread.sleep(forTimeInterval: 0.1)
-        }
-        
-        if count != table.numberOfRows {
-            tableData = BirthPeopleManager().getPersistedBirthPeople()
-            tableData = BirthComputer().compute(withBirthdayPeople: tableData)
-            table.setNumberOfRows(tableData.count, withRowType: "tableRowController")
-            
-            for times in 0..<table.numberOfRows {
-                if let controller = table.rowController(at: times) as? TableRowController {
-                    let currentData = tableData[times]
-                    controller.nameLabel.setText(currentData.name)
-                    controller.birthLabel.setText(currentData.stringedBirth.toLocalizedDate(withStyle: .short))
-                    controller.image.setImageData(currentData.picData)
-                }
-            }
-        }
-        
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
@@ -57,9 +37,27 @@ class InterfaceController: WKInterfaceController {
         for times in 0..<table.numberOfRows {
             if let controller = table.rowController(at: times) as? TableRowController {
                 let currentDate = tableData[times].stringedBirth
-                controller.birthLabel.setText(status ? currentDate.toLeftDays() : currentDate.toLocalizedDate(withStyle: .short))
+                controller.birthLabel.setText(status ? currentDate.toLeftDays() : currentDate.toLocalizedDate(withStyle: .medium))
             }
         }
+    }
+    
+    func reloadTable() {
+        table.setNumberOfRows(tableData.count, withRowType: "tableRowController")
+        
+        for times in 0..<table.numberOfRows {
+            if let controller = table.rowController(at: times) as? TableRowController {
+                let currentData = tableData[times]
+                controller.nameLabel.setText(currentData.name)
+                controller.birthLabel.setText(currentData.stringedBirth.toLocalizedDate(withStyle: .medium))
+                controller.image.setImageData(currentData.picData)
+            }
+        }
+    }
+    
+    func reloadDataSource() {
+        tableData = BirthPeopleManager().getPersistedBirthPeople()
+        tableData = BirthComputer().compute(withBirthdayPeople: tableData)
     }
     
 }
