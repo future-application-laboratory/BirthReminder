@@ -151,6 +151,7 @@
 		B0990F371F27578400D26557 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthComputing.swift; path = Universal/BirthComputing/BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B0E1C8E31F2CCCBB00D36C5D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 		BDAF7163C173B4E61D812358 /* Pods-WatchReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder/Pods-WatchReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		B068834B1F1EEB2D00831AA6 = {
 			isa = PBXGroup;
 			children = (
+				B0E1C8E31F2CCCBB00D36C5D /* README.md */,
 				B06883721F1EEC9D00831AA6 /* Universal */,
 				B06883561F1EEB2D00831AA6 /* BirthdayReminder */,
 				B029294F1F26E79000AD0BC1 /* TodayReminder */,
