@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                     session.transferFile(tempRealmUrl, metadata: nil)
                     try manager.removeItem(at: tempRealmUrl)
                 }catch{
-                    print(error)
+                    fatalError("\(error)")
                 }
             }
         }

@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import WatchConnectivity
 
 class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     

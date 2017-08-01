@@ -125,5 +125,22 @@ extension String {
         }
     }
     
+    func toDate(withYear:BirthComputer.YearType) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.date(from: BirthComputer().get(Year: withYear) + "-" + self)
+    }
+    
+    func toDate() -> Date? {
+        guard let date = self.toDate(withYear: .this) else {
+            return nil
+        }
+        if date.timeIntervalSinceNow < -86400 {
+            return self.toDate(withYear: .next)
+        } else {
+            return date
+        }
+    }
+    
 }
 

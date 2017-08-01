@@ -6,7 +6,8 @@ target 'BirthdayReminder' do
     pod 'SCLAlertView'
     pod 'SwiftyJSON'
     pod 'RealmSwift'
-    pod 'SnapKit', '~> 3.2.0'
+    pod 'SnapKit'
+    pod 'HGPlaceholders'
 end
 
 target 'TodayReminder' do
