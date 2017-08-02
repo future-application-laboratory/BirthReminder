@@ -56,8 +56,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     func reloadDataSource() {
-        tableData = BirthPeopleManager().getPersistedBirthPeople()
-        tableData = BirthComputer().compute(withBirthdayPeople: tableData)
+        //TODO Core Data
     }
     
 }

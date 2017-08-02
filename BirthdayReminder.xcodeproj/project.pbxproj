@@ -17,6 +17,12 @@
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
+		B03B7DA81F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
+		B03B7DA91F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
+		B03B7DAA1F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
+		B04966571F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
+		B04966581F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B05952F41F26E839008AD597 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
@@ -125,6 +131,8 @@
 		B02929501F26E79000AD0BC1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B02929531F26E79000AD0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B03B7DA41F31AD75001BC73C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
 		B05E192B1F2C1A34003104C5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Universal/Localization/Localizable.strings; sourceTree = "<group>"; };
@@ -278,7 +286,9 @@
 		B06883771F1EECBE00831AA6 /* File&Data Managing */ = {
 			isa = PBXGroup;
 			children = (
+				B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */,
 				B06883791F1EECEA00831AA6 /* FileManaging.swift */,
+				B03B7DA41F31AD75001BC73C /* Protocols.swift */,
 			);
 			name = "File&Data Managing";
 			sourceTree = "<group>";
@@ -723,9 +733,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04966571F31B20300739857 /* Protocols.swift in Sources */,
 				B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */,
 				B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */,
 				B05952F41F26E839008AD597 /* FileManaging.swift in Sources */,
+				B03B7DA91F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,9 +748,11 @@
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
+				B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */,
 				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
+				B03B7DA81F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
 			);
@@ -751,6 +765,8 @@
 				B0990F321F27578400D26557 /* NotificationController.swift in Sources */,
 				B0990F341F27578400D26557 /* ComplicationController.swift in Sources */,
 				B0811C961F282F1B0006CBC5 /* FileManaging.swift in Sources */,
+				B04966581F31B20300739857 /* Protocols.swift in Sources */,
+				B03B7DAA1F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
 				B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */,
 				B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */,
 				B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */,
@@ -1103,6 +1119,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */,
+			);
+			currentVersion = B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B068834C1F1EEB2D00831AA6 /* Project object */;
 }

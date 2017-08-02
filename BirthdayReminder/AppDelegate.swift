@@ -15,14 +15,14 @@ import WatchConnectivity
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     var window: UIWindow?
+    let context = createDataMainContext()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //Store data in Realm into App Group
-        var config = Realm.Configuration()
-        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")
-        let realmUrl = container!.appendingPathComponent("default.realm")
-        config.fileURL = realmUrl
-        Realm.Configuration.defaultConfiguration = config
+        //Core data
+        guard let vc = window?.rootViewController as? ManagedObjectContextSettable else {
+            fatalError("Wrong vc type")
+        }
+        vc.managedObjectContext = context
         
         //Watch Connectivity Configuration
         if WCSession.isSupported() {

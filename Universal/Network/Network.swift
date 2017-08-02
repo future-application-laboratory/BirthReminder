@@ -72,7 +72,7 @@ class ReminderDataNetworkController {
                 let name = data.1["name"].string!
                 let birth = data.1["birth"].string!
                 let picLink = data.1["picLink"].string!
-                let object = BirthPeopleManager().creatBirthPeople(name: name, stringedBirth: birth, picLink: picLink)
+                let object = BirthPeople(withName: name, birth: birth, picData: nil, picLink: picLink)
                 finalResult.append(object)
             }
         }

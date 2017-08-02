@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
-    var personalData = BirthPeopleManager().creatBirthPeople(name: "", stringedBirth: "01-01", picData: Data())
+    var personalData = BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil)
     let monthDict = [
         1:31,
         2:29,
@@ -46,20 +46,20 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
         tableView.separatorStyle = .none
         
         if !personalData.status && personalData.picLink != ""{
-            let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink)
+            let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink!)
             personalData.picData = UIImagePNGRepresentation(image)!
             personalData.status = true
         }
         
         clearButton.isEnabled = (personalData.picData != Data())
         nameField.text = personalData.name
-        imageView.image = UIImage(data: personalData.picData)
+        imageView.image = UIImage(data: personalData.picData!)
         
         let birth = getIntBirth()
         pickerView.selectRow(birth.0, inComponent: 0, animated: true)
         pickerView.selectRow(birth.1, inComponent: 1, animated: true)
         
-        newPersonalData = BirthPeopleManager().creatBirthPeople(name: personalData.name, stringedBirth: personalData.stringedBirth, picData: personalData.picData)
+        newPersonalData = BirthPeople(withName: personalData.name, birth: personalData.stringedBirth, picData: personalData.picData, picLink: personalData.picLink)
         newPersonalData.status = true
     }
     
@@ -105,7 +105,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
     @IBAction func onDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
-        BirthPeopleManager().persist(Person: newPersonalData)
+        // Core data BirthPeopleManager().persist(Person: newPersonalData)
     }
     
     

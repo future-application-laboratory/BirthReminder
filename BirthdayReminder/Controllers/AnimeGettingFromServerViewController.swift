@@ -91,7 +91,7 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
     }
     
     @IBAction func other(_ sender: Any) {
-        performSegue(withIdentifier: "customize", sender: BirthPeopleManager().creatBirthPeople(name: "", stringedBirth: "01-01", picData: Data()))
+        performSegue(withIdentifier: "customize", sender: BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil))
     }
     
 }

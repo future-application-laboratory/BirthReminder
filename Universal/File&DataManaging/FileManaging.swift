@@ -8,16 +8,25 @@
 
 import Foundation
 import UIKit
-import RealmSwift
+import CoreData
 
-let realmQueue = DispatchQueue(label: "Realm", qos: .background)
-
-class BirthPeople:Object {
-    @objc dynamic var name = ""
-    @objc dynamic var stringedBirth = ""
-    @objc dynamic var picData = Data()
-    @objc dynamic var picLink = ""
-    @objc dynamic var status = false
+class BirthPeople {
+    var name = ""
+    var stringedBirth = ""
+    var picData: Data?
+    var picLink: String?
+    var status = false
+    
+    init(withName: String,birth: String,picData: Data?,picLink: String?) {
+        self.name = withName
+        self.stringedBirth = birth
+        self.picData = picData
+        self.picLink = picLink
+    }
+    
+    init() {
+        
+    }
 }
 
 class Anime {
@@ -26,84 +35,43 @@ class Anime {
     var startCharacter = 0
     var picLink = ""
     var pic:UIImage?
-    init(withId:Int,name:String,startCharacter:Int,picLink:String,pic:UIImage) {
+    
+    init(withId: Int,name: String,startCharacter: Int,picLink: String,pic: UIImage) {
         self.id = withId
         self.name = name
         self.startCharacter = startCharacter
         self.picLink = picLink
         self.pic = pic
     }
-}
-
-class BirthPeopleManager {
-    var realm:Realm!
-    func persist(Person:BirthPeople) {
-        let realm = try! Realm()
-        try! realm.write{
-            realm.add(Person)
-            print(realm.configuration.fileURL!)
-            print(Person)
-        }
-    }
-    
-    func getPersistedBirthPeople() -> [BirthPeople] {
-        var finalResults = [BirthPeople]()
-        var status = false
-        realmQueue.async {
-            let objects = self.realm.objects(BirthPeople.self)
-            objects.forEach { object in
-                let name = object.name
-                let birth = object.stringedBirth
-                let data = object.picData
-                let person = self.creatBirthPeople(name: name,stringedBirth: birth,picData: data)
-                finalResults.append(person)
-            }
-            status = true
-        }
-        while !status {
-            Thread.sleep(forTimeInterval: 0.1)
-        }
-        return finalResults
-    }
-    
-    func creatBirthPeople(name:String,stringedBirth:String,pic:UIImage) -> BirthPeople {
-        let data = UIImagePNGRepresentation(pic) ?? Data()
-        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":data])
-    }
-    
-    func creatBirthPeople(name:String,stringedBirth:String,picData:Data) -> BirthPeople {
-        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picData":picData])
-    }
-    
-    func creatBirthPeople(name:String,stringedBirth:String,picLink:String) -> BirthPeople {
-        return BirthPeople(value: ["name":name,"stringedBirth":stringedBirth,"picLink":picLink])
-    }
-    
-    func deleteBirthPeople(whichFollows:String) {
-        realmQueue.async {
-            if let objectGoingToDelete = self.realm.objects(BirthPeople.self).filter(whichFollows).first {
-                try! self.realm.write {
-                    self.realm.delete(objectGoingToDelete)
-                }
-            }
-        }
-    }
-    
-    init() {
-        realmQueue.async {
-            self.realm = try! Realm()
-        }
-    }
-    
-    init(withUrl:URL) {
-        realmQueue.async {
-            do{
-                self.realm = try Realm(fileURL: withUrl)
-            }catch{
-                print(error)
-            }
-        }
-    }
     
 }
 
+// Core Data Persisting
+
+public final class PeopleToSave: ManagedObject, ManagedObjectType {
+    public static var entityName: String {
+        return "People"
+    }
+
+    @NSManaged public private(set) var name: String
+    @NSManaged public private(set) var birth: String
+    @NSManaged public private(set) var picData: Data
+}
+
+public class ManagedObject: NSManagedObject {
+    
+}
+
+private let storeUrl = FileManager().containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")?.appendingPathComponent("Data.br")
+
+public func createDataMainContext() -> NSManagedObjectContext {
+    let bundles = [Bundle(for: PeopleToSave.self)]
+    guard let model = NSManagedObjectModel.mergedModel(from: bundles) else {
+        fatalError("Model not found")
+    }
+    let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
+    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: nil)
+    let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    context.persistentStoreCoordinator = psc
+    return context
+}

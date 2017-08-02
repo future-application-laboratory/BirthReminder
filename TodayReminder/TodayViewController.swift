@@ -8,7 +8,7 @@
 
 import UIKit
 import NotificationCenter
-import RealmSwift
+import CoreData
 
 class TodayViewController: UIViewController, NCWidgetProviding {
     
@@ -26,12 +26,8 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         layer.masksToBounds = true
         layer.cornerRadius = 10
         
-        //Read data in Realm into App Group
-        var config = Realm.Configuration()
-        let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")
-        let realmUrl = container!.appendingPathComponent("default.realm")
-        config.fileURL = realmUrl
-        Realm.Configuration.defaultConfiguration = config
+        //CoreData
+        
         upDateContent()
     }
     
@@ -56,12 +52,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func upDateContent() {
-        data = BirthPeopleManager().getPersistedBirthPeople()
-        data = BirthComputer().compute(withBirthdayPeople: data)
-        
-        nameLabel.text = data[0].name
-        birthLabel.text = status ? data[0].stringedBirth.toLocalizedDate(withStyle: .long) : data[0].stringedBirth.toLeftDays()
-        let picData = data[0].picData
-        imageView.image = UIImage(data: picData)
+        // TODO: CoreData
     }
 }

@@ -19,19 +19,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineStartDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        let people = BirthPeopleManager().getPersistedBirthPeople()
-        if people.count == 1 {
-            handler(Date())
-            return
-        }
-        let sorted = BirthComputer().compute(withBirthdayPeople: people)
-        handler(sorted.last?.stringedBirth.toDate()?.addingTimeInterval(86400))
+        handler(nil)
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        let people = BirthPeopleManager().getPersistedBirthPeople()
-        let sorted = BirthComputer().compute(withBirthdayPeople: people)
-        handler(sorted.first?.stringedBirth.toDate()?.addingTimeInterval(86400))
+        handler(nil)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -41,24 +33,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        guard supportedComplicationFamilies.contains(complication.family) else {
-            handler(nil)
-            return
-        }
-        
-        let people = BirthPeopleManager().getPersistedBirthPeople()
-        guard !people.isEmpty else {
-            handler(nil)
-            return
-        }
-        let sorted = BirthComputer().compute(withBirthdayPeople: people)
-        let current = sorted.first!
-        let last = sorted.last!
-        let start = last.stringedBirth.toDate()!.addingTimeInterval(86400)
-        let complication = getComplication(forFamily: complication.family, withName: current.name, stringDate: current.stringedBirth)
-        let timeLineEntry = CLKComplicationTimelineEntry(date: start, complicationTemplate: complication!)
-        handler(timeLineEntry)
+        handler(nil)
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {

@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import RealmSwift
+import CoreData
 
-class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , ManagedObjectContextSettable {
     
+    var managedObjectContext: NSManagedObjectContext!
     @IBOutlet weak var tableView: UITableView!
     
     var data:[BirthPeople]?
@@ -34,7 +35,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "mainCell")
         let person = self.data![indexPath.row]
         let imageView = cell.imageView
-        imageView?.image = UIImage(data: person.picData)
+        imageView?.image = UIImage(data: person.picData!)
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
@@ -53,11 +54,11 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return 100
     }
     
-    func upDateData() {
+    func upDateData() {/* Core Data
         data = BirthPeopleManager().getPersistedBirthPeople()
         data = BirthComputer().compute(withBirthdayPeople: data!)
         tableView.reloadData()
-        AppDelegate().syncWithAppleWatch()
+        AppDelegate().syncWithAppleWatch()*/
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -75,7 +76,7 @@ class IndexViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let birth = data![row].stringedBirth
             data?.remove(at: row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
+            // Core data Delete BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
         }
     }
     

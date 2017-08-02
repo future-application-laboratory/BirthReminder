@@ -40,7 +40,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                 self.tableView.reloadData()
             }
             self.tableViewData.forEach() { data in
-                let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink)
+                let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink!)
                 data.picData = UIImagePNGRepresentation(pic) ?? Data()
                 data.status = true
                 OperationQueue.main.addOperation {
@@ -60,7 +60,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "personalDetailFromAnime")
         let row = indexPath.row
         let data = tableViewData[row]
-        let image = UIImage(data: data.picData)
+        let image = UIImage(data: data.picData!)
         cell.textLabel?.text = data.name
         cell.detailTextLabel?.text = data.stringedBirth
         let imageView = cell.imageView
@@ -109,13 +109,13 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         navigationController?.popViewController(animated: true)
         tableViewData.forEach { person in
             if person.picData == Data() {
-                let newPerson = BirthPeopleManager().creatBirthPeople(name: person.name, stringedBirth: person.stringedBirth, picLink: person.picLink)
-                let image = ReminderDataNetworkController().get(PicFromStringedUrl: newPerson.picLink)
+                let newPerson = BirthPeople(withName: person.name, birth: person.stringedBirth, picData: person.picData, picLink: person.picLink)
+                let image = ReminderDataNetworkController().get(PicFromStringedUrl: newPerson.picLink!)
                 newPerson.status = true
                 newPerson.picData = UIImagePNGRepresentation(image) ?? Data()
-                BirthPeopleManager().persist(Person: newPerson)
+                //Core data BirthPeopleManager().persist(Person: newPerson)
             }else{
-                BirthPeopleManager().persist(Person: person)
+                //core data BirthPeopleManager().persist(Person: person)
             }
         }
     }
