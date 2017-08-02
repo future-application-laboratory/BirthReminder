@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , ManagedObjectContextSettable {
+class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var managedObjectContext: NSManagedObjectContext!
+    let context = createDataMainContext()
     @IBOutlet weak var tableView: UITableView!
     
     var data:[BirthPeople]?
@@ -19,6 +19,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.backgroundColor = UIColor.clear
     }
     
@@ -59,6 +60,14 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         data = BirthComputer().compute(withBirthdayPeople: data!)
         tableView.reloadData()
         AppDelegate().syncWithAppleWatch()*/
+        let request = PeopleToSave.fetchRequest()
+        if let people = try? context.fetch(request) as? [PeopleToSave] {
+            data = people?.map { person in
+                return BirthPeople(withName: person.name, birth: person.birth, picData: person.picData, picLink: nil)
+            }
+        }
+        data = BirthComputer().compute(withBirthdayPeople: data!)
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -52,7 +52,7 @@ public final class PeopleToSave: ManagedObject, ManagedObjectType {
     public static var entityName: String {
         return "People"
     }
-
+    
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var birth: String
     @NSManaged public private(set) var picData: Data

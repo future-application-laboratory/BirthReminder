@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 public protocol ManagedObjectContextSettable: class {
-    var managedObjectContext: NSManagedObjectContext! { get set }
+    var context: NSManagedObjectContext! { get set }
 }
 
 public protocol ManagedObjectType: class {
