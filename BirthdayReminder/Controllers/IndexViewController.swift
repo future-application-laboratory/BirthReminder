@@ -9,34 +9,33 @@
 import UIKit
 import CoreData
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , NSFetchedResultsControllerDelegate {
     
     let context = createDataMainContext()
     @IBOutlet weak var tableView: UITableView!
     
-    var data:[BirthPeople]?
+    var data = [PeopleToSave]()
     var status = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.backgroundColor = UIColor.clear
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        upDateData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data!.count
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "mainCell")
-        let person = self.data![indexPath.row]
+        let person = self.data[indexPath.row]
         let imageView = cell.imageView
-        imageView?.image = UIImage(data: person.picData!)
+        imageView?.image = UIImage(data: person.picData)
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
@@ -46,7 +45,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.detailTextLabel?.numberOfLines = 2
         cell.detailTextLabel?.textColor = UIColor.white
         cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = status ? person.stringedBirth.toLeftDays() : person.stringedBirth.toLocalizedDate(withStyle: .long)
+        cell.detailTextLabel?.text = status ? person.birth.toLeftDays() : person.birth.toLocalizedDate(withStyle: .long)
         cell.backgroundColor = UIColor.clear
         return cell
     }
@@ -55,18 +54,20 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 100
     }
     
-    func upDateData() {/* Core Data
-        data = BirthPeopleManager().getPersistedBirthPeople()
-        data = BirthComputer().compute(withBirthdayPeople: data!)
-        tableView.reloadData()
-        AppDelegate().syncWithAppleWatch()*/
+    func setupTableView() {/* Core Data
+         data = BirthPeopleManager().getPersistedBirthPeople()
+         data = BirthComputer().compute(withBirthdayPeople: data!)
+         tableView.reloadData()
+         AppDelegate().syncWithAppleWatch()*/
         let request = PeopleToSave.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "birth", ascending: false)]
         if let people = try? context.fetch(request) as? [PeopleToSave] {
-            data = people?.map { person in
-                return BirthPeople(withName: person.name, birth: person.birth, picData: person.picData, picLink: nil)
-            }
+            data = people!
         }
-        data = BirthComputer().compute(withBirthdayPeople: data!)
+        data = BirthComputer().compute(withBirthdayPeople: data)
+        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        try! frc.performFetch()
         tableView.reloadData()
     }
     
@@ -81,11 +82,10 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let row = indexPath.row
-            let name = data![row].name
-            let birth = data![row].stringedBirth
-            data?.remove(at: row)
+            context.delete(data[row])
+            try! context.save()
+            data.remove(at: row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            // Core data Delete BirthPeopleManager().deleteBirthPeople(whichFollows: "name = '\(name)' AND stringedBirth = '\(birth)'")
         }
     }
     
@@ -95,6 +95,12 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
         status = !status
+        tableView.reloadData()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        data = controller.fetchedObjects as! [PeopleToSave]
+        data = BirthComputer().compute(withBirthdayPeople: data)
         tableView.reloadData()
     }
     

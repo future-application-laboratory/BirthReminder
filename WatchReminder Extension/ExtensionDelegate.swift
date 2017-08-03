@@ -7,7 +7,6 @@
 //
 
 import WatchKit
-import RealmSwift
 import WatchConnectivity
 
 class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate {

@@ -9,15 +9,15 @@
 import Foundation
 
 class BirthComputer {
-    typealias BirthPeopleWithIntervalTime = [(people:BirthPeople,interval:TimeInterval)]
+    typealias BirthPeopleWithIntervalTime = [(people:PeopleToSave,interval:TimeInterval)]
     
-    func compute(withBirthdayPeople:[BirthPeople]) -> [BirthPeople] {
+    func compute(withBirthdayPeople:[PeopleToSave]) -> [PeopleToSave] {
         
         var birthPeopleWithIntervalTime = BirthPeopleWithIntervalTime()
         
         //Get the interval time
         withBirthdayPeople.forEach { person in
-            let birth = person.stringedBirth
+            let birth = person.birth
             let interval = putIntoDate(with: birth)!.timeIntervalSinceNow
             birthPeopleWithIntervalTime.append((people: person,interval: interval))
         }
@@ -45,7 +45,7 @@ class BirthComputer {
         }
         birthPeopleWithIntervalTime.append(contentsOf: peopleHaveBirthsInThePast)
         
-        var result = [BirthPeople]()
+        var result = [PeopleToSave]()
         for times in 0..<birthPeopleWithIntervalTime.count {
             result.append(birthPeopleWithIntervalTime[times].people)
         }

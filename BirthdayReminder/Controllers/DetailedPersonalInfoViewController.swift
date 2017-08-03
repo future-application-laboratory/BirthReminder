@@ -45,7 +45,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
         
         tableView.separatorStyle = .none
         
-        if !personalData.status && personalData.picLink != ""{
+        if !personalData.status && personalData.picLink != nil {
             let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink!)
             personalData.picData = UIImagePNGRepresentation(image)!
             personalData.status = true
@@ -53,7 +53,11 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
         
         clearButton.isEnabled = (personalData.picData != Data())
         nameField.text = personalData.name
-        imageView.image = UIImage(data: personalData.picData!)
+        
+        if let imageData = personalData.picData {
+            let image = UIImage(data: imageData)
+            imageView.image = image
+        }
         
         let birth = getIntBirth()
         pickerView.selectRow(birth.0, inComponent: 0, animated: true)

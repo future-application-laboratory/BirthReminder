@@ -53,9 +53,28 @@ public final class PeopleToSave: ManagedObject, ManagedObjectType {
         return "People"
     }
     
+    public static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor.init(key: "birth", ascending: false)]
+    }
+    
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var birth: String
     @NSManaged public private(set) var picData: Data
+    
+    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data) {
+        let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
+        let person = NSManagedObject(entity: entity!, insertInto: context)
+        person.setValue(name, forKey: "name")
+        person.setValue(birth, forKey: "birth")
+        person.setValue(picData, forKey: "picData")
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failed to save: \(error)")
+        }
+    }
+    
 }
 
 public class ManagedObject: NSManagedObject {
@@ -75,3 +94,5 @@ public func createDataMainContext() -> NSManagedObjectContext {
     context.persistentStoreCoordinator = psc
     return context
 }
+
+

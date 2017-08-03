@@ -58,13 +58,17 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "personalDetailFromAnime")
+        //Data
         let row = indexPath.row
         let data = tableViewData[row]
-        let image = UIImage(data: data.picData!)
         cell.textLabel?.text = data.name
         cell.detailTextLabel?.text = data.stringedBirth
+        if let imageData = data.picData {
+            let image = UIImage(data: imageData)
+            cell.imageView?.image = image
+        }
+        //Cell Customize
         let imageView = cell.imageView
-        imageView?.image = image
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
