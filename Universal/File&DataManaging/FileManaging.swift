@@ -61,7 +61,7 @@ public final class PeopleToSave: ManagedObject, ManagedObjectType {
     @NSManaged public private(set) var birth: String
     @NSManaged public private(set) var picData: Data
     
-    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data) {
+    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let person = NSManagedObject(entity: entity!, insertInto: context)
         person.setValue(name, forKey: "name")

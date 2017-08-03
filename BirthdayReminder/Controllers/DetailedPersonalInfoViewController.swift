@@ -8,8 +8,16 @@
 
 import UIKit
 import MobileCoreServices
+import CoreData
 
-class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPickerViewDelegate,UIPickerViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+    var context: NSManagedObjectContext {
+        let nc = view.window?.rootViewController as! UINavigationController
+        let vc = nc.viewControllers[0] as! IndexViewController
+        return vc.context
+    }
+    
     var personalData = BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil)
     let monthDict = [
         1:31,
@@ -110,6 +118,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController,UIPick
         dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
         // Core data BirthPeopleManager().persist(Person: newPersonalData)
+        PeopleToSave.insert(into: context, name: personalData.name, birth: personalData.stringedBirth, picData: personalData.picData)
     }
     
     

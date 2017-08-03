@@ -20,11 +20,11 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.clear
-        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        setupTableView()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,20 +54,16 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 100
     }
     
-    func setupTableView() {/* Core Data
+    private func setupTableView() {/* Core Data
          data = BirthPeopleManager().getPersistedBirthPeople()
          data = BirthComputer().compute(withBirthdayPeople: data!)
          tableView.reloadData()
          AppDelegate().syncWithAppleWatch()*/
         let request = PeopleToSave.fetchRequest()
-        request.sortDescriptors = [NSSortDescriptor(key: "birth", ascending: false)]
         if let people = try? context.fetch(request) as? [PeopleToSave] {
             data = people!
         }
         data = BirthComputer().compute(withBirthdayPeople: data)
-        let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        frc.delegate = self
-        try! frc.performFetch()
         tableView.reloadData()
     }
     
@@ -95,12 +91,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
         status = !status
-        tableView.reloadData()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        data = controller.fetchedObjects as! [PeopleToSave]
-        data = BirthComputer().compute(withBirthdayPeople: data)
         tableView.reloadData()
     }
     
