@@ -12,10 +12,10 @@ import CoreData
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    var context: NSManagedObjectContext {
-        let nc = view.window?.rootViewController as! UINavigationController
-        let vc = nc.viewControllers[0] as! IndexViewController
-        return vc.context
+    var context: NSManagedObjectContext! {
+        let app = UIApplication.shared
+        let delegate = app.delegate as! AppDelegate
+        return delegate.context
     }
     
     var personalData = BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil)

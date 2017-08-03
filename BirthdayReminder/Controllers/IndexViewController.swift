@@ -11,7 +11,12 @@ import CoreData
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , NSFetchedResultsControllerDelegate {
     
-    let context = createDataMainContext()
+    var context: NSManagedObjectContext! {
+        let app = UIApplication.shared
+        let delegate = app.delegate as! AppDelegate
+        return delegate.context
+    }
+    var frc: NSFetchedResultsController<NSFetchRequestResult>!
     @IBOutlet weak var tableView: UITableView!
     
     var data = [PeopleToSave]()
@@ -19,12 +24,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clear
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         setupTableView()
+        tableView.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,12 +60,12 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
          data = BirthComputer().compute(withBirthdayPeople: data!)
          tableView.reloadData()
          AppDelegate().syncWithAppleWatch()*/
-        let request = PeopleToSave.fetchRequest()
-        if let people = try? context.fetch(request) as? [PeopleToSave] {
-            data = people!
-        }
+        let request = PeopleToSave.sortedFetchRequest
+        frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc.delegate = self
+        try! frc.performFetch()
+        data = frc.fetchedObjects as! [PeopleToSave]
         data = BirthComputer().compute(withBirthdayPeople: data)
-        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -80,7 +81,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let row = indexPath.row
             context.delete(data[row])
             try! context.save()
-            data.remove(at: row)
+            data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -92,6 +93,20 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func changeDateDisplayingType(_ sender: Any) {
         status = !status
         tableView.reloadData()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            let person = anObject as! PeopleToSave
+            data.append(person)
+            data = BirthComputer().compute(withBirthdayPeople: data)
+            tableView.reloadData()
+        case .delete:
+            break // Already done in method tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle ...
+        default:
+            break // tan90
+        }
     }
     
 }

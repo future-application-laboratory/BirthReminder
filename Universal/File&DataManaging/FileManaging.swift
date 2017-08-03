@@ -48,14 +48,7 @@ class Anime {
 
 // Core Data Persisting
 
-public final class PeopleToSave: ManagedObject, ManagedObjectType {
-    public static var entityName: String {
-        return "People"
-    }
-    
-    public static var defaultSortDescriptors: [NSSortDescriptor] {
-        return [NSSortDescriptor.init(key: "birth", ascending: false)]
-    }
+public final class PeopleToSave: ManagedObject {
     
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var birth: String
@@ -73,6 +66,18 @@ public final class PeopleToSave: ManagedObject, ManagedObjectType {
         } catch {
             fatalError("Failed to save: \(error)")
         }
+    }
+    
+}
+
+extension PeopleToSave: ManagedObjectType {
+    
+    public static var defaultSortDescriptors: [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "name", ascending: false)]
+    }
+    
+    public static var entityName: String {
+        return "People"
     }
     
 }

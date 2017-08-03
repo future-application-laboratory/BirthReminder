@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    var context: NSManagedObjectContext! {
+        let app = UIApplication.shared
+        let delegate = app.delegate as! AppDelegate
+        return delegate.context
+    }
     var tableViewData = [BirthPeople]()
     var anime:Anime?
     
@@ -20,6 +26,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addAllButton.isEnabled = false
         
         tableView.separatorStyle = .none
         
@@ -35,17 +43,21 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             }
             self.tableViewData = self.getDetailedData(withAnimes: [self.anime!])
             OperationQueue.main.addOperation {
-                self.loadingView.stop()
+                self.loadingView.alpha = 0.8
                 self.tableView.separatorStyle = .singleLine
                 self.tableView.reloadData()
             }
             self.tableViewData.forEach() { data in
                 let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink!)
-                data.picData = UIImagePNGRepresentation(pic) ?? Data()
+                data.picData = UIImagePNGRepresentation(pic)!
                 data.status = true
                 OperationQueue.main.addOperation {
                     self.tableView.reloadData()
                 }
+            }
+            OperationQueue.main.addOperation {
+                self.loadingView.stop()
+                self.addAllButton.isEnabled = true
             }
         }
         
@@ -105,23 +117,15 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     
     @IBAction func storeAll(_ sender: Any) {
+        tableViewData.forEach { person in
+            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData)
+        }
         let controller = (navigationController?.viewControllers[1] as! UITabBarController).viewControllers![1] as! AnimeGettingFromServerViewController
         controller.animes = controller.animes.filter { anime in
             anime.id != self.anime!.id
         }
         controller.tableView.reloadData()
         navigationController?.popViewController(animated: true)
-        tableViewData.forEach { person in
-            if person.picData == Data() {
-                let newPerson = BirthPeople(withName: person.name, birth: person.stringedBirth, picData: person.picData, picLink: person.picLink)
-                let image = ReminderDataNetworkController().get(PicFromStringedUrl: newPerson.picLink!)
-                newPerson.status = true
-                newPerson.picData = UIImagePNGRepresentation(image) ?? Data()
-                //Core data BirthPeopleManager().persist(Person: newPerson)
-            }else{
-                //core data BirthPeopleManager().persist(Person: person)
-            }
-        }
     }
     
 }

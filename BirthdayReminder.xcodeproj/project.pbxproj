@@ -18,14 +18,10 @@
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
-		B03B7DA81F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
-		B03B7DA91F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
-		B03B7DAA1F31ADD0001BC73C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */; };
 		B04966571F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B04966581F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B05952F41F26E839008AD597 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
 		B05E192D1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
 		B05E192E1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
@@ -37,7 +33,6 @@
 		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B0811C961F282F1B0006CBC5 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
 		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
 		B0990F271F27578400D26557 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -48,6 +43,11 @@
 		B0990F361F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F351F27578400D26557 /* Assets.xcassets */; };
 		B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0990F1A1F27578400D26557 /* WatchReminder.app */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
+		B0E283B31F33464D00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
+		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
+		B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
+		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
 		BFB5047F77A3B507044C8A4B /* Pods_WatchReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */; };
 /* End PBXBuildFile section */
@@ -132,7 +132,6 @@
 		B02929531F26E79000AD0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B03B7DA41F31AD75001BC73C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
 		B05E192B1F2C1A34003104C5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Universal/Localization/Localizable.strings; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthComputing.swift; path = Universal/BirthComputing/BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B0E1C8E31F2CCCBB00D36C5D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 		BDAF7163C173B4E61D812358 /* Pods-WatchReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WatchReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-WatchReminder/Pods-WatchReminder.release.xcconfig"; sourceTree = "<group>"; };
@@ -286,8 +286,8 @@
 		B06883771F1EECBE00831AA6 /* File&Data Managing */ = {
 			isa = PBXGroup;
 			children = (
-				B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */,
 				B06883791F1EECEA00831AA6 /* FileManaging.swift */,
+				B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */,
 				B03B7DA41F31AD75001BC73C /* Protocols.swift */,
 			);
 			name = "File&Data Managing";
@@ -733,11 +733,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */,
 				B04966571F31B20300739857 /* Protocols.swift in Sources */,
 				B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */,
+				B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */,
-				B05952F41F26E839008AD597 /* FileManaging.swift in Sources */,
-				B03B7DA91F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,7 +752,7 @@
 				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
-				B03B7DA81F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
+				B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
 			);
@@ -764,10 +764,10 @@
 			files = (
 				B0990F321F27578400D26557 /* NotificationController.swift in Sources */,
 				B0990F341F27578400D26557 /* ComplicationController.swift in Sources */,
-				B0811C961F282F1B0006CBC5 /* FileManaging.swift in Sources */,
+				B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */,
 				B04966581F31B20300739857 /* Protocols.swift in Sources */,
-				B03B7DAA1F31ADD0001BC73C /* Model.xcdatamodeld in Sources */,
 				B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */,
+				B0E283B31F33464D00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */,
 				B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */,
 				B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */,
@@ -1121,12 +1121,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B03B7DA61F31ADD0001BC73C /* Model.xcdatamodeld */ = {
+		B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */,
+				B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */,
 			);
-			currentVersion = B03B7DA71F31ADD0001BC73C /* Model.xcdatamodel */;
+			currentVersion = B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

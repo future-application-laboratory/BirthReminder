@@ -11,7 +11,7 @@ import SnapKit
 
 class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var animes = [Anime]()
-
+    
     let networkController = ReminderDataNetworkController()
     let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
@@ -47,19 +47,15 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
             }
         }
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAnimeDetail" {
             let viewController = segue.destination as! GetPersonalDataFromServerViewController
             viewController.anime = sender as? Anime
             viewController.navigationItem.title = (sender as! Anime).name
-        }else if segue.identifier == "customize" {
-            let controller = segue.destination as! DetailedPersonalInfoFromServerViewController
-            controller.personalData = sender as! BirthPeople
-            controller.personalData.status = true
         }
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         performSegue(withIdentifier: "showAnimeDetail", sender: animes[row])
@@ -123,7 +119,7 @@ class LoadingView:UIView {
     var square:RoundedSquareCanvas?
     let loadingLabel = UILabel()
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, text: String) {
         super.init(frame: frame)
         square = RoundedSquareCanvas(frame: frame)
         self.addSubview(progressView)
@@ -135,7 +131,7 @@ class LoadingView:UIView {
         progressView.color = UIColor.white
         progressView.backgroundColor = UIColor.gray
         progressView.center = self.center
-        loadingLabel.text = "Loading"
+        loadingLabel.text = text
         loadingLabel.textAlignment = .center
         loadingLabel.textColor = UIColor.white
         loadingLabel.font = UIFont(name: "Pingfang SC", size: 20)
@@ -144,6 +140,10 @@ class LoadingView:UIView {
             constraint.centerX.equalTo(square!)
             constraint.height.equalTo(50)
         }
+    }
+    
+    override convenience init(frame: CGRect) {
+        self.init(frame: frame, text: "Loading")
     }
     
     required init?(coder aDecoder: NSCoder) {

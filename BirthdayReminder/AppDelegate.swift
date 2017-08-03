@@ -14,6 +14,7 @@ import WatchConnectivity
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     var window: UIWindow?
+    let context = createDataMainContext()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Watch Connectivity Configuration
