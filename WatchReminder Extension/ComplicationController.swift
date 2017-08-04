@@ -11,6 +11,10 @@ import ClockKit
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
+    let context = createDataMainContext()
+    let request = PeopleToSave.sortedFetchRequest
+    var source: [PeopleToSave]!
+    
     let supportedComplicationFamilies:[CLKComplicationFamily] = [.utilitarianLarge,.modularLarge]
     // MARK: - Timeline Configuration
     
@@ -33,7 +37,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        handler(nil)
+        guard !source.isEmpty else {
+            handler(nil)
+            return
+        }
+        let current = source[0]
+        let template = getComplication(forFamily: complication.family, withName: current.name, stringDate: current.birth)
+        let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template!)
+        handler(entry)
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -88,6 +99,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         default:
             return nil
         }
+    }
+    
+    override init() {
+        super.init()
+        self.source = try! context.fetch(request) as! [PeopleToSave]
     }
     
 }

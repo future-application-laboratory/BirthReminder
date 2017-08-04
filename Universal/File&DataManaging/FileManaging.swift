@@ -100,4 +100,29 @@ public func createDataMainContext() -> NSManagedObjectContext {
     return context
 }
 
+//Apple Watch Data Transfering Support
 
+class PeopleForTransfering: NSObject, NSCoding {
+    var name: String
+    var birth: String
+    var picData: Data?
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(birth, forKey: "birth")
+        aCoder.encode(picData, forKey: "picData")
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let birth = aDecoder.decodeObject(forKey: "birth") as! String
+        let data = aDecoder.decodeObject(forKey: "picData") as! Data?
+        self.init(withName: name, birth: birth, picData: data)
+    }
+    
+    init(withName: String, birth: String, picData: Data?) {
+        self.name = withName
+        self.birth = birth
+        self.picData = picData
+    }
+}

@@ -8,8 +8,12 @@
 
 import WatchKit
 import WatchConnectivity
+import CoreData
 
-class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate {
+class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
+    
+    var context: NSManagedObjectContext!
+    var frc: NSFetchedResultsController<NSFetchRequestResult>!
     
     func applicationDidFinishLaunching() {
         
@@ -17,6 +21,8 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate {
         let session = WCSession.default()
         session.delegate = self
         session.activate()
+        
+        try! frc.performFetch()
         
         let defaults = UserDefaults()
         defaults.set(true, forKey: "startup")
@@ -60,19 +66,28 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate ,WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        let fileManager = FileManager()
-        let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("default.realm")
-        try? fileManager.removeItem(at: url)
-        try! fileManager.moveItem(at: file.fileURL, to: url)
-        
+        print("Got file")
         let defaults = UserDefaults()
         defaults.set(true, forKey: "dataBaseIsUpdated")
+        
+        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleToSave]).forEach { person in
+            PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData)
+        } //Add new objects
+        (frc.fetchedObjects as! [PeopleToSave]).forEach { object in
+            context.delete(object)
+        } //Delete all the previous objects
         
         //Update the complications
         let server = CLKComplicationServer.sharedInstance()
         server.activeComplications?.forEach { complication in
             server.reloadTimeline(for: complication)
         }
+    }
+    
+    override init() {
+        super.init()
+        context = createDataMainContext()
+        frc = NSFetchedResultsController(fetchRequest: PeopleToSave.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
 }

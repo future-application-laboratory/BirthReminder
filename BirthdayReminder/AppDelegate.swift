@@ -69,17 +69,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                     transfer.cancel()
                 }
                 do {
-                    let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")
-                    let realmUrl = container!.appendingPathComponent("default.realm")
+                    let request = PeopleToSave.sortedFetchRequest
+                    let people = try context.fetch(request) as! [PeopleToSave]
+                    let data = NSKeyedArchiver.archivedData(withRootObject: people)
                     let manager = FileManager()
-                    let tempRealmUrl = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("temp.realm")
-                    try manager.copyItem(at: realmUrl, to: tempRealmUrl)
-                    session.transferFile(tempRealmUrl, metadata: nil)
-                    try manager.removeItem(at: tempRealmUrl)
-                }catch{
+                    let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                    let fileUrl = docUrl.appendingPathComponent("temp.br")
+                    manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
+                    session.transferFile(fileUrl, metadata: nil)
+                } catch {
                     fatalError("\(error)")
                 }
             }
+        }
+    }
+    
+    func sessionReachabilityDidChange(_ session: WCSession) {
+        if session.isWatchAppInstalled {
+            syncWithAppleWatch()
         }
     }
     

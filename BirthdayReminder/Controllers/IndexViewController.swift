@@ -11,9 +11,12 @@ import CoreData
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , NSFetchedResultsControllerDelegate {
     
-    weak var context: NSManagedObjectContext! {
+    weak var delegate: AppDelegate! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
+        return delegate
+    }
+    weak var context: NSManagedObjectContext! {
         return delegate.context
     }
     var frc: NSFetchedResultsController<NSFetchRequestResult>!
@@ -107,6 +110,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             break // tan90
         }
+        delegate.syncWithAppleWatch()
     }
-    
+
 }

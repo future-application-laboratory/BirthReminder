@@ -24,9 +24,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     var isEmpty: Bool {
         return current == nil
     }
-    var request: NSFetchRequest<NSFetchRequestResult> {
-        return PeopleToSave.sortedFetchRequest
-    }
+    let request = PeopleToSave.sortedFetchRequest
     
     override func viewDidLoad() {
         super.viewDidLoad()
