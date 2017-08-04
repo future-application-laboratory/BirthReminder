@@ -70,7 +70,7 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "dataBaseIsUpdated")
         
-        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleToSave]).forEach { person in
+        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleForTransfering]).forEach { person in
             PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData)
         } //Add new objects
         (frc.fetchedObjects as! [PeopleToSave]).forEach { object in
