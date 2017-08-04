@@ -15,9 +15,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
-    var data = [BirthPeople]()
+    @IBOutlet weak var emptyLabel: UILabel!
+    var data = [PeopleToSave]()
     var status = true
+    //CoreData
+    let context = createDataMainContext()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +28,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         layer.masksToBounds = true
         layer.cornerRadius = 10
         
-        //CoreData
+        
         
         upDateContent()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(.newData)
     }
     
@@ -52,6 +43,25 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func upDateContent() {
-        // TODO: CoreData
+        let request = PeopleToSave.sortedFetchRequest
+        data = try! context.fetch(request) as! [PeopleToSave]
+        data = BirthComputer().compute(withBirthdayPeople: data)
+        guard !data.isEmpty else {
+            view.subviews.forEach { view in
+                view.isHidden = true
+            }
+            emptyLabel.isHidden = false
+            return
+        }
+        view.subviews.forEach { view in
+            view.isHidden = false
+        }
+        emptyLabel.isHidden = true
+        let current = data[0]
+        nameLabel.text = current.name
+        let birth = current.birth
+        birthLabel.text = status ? birth.toLocalizedDate(withStyle: .long) : birth.toLeftDays()
+        imageView.image = UIImage(data: current.picData)
     }
+    
 }

@@ -4,7 +4,6 @@ target 'BirthdayReminder' do
     
     pod 'Just'
     pod 'SwiftyJSON'
-    pod 'SnapKit'
     pod 'HGPlaceholders'
 end
 

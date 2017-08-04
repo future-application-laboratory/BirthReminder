@@ -41,16 +41,28 @@
                                     <constraint firstAttribute="width" secondItem="mTs-mD-hfz" secondAttribute="height" multiplier="1:1" id="vFc-jh-edn"/>
                                 </constraints>
                             </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gE-7c-pdR">
+                                <rect key="frame" x="16" y="0.0" width="288" height="110"/>
+                                <string key="text">No data setted
+Please add in the Host App</string>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.43734325639999999" green="1" blue="0.60780881389999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="BBp-CL-GUf" firstAttribute="top" secondItem="pAJ-An-Tzr" secondAttribute="bottom" constant="6" id="0aF-rY-p8U"/>
                             <constraint firstItem="mTs-mD-hfz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="2.5" id="7Sn-of-tx1"/>
+                            <constraint firstItem="1gE-7c-pdR" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="FwY-Rk-hnt"/>
                             <constraint firstItem="pAJ-An-Tzr" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="HwR-q3-BfO"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="mTs-mD-hfz" secondAttribute="bottom" constant="2.5" id="NAj-PX-wOV"/>
                             <constraint firstItem="mTs-mD-hfz" firstAttribute="leading" secondItem="BBp-CL-GUf" secondAttribute="trailing" id="UJq-fY-SR9"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="1gE-7c-pdR" secondAttribute="bottom" id="UN8-aM-HrL"/>
                             <constraint firstAttribute="trailing" secondItem="mTs-mD-hfz" secondAttribute="trailing" constant="2.5" id="bEh-rW-RTI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1gE-7c-pdR" secondAttribute="trailing" id="exc-pR-KWV"/>
+                            <constraint firstItem="1gE-7c-pdR" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="r85-by-4zE"/>
                             <constraint firstItem="mTs-mD-hfz" firstAttribute="leading" secondItem="pAJ-An-Tzr" secondAttribute="trailing" id="rcs-V1-YW5"/>
                             <constraint firstItem="pAJ-An-Tzr" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="26" id="wEM-AJ-2Yu"/>
                             <constraint firstItem="BBp-CL-GUf" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="z05-Xb-mKq"/>
@@ -67,6 +79,7 @@
                     <size key="freeformSize" width="320" height="110"/>
                     <connections>
                         <outlet property="birthLabel" destination="BBp-CL-GUf" id="bqm-s8-xZl"/>
+                        <outlet property="emptyLabel" destination="1gE-7c-pdR" id="wmh-Rf-Bfn"/>
                         <outlet property="imageView" destination="mTs-mD-hfz" id="eol-lz-XcA"/>
                         <outlet property="nameLabel" destination="pAJ-An-Tzr" id="aUG-Z7-IVk"/>
                     </connections>

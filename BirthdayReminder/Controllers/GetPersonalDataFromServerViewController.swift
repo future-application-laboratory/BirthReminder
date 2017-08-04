@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var context: NSManagedObjectContext! {
+    
+    weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
         return delegate.context

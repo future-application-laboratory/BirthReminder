@@ -12,7 +12,7 @@ import CoreData
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    var context: NSManagedObjectContext! {
+    weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
         return delegate.context
