@@ -16,10 +16,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emptyLabel: UILabel!
-    var data = [PeopleToSave]()
+    
     var status = true
     //CoreData
     let context = createDataMainContext()
+    var current: PeopleToSave?
+    var isEmpty: Bool {
+        return current == nil
+    }
+    var request: NSFetchRequest<NSFetchRequestResult> {
+        return PeopleToSave.sortedFetchRequest
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         let layer = imageView.layer
         layer.masksToBounds = true
         layer.cornerRadius = 10
-        
-        
-        
+
         upDateContent()
     }
     
@@ -43,25 +48,27 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func upDateContent() {
-        let request = PeopleToSave.sortedFetchRequest
-        data = try! context.fetch(request) as! [PeopleToSave]
-        data = BirthComputer().compute(withBirthdayPeople: data)
-        guard !data.isEmpty else {
-            view.subviews.forEach { view in
-                view.isHidden = true
-            }
-            emptyLabel.isHidden = false
+        fetchData()
+        guard current != nil else {
             return
         }
-        view.subviews.forEach { view in
-            view.isHidden = false
-        }
-        emptyLabel.isHidden = true
-        let current = data[0]
-        nameLabel.text = current.name
-        let birth = current.birth
+        
+        nameLabel.text = current!.name
+        let birth = current!.birth
         birthLabel.text = status ? birth.toLocalizedDate(withStyle: .long) : birth.toLeftDays()
-        imageView.image = UIImage(data: current.picData)
+        imageView.image = UIImage(data: current!.picData)
+    }
+    
+    func fetchData() {
+        let fetched = try! context.fetch(request)
+        if !fetched.isEmpty {
+            let people = fetched as! [PeopleToSave]
+            current = BirthComputer().compute(withBirthdayPeople: people)[0]
+        }
+        nameLabel.isHidden = isEmpty
+        birthLabel.isHidden = isEmpty
+        imageView.isHidden = isEmpty
+        emptyLabel.isHidden = !isEmpty
     }
     
 }

@@ -198,7 +198,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vTd-Kj-oYV">
-                        <barButtonItem key="rightBarButtonItem" title="Add all" id="9XD-xJ-yY8">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Loading" id="9XD-xJ-yY8">
                             <connections>
                                 <action selector="storeAll:" destination="BYZ-38-t0r" id="ucg-xE-Qld"/>
                             </connections>

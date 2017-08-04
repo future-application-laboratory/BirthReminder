@@ -28,8 +28,6 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addAllButton.isEnabled = false
-        
         tableView.separatorStyle = .none
         
         view.addSubview(loadingView)
@@ -46,6 +44,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             OperationQueue.main.addOperation {
                 self.loadingView.alpha = 0.8
                 self.tableView.separatorStyle = .singleLine
+                self.loadingView.stop()
                 self.tableView.reloadData()
             }
             self.tableViewData.forEach() { data in
@@ -57,8 +56,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                 }
             }
             OperationQueue.main.addOperation {
-                self.loadingView.stop()
                 self.addAllButton.isEnabled = true
+                self.addAllButton.title = "Add all"
             }
         }
         
