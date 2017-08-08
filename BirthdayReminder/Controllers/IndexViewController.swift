@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import ChameleonFramework
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , NSFetchedResultsControllerDelegate {
     
@@ -24,9 +25,15 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var data = [PeopleToSave]()
     var status = false
+    @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.flatGreen
+        navigationController?.navigationBar.barTintColor = UIColor.flatGreenDark
+        navigationController?.navigationBar.tintColor = UIColor.flatBlackDark
+        emptyLabel.textColor = UIColor.flatWhite
+        navigationController?.hidesNavigationBarHairline = true
         setupTableView()
         tableView.backgroundColor = UIColor.clear
     }
@@ -43,11 +50,10 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont(name: "PingFangTC-Light", size: 18)
-        cell.textLabel?.textColor = UIColor.white
-        cell.detailTextLabel?.font = UIFont(name: "PingFangSC-Semibold",size: 16)
-        cell.detailTextLabel?.numberOfLines = 2
-        cell.detailTextLabel?.textColor = UIColor.white
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+        cell.textLabel?.textColor = UIColor.flatWhite
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
+        cell.detailTextLabel?.textColor = UIColor.flatWhite
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = status ? person.birth.toLeftDays() : person.birth.toLocalizedDate(withStyle: .long)
         cell.backgroundColor = UIColor.clear
@@ -58,17 +64,14 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return 100
     }
     
-    private func setupTableView() {/* Core Data
-         data = BirthPeopleManager().getPersistedBirthPeople()
-         data = BirthComputer().compute(withBirthdayPeople: data!)
-         tableView.reloadData()
-         AppDelegate().syncWithAppleWatch()*/
+    private func setupTableView() {
         let request = PeopleToSave.sortedFetchRequest
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
         data = frc.fetchedObjects as! [PeopleToSave]
         data = BirthComputer().compute(withBirthdayPeople: data)
+        checkDataAndDisplayPlaceHolder()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -83,9 +86,9 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if editingStyle == .delete {
             let row = indexPath.row
             context.delete(data[row])
-            try! context.save()
             data.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            try! context.save()
         }
     }
     
@@ -110,7 +113,18 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         default:
             break // tan90
         }
+        checkDataAndDisplayPlaceHolder()
         delegate.syncWithAppleWatch()
     }
-
+    
+    func checkDataAndDisplayPlaceHolder() {
+        if data.isEmpty {
+            tableView.separatorStyle = .none
+            emptyLabel.isHidden = false
+        } else {
+            tableView.separatorStyle = .singleLineEtched
+            emptyLabel.isHidden = true
+        }
+    }
+    
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SCLAlertView
 
 class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var animes = [Anime]()
@@ -20,9 +21,25 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.flatGreen
+        
+        // Agreement
+        let defaults = UserDefaults()
+        if !defaults.bool(forKey: "shouldHideAgreement") {
+            let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
+            let alert = SCLAlertView(appearance: appearence)
+            alert.addButton("Cancel") {
+                self.navigationController?.popViewController(animated: true)
+            }
+            alert.addButton("Got it") {
+                defaults.set(true, forKey: "shouldHideAgreement")
+            }
+            alert.showNotice("About", subTitle: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"))
+        }
+        
         tableView.separatorStyle = .none
         
-        //Loading Progress Viewer
+        // Loading Progress Viewer
         view.addSubview(loadingView)
         loadingView.center = view.center
         
@@ -71,6 +88,8 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
         let row = indexPath.row
         let data = animes[row]
         let image = data.pic
+        cell.textLabel?.textColor = UIColor.flatWhite
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5, weight: UIFontWeightMedium)
         cell.textLabel?.text = data.name
         let imageView = cell.imageView
         imageView?.image = image

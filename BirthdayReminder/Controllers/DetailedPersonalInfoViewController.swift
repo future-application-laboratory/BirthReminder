@@ -11,7 +11,7 @@ import MobileCoreServices
 import CoreData
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
@@ -34,8 +34,6 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         12:31
     ]
     
-    var newPersonalData = BirthPeople()
-    
     @IBOutlet weak var nameField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -45,13 +43,21 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
     @IBOutlet weak var clearButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarController?.tabBar.barTintColor = UIColor.flatGreenDark
+        tabBarController?.tabBar.tintColor = UIColor.flatBlackDark
+        tabBarController?.tabBar.unselectedItemTintColor = UIColor.flatWhiteDark
+        
+        view.backgroundColor = UIColor.flatGreen
         
         cancelButton.isHidden = (personalData.name == "")
         
         tableView.separatorStyle = .none
+        
+        clearButtonColorReload()
         
         if !personalData.status && personalData.picLink != nil {
             let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink!)
@@ -59,7 +65,6 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
             personalData.status = true
         }
         
-        clearButton.isEnabled = (personalData.picData != Data())
         nameField.text = personalData.name
         
         if let imageData = personalData.picData {
@@ -71,8 +76,6 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         pickerView.selectRow(birth.0, inComponent: 0, animated: true)
         pickerView.selectRow(birth.1, inComponent: 1, animated: true)
         
-        newPersonalData = BirthPeople(withName: personalData.name, birth: personalData.stringedBirth, picData: personalData.picData, picLink: personalData.picLink)
-        newPersonalData.status = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -99,12 +102,12 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         var day = String(pickerView.selectedRow(inComponent: 1) + 1)
         var month = String(pickerView.selectedRow(inComponent: 0) + 1)
         if day.characters.count != 2 {
-            day = " " + day
+            day = "0" + day
         }
         if month.characters.count != 2 {
-            month = "" + month
+            month = "0" + month
         }
-        newPersonalData.stringedBirth = month + "-" + day
+        personalData.stringedBirth = month + "-" + day
     }
     
     func getIntBirth() -> (Int,Int) {
@@ -126,7 +129,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         clearButton.isEnabled = true
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
         imageView.image = image
-        newPersonalData.picData = UIImagePNGRepresentation(image) ?? Data()
+        personalData.picData = UIImagePNGRepresentation(image)
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -140,8 +143,9 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
     
     @IBAction func clearPic(_ sender: Any) {
         imageView.image = UIImage()
-        newPersonalData.picData = Data()
+        personalData.picData = nil
         clearButton.isEnabled = false
+        clearButtonColorReload()
     }
     
     @IBAction func changePic(_ sender: Any) {
@@ -155,6 +159,10 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         }else{
             print("Not able to access pics")
         }
+    }
+    
+    func clearButtonColorReload() {
+        clearButton.tintColor = clearButton.isEnabled ? UIColor.flatWhite : UIColor.flatWhiteDark
     }
     
 }
