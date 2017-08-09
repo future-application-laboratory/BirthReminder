@@ -27,7 +27,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(source.first?.birth.toDate()?.addingTimeInterval(36400))
+        handler(source.first?.birth.toDate()?.addingTimeInterval(86400))
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
