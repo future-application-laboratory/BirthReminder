@@ -71,8 +71,8 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         defaults.set(true, forKey: "dataBaseIsUpdated")
         
         try!frc.performFetch()
-        (frc.fetchedObjects as! [PeopleToSave]).forEach { object in
-            context.delete(object)
+        frc.fetchedObjects?.forEach { object in
+            context.delete(object as! NSManagedObject)
         } //Delete all the previous objects
         
         (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [Dictionary<String, Any>]).forEach { person in

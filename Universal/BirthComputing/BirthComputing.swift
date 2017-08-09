@@ -18,7 +18,7 @@ class BirthComputer {
         //Get the interval time
         withBirthdayPeople.forEach { person in
             let birth = person.birth
-            let interval = putIntoDate(with: birth)!.timeIntervalSinceNow
+            let interval = putIntoDate(with: birth)?.timeIntervalSinceNow ?? 0
             birthPeopleWithIntervalTime.append((people: person,interval: interval))
         }
         

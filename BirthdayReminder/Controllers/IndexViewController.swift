@@ -38,6 +38,15 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.backgroundColor = UIColor.clear
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let defaults = UserDefaults()
+        if defaults.bool(forKey: "shouldSync") {
+            delegate.syncWithAppleWatch()
+            defaults.set(false, forKey: "shouldSync")
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -108,13 +117,14 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             data.append(person)
             data = BirthComputer().compute(withBirthdayPeople: data)
             tableView.reloadData()
+            let defaults = UserDefaults()
+            defaults.set(true, forKey: "shouldSync")
         case .delete:
-            break // Already done in method tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle ...
+            delegate.syncWithAppleWatch()
         default:
             break // tan90
         }
         checkDataAndDisplayPlaceHolder()
-        delegate.syncWithAppleWatch()
     }
     
     func checkDataAndDisplayPlaceHolder() {

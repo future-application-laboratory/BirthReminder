@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13168.3" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13178.6" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13042.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13045"/>
     </dependencies>
     <scenes>
         <!--BirthReminder-->
@@ -14,12 +14,12 @@
             <objects>
                 <controller title="BirthReminder" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchReminder" customModuleProvider="target">
                     <items>
-                        <table alignment="center" verticalAlignment="center" spacing="0.0" id="rUj-7F-e7J">
+                        <table alignment="center" verticalAlignment="center" id="rUj-7F-e7J">
                             <items>
                                 <tableRow identifier="tableRowController" id="rc3-d3-HYE" customClass="TableRowController" customModule="WatchReminder_Extension">
-                                    <group key="rootItem" width="1" height="1" heightAdjustment="-5" alignment="left" layout="vertical" spacing="0.0" id="C1o-a1-A8F">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="C1o-a1-A8F">
                                         <items>
-                                            <imageView alignment="center" id="XDo-gI-qbc"/>
+                                            <imageView width="100" height="100" alignment="center" id="XDo-gI-qbc"/>
                                             <label alignment="center" verticalAlignment="bottom" text="Name" textAlignment="center" id="oHM-V4-bt6"/>
                                             <label alignment="center" verticalAlignment="bottom" text="Birth" textAlignment="center" id="OjJ-WC-S7Q"/>
                                         </items>
