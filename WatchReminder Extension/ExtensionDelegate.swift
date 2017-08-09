@@ -70,12 +70,14 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "dataBaseIsUpdated")
         
-        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleForTransfering]).forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData)
-        } //Add new objects
+        try!frc.performFetch()
         (frc.fetchedObjects as! [PeopleToSave]).forEach { object in
             context.delete(object)
         } //Delete all the previous objects
+        
+        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [Dictionary<String, Any>]).forEach { person in
+            PeopleToSave.insert(into: context, name: person["name"] as! String, birth: person["birth"] as! String, picData: person["picData"] as! Data?)
+        }//Add new objects
         
         //Update the complications
         let server = CLKComplicationServer.sharedInstance()

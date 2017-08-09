@@ -51,7 +51,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             }
             self.tableViewData.forEach() { data in
                 let pic = ReminderDataNetworkController().get(PicFromStringedUrl: data.picLink!)
-                data.picData = UIImagePNGRepresentation(pic)!
+                data.picData = UIImagePNGRepresentation(pic)
                 data.status = true
                 OperationQueue.main.addOperation {
                     self.tableView.reloadData()
@@ -76,7 +76,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         let row = indexPath.row
         let data = tableViewData[row]
         cell.textLabel?.text = data.name
-        cell.detailTextLabel?.text = data.stringedBirth
+        cell.detailTextLabel?.text = data.stringedBirth.toLocalizedDate(withStyle: .long)
         if let imageData = data.picData {
             let image = UIImage(data: imageData)
             cell.imageView?.image = image

@@ -120,8 +120,8 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
     @IBAction func onDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
-        // Core data BirthPeopleManager().persist(Person: newPersonalData)
-        PeopleToSave.insert(into: context, name: personalData.name, birth: personalData.stringedBirth, picData: personalData.picData)
+        let picData = imageView.image != nil ? UIImagePNGRepresentation(imageView.image!) : nil
+        PeopleToSave.insert(into: context, name: nameField.text!, birth: personalData.stringedBirth, picData: picData)
     }
     
     

@@ -67,12 +67,8 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .insert:
-            tableData.append(anObject as! PeopleToSave)
-        default:
-            break
-        }
+        try! frc.performFetch()
+        tableData = frc.fetchedObjects as! [PeopleToSave]
         reloadTable()
     }
     

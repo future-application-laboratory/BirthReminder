@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 do {
                     let request = PeopleToSave.sortedFetchRequest
                     let people = (try context.fetch(request) as! [PeopleToSave]).map { person in
-                        return PeopleForTransfering(withName: person.name, birth: person.birth, picData: person.picData)
+                        return ["name":person.name,"birth":person.birth,"picData":person.picData]
                     }
                     let data = NSKeyedArchiver.archivedData(withRootObject: people)
                     let manager = FileManager()

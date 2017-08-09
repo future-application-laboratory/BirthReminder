@@ -114,14 +114,14 @@ extension String {
             leftDays = TimeInterval(Int(leftDays) + 1)
         }
         switch leftDays {
+        case 0:
+            return NSLocalizedString("today", comment: "today")
         case 1:
-            return NSLocalizedString("Today", comment: "today")
+            return NSLocalizedString("tomorrow", comment: "tomorrow")
         case 2:
-            return NSLocalizedString("Tomorror", comment: "tomorrow")
-        case 3:
-            return NSLocalizedString("The day after tomorrow", comment: "theDayAfterTomorrow")
+            return NSLocalizedString("dayAfterTomorrow", comment: "dayAfterTomorrow")
         default:
-            return String(Int(leftDays)) + " " + NSLocalizedString("daysLeft", comment: "daysLeft")
+            return NSLocalizedString("daysLeft-", comment: "daysLeft-") + String(Int(leftDays)) + " " + NSLocalizedString("-daysLeft", comment: "-daysLeft")
         }
     }
     
