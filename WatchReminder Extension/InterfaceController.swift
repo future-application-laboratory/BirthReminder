@@ -12,6 +12,7 @@ import CoreData
 
 class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDelegate {
     
+    @IBOutlet var emptyLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
     var status = false
     var tableData: [PeopleToSave]!
@@ -48,6 +49,12 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     }
     
     func reloadTable() {
+        guard !tableData.isEmpty else {
+            emptyLabel.setHidden(false)
+            table.setHidden(true)
+            return
+        }
+        
         tableData = BirthComputer().compute(withBirthdayPeople: tableData)
         
         table.setNumberOfRows(tableData.count, withRowType: "tableRowController")
@@ -60,6 +67,9 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
                 controller.image.setImageData(currentData.picData)
             }
         }
+        
+        emptyLabel.setHidden(true)
+        table.setHidden(false)
     }
     
     func setupDataSource() {

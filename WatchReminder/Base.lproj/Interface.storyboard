@@ -14,6 +14,10 @@
             <objects>
                 <controller title="BirthReminder" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchReminder" customModuleProvider="target">
                     <items>
+                        <label alignment="center" verticalAlignment="center" textAlignment="center" numberOfLines="4" id="ai9-ss-3f3">
+                            <string key="text">No person added to favourite
+Go to Host App to configure</string>
+                        </label>
                         <table alignment="center" verticalAlignment="center" id="rUj-7F-e7J">
                             <items>
                                 <tableRow identifier="tableRowController" id="rc3-d3-HYE" customClass="TableRowController" customModule="WatchReminder_Extension">
@@ -34,6 +38,7 @@
                         </table>
                     </items>
                     <connections>
+                        <outlet property="emptyLabel" destination="ai9-ss-3f3" id="X0F-TH-TKA"/>
                         <outlet property="table" destination="rUj-7F-e7J" id="ucC-TQ-sje"/>
                     </connections>
                 </controller>
