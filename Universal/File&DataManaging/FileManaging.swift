@@ -10,41 +10,6 @@ import Foundation
 import UIKit
 import CoreData
 
-class BirthPeople {
-    var name = ""
-    var stringedBirth = ""
-    var picData: Data?
-    var picLink: String?
-    var status = false
-    
-    init(withName: String,birth: String,picData: Data?,picLink: String?) {
-        self.name = withName
-        self.stringedBirth = birth
-        self.picData = picData
-        self.picLink = picLink
-    }
-    
-    init() {
-        
-    }
-}
-
-class Anime {
-    var id = -1
-    var name = ""
-    var startCharacter = 0
-    var picLink = ""
-    var pic:UIImage?
-    
-    init(withId: Int,name: String,startCharacter: Int,picLink: String,pic: UIImage) {
-        self.id = withId
-        self.name = name
-        self.startCharacter = startCharacter
-        self.picLink = picLink
-        self.pic = pic
-    }
-    
-}
 
 // Core Data Persisting
 
@@ -52,7 +17,7 @@ public final class PeopleToSave: ManagedObject {
     
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var birth: String
-    @NSManaged public private(set) var picData: Data
+    @NSManaged public private(set) var picData: Data?
     
     static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
@@ -98,4 +63,41 @@ public func createDataMainContext() -> NSManagedObjectContext {
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = psc
     return context
+}
+
+@objc(PeopleToTransfer)
+
+class PeopleToTransfer: NSObject, NSCoding {
+    var name: String
+    var birth: String
+    var picData: Data?
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(birth, forKey: "birth")
+        aCoder.encode(picData, forKey: "picData")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.birth = aDecoder.decodeObject(forKey: "birth") as! String
+        self.picData = aDecoder.decodeObject(forKey: "picData") as! Data?
+    }
+    
+    init(withName: String,birth: String,picData: Data?) {
+        self.name = withName
+        self.birth = birth
+        self.picData = picData
+    }
+    
+    public var encoded: Data {
+        return NSKeyedArchiver.archivedData(withRootObject: self)
+    }
+    
+}
+
+extension Data {
+    func toPeopleToTransfer() -> PeopleToTransfer? {
+        return NSKeyedUnarchiver.unarchiveObject(with: self) as? PeopleToTransfer
+    }
 }

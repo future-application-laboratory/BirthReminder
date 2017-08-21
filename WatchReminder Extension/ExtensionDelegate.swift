@@ -12,17 +12,15 @@ import CoreData
 
 class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
     
-    var context: NSManagedObjectContext!
-    var frc: NSFetchedResultsController<NSFetchRequestResult>!
+    var context = createDataMainContext()
+    let request = PeopleToSave.sortedFetchRequest
+    var reloadController = ReloadController()
     
     func applicationDidFinishLaunching() {
-        
         //Watch Connectivity Configuration
         let session = WCSession.default()
         session.delegate = self
         session.activate()
-        
-        try! frc.performFetch()
         
         let defaults = UserDefaults()
         defaults.set(true, forKey: "startup")
@@ -70,14 +68,15 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "dataBaseIsUpdated")
         
-        try!frc.performFetch()
-        frc.fetchedObjects?.forEach { object in
+        try! context.fetch(request).forEach { object in
             context.delete(object as! NSManagedObject)
         } //Delete all the previous objects
         
-        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [Dictionary<String, Any>]).forEach { person in
-            PeopleToSave.insert(into: context, name: person["name"] as! String, birth: person["birth"] as! String, picData: person["picData"] as! Data?)
-        }//Add new objects
+        (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleToTransfer]).forEach { person in
+            PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData)
+        } //Add new objects
+        
+        reloadController.reload()
         
         //Update the complications
         let server = CLKComplicationServer.sharedInstance()
@@ -86,10 +85,23 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         }
     }
     
-    override init() {
-        super.init()
-        context = createDataMainContext()
-        frc = NSFetchedResultsController(fetchRequest: PeopleToSave.sortedFetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+}
+
+public class ReloadController {
+    
+    private var reloadControllerDelegate: ReloadControllerDelegate?
+    var delegate: ReloadControllerDelegate? {
+        get {
+            return reloadControllerDelegate
+        }
+        
+        set {
+            reloadControllerDelegate = newValue
+        }
+    }
+    
+    func reload() {
+        delegate?.reload()
     }
     
 }

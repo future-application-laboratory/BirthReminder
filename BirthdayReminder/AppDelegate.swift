@@ -68,20 +68,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 session.outstandingFileTransfers.forEach { transfer in
                     transfer.cancel()
                 }
-                do {
-                    let request = PeopleToSave.sortedFetchRequest
-                    let people = (try context.fetch(request) as! [PeopleToSave]).map { person in
-                        return ["name":person.name,"birth":person.birth,"picData":person.picData]
-                    }
-                    let data = NSKeyedArchiver.archivedData(withRootObject: people)
-                    let manager = FileManager()
-                    let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                    let fileUrl = docUrl.appendingPathComponent("temp.br")
-                    manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
-                    session.transferFile(fileUrl, metadata: nil)
-                } catch {
-                    fatalError("\(error)")
+                let defaults = UserDefaults()
+                
+                let people = (defaults.array(forKey: "AWFavourite") as? [Data] ?? []).map { person in
+                    person.toPeopleToTransfer()
                 }
+                let data = NSKeyedArchiver.archivedData(withRootObject: people)
+                let manager = FileManager()
+                let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let fileUrl = docUrl.appendingPathComponent("temp.br")
+                manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
+                session.transferFile(fileUrl, metadata: nil)
             }
         }
     }

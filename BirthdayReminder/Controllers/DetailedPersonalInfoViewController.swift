@@ -12,13 +12,14 @@ import CoreData
 
 class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    var animeID: Int?
     weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
         return delegate.context
     }
     
-    var personalData = BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil)
+    var personalData = People(withName: "", birth: "01-01", picData: nil, id: nil)
     let monthDict = [
         1:31,
         2:29,
@@ -59,10 +60,18 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         
         clearButtonColorReload()
         
-        if !personalData.status && personalData.picLink != nil {
-            let image = ReminderDataNetworkController().get(PicFromStringedUrl: personalData.picLink!)
-            personalData.picData = UIImagePNGRepresentation(image)!
-            personalData.status = true
+        if personalData.picData == nil && personalData.id != nil {
+            NetworkController.networkQueue.async {
+                NetworkController.provider.request(.personalPic(withID: self.personalData.id!, inAnime: self.animeID!)) { response in
+                    switch response {
+                    case .success(let result):
+                        self.imageView.image = UIImage(data: result.data)
+                    case .failure(let error):
+                        self.dismiss(animated: true, completion: nil)
+                        print(error.errorDescription!)
+                    }
+                }
+            }
         }
         
         nameField.text = personalData.name

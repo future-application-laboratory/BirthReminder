@@ -9,17 +9,20 @@
 import UIKit
 import SnapKit
 import SCLAlertView
+import DZNEmptyDataSet
+import SwiftyJSON
 
-class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var animes = [Anime]()
+class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
-    let networkController = ReminderDataNetworkController()
-    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+    var animes = [Anime]()
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
         
         view.backgroundColor = UIColor.flatGreen
         
@@ -37,29 +40,50 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
             alert.showNotice("About", subTitle: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"))
         }
         
-        tableView.separatorStyle = .none
-        
-        // Loading Progress Viewer
-        view.addSubview(loadingView)
-        loadingView.center = view.center
-        
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
-        networkController.networkQueue.async {
-            OperationQueue.main.addOperation {
-                self.loadingView.start()
-            }
-            self.animes = self.networkController.getListOfAnimes()
-            OperationQueue.main.addOperation {
-                self.loadingView.stop()
-                self.tableView.separatorStyle = .singleLine
-                self.tableView.reloadData()
-            }
-            self.animes.forEach { anime in
-                let pic = self.networkController.get(PicFromStringedUrl: anime.picLink)
-                anime.pic = pic
-                OperationQueue.main.addOperation {
+        
+        reloadSparator()
+        
+        
+        NetworkController.provider.request(.animes) { response in
+            switch response {
+            case .success(let result):
+                let data = result.data
+                let json = JSON(data: data)
+                self.animes = json.array!.map { anime in
+                    let dict = anime.dictionary!
+                    let name = dict["name"]!.string!
+                    let id = dict["id"]!.string!
+                    return Anime(withId: Int(id)!, name: name, pic: nil)
+                }
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.reloadSparator()
+                }
+                self.animes.forEach { anime in
+                    NetworkController.provider.request(.animepic(withID: anime.id)) { response in
+                        switch response {
+                        case .success(let result):
+                            let data = result.data
+                            anime.pic = UIImage(data: data)!
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        case .failure(let error):
+                            print(error.errorDescription!)
+                        }
+                    }
+                }
+            case .failure(let error):
+                self.animes = []
+                DispatchQueue.main.async {
+                    let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
+                    let alert = SCLAlertView(appearance: appearence)
+                    alert.addButton("OK") {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
                 }
             }
         }
@@ -106,7 +130,46 @@ class AnimeGettingFromServerViewController: UIViewController,UITableViewDelegate
     }
     
     @IBAction func other(_ sender: Any) {
-        performSegue(withIdentifier: "customize", sender: BirthPeople(withName: "", birth: "01-01", picData: nil, picLink: nil))
+        performSegue(withIdentifier: "customize", sender: nil)
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let font = UIFont.boldSystemFont(ofSize: 20)
+        return NSAttributedString(string: "Loading now", attributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:UIColor.flatWhite])
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
+        return UIImage(named: "loading2")
+    }
+    
+    func imageAnimation(forEmptyDataSet scrollView: UIScrollView!) -> CAAnimation! {
+        let animeX = CABasicAnimation()
+        animeX.keyPath = "transform.scale.x"
+        animeX.fromValue = 1
+        animeX.toValue = 2
+        let animeY = CABasicAnimation()
+        animeY.keyPath = "transform.scale.y"
+        animeY.fromValue = 1
+        animeY.toValue = 2
+        let animeAlpha = CABasicAnimation()
+        animeAlpha.keyPath = "opacity"
+        animeAlpha.fromValue = 0
+        animeAlpha.toValue = 1
+        let group = CAAnimationGroup()
+        group.animations = [animeX,animeY,animeAlpha]
+        group.duration = 2
+        group.isRemovedOnCompletion = false
+        group.fillMode = kCAFillModeForwards
+        group.repeatCount = HUGE
+        return group
+    }
+    
+    func emptyDataSetShouldAnimateImageView(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
+    
+    func reloadSparator() {
+        tableView.separatorStyle = animes.isEmpty ? .none : .singleLine
     }
     
 }

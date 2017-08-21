@@ -10,7 +10,7 @@ import WatchKit
 import Foundation
 import CoreData
 
-class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDelegate {
+class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDelegate, ReloadControllerDelegate {
     
     @IBOutlet var emptyLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
@@ -22,20 +22,13 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     var context: NSManagedObjectContext {
         return delegate.context
     }
-    var frc: NSFetchedResultsController<NSFetchRequestResult> {
-        return delegate.frc
-    }
     let request = PeopleToSave.sortedFetchRequest
-    
-    override init() {
-        super.init()
-        frc.delegate = self
-    }
+    var first = true
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
-        setupDataSource()
-        reloadTable()
+        delegate.reloadController.delegate = self
+        reload()
     }
     
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
@@ -72,14 +65,13 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
         table.setHidden(false)
     }
     
-    func setupDataSource() {
+    func reload() {
         tableData = try! context.fetch(request) as! [PeopleToSave]
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        try! frc.performFetch()
-        tableData = frc.fetchedObjects as! [PeopleToSave]
         reloadTable()
     }
     
+}
+
+protocol ReloadControllerDelegate {
+    func reload()
 }

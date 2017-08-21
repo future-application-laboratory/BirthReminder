@@ -38,15 +38,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.backgroundColor = UIColor.clear
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let defaults = UserDefaults()
-        if defaults.bool(forKey: "shouldSync") {
-            delegate.syncWithAppleWatch()
-            defaults.set(false, forKey: "shouldSync")
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -55,7 +46,9 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "mainCell")
         let person = self.data[indexPath.row]
         let imageView = cell.imageView
-        imageView?.image = UIImage(data: person.picData)
+        if let data = person.picData {
+            imageView?.image = UIImage(data: data)
+        }
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
@@ -117,10 +110,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             data.append(person)
             data = BirthComputer().compute(withBirthdayPeople: data)
             tableView.reloadData()
-            let defaults = UserDefaults()
-            defaults.set(true, forKey: "shouldSync")
         case .delete:
-            delegate.syncWithAppleWatch()
+            break
         default:
             break // tan90
         }
@@ -136,5 +127,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             emptyLabel.isHidden = true
         }
     }
+    
     
 }
