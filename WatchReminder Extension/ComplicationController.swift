@@ -68,11 +68,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     func getComplication(forFamily:CLKComplicationFamily,withName:String,stringDate:String) -> CLKComplicationTemplate? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        guard var date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + stringDate) else {
+        guard var date = formatter.date(from: BirthComputer.get(Year: .this) + "-" + stringDate) else {
             return nil
         }
         if date.timeIntervalSinceNow < -86400 {
-            date = formatter.date(from: BirthComputer().get(Year: .next) + "-" + stringDate )!
+            date = formatter.date(from: BirthComputer.get(Year: .next) + "-" + stringDate )!
         }
         return getComplication(forFamily: forFamily, withName: withName, date: date)
     }
@@ -104,7 +104,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     override init() {
         super.init()
         let fetched = try! context.fetch(request) as! [PeopleToSave]
-        self.source = BirthComputer().compute(withBirthdayPeople: fetched)
+        self.source = BirthComputer.compute(withBirthdayPeople: fetched)
     }
     
 }

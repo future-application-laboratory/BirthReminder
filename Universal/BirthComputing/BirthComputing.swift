@@ -11,7 +11,7 @@ import Foundation
 class BirthComputer {
     typealias BirthPeopleWithIntervalTime = [(people:PeopleToSave,interval:TimeInterval)]
     
-    func compute(withBirthdayPeople:[PeopleToSave]) -> [PeopleToSave] {
+    static func compute(withBirthdayPeople:[PeopleToSave]) -> [PeopleToSave] {
         
         var birthPeopleWithIntervalTime = BirthPeopleWithIntervalTime()
         
@@ -52,14 +52,14 @@ class BirthComputer {
         return result
     }
     
-    func putIntoDate(with:String) -> Date? {
+    static func putIntoDate(with:String) -> Date? {
         let formmater = DateFormatter()
         formmater.dateFormat = "yyyy-MM-dd"
         let date = formmater.date(from: get(Year: .this) + "-" + with)
         return date
     }
     
-    func get(Year:YearType) -> String {
+    static func get(Year:YearType) -> String {
         let formmater = DateFormatter()
         formmater.dateFormat = "yyyy"
         switch Year {
@@ -82,9 +82,9 @@ extension String {
     func toLocalizedDate(withStyle:DateFormatter.Style) -> String? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
+        if let date = formatter.date(from: BirthComputer.get(Year: .this) + "-" + self) {
             if date.timeIntervalSinceNow < -86400 {
-                let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
+                let nextDate = formatter.date(from: BirthComputer.get(Year: .next) + "-" + self)!
                 formatter.dateStyle = withStyle
                 return formatter.string(from: nextDate)
             }else{
@@ -99,10 +99,10 @@ extension String {
         let formatter = DateFormatter()
         var leftDays:TimeInterval
         formatter.dateFormat = "yyyy-MM-dd"
-        if let date = formatter.date(from: BirthComputer().get(Year: .this) + "-" + self) {
+        if let date = formatter.date(from: BirthComputer.get(Year: .this) + "-" + self) {
             leftDays = date.timeIntervalSinceNow / (24 * 60 * 60)
             if leftDays < -1 {
-                let nextDate = formatter.date(from: BirthComputer().get(Year: .next) + "-" + self)!
+                let nextDate = formatter.date(from: BirthComputer.get(Year: .next) + "-" + self)!
                 leftDays = nextDate.timeIntervalSinceNow / (24 * 60 * 60)
             }else if (leftDays >= -1) && (leftDays < 0) {
                 return "Today"
@@ -128,7 +128,7 @@ extension String {
     func toDate(withYear:BirthComputer.YearType) -> Date? {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.date(from: BirthComputer().get(Year: withYear) + "-" + self)
+        return formatter.date(from: BirthComputer.get(Year: withYear) + "-" + self)
     }
     
     func toDate() -> Date? {

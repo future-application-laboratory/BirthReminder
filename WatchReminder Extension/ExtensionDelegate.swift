@@ -18,7 +18,7 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
     
     func applicationDidFinishLaunching() {
         //Watch Connectivity Configuration
-        let session = WCSession.default()
+        let session = WCSession.default
         session.delegate = self
         session.activate()
         

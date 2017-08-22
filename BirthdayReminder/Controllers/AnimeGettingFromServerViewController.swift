@@ -45,48 +45,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         
         reloadSparator()
         
-        
-        NetworkController.provider.request(.animes) { response in
-            switch response {
-            case .success(let result):
-                let data = result.data
-                let json = JSON(data: data)
-                self.animes = json.array!.map { anime in
-                    let dict = anime.dictionary!
-                    let name = dict["name"]!.string!
-                    let id = dict["id"]!.string!
-                    return Anime(withId: Int(id)!, name: name, pic: nil)
-                }
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.reloadSparator()
-                }
-                self.animes.forEach { anime in
-                    NetworkController.provider.request(.animepic(withID: anime.id)) { response in
-                        switch response {
-                        case .success(let result):
-                            let data = result.data
-                            anime.pic = UIImage(data: data)!
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
-                        case .failure(let error):
-                            print(error.errorDescription!)
-                        }
-                    }
-                }
-            case .failure(let error):
-                self.animes = []
-                DispatchQueue.main.async {
-                    let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-                    let alert = SCLAlertView(appearance: appearence)
-                    alert.addButton("OK") {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                    alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
-                }
-            }
-        }
+        loadAnimes()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,7 +72,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         let data = animes[row]
         let image = data.pic
         cell.textLabel?.textColor = UIColor.flatWhite
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5, weight: UIFontWeightMedium)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5, weight: UIFont.Weight.medium)
         cell.textLabel?.text = data.name
         let imageView = cell.imageView
         imageView?.image = image
@@ -135,7 +94,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let font = UIFont.boldSystemFont(ofSize: 20)
-        return NSAttributedString(string: "Loading now", attributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:UIColor.flatWhite])
+        return NSAttributedString(string: "Loading now", attributes: [NSAttributedStringKey.font:font, NSAttributedStringKey.foregroundColor:UIColor.flatWhite])
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
@@ -170,6 +129,54 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     
     func reloadSparator() {
         tableView.separatorStyle = animes.isEmpty ? .none : .singleLine
+    }
+    
+    func loadAnimes() {
+        NetworkController.provider.request(.animes) { response in
+            switch response {
+            case .success(let result):
+                let data = result.data
+                let json = JSON(data: data)
+                self.animes = json.array!.map { anime in
+                    let dict = anime.dictionary!
+                    let name = dict["name"]!.string!
+                    let id = dict["id"]!.string!
+                    return Anime(withId: Int(id)!, name: name, pic: nil)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.reloadSparator()
+                }
+                self.loadPicsForAnimes()
+            case .failure(let error):
+                self.animes = []
+                DispatchQueue.main.async {
+                    let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
+                    let alert = SCLAlertView(appearance: appearence)
+                    alert.addButton("OK") {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
+                }
+            }
+        }
+    }
+    
+    func loadPicsForAnimes() {
+        animes.forEach { anime in
+            NetworkController.provider.request(.animepic(withID: anime.id)) { response in
+                switch response {
+                case .success(let result):
+                    let data = result.data
+                    anime.pic = UIImage(data: data)!
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                case .failure(let error):
+                    print(error.errorDescription!)
+                }
+            }
+        }
     }
     
 }

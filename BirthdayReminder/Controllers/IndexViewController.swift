@@ -52,9 +52,9 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
         cell.textLabel?.textColor = UIColor.flatWhite
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         cell.detailTextLabel?.textColor = UIColor.flatWhite
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = status ? person.birth.toLeftDays() : person.birth.toLocalizedDate(withStyle: .long)
@@ -72,7 +72,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         frc.delegate = self
         try! frc.performFetch()
         data = frc.fetchedObjects as! [PeopleToSave]
-        data = BirthComputer().compute(withBirthdayPeople: data)
+        data = BirthComputer.compute(withBirthdayPeople: data)
         checkDataAndDisplayPlaceHolder()
     }
     
@@ -108,7 +108,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case .insert:
             let person = anObject as! PeopleToSave
             data.append(person)
-            data = BirthComputer().compute(withBirthdayPeople: data)
+            data = BirthComputer.compute(withBirthdayPeople: data)
             tableView.reloadData()
         case .delete:
             break

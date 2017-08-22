@@ -43,58 +43,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         
         // Load the basic info
         loadingView.start()
-        NetworkController.networkQueue.async {
-            NetworkController.provider.request(.people(inAnimeID: self.anime!.id)) { response in
-                switch response {
-                case .success(let result):
-                    let data = result.data
-                    let json = JSON(data: data)
-                    self.tableViewData = json.array!.map { person in
-                        let dict = person.dictionary!
-                        let name = dict["name"]!.string!
-                        let id = dict["id"]!.string!
-                        let birth = dict["birth"]!.string!
-                        return People(withName: name, birth: birth, picData: nil, id: Int(id)!)
-                    }
-                    DispatchQueue.main.async{
-                        self.tableView.reloadData()
-                        self.reloadSparator()
-                        self.loadingView.stop()
-                    }
-                    
-                    // Load pic for every person
-                    self.tableViewData.forEach { person in
-                        NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self.anime!.id)) { response in
-                            switch response {
-                            case .success(let result):
-                                let data = result.data
-                                person.picData = data
-                                DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                    if (self.tableViewData.filter { $0.picData == nil }.count) == 0 {
-                                        // Enable ‘add all’ button
-                                        self.addAllButton.isEnabled = true
-                                        self.addAllButton.image = UIImage(named: "addAll")
-                                    }
-                                }
-                            case .failure(let error):
-                                print(error.errorDescription!)
-                            }
-                        }
-                    }
-                case .failure(let error):
-                    self.tableViewData = []
-                    DispatchQueue.main.async {
-                        let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-                        let alert = SCLAlertView(appearance: appearence)
-                        alert.addButton("OK") {
-                            self.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
-                        }
-                        alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
-                    }
-                }
-            }
-        }
+        
+        loadPeople()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,9 +67,9 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         let layer = imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
         cell.textLabel?.textColor = UIColor.flatWhite
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         cell.detailTextLabel?.textColor = UIColor.flatWhite
         cell.backgroundView?.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
@@ -153,6 +103,64 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     func reloadSparator() {
         tableView.separatorStyle = tableViewData.isEmpty ? .none : .singleLine
+    }
+    
+    private func loadPeople() {
+        NetworkController.networkQueue.async {
+            NetworkController.provider.request(.people(inAnimeID: self.anime!.id)) { response in
+                switch response {
+                case .success(let result):
+                    let data = result.data
+                    let json = JSON(data: data)
+                    self.tableViewData = json.array!.map { person in
+                        let dict = person.dictionary!
+                        let name = dict["name"]!.string!
+                        let id = dict["id"]!.string!
+                        let birth = dict["birth"]!.string!
+                        return People(withName: name, birth: birth, picData: nil, id: Int(id)!)
+                    }
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()
+                        self.reloadSparator()
+                        self.loadingView.stop()
+                    }
+                    self.loadPicForPeople()
+                case .failure(let error):
+                    self.tableViewData = []
+                    DispatchQueue.main.async {
+                        let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
+                        let alert = SCLAlertView(appearance: appearence)
+                        alert.addButton("OK") {
+                            self.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
+                        }
+                        alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
+                    }
+                }
+            }
+        }
+    }
+    
+    private func loadPicForPeople() {
+        // Load pic for every person
+        self.tableViewData.forEach { person in
+            NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self.anime!.id)) { response in
+                switch response {
+                case .success(let result):
+                    let data = result.data
+                    person.picData = data
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        if (self.tableViewData.filter { $0.picData == nil }.count) == 0 {
+                            // Enable ‘add all’ button
+                            self.addAllButton.isEnabled = true
+                            self.addAllButton.image = UIImage(named: "addAll")
+                        }
+                    }
+                case .failure(let error):
+                    print(error.errorDescription!)
+                }
+            }
+        }
     }
     
 }

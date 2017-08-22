@@ -89,9 +89,9 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         let layer = cell.imageView?.layer
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightLight)
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
         cell.textLabel?.textColor = UIColor.flatWhite
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFontWeightSemibold)
+        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
         cell.detailTextLabel?.textColor = UIColor.flatWhite
         
         let row = indexPath.row

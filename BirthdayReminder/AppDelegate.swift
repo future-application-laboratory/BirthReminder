@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Watch Connectivity Configuration
         if WCSession.isSupported() {
-            let session = WCSession.default()
+            let session = WCSession.default
             session.delegate = self
             session.activate()
         }
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     func syncWithAppleWatch() {
         if WCSession.isSupported() {
-            let session = WCSession.default()
+            let session = WCSession.default
             if session.isWatchAppInstalled {
                 session.outstandingFileTransfers.forEach { transfer in
                     transfer.cancel()
