@@ -3,8 +3,7 @@ target 'BirthdayReminder' do
     inhibit_all_warnings!
     platform :ios, '10.1'
     
-    pod 'Just'
-    pod 'SwiftyJSON'
+    pod 'ObjectMapper'
     pod 'SnapKit'
     pod 'SCLAlertView'
     pod 'Onboard'

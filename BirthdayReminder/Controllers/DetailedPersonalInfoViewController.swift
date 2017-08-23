@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import CoreData
 
-class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     var animeID: Int?
     weak var context: NSManagedObjectContext! {
@@ -55,6 +55,8 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         view.backgroundColor = UIColor.flatGreen
         
         cancelButton.isHidden = (personalData.name == "")
+        
+        nameField.delegate = self
         
         tableView.separatorStyle = .none
         
@@ -172,6 +174,12 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
     
     func clearButtonColorReload() {
         clearButton.tintColor = clearButton.isEnabled ? UIColor.flatWhite : UIColor.flatWhiteDark
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        view.becomeFirstResponder()
+        return true
     }
     
 }

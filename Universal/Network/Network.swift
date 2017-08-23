@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import SwiftyJSON
+import ObjectMapper
 import Moya
 
 enum TCWQService {
@@ -57,10 +57,7 @@ extension TCWQService: TargetType {
     }
 }
 
-
-
-
-class People {
+final class People: Mappable {
     var name = ""
     var stringedBirth = ""
     var picData: Data?
@@ -77,9 +74,18 @@ class People {
     init() {
         
     }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+        stringedBirth <- map["birth"]
+        id <- map["id"]
+    }
 }
 
-class Anime {
+final class Anime: Mappable {
     var id = -1
     var name = ""
     var pic:UIImage?
@@ -90,7 +96,15 @@ class Anime {
         self.pic = pic
     }
     
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        name <- map["name"]
+        id <- map["id"]
+    }
 }
+
 
 class NetworkController {
     

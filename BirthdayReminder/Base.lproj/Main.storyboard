@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -230,10 +230,10 @@ Tap Add button to configure</string>
             </objects>
             <point key="canvasLocation" x="-1896" y="1233"/>
         </scene>
-        <!--View Controller-->
+        <!--License-->
         <scene sceneID="2M1-M4-a4l">
             <objects>
-                <viewController id="dy6-fT-ZAB" sceneMemberID="viewController">
+                <viewController title="License" id="dy6-fT-ZAB" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RqU-FL-JK5"/>
                         <viewControllerLayoutGuide type="bottom" id="eyv-7o-rAR"/>
@@ -248,10 +248,10 @@ Tap Add button to configure</string>
             </objects>
             <point key="canvasLocation" x="-2473" y="3450"/>
         </scene>
-        <!--View Controller-->
+        <!--Contact-->
         <scene sceneID="Kdk-GQ-JZE">
             <objects>
-                <viewController id="hSP-kt-Zj4" sceneMemberID="viewController">
+                <viewController title="Contact" id="hSP-kt-Zj4" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9g-UF-V2f"/>
                         <viewControllerLayoutGuide type="bottom" id="O8n-8M-mak"/>
@@ -316,10 +316,10 @@ Tap Add button to configure</string>
             </objects>
             <point key="canvasLocation" x="-746" y="1680"/>
         </scene>
-        <!--Apple Watch Setting View Controller-->
+        <!--AW Settings-->
         <scene sceneID="YL0-ew-SUC">
             <objects>
-                <viewController id="Zip-mg-AKx" customClass="AppleWatchSettingViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AW Settings" id="Zip-mg-AKx" customClass="AppleWatchSettingViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ket-k3-g1K"/>
                         <viewControllerLayoutGuide type="bottom" id="K6k-9O-7yI"/>
@@ -394,10 +394,10 @@ Tap Add to configure</string>
             </objects>
             <point key="canvasLocation" x="-1959.375" y="2492.9577464788731"/>
         </scene>
-        <!--Selecting From Index View Controller-->
+        <!--Add-->
         <scene sceneID="UtQ-ac-Cza">
             <objects>
-                <tableViewController id="Xpl-JI-Eo0" customClass="SelectingFromIndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Add" id="Xpl-JI-Eo0" customClass="SelectingFromIndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xFQ-nk-ogV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -757,15 +757,15 @@ Tap Add to configure</string>
                             </tableViewSection>
                             <tableViewSection headerTitle="Birthday" id="uae-XN-PrI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="aYO-mg-Qhp">
-                                        <rect key="frame" x="0.0" y="228" width="414" height="162"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="aYO-mg-Qhp">
+                                        <rect key="frame" x="0.0" y="228" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aYO-mg-Qhp" id="bdX-cF-hdf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="161.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="149.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqv-xh-AAE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.66666666666666"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="pIi-fE-3eS" id="4dy-Iz-M5A"/>
                                                         <outlet property="delegate" destination="pIi-fE-3eS" id="d3F-LQ-Uj1"/>
@@ -786,7 +786,7 @@ Tap Add to configure</string>
                             <tableViewSection id="Z00-Lw-ZtQ" userLabel="Back">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="PLB-s1-6Ze">
-                                        <rect key="frame" x="0.0" y="390" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="378" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PLB-s1-6Ze" id="57O-u3-hiM">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>
@@ -811,7 +811,7 @@ Tap Add to configure</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="ZBn-9E-x73">
-                                        <rect key="frame" x="0.0" y="420" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="408" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZBn-9E-x73" id="vLg-AT-rgy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>

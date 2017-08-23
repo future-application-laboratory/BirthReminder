@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import SCLAlertView
-import SwiftyJSON
+import ObjectMapper
 
 class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -110,15 +110,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             NetworkController.provider.request(.people(inAnimeID: self.anime!.id)) { response in
                 switch response {
                 case .success(let result):
-                    let data = result.data
-                    let json = JSON(data: data)
-                    self.tableViewData = json.array!.map { person in
-                        let dict = person.dictionary!
-                        let name = dict["name"]!.string!
-                        let id = dict["id"]!.string!
-                        let birth = dict["birth"]!.string!
-                        return People(withName: name, birth: birth, picData: nil, id: Int(id)!)
-                    }
+                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
+                    self.tableViewData = Mapper<People>().mapArray(JSONString: json)!
                     DispatchQueue.main.async{
                         self.tableView.reloadData()
                         self.reloadSparator()

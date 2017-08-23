@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import SCLAlertView
 import DZNEmptyDataSet
-import SwiftyJSON
+import ObjectMapper
 
 class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
@@ -135,14 +135,8 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         NetworkController.provider.request(.animes) { response in
             switch response {
             case .success(let result):
-                let data = result.data
-                let json = JSON(data: data)
-                self.animes = json.array!.map { anime in
-                    let dict = anime.dictionary!
-                    let name = dict["name"]!.string!
-                    let id = dict["id"]!.string!
-                    return Anime(withId: Int(id)!, name: name, pic: nil)
-                }
+                let json = String(data: result.data, encoding: String.Encoding.utf8)!
+                self.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.reloadSparator()
@@ -168,7 +162,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 switch response {
                 case .success(let result):
                     let data = result.data
-                    anime.pic = UIImage(data: data)!
+                    anime.pic = UIImage(data: data)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
