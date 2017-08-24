@@ -9,22 +9,21 @@
 import UIKit
 import SnapKit
 import SCLAlertView
-import DZNEmptyDataSet
 import ObjectMapper
 
-class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var animes = [Anime]()
     
     @IBOutlet weak var tableView: UITableView!
+    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = self
-        
         view.backgroundColor = UIColor.flatGreen
+        
+        loadingView.center = view.center
         
         // Agreement
         let defaults = UserDefaults()
@@ -45,6 +44,8 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         
         reloadSparator()
         
+        view.addSubview(loadingView)
+        loadingView.start()
         loadAnimes()
     }
     
@@ -92,47 +93,15 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         performSegue(withIdentifier: "customize", sender: nil)
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let font = UIFont.boldSystemFont(ofSize: 20)
-        return NSAttributedString(string: "Loading now", attributes: [NSAttributedStringKey.font:font, NSAttributedStringKey.foregroundColor:UIColor.flatWhite])
-    }
-    
-    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage! {
-        return UIImage(named: "loading2")
-    }
-    
-    func imageAnimation(forEmptyDataSet scrollView: UIScrollView!) -> CAAnimation! {
-        let animeX = CABasicAnimation()
-        animeX.keyPath = "transform.scale.x"
-        animeX.fromValue = 1
-        animeX.toValue = 2
-        let animeY = CABasicAnimation()
-        animeY.keyPath = "transform.scale.y"
-        animeY.fromValue = 1
-        animeY.toValue = 2
-        let animeAlpha = CABasicAnimation()
-        animeAlpha.keyPath = "opacity"
-        animeAlpha.fromValue = 0
-        animeAlpha.toValue = 1
-        let group = CAAnimationGroup()
-        group.animations = [animeX,animeY,animeAlpha]
-        group.duration = 2
-        group.isRemovedOnCompletion = false
-        group.fillMode = kCAFillModeForwards
-        group.repeatCount = HUGE
-        return group
-    }
-    
-    func emptyDataSetShouldAnimateImageView(_ scrollView: UIScrollView!) -> Bool {
-        return true
-    }
-    
     func reloadSparator() {
         tableView.separatorStyle = animes.isEmpty ? .none : .singleLine
     }
     
     func loadAnimes() {
         NetworkController.provider.request(.animes) { response in
+            DispatchQueue.main.async {
+                self.loadingView.stop()
+            }
             switch response {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
@@ -171,78 +140,6 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 }
             }
         }
-    }
-    
-}
-
-class RoundedSquareCanvas: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.clear
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        let pathRect = bounds.insetBy(dx: 1, dy: 1)
-        let path = UIBezierPath(roundedRect: pathRect, cornerRadius: 10)
-        path.lineWidth = 3
-        UIColor.darkGray.setFill()
-        UIColor.lightGray.setStroke()
-        path.fill()
-        path.stroke()
-    }
-    
-}
-
-class LoadingView:UIView {
-    let progressView = UIActivityIndicatorView()
-    var square:RoundedSquareCanvas?
-    let loadingLabel = UILabel()
-    
-    init(frame: CGRect, text: String) {
-        super.init(frame: frame)
-        square = RoundedSquareCanvas(frame: frame)
-        self.addSubview(progressView)
-        self.addSubview(square!)
-        self.addSubview(loadingLabel)
-        self.bringSubview(toFront: square!)
-        self.bringSubview(toFront: progressView)
-        self.bringSubview(toFront: loadingLabel)
-        progressView.color = UIColor.white
-        progressView.backgroundColor = UIColor.gray
-        progressView.center = self.center
-        loadingLabel.text = text
-        loadingLabel.textAlignment = .center
-        loadingLabel.textColor = UIColor.white
-        loadingLabel.font = UIFont(name: "Pingfang SC", size: 20)
-        loadingLabel.snp.makeConstraints { constraint in
-            constraint.bottom.equalTo(square!).offset(-10)
-            constraint.centerX.equalTo(square!)
-            constraint.height.equalTo(50)
-        }
-    }
-    
-    override convenience init(frame: CGRect) {
-        self.init(frame: frame, text: "Loading")
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func start() {
-        progressView.startAnimating()
-        loadingLabel.isHidden = false
-        square?.isHidden = false
-    }
-    
-    func stop() {
-        progressView.stopAnimating()
-        loadingLabel.isHidden = true
-        square?.isHidden = true
     }
     
 }

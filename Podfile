@@ -8,8 +8,8 @@ target 'BirthdayReminder' do
     pod 'SCLAlertView'
     pod 'Onboard'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
-    pod 'DZNEmptyDataSet'
     pod 'Moya'
     pod 'AcknowList'
+    pod 'LTMorphingLabel'
     
 end

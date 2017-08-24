@@ -17,7 +17,6 @@
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B02F6A761F4E53E300D28BBC /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B02F6A751F4E53DF00D28BBC /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B04966571F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B04966581F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
@@ -35,6 +34,8 @@
 		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B081452D1F4E7977007D8DD0 /* LoadingView.swift */; };
+		B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
 		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
 		B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F2D1F27578400D26557 /* InterfaceController.swift */; };
@@ -134,7 +135,6 @@
 		B02929501F26E79000AD0BC1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B02929531F26E79000AD0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B02F6A751F4E53DF00D28BBC /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		B03B7DA41F31AD75001BC73C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
@@ -149,6 +149,8 @@
 		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.swift; path = Universal/Network/Network.swift; sourceTree = "<group>"; };
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
+		B081452D1F4E7977007D8DD0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = "<group>"; };
 		B0990F1A1F27578400D26557 /* WatchReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0990F1D1F27578400D26557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B0990F1F1F27578400D26557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,8 +267,9 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
-				B02F6A751F4E53DF00D28BBC /* Pods-BirthdayReminder-acknowledgements.plist */,
+				B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */,
+				B081452C1F4E7967007D8DD0 /* View */,
 				B049DC9C1F1EEE31008634C5 /* Controllers */,
 				B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */,
 				B068835B1F1EEB2D00831AA6 /* Main.storyboard */,
@@ -305,6 +308,14 @@
 				B068837B1F1EECF100831AA6 /* Network.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		B081452C1F4E7967007D8DD0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B0990F1B1F27578400D26557 /* WatchReminder */ = {
@@ -551,7 +562,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02F6A761F4E53E300D28BBC /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
+				B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
 				B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */,
 				B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */,
@@ -653,6 +664,7 @@
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */,
+				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,

@@ -126,7 +126,7 @@ Tap Add button to configure</string>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Agreements" id="Dyn-wd-gwF">
+                            <tableViewSection headerTitle="About" id="Dyn-wd-gwF">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vkw-cI-mLp">
                                         <rect key="frame" x="0.0" y="166" width="414" height="100"/>
@@ -135,8 +135,8 @@ Tap Add button to configure</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check the agreements" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-6x-OpC">
-                                                    <rect key="frame" x="120.33333333333331" y="39.666666666666657" width="173.33333333333337" height="20.333333333333336"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check the acknowledgements" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-6x-OpC">
+                                                    <rect key="frame" x="91.666666666666686" y="39.666666666666657" width="231" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -465,10 +465,23 @@ Tap Add to configure</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
+                            <tableViewSection id="cxZ-zq-7cp" userLabel="PlaceHolder">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="40" id="5QG-up-c0L">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5QG-up-c0L" id="cmk-QB-EcS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="39.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Name" id="FHZ-vc-PId">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zxu-fZ-szh">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="68" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zxu-fZ-szh" id="Mr4-8w-gc1">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -496,7 +509,7 @@ Tap Add to configure</string>
                             <tableViewSection headerTitle="Image" id="AHK-j2-GtI">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="1vg-ik-cFU">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="100"/>
+                                        <rect key="frame" x="0.0" y="140" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1vg-ik-cFU" id="yhx-Tj-ZlP">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
@@ -548,7 +561,7 @@ Tap Add to configure</string>
                             <tableViewSection headerTitle="Birthday" id="LKf-Sl-7sK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="ckz-Cl-kJY">
-                                        <rect key="frame" x="0.0" y="228" width="414" height="162"/>
+                                        <rect key="frame" x="0.0" y="268" width="414" height="162"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ckz-Cl-kJY" id="n1e-3b-jwF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="161.66666666666666"/>
@@ -577,7 +590,7 @@ Tap Add to configure</string>
                             <tableViewSection id="PN7-2F-ve2" userLabel="Back">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="oeW-53-uVK">
-                                        <rect key="frame" x="0.0" y="390" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="430" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oeW-53-uVK" id="CUW-SZ-bNb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>
@@ -602,7 +615,7 @@ Tap Add to configure</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="30" id="1LN-LI-PHj">
-                                        <rect key="frame" x="0.0" y="420" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="460" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1LN-LI-PHj" id="QG1-JU-MJl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="29.666666666666668"/>
