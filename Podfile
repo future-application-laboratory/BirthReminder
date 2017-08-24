@@ -10,6 +10,6 @@ target 'BirthdayReminder' do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'DZNEmptyDataSet'
     pod 'Moya'
+    pod 'AcknowList'
     
 end
-

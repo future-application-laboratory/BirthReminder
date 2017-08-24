@@ -149,9 +149,6 @@ Tap Add button to configure</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <segue destination="dy6-fT-ZAB" kind="show" id="3aZ-h5-nrG"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -230,24 +227,6 @@ Tap Add button to configure</string>
             </objects>
             <point key="canvasLocation" x="-1896" y="1233"/>
         </scene>
-        <!--License-->
-        <scene sceneID="2M1-M4-a4l">
-            <objects>
-                <viewController title="License" id="dy6-fT-ZAB" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RqU-FL-JK5"/>
-                        <viewControllerLayoutGuide type="bottom" id="eyv-7o-rAR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eYs-Oe-7ud">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6HJ-xc-t9z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2473" y="3450"/>
-        </scene>
         <!--Contact-->
         <scene sceneID="Kdk-GQ-JZE">
             <objects>
@@ -264,7 +243,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jw7-ri-osv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4290" y="3450"/>
+            <point key="canvasLocation" x="-1959" y="3744"/>
         </scene>
         <!--Animes-->
         <scene sceneID="QSj-fa-pW3">
