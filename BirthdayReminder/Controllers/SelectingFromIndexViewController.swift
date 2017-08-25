@@ -72,6 +72,7 @@ class SelectingFromIndexViewController: UITableViewController {
     }
     
     private func setupTableView() {
+        tableView.tableFooterView = UIView()
         let request = PeopleToSave.sortedFetchRequest
         tableData = try! context.fetch(request) as! [PeopleToSave]
         tableView.reloadData()

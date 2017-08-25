@@ -41,6 +41,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
         
+        tableView.tableFooterView = UIView()
+        
         // Load the basic info
         loadingView.start()
         
