@@ -124,7 +124,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.separatorStyle = .none
             emptyLabel.isHidden = false
         } else {
-            tableView.separatorStyle = .singleLineEtched
+            tableView.separatorStyle = .singleLine
             emptyLabel.isHidden = true
         }
     }

@@ -52,10 +52,10 @@
 		B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
-		B0FB3E121F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
-		B0FB3E131F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
-		B0FB3E141F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
-		B0FB3E151F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E831F4FD8B90022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E841F4FD8B90022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E851F4FD8BA0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E861F4FD8BA0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,9 +174,9 @@
 		B0FB3E0F1F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		B0FB3E101F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		B0FB3E111F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
-		B0FB3E161F4FD3AD0022509B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B0FB3E181F4FD3AF0022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		B0FB3E191F4FD3B10022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B0FB3E161F4FD3AD0022509B /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; usesTabs = 0; };
+		B0FB3E871F4FD91B0022509B /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B0FB3E881F4FD91D0022509B /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -563,8 +563,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */,
+				B0FB3E841F4FD8B90022509B /* Localizable.strings in Resources */,
 				B0A46CCB1F4168B7000E5F30 /* Media.xcassets in Resources */,
-				B0FB3E131F4FD3AD0022509B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,9 +573,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
+				B0FB3E831F4FD8B90022509B /* Localizable.strings in Resources */,
 				B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */,
-				B0FB3E121F4FD3AD0022509B /* Localizable.strings in Resources */,
 				B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */,
 				B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */,
 			);
@@ -586,7 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F201F27578400D26557 /* Assets.xcassets in Resources */,
-				B0FB3E141F4FD3AD0022509B /* Localizable.strings in Resources */,
+				B0FB3E861F4FD8BA0022509B /* Localizable.strings in Resources */,
 				B0A46CCC1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */,
 			);
@@ -597,8 +597,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F361F27578400D26557 /* Assets.xcassets in Resources */,
+				B0FB3E851F4FD8BA0022509B /* Localizable.strings in Resources */,
 				B0A46CCD1F4168B7000E5F30 /* Media.xcassets in Resources */,
-				B0FB3E151F4FD3AD0022509B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -765,8 +765,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				B0FB3E161F4FD3AD0022509B /* en */,
-				B0FB3E181F4FD3AF0022509B /* zh-Hans */,
-				B0FB3E191F4FD3B10022509B /* zh-Hant */,
+				B0FB3E871F4FD91B0022509B /* zh-Hans */,
+				B0FB3E881F4FD91D0022509B /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			path = Universal/Localization;

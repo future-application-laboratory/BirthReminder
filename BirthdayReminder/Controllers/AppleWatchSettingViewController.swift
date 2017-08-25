@@ -63,7 +63,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         }
         tableView.reloadData()
         emptyLabel?.isHidden = !saved!.isEmpty
-        tableView.separatorStyle = saved!.isEmpty ? .none : .singleLineEtched
+        tableView.separatorStyle = saved!.isEmpty ? .none : .singleLine
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -88,7 +88,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
                 person.encoded
             }, forKey: "AWFavourite")
             emptyLabel?.isHidden = !saved!.isEmpty
-            tableView.separatorStyle = saved!.isEmpty ? .none : .singleLineEtched
+            tableView.separatorStyle = saved!.isEmpty ? .none : .singleLine
             reloadAddButtonStatus()
             delegate.syncWithAppleWatch()
         }

@@ -1,6 +1,6 @@
 
 /* Class = "UILabel"; text = "No data setted\nPlease add in the Host App\nOr tap to refresh"; ObjectID = "1gE-7c-pdR"; */
-"1gE-7c-pdR.text" = "No data setted\nPlease add in the Host App\nOr tap to refresh";
+"1gE-7c-pdR.text" = "沒有已保存的數據\n請在主程序中添加\n或點擊來刷新";
 
 /* Class = "UILabel"; text = "Birthday"; ObjectID = "BBp-CL-GUf"; */
 "BBp-CL-GUf.text" = "Birthday";
