@@ -67,6 +67,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func setupTableView() {
+        tableView.tableFooterView = UIView()
         let request = PeopleToSave.sortedFetchRequest
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
@@ -118,7 +119,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         checkDataAndDisplayPlaceHolder()
     }
     
-    func checkDataAndDisplayPlaceHolder() {
+    private func checkDataAndDisplayPlaceHolder() {
         if data.isEmpty {
             tableView.separatorStyle = .none
             emptyLabel.isHidden = false
