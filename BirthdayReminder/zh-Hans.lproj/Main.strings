@@ -1,0 +1,105 @@
+
+/* Class = "UITabBarController"; title = "Add"; ObjectID = "6c4-gZ-9wt"; */
+"6c4-gZ-9wt.title" = "Add";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "6vu-p1-U4B"; */
+"6vu-p1-U4B.normalTitle" = "Done";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "7fb-hl-Vv7"; */
+"7fb-hl-Vv7.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Nothing added to sync\nTap Add to configure"; ObjectID = "89p-iU-0BB"; */
+"89p-iU-0BB.text" = "Nothing added to sync\nTap Add to configure";
+
+/* Class = "UILabel"; text = "Set favourite to sync with Apple Watch"; ObjectID = "8GF-Rd-csy"; */
+"8GF-Rd-csy.text" = "Set favourite to sync with Apple Watch";
+
+/* Class = "UITableViewSection"; headerTitle = "Image"; ObjectID = "AHK-j2-GtI"; */
+"AHK-j2-GtI.headerTitle" = "Image";
+
+/* Class = "UITableViewSection"; headerTitle = "Image"; ObjectID = "Aet-Oy-oC5"; */
+"Aet-Oy-oC5.headerTitle" = "Image";
+
+/* Class = "UITableViewSection"; headerTitle = "Apple Watch Settings"; ObjectID = "B8A-pt-VQc"; */
+"B8A-pt-VQc.headerTitle" = "Apple Watch Settings";
+
+/* Class = "UINavigationItem"; title = "Index"; ObjectID = "CHb-Xh-m3B"; */
+"CHb-Xh-m3B.title" = "Index";
+
+/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "Dyn-wd-gwF"; */
+"Dyn-wd-gwF.headerTitle" = "About";
+
+/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "FHZ-vc-PId"; */
+"FHZ-vc-PId.headerTitle" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "Iyt-2K-aix"; */
+"Iyt-2K-aix.normalTitle" = "Done";
+
+/* Class = "UITableViewSection"; headerTitle = "Birthday"; ObjectID = "LKf-Sl-7sK"; */
+"LKf-Sl-7sK.headerTitle" = "Birthday";
+
+/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "N5c-dK-MCY"; */
+"N5c-dK-MCY.normalTitle" = "Choose";
+
+/* Class = "UILabel"; text = "Check the acknowledgements"; ObjectID = "QGg-6x-OpC"; */
+"QGg-6x-OpC.text" = "Check the acknowledgements";
+
+/* Class = "UINavigationItem"; title = "Animes"; ObjectID = "Qde-DH-bvt"; */
+"Qde-DH-bvt.title" = "Animes";
+
+/* Class = "UILabel"; text = "Check the Contect Info"; ObjectID = "QmJ-P1-Na2"; */
+"QmJ-P1-Na2.text" = "Check the Contect Info";
+
+/* Class = "UINavigationItem"; title = "Blank"; ObjectID = "S9Z-x1-Hu7"; */
+"S9Z-x1-Hu7.title" = "Blank";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "UPn-Tl-eeq"; */
+"UPn-Tl-eeq.normalTitle" = "Clear";
+
+/* Class = "UITableViewController"; title = "Add"; ObjectID = "Xpl-JI-Eo0"; */
+"Xpl-JI-Eo0.title" = "Add";
+
+/* Class = "UIViewController"; title = "AW Settings"; ObjectID = "Zip-mg-AKx"; */
+"Zip-mg-AKx.title" = "AW Settings";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "a6P-sQ-2n6"; */
+"a6P-sQ-2n6.normalTitle" = "Clear";
+
+/* Class = "UITableViewController"; title = "Settings"; ObjectID = "d8q-mA-Edg"; */
+"d8q-mA-Edg.title" = "Settings";
+
+/* Class = "UITableViewSection"; headerTitle = "Contact"; ObjectID = "deJ-4u-uCS"; */
+"deJ-4u-uCS.headerTitle" = "Contact";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "gEu-Fu-7Q5"; */
+"gEu-Fu-7Q5.placeholder" = "Name";
+
+/* Class = "UIViewController"; title = "Contact"; ObjectID = "hSP-kt-Zj4"; */
+"hSP-kt-Zj4.title" = "Contact";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "hW9-sk-Xx1"; */
+"hW9-sk-Xx1.title" = "Settings";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "juj-gd-Nd4"; */
+"juj-gd-Nd4.placeholder" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "oam-my-oWL"; */
+"oam-my-oWL.normalTitle" = "Choose";
+
+/* Class = "UITabBarItem"; title = "Import from Server"; ObjectID = "oc6-TQ-b2A"; */
+"oc6-TQ-b2A.title" = "Import from Server";
+
+/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "rjU-SB-OLd"; */
+"rjU-SB-OLd.headerTitle" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "t5C-R9-Jtk"; */
+"t5C-R9-Jtk.normalTitle" = "Cancel";
+
+/* Class = "UITabBarItem"; title = "Blank Template"; ObjectID = "tgX-BL-dZt"; */
+"tgX-BL-dZt.title" = "Blank Template";
+
+/* Class = "UITableViewSection"; headerTitle = "Birthday"; ObjectID = "uae-XN-PrI"; */
+"uae-XN-PrI.headerTitle" = "Birthday";
+
+/* Class = "UILabel"; text = "No data\nTap Add button to configure"; ObjectID = "xdC-SE-cF4"; */
+"xdC-SE-cF4.text" = "No data\nTap Add button to configure";

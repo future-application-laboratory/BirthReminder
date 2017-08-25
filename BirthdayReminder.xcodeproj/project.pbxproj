@@ -22,10 +22,6 @@
 		B04966581F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
-		B05E192D1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
-		B05E192E1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
-		B05E192F1F2C1A34003104C5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B05E192B1F2C1A34003104C5 /* Localizable.strings */; };
 		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
@@ -56,6 +52,10 @@
 		B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
+		B0FB3E121F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E131F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E141F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
+		B0FB3E151F4FD3AD0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +138,6 @@
 		B03B7DA41F31AD75001BC73C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
-		B05E192B1F2C1A34003104C5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = Universal/Localization/Localizable.strings; sourceTree = "<group>"; };
 		B06043991F3C9978007D1016 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B068835C1F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -169,6 +168,15 @@
 		B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingFromIndexViewController.swift; sourceTree = "<group>"; };
 		B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		B0FB3E0C1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		B0FB3E0D1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		B0FB3E0E1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
+		B0FB3E0F1F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		B0FB3E101F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
+		B0FB3E111F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
+		B0FB3E161F4FD3AD0022509B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B0FB3E181F4FD3AF0022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		B0FB3E191F4FD3B10022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,7 +242,7 @@
 		B05E192A1F2C19E0003104C5 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				B05E192B1F2C1A34003104C5 /* Localizable.strings */,
+				B0FB3E171F4FD3AD0022509B /* Localizable.strings */,
 			);
 			name = Localization;
 			sourceTree = "<group>";
@@ -533,6 +541,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = B068834B1F1EEB2D00831AA6;
 			productRefGroup = B06883551F1EEB2D00831AA6 /* Products */;
@@ -554,7 +564,7 @@
 			files = (
 				B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */,
 				B0A46CCB1F4168B7000E5F30 /* Media.xcassets in Resources */,
-				B05E192D1F2C1A34003104C5 /* Localizable.strings in Resources */,
+				B0FB3E131F4FD3AD0022509B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,7 +575,7 @@
 				B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
 				B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */,
-				B05E192C1F2C1A34003104C5 /* Localizable.strings in Resources */,
+				B0FB3E121F4FD3AD0022509B /* Localizable.strings in Resources */,
 				B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */,
 				B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */,
 			);
@@ -576,7 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F201F27578400D26557 /* Assets.xcassets in Resources */,
-				B05E192E1F2C1A34003104C5 /* Localizable.strings in Resources */,
+				B0FB3E141F4FD3AD0022509B /* Localizable.strings in Resources */,
 				B0A46CCC1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */,
 			);
@@ -588,7 +598,7 @@
 			files = (
 				B0990F361F27578400D26557 /* Assets.xcassets in Resources */,
 				B0A46CCD1F4168B7000E5F30 /* Media.xcassets in Resources */,
-				B05E192F1F2C1A34003104C5 /* Localizable.strings in Resources */,
+				B0FB3E151F4FD3AD0022509B /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +727,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				B02929531F26E79000AD0BC1 /* Base */,
+				B0FB3E0D1F4FD3790022509B /* zh-Hans */,
+				B0FB3E101F4FD3810022509B /* zh-Hant */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -725,6 +737,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				B068835C1F1EEB2D00831AA6 /* Base */,
+				B0FB3E0C1F4FD3790022509B /* zh-Hans */,
+				B0FB3E0F1F4FD3810022509B /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -741,8 +755,21 @@
 			isa = PBXVariantGroup;
 			children = (
 				B0990F1D1F27578400D26557 /* Base */,
+				B0FB3E0E1F4FD3790022509B /* zh-Hans */,
+				B0FB3E111F4FD3810022509B /* zh-Hant */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		B0FB3E171F4FD3AD0022509B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0FB3E161F4FD3AD0022509B /* en */,
+				B0FB3E181F4FD3AF0022509B /* zh-Hans */,
+				B0FB3E191F4FD3B10022509B /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			path = Universal/Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -785,6 +812,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -828,7 +856,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -843,6 +871,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -880,7 +909,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -942,7 +971,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -964,7 +993,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};
@@ -983,7 +1012,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Debug;
 		};
@@ -1002,7 +1031,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
 			};
 			name = Release;
 		};

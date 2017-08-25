@@ -1,0 +1,15 @@
+
+/* Class = "WKInterfaceController"; title = "BirthReminder"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "BirthReminder";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "Birth"; ObjectID = "OjJ-WC-S7Q"; */
+"OjJ-WC-S7Q.text" = "Birth";
+
+/* Class = "WKInterfaceLabel"; text = "No person added to favourite\nGo to Host App to configure"; ObjectID = "ai9-ss-3f3"; */
+"ai9-ss-3f3.text" = "No person added to favourite\nGo to Host App to configure";
+
+/* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "oHM-V4-bt6"; */
+"oHM-V4-bt6.text" = "Name";

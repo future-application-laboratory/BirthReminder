@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  BirthdayReminder
+
+  Created by Jacky Yu on 29/07/2017.
+  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
+*/
+
+"dateFormat" = "MM月 dd日";
+"agreement" = "這些信息收集於互聯網，且他們不屬於此App的開發者。\n請通過郵件聯絡我如果您認爲這裏的信息侵犯了您的著作權或著佐權，我會將其刪除\n（您可以在App Store頁面或本應用設置界面找到我的聯絡方式）";
+
+"today" = "今天";
+"tomorrow" = "明天;
+"dayAfterTomorrow" = "後天";
+
+"daysLeft-" = "剩餘";
+"-daysLeft" = "天";
+
+"month1" = "一月";
+"month2" = "二月";
+"month3" = "三月";
+"month4" = "四月";
+"month5" = "五月";
+"month6" = "六月";
+"month7" = "七月";
+"month8" = "八月";
+"month9" = "九月";
+"month10" = "十月";
+"month11" = "十一月";
+"month12" = "十二月";
+
+"day1" = "1日";
+"day2" = "2日";
+"day3" = "3日";
+"day4" = "4日";
+"day5" = "5日";
+"day6" = "6日";
+"day7" = "7日";
+"day8" = "8日";
+"day9" = "9日";
+"day10" = "10日";
+"day11" = "11日";
+"day12" = "12日";
+"day13" = "13日";
+"day14" = "14日";
+"day15" = "15日";
+"day16" = "16日";
+"day17" = "17日";
+"day18" = "18日";
+"day19" = "19日";
+"day20" = "20日";
+"day21" = "21日";
+"day22" = "22日";
+"day23" = "23日";
+"day24" = "24日";
+"day25" = "25日";
+"day26" = "26日";
+"day27" = "27日";
+"day28" = "28日";
+"day29" = "29日";
+"day30" = "30日";
+"day31" = "31日";
+
+"about" = "關於";
