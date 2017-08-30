@@ -108,7 +108,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     
     private func loadPeople() {
-        NetworkController.networkQueue.async {
+        NetworkController.networkQueue.async { [unowned self] in
             NetworkController.provider.request(.people(inAnimeID: self.anime!.id)) { response in
                 switch response {
                 case .success(let result):
@@ -125,7 +125,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                     DispatchQueue.main.async {
                         let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
                         let alert = SCLAlertView(appearance: appearence)
-                        alert.addButton("OK") {
+                        alert.addButton("OK") { [unowned self] in
                             self.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
                         }
                         alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
@@ -137,7 +137,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     private func loadPicForPeople() {
         // Load pic for every person
-        self.tableViewData.forEach { person in
+        self.tableViewData.forEach { [unowned self] person in
             NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self.anime!.id)) { response in
                 switch response {
                 case .success(let result):

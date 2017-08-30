@@ -98,7 +98,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     }
     
     func loadAnimes() {
-        NetworkController.provider.request(.animes) { response in
+        NetworkController.provider.request(.animes) { [unowned self] response in
             DispatchQueue.main.async {
                 self.loadingView.stop()
             }
@@ -116,7 +116,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 DispatchQueue.main.async {
                     let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
                     let alert = SCLAlertView(appearance: appearence)
-                    alert.addButton("OK") {
+                    alert.addButton("OK") { [unowned self] in
                         self.navigationController?.popViewController(animated: true)
                     }
                     alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
@@ -127,7 +127,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     
     func loadPicsForAnimes() {
         animes.forEach { anime in
-            NetworkController.provider.request(.animepic(withID: anime.id)) { response in
+            NetworkController.provider.request(.animepic(withID: anime.id)) { [unowned self] response in
                 switch response {
                 case .success(let result):
                     let data = result.data
