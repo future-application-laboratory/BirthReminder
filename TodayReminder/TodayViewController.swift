@@ -62,7 +62,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     func fetchData() {
         let fetched = try! context.fetch(request)
         if !fetched.isEmpty {
-            let people = fetched as! [PeopleToSave]
+            let people = fetched
             current = BirthComputer.compute(withBirthdayPeople: people)[0]
         }
         nameLabel.isHidden = isEmpty

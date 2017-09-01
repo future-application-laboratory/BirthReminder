@@ -68,10 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 session.outstandingFileTransfers.forEach { transfer in
                     transfer.cancel()
                 }
-                let defaults = UserDefaults()
-                
-                let people = (defaults.array(forKey: "AWFavourite") as? [Data] ?? []).map { person in
-                    person.toPeopleToTransfer()
+                let request = PeopleToSave.sortedFetchRequest
+                let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
+                    guard person.shouldSync else { return nil }
+                    return PeopleToTransfer(withName: person.name, birth: person.birth, picData: person.picData)
                 }
                 let data = NSKeyedArchiver.archivedData(withRootObject: people)
                 let manager = FileManager()

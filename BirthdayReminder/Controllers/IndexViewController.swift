@@ -20,7 +20,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     weak var context: NSManagedObjectContext! {
         return delegate.context
     }
-    var frc: NSFetchedResultsController<NSFetchRequestResult>!
+    var frc: NSFetchedResultsController<PeopleToSave>!
     @IBOutlet weak var tableView: UITableView!
     
     var data = [PeopleToSave]()
@@ -72,7 +72,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
-        data = frc.fetchedObjects as! [PeopleToSave]
+        data = frc.fetchedObjects!
         data = BirthComputer.compute(withBirthdayPeople: data)
         checkDataAndDisplayPlaceHolder()
     }
@@ -112,7 +112,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             data = BirthComputer.compute(withBirthdayPeople: data)
             tableView.reloadData()
         case .delete:
-            break
+            delegate.syncWithAppleWatch()
         default:
             break // tan90
         }

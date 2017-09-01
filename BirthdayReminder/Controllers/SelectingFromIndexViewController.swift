@@ -62,11 +62,11 @@ class SelectingFromIndexViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
-        let defaults = UserDefaults()
-        var saved = defaults.array(forKey: "AWFavourite") as? [Data] ?? []
         let current = tableData![row]
-        saved.append(PeopleToTransfer(withName: current.name, birth: current.birth, picData: current.picData).encoded)
-        defaults.set(saved, forKey: "AWFavourite")
+        
+        current.shouldSync = true
+        try! context.save()
+        
         navigationController?.popViewController(animated: true)
         delegate.syncWithAppleWatch()
     }
@@ -74,7 +74,9 @@ class SelectingFromIndexViewController: UITableViewController {
     private func setupTableView() {
         tableView.tableFooterView = UIView()
         let request = PeopleToSave.sortedFetchRequest
-        tableData = try! context.fetch(request) as! [PeopleToSave]
+        tableData = try! context.fetch(request).filter { person in
+            !person.shouldSync
+        }
         tableView.reloadData()
     }
     

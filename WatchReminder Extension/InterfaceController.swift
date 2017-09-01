@@ -66,7 +66,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     }
     
     func reload() {
-        tableData = try! context.fetch(request) as! [PeopleToSave]
+        tableData = try! context.fetch(request)
         reloadTable()
     }
     

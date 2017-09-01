@@ -15,12 +15,16 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var addButton: UIButton!
     
+    weak var context: NSManagedObjectContext! {
+        return delegate.context
+    }
+    
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
         return delegate
     }
-    var saved: [PeopleToTransfer]?
+    var saved: [PeopleToSave]?
     
     @IBOutlet weak var emptyLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 200))
     @IBOutlet weak var tableView: UITableView!
@@ -57,9 +61,9 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     }
     
     private func reloadTableView() {
-        let defaults = UserDefaults()
-        saved = (defaults.array(forKey: "AWFavourite") as? [Data] ?? []).map { person in
-            person.toPeopleToTransfer()!
+        let request = PeopleToSave.sortedFetchRequest
+        saved = try! context.fetch(request).filter { person in
+            person.shouldSync
         }
         tableView.reloadData()
         emptyLabel?.isHidden = !saved!.isEmpty
@@ -81,12 +85,13 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let row = indexPath.row
+            
+            saved![row].shouldSync = false
+            try! context.save()
+            
             saved!.remove(at: row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            let defaults = UserDefaults()
-            defaults.set(saved!.map { person in
-                person.encoded
-            }, forKey: "AWFavourite")
+            
             emptyLabel?.isHidden = !saved!.isEmpty
             tableView.separatorStyle = saved!.isEmpty ? .none : .singleLine
             reloadAddButtonStatus()

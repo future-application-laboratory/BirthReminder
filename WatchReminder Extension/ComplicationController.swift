@@ -103,7 +103,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     override init() {
         super.init()
-        let fetched = try! context.fetch(request) as! [PeopleToSave]
+        let fetched = try! context.fetch(request)
         self.source = BirthComputer.compute(withBirthdayPeople: fetched)
     }
     

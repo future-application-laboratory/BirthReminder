@@ -69,7 +69,7 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         defaults.set(true, forKey: "dataBaseIsUpdated")
         
         try! context.fetch(request).forEach { object in
-            context.delete(object as! NSManagedObject)
+            context.delete(object)
         } //Delete all the previous objects
         
         (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleToTransfer]).forEach { person in

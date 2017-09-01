@@ -18,6 +18,7 @@ public final class PeopleToSave: ManagedObject {
     @NSManaged public private(set) var name: String
     @NSManaged public private(set) var birth: String
     @NSManaged public private(set) var picData: Data?
+    @NSManaged public var shouldSync: Bool
     
     static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
@@ -45,6 +46,11 @@ extension PeopleToSave: ManagedObjectType {
         return "People"
     }
     
+    public static var sortedFetchRequest: NSFetchRequest<PeopleToSave> {
+        let request = NSFetchRequest<PeopleToSave>(entityName: "People")
+        request.sortDescriptors = defaultSortDescriptors
+        return request
+    }
 }
 
 public class ManagedObject: NSManagedObject {
