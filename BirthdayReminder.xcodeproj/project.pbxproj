@@ -11,7 +11,6 @@
 		B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
-		B0126A901F34330000C74F73 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */; };
 		B029294E1F26E79000AD0BC1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */; };
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
@@ -20,6 +19,7 @@
 		B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
+		B02FC5841F598B5700EAB6E6 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
@@ -59,19 +59,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B0126A911F34330000C74F73 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B0990F251F27578400D26557;
-			remoteInfo = "WatchReminder Extension";
-		};
 		B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B029294B1F26E79000AD0BC1;
 			remoteInfo = TodayReminder;
+		};
+		B02FC5851F598B5700EAB6E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0990F251F27578400D26557;
+			remoteInfo = "WatchReminder Extension";
 		};
 		B0990F381F27578400D26557 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -83,17 +83,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B0126A931F34330000C74F73 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				B0126A901F34330000C74F73 /* WatchReminder Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B029295C1F26E79000AD0BC1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,6 +90,17 @@
 			dstSubfolderSpec = 13;
 			files = (
 				B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B02FC5871F598B5700EAB6E6 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B02FC5841F598B5700EAB6E6 /* WatchReminder Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,12 +449,12 @@
 			buildPhases = (
 				B0990F181F27578400D26557 /* Resources */,
 				6A449275943E71A2DF2DD293 /* Frameworks */,
-				B0126A931F34330000C74F73 /* Embed App Extensions */,
+				B02FC5871F598B5700EAB6E6 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B0126A921F34330000C74F73 /* PBXTargetDependency */,
+				B02FC5861F598B5700EAB6E6 /* PBXTargetDependency */,
 			);
 			name = WatchReminder;
 			productName = WatchReminder;
@@ -705,15 +705,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B0126A921F34330000C74F73 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B0990F251F27578400D26557 /* WatchReminder Extension */;
-			targetProxy = B0126A911F34330000C74F73 /* PBXContainerItemProxy */;
-		};
 		B02929571F26E79000AD0BC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B029294B1F26E79000AD0BC1 /* TodayReminder */;
 			targetProxy = B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */;
+		};
+		B02FC5861F598B5700EAB6E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0990F251F27578400D26557 /* WatchReminder Extension */;
+			targetProxy = B02FC5851F598B5700EAB6E6 /* PBXContainerItemProxy */;
 		};
 		B0990F391F27578400D26557 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -922,7 +922,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
 				DEVELOPMENT_TEAM = F248CK9C8M;
@@ -939,7 +939,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
 				DEVELOPMENT_TEAM = F248CK9C8M;
