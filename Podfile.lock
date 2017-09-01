@@ -1,0 +1,58 @@
+PODS:
+  - AcknowList (1.2.1)
+  - Alamofire (4.5.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - LTMorphingLabel (0.5.0)
+  - Material (2.8.0):
+    - Material/Core (= 2.8.0)
+  - Material/Core (2.8.0)
+  - Moya (8.0.5):
+    - Moya/Core (= 8.0.5)
+  - Moya/Core (8.0.5):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - ObjectMapper (2.2.8)
+  - Onboard (2.3.1)
+  - Result (3.2.3)
+  - SCLAlertView (0.7.0)
+  - SnapKit (3.2.0)
+
+DEPENDENCIES:
+  - AcknowList
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - LTMorphingLabel
+  - Material
+  - Moya
+  - ObjectMapper
+  - Onboard
+  - SCLAlertView
+  - SnapKit
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+SPEC CHECKSUMS:
+  AcknowList: 6089be555e4dcb5066de3071270ac7ad9df9ee55
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
+  Material: 9ad6479e6b07af97dfa7ca0e5aca0e810917e1cd
+  Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
+  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+
+PODFILE CHECKSUM: c51112d37151b24287c99d82a79092fe486d86ea
+
+COCOAPODS: 1.2.1
