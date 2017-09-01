@@ -17,9 +17,9 @@
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
-		B04966571F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
-		B04966581F31B20300739857 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B7DA41F31AD75001BC73C /* Protocols.swift */; };
+		B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
+		B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
+		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
@@ -135,7 +135,7 @@
 		B02929501F26E79000AD0BC1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B02929531F26E79000AD0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B03B7DA41F31AD75001BC73C /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		B02FC57D1F596E2400EAB6E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = "Universal/File&DataManaging/Protocols.swift"; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
 		B06043991F3C9978007D1016 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -304,8 +304,8 @@
 			isa = PBXGroup;
 			children = (
 				B06883791F1EECEA00831AA6 /* FileManaging.swift */,
+				B02FC57D1F596E2400EAB6E6 /* Protocols.swift */,
 				B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */,
-				B03B7DA41F31AD75001BC73C /* Protocols.swift */,
 			);
 			name = "File&Data Managing";
 			sourceTree = "<group>";
@@ -657,8 +657,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */,
-				B04966571F31B20300739857 /* Protocols.swift in Sources */,
 				B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */,
 				B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */,
@@ -673,12 +673,12 @@
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
-				B03B7DA51F31AD75001BC73C /* Protocols.swift in Sources */,
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
+				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */,
 				B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
@@ -693,7 +693,7 @@
 				B0990F321F27578400D26557 /* NotificationController.swift in Sources */,
 				B0990F341F27578400D26557 /* ComplicationController.swift in Sources */,
 				B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */,
-				B04966581F31B20300739857 /* Protocols.swift in Sources */,
+				B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */,
 				B0E283B31F33464D00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */,
@@ -967,6 +967,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -990,6 +991,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WatchReminder-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
