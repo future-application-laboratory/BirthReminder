@@ -39,7 +39,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
             alert.addButton("OK") {
                 self.navigationController?.popViewController(animated: true)
             }
-            alert.showWarning("Inavailable", subTitle: "Apple Watch not Supported")
+            alert.showWarning(NSLocalizedString("inavailable", comment: "Inavailable"), subTitle: NSLocalizedString("awNotSupported", comment: "Apple Watch not Supported"))
         }
     }
     

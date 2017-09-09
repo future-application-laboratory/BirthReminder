@@ -42,7 +42,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
         
-        reloadSparator()
+        tableView.tableFooterView = UIView()
         
         view.addSubview(loadingView)
         loadingView.start()
@@ -93,10 +93,6 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         performSegue(withIdentifier: "customize", sender: nil)
     }
     
-    func reloadSparator() {
-        tableView.separatorStyle = animes.isEmpty ? .none : .singleLine
-    }
-    
     func loadAnimes() {
         NetworkController.provider.request(.animes) { [unowned self] response in
             DispatchQueue.main.async {
@@ -108,7 +104,6 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 self.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                    self.reloadSparator()
                 }
                 self.loadPicsForAnimes()
             case .failure(let error):
@@ -119,7 +114,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                     alert.addButton("OK") { [unowned self] in
                         self.navigationController?.popViewController(animated: true)
                     }
-                    alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
+                    alert.showError("Failed to load", subTitle: error.localizedDescription)
                 }
             }
         }

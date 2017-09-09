@@ -128,7 +128,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                         alert.addButton("OK") { [unowned self] in
                             self.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
                         }
-                        alert.showError("Failed to load", subTitle: error.errorDescription ?? "Unknown")
+                        alert.showError("Failed to load", subTitle: error.localizedDescription)
                     }
                 }
             }
