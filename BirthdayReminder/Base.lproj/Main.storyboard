@@ -102,7 +102,7 @@ Tap Add button to configure</string>
                     <navigationItem key="navigationItem" title="Index" largeTitleDisplayMode="never" id="CHb-Xh-m3B">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="bxP-fc-DNN">
                             <connections>
-                                <segue destination="1Sw-Wc-OkX" kind="show" id="O8A-NL-DRh"/>
+                                <segue destination="1Sw-Wc-OkX" kind="presentation" id="O8A-NL-DRh"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="add" id="dfj-KM-4ed">
@@ -128,9 +128,8 @@ Tap Add button to configure</string>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="PvD-Yg-chf">
             <objects>
-                <navigationController id="1Sw-Wc-OkX" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uz9-gm-FYx">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                <navigationController navigationBarHidden="YES" id="1Sw-Wc-OkX" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="uz9-gm-FYx">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
@@ -383,7 +382,7 @@ Tap Add to configure</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-Oe-T6w">
-                                <rect key="frame" x="0.0" y="64" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -394,7 +393,7 @@ Tap Add to configure</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="whB-4T-TPX">
-                                <rect key="frame" x="0.0" y="104" width="414" height="588"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="632"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="awFavouriteCell" rowHeight="100" id="6Zi-hz-asp">
@@ -485,10 +484,10 @@ Tap Add to configure</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="ca7-Mz-iPU" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="404" height="100"/>
+                                        <rect key="frame" x="0.0" y="28" width="394" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ca7-Mz-iPU" id="x1c-5Y-Mhq">
-                                            <rect key="frame" x="0.0" y="0.0" width="404" height="99.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-cF-C3S">

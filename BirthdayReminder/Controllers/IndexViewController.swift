@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SnapKit
+import SideMenu
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
@@ -35,6 +36,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         emptyLabel.textColor = UIColor.label
         navigationController?.hidesNavigationBarHairline = true
         setupTableView()
+        setupSideMenu()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -147,4 +149,9 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    private func setupSideMenu() {
+        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.menuAnimationBackgroundColor = .background
+    }
 }
