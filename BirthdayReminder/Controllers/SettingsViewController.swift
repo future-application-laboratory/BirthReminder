@@ -13,7 +13,7 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.flatGreen
+        tableView.backgroundColor = UIColor.background
         tableView.tableFooterView = UIView()
     }
     
@@ -27,9 +27,9 @@ class SettingsViewController: UITableViewController {
                 Acknow(title: "Pics on the Server", text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@protonmail.com")
             ]
             
-            controller.tableView.backgroundColor = UIColor.flatGreen
+            controller.tableView.backgroundColor = UIColor.background
             controller.tableView.visibleCells.forEach { cell in
-                cell.backgroundColor = UIColor.flatGreen
+                cell.backgroundColor = UIColor.background
             }
             controller.title = NSLocalizedString("about", comment: "about")
             

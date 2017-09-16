@@ -16,6 +16,7 @@
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */; };
 		B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
@@ -52,6 +53,7 @@
 		B0E283B51F334DAD00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
+		B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F922D51F64187A0059DFDC /* Constants&Settings.swift */; };
 		B0FB3E831F4FD8B90022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
 		B0FB3E841F4FD8B90022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
 		B0FB3E851F4FD8BA0022509B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E171F4FD3AD0022509B /* Localizable.strings */; };
@@ -135,6 +137,7 @@
 		B02929501F26E79000AD0BC1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		B02929531F26E79000AD0BC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
 		B02FC57D1F596E2400EAB6E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = "Universal/File&DataManaging/Protocols.swift"; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingFromIndexViewController.swift; sourceTree = "<group>"; };
 		B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		B0F922D51F64187A0059DFDC /* Constants&Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Settings.swift"; sourceTree = "<group>"; };
 		B0FB3E0C1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B0FB3E0D1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		B0FB3E0E1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
@@ -277,7 +281,7 @@
 			children = (
 				B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */,
-				B081452C1F4E7967007D8DD0 /* View */,
+				B081452C1F4E7967007D8DD0 /* Views */,
 				B049DC9C1F1EEE31008634C5 /* Controllers */,
 				B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */,
 				B068835B1F1EEB2D00831AA6 /* Main.storyboard */,
@@ -291,6 +295,7 @@
 		B06883721F1EEC9D00831AA6 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				B0F922D51F64187A0059DFDC /* Constants&Settings.swift */,
 				B0A46CC81F416896000E5F30 /* Images */,
 				B05E192A1F2C19E0003104C5 /* Localization */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
@@ -318,12 +323,13 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
-		B081452C1F4E7967007D8DD0 /* View */ = {
+		B081452C1F4E7967007D8DD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
+				B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B0990F1B1F27578400D26557 /* WatchReminder */ = {
@@ -670,9 +676,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
+				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
+				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
@@ -856,7 +864,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -909,7 +917,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -972,7 +980,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -995,7 +1003,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -1014,7 +1022,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -1033,7 +1041,7 @@
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};

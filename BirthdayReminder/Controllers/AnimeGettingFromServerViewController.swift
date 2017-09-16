@@ -21,7 +21,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.flatGreen
+        view.backgroundColor = UIColor.background
         
         loadingView.center = view.center
         
@@ -53,7 +53,7 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         if segue.identifier == "showAnimeDetail" {
             let viewController = segue.destination as! GetPersonalDataFromServerViewController
             viewController.anime = sender as? Anime
-            viewController.navigationItem.title = (sender as! Anime).name
+            viewController.navigationItem.title = (sender as! Anime).name.replacingOccurrences(of: "\n", with: "")
         }
     }
     
@@ -71,10 +71,12 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         let cell = UITableViewCell(style: .default, reuseIdentifier: "animeCell")
         let row = indexPath.row
         let data = animes[row]
-        let image = data.pic
-        cell.textLabel?.textColor = UIColor.flatWhite
+        let image = data.pic ?? UIImage(image: UIImage(), scaledTo: CGSize(width: 200, height: 200))
+        cell.textLabel?.textColor = UIColor.label
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5, weight: UIFont.Weight.medium)
         cell.textLabel?.text = data.name
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
+        cell.textLabel?.numberOfLines = data.name.contains("\n") ? 0 : 1
         let imageView = cell.imageView
         imageView?.image = image
         let layer = imageView?.layer

@@ -31,7 +31,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.flatGreen
+        view.backgroundColor = UIColor.background
         
         if !WCSession.isSupported() {
             let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
@@ -106,9 +106,9 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.flatWhite
+        cell.textLabel?.textColor = UIColor.label
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.flatWhite
+        cell.detailTextLabel?.textColor = UIColor.label
         
         let row = indexPath.row
         let current = saved![row]

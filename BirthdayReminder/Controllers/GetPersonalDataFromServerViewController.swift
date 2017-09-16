@@ -31,7 +31,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.flatGreen
+        view.backgroundColor = UIColor.background
         
         tableView.separatorStyle = .none
         
@@ -63,6 +63,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         if let imageData = data.picData {
             let image = UIImage(data: imageData)
             cell.imageView?.image = image
+        } else {
+            cell.imageView?.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 200, height: 200))
         }
         //Cell Customize
         let imageView = cell.imageView
@@ -70,9 +72,9 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.flatWhite
+        cell.textLabel?.textColor = UIColor.label
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.flatWhite
+        cell.detailTextLabel?.textColor = UIColor.label
         cell.backgroundView?.backgroundColor = UIColor.clear
         cell.backgroundColor = UIColor.clear
         return cell

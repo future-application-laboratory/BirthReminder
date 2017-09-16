@@ -79,6 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 let fileUrl = docUrl.appendingPathComponent("temp.br")
                 manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
                 session.transferFile(fileUrl, metadata: nil)
+                try? manager.removeItem(at: fileUrl)
             }
         }
     }

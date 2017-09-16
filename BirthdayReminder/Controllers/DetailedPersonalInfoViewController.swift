@@ -19,6 +19,7 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
         return delegate.context
     }
     
+    
     var personalData = People(withName: "", birth: "01-01", picData: nil, id: nil)
     let monthDict = [
         1:31,
@@ -45,14 +46,15 @@ class DetailedPersonalInfoFromServerViewController: UITableViewController, UIPic
     
     @IBOutlet weak var cancelButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarController?.tabBar.barTintColor = UIColor.flatGreenDark
-        tabBarController?.tabBar.tintColor = UIColor.flatBlackDark
+        tabBarController?.tabBar.barTintColor = UIColor.bar
+        tabBarController?.tabBar.tintColor = UIColor.tint
         tabBarController?.tabBar.unselectedItemTintColor = UIColor.flatWhiteDark
         
-        view.backgroundColor = UIColor.flatGreen
+        view.backgroundColor = UIColor.background
         
         cancelButton.isHidden = (personalData.name == "")
         

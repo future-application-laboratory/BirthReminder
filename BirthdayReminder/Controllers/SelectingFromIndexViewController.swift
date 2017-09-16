@@ -23,7 +23,7 @@ class SelectingFromIndexViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.flatGreen
+        tableView.backgroundColor = UIColor.background
         setupTableView()
     }
     
@@ -42,9 +42,9 @@ class SelectingFromIndexViewController: UITableViewController {
         layer?.masksToBounds = true
         layer?.cornerRadius = 5
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.flatWhite
+        cell.textLabel?.textColor = UIColor.label
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.flatWhite
+        cell.detailTextLabel?.textColor = UIColor.label
         
         let row = indexPath.row
         let current = tableData![row]

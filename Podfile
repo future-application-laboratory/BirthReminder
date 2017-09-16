@@ -4,7 +4,7 @@ target 'BirthdayReminder' do
     platform :ios, '10.1'
     
     pod 'ObjectMapper'
-    pod 'SnapKit'
+    pod 'SnapKit', :git => 'https://github.com/SnapKit/SnapKit.git', branch: 'swift-4'
     pod 'SCLAlertView'
     pod 'Onboard'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
