@@ -10,7 +10,6 @@ import UIKit
 import Eureka
 import ImageRow
 import CoreData
-import SnapKit
 
 class PersonFormController: FormViewController {
     
@@ -71,6 +70,7 @@ class PersonFormController: FormViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        super.tableView(tableView, didSelectRowAt: indexPath)
         if indexPath.section == 3 {
             save()
         }
