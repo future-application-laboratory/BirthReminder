@@ -35,6 +35,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationController?.navigationBar.tintColor = UIColor.tint
         emptyLabel.textColor = UIColor.label
         navigationController?.hidesNavigationBarHairline = true
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
         setupSideMenu()
     }
@@ -151,8 +152,12 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func setupSideMenu() {
+        let leftMenu = storyboard!.instantiateViewController(withIdentifier: "leftMenuNavigationController") as? SideMenuNavigationController
+        leftMenu?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
+        SideMenuManager.menuLeftNavigationController = leftMenu
         SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.menuAnimationBackgroundColor = .bar
     }
+    
 }

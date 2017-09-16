@@ -54,6 +54,7 @@ class PersonFormController: FormViewController {
             <<< ButtonRow() { row in
                 row.title = NSLocalizedString("add",comment: "add")
             }
+        
     }
     
     private func save() {
