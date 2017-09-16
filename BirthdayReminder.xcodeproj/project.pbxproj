@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
+		B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095EC21F6D80C50049AF0D /* AnimeCell.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
 		B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */; };
@@ -126,6 +127,7 @@
 		723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0095EC21F6D80C50049AF0D /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 		B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPersonalDataFromServerViewController.swift; sourceTree = "<group>"; };
 		B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGettingFromServerViewController.swift; sourceTree = "<group>"; };
 		B0126A8E1F34275200C74F73 /* WatchReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchReminder.entitlements; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
+				B0095EC21F6D80C50049AF0D /* AnimeCell.swift */,
 				B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */,
 			);
 			path = Views;
@@ -690,6 +693,7 @@
 				B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */,
 				B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
+				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,
 				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

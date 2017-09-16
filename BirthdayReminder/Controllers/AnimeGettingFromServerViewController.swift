@@ -58,32 +58,26 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        performSegue(withIdentifier: "showAnimeDetail", sender: animes[row])
+        let index = indexPath.section
+        performSegue(withIdentifier: "showAnimeDetail", sender: animes[index])
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return animes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "animeCell")
-        let row = indexPath.row
-        let data = animes[row]
-        let image = data.pic ?? UIImage(image: UIImage(), scaledTo: CGSize(width: 200, height: 200))
-        cell.textLabel?.textColor = UIColor.label
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5, weight: UIFont.Weight.medium)
-        cell.textLabel?.text = data.name
-        cell.textLabel?.adjustsFontSizeToFitWidth = true
-        cell.textLabel?.numberOfLines = data.name.contains("\n") ? 0 : 1
-        let imageView = cell.imageView
-        imageView?.image = image
-        let layer = imageView?.layer
-        layer?.masksToBounds = true
-        layer?.cornerRadius = 5
-        cell.backgroundView?.backgroundColor = UIColor.clear
-        cell.backgroundColor = UIColor.clear
+        let index = indexPath.section
+        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
+        if let image = animes[index].pic {
+            cell.picView?.image = image
+        }
+        cell.nameLabel.text = animes[index].name
         return cell
     }
     
@@ -124,18 +118,38 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     
     func loadPicsForAnimes() {
         animes.forEach { anime in
-            NetworkController.provider.request(.animepic(withID: anime.id)) { [unowned self] response in
+            NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] response in
                 switch response {
                 case .success(let result):
                     let data = result.data
                     anime.pic = UIImage(data: data)
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                        self?.tableView.reloadData()
                     }
                 case .failure(let error):
                     print(error.errorDescription!)
                 }
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 10 : 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = UIScreen.main.bounds.width - 20
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        view.backgroundColor = UIColor.background
+        return view
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight: CGFloat = 20
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
     }
     

@@ -32,7 +32,6 @@ class SettingsViewController: UITableViewController {
             controller.tableView.visibleCells.forEach { cell in
                 cell.backgroundColor = .background
             }
-            controller.title = NSLocalizedString("about", comment: "about")
             
             navigationController?.pushViewController(controller, animated: true)
         }

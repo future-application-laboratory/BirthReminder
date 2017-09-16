@@ -133,6 +133,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     private func checkDataAndDisplayPlaceHolder() {
         if data.isEmpty {
             tableView.separatorStyle = .none
+            emptyLabel.textColor = .label2
             emptyLabel.isHidden = false
         } else {
             tableView.separatorStyle = .singleLine
@@ -152,6 +153,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     private func setupSideMenu() {
         SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.menuAnimationBackgroundColor = .background
+        SideMenuManager.menuAnimationBackgroundColor = .bar
     }
 }

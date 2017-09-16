@@ -27,8 +27,12 @@ class SelectingFromIndexViewController: UITableViewController {
         setupTableView()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableData?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,22 +40,15 @@ class SelectingFromIndexViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "addingAWFavouriteCell")
-        cell.backgroundColor = UIColor.clear
-        let layer = cell.imageView?.layer
-        layer?.masksToBounds = true
-        layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.label
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.label
-        
-        let row = indexPath.row
-        let current = tableData![row]
-        cell.textLabel?.text = current.name
-        cell.detailTextLabel?.text = current.birth.toLocalizedDate(withStyle: .long)
-        if let data = current.picData {
-            cell.imageView?.image = UIImage(data: data)
+        let index = indexPath.section
+        let cellData = tableData![index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = cellData.birth.toLocalizedDate(withStyle: .long)
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
+        } else {
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
         return cell
     }
@@ -61,8 +58,8 @@ class SelectingFromIndexViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        let current = tableData![row]
+        let index = indexPath.section
+        let current = tableData![index]
         
         current.shouldSync = true
         try! context.save()
@@ -78,6 +75,26 @@ class SelectingFromIndexViewController: UITableViewController {
             !person.shouldSync
         }
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 10 : 20
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = UIScreen.main.bounds.width - 20
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        view.backgroundColor = UIColor.background
+        return view
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight: CGFloat = 20
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+        }
     }
     
 }

@@ -12,7 +12,7 @@
 "89p-iU-0BB.text" = "尚未有已添加的數據\n來與Apple Watch同步\n點擊添加按鈕來設置";
 
 /* Class = "UILabel"; text = "Set favourite to sync with Apple Watch"; ObjectID = "8GF-Rd-csy"; */
-"8GF-Rd-csy.text" = "設置與Apple Watch的同步列表";
+"8GF-Rd-csy.text" = "與Apple Watch同步";
 
 /* Class = "UITableViewSection"; headerTitle = "Image"; ObjectID = "AHK-j2-GtI"; */
 "AHK-j2-GtI.headerTitle" = "圖片";
@@ -38,20 +38,14 @@
 /* Class = "UITableViewSection"; headerTitle = "Birthday"; ObjectID = "LKf-Sl-7sK"; */
 "LKf-Sl-7sK.headerTitle" = "生日";
 
-/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "N5c-dK-MCY"; */
-"N5c-dK-MCY.normalTitle" = "選擇e";
-
 /* Class = "UILabel"; text = "Check the acknowledgements"; ObjectID = "QGg-6x-OpC"; */
-"QGg-6x-OpC.text" = "鳴謝";
+"QGg-6x-OpC.text" = "致謝";
 
 /* Class = "UINavigationItem"; title = "Animes"; ObjectID = "Qde-DH-bvt"; */
 "Qde-DH-bvt.title" = "動畫";
 
 /* Class = "UILabel"; text = "Check the Contect Info"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "聯繫信息";
-
-/* Class = "UINavigationItem"; title = "Blank"; ObjectID = "S9Z-x1-Hu7"; */
-"S9Z-x1-Hu7.title" = "空白模版";
 
 /* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "UPn-Tl-eeq"; */
 "UPn-Tl-eeq.normalTitle" = "清除";
@@ -83,9 +77,6 @@
 /* Class = "UITextField"; placeholder = "Name"; ObjectID = "juj-gd-Nd4"; */
 "juj-gd-Nd4.placeholder" = "名字";
 
-/* Class = "UIButton"; normalTitle = "Choose"; ObjectID = "oam-my-oWL"; */
-"oam-my-oWL.normalTitle" = "選擇";
-
 /* Class = "UITabBarItem"; title = "Import from Server"; ObjectID = "oc6-TQ-b2A"; */
 "oc6-TQ-b2A.title" = "從服務器導入";
 
@@ -96,7 +87,7 @@
 "t5C-R9-Jtk.normalTitle" = "取消";
 
 /* Class = "UITabBarItem"; title = "Blank Template"; ObjectID = "tgX-BL-dZt"; */
-"tgX-BL-dZt.title" = "空白模版";
+"03y-ad-1Mg.title" = "空白模版";
 
 /* Class = "UITableViewSection"; headerTitle = "Birthday"; ObjectID = "uae-XN-PrI"; */
 "uae-XN-PrI.headerTitle" = "生日";

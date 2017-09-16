@@ -32,6 +32,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
+        emptyLabel?.textColor = .label2
         
         if !WCSession.isSupported() {
             let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
@@ -50,14 +51,11 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return saved?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let people = saved {
-            return people.count
-        }
-        return 0
+        return 1
     }
     
     private func reloadTableView() {
@@ -84,13 +82,13 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let row = indexPath.row
+            let index = indexPath.section
             
-            saved![row].shouldSync = false
+            saved![index].shouldSync = false
             try! context.save()
             
-            saved!.remove(at: row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            saved!.remove(at: index)
+            tableView.reloadData()
             
             emptyLabel?.isHidden = !saved!.isEmpty
             tableView.separatorStyle = saved!.isEmpty ? .none : .singleLine
@@ -100,22 +98,15 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "awFavouriteCell")
-        cell.backgroundColor = UIColor.clear
-        let layer = cell.imageView?.layer
-        layer?.masksToBounds = true
-        layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.label
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.label
-        
-        let row = indexPath.row
-        let current = saved![row]
-        cell.textLabel?.text = current.name
-        cell.detailTextLabel?.text = current.birth.toLocalizedDate(withStyle: .long)
-        if let data = current.picData {
-            cell.imageView?.image = UIImage(data: data)
+        let index = indexPath.section
+        let cellData = saved![index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = cellData.birth.toLocalizedDate(withStyle: .long)
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
+        } else {
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
         return cell
     }
@@ -126,6 +117,26 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     
     func reloadAddButtonStatus() {
         addButton.isEnabled = (saved?.count ?? 0) < 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 10 : 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = UIScreen.main.bounds.width - 20
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        view.backgroundColor = UIColor.background
+        return view
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight: CGFloat = 20
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+        }
     }
     
 }
