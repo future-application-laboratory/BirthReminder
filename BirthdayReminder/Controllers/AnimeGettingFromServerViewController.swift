@@ -96,25 +96,25 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
     }
     
     func loadAnimes() {
-        NetworkController.provider.request(.animes) { [unowned self] response in
+        NetworkController.provider.request(.animes) { [weak self] response in
             DispatchQueue.main.async {
-                self.loadingView.stop()
+                self?.loadingView.stop()
             }
             switch response {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
-                self.animes = Mapper<Anime>().mapArray(JSONString: json)!
+                self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
-                self.loadPicsForAnimes()
+                self?.loadPicsForAnimes()
             case .failure(let error):
-                self.animes = []
+                self?.animes = []
                 DispatchQueue.main.async {
                     let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
                     let alert = SCLAlertView(appearance: appearence)
-                    alert.addButton("OK") { [unowned self] in
-                        self.navigationController?.popViewController(animated: true)
+                    alert.addButton("OK") { [weak self] in
+                        self?.navigationController?.popViewController(animated: true)
                     }
                     alert.showError("Failed to load", subTitle: error.localizedDescription)
                 }

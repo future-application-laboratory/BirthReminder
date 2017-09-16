@@ -109,25 +109,25 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     
     private func loadPeople() {
-        NetworkController.networkQueue.async { [unowned self] in
-            NetworkController.provider.request(.people(inAnimeID: self.anime!.id)) { response in
+        NetworkController.networkQueue.async { [weak self] in
+            NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { response in
                 switch response {
                 case .success(let result):
                     let json = String(data: result.data, encoding: String.Encoding.utf8)!
-                    self.tableViewData = Mapper<People>().mapArray(JSONString: json)!
+                    self?.tableViewData = Mapper<People>().mapArray(JSONString: json)!
                     DispatchQueue.main.async{
-                        self.tableView.reloadData()
-                        self.reloadSparator()
-                        self.loadingView.stop()
+                        self?.tableView.reloadData()
+                        self?.reloadSparator()
+                        self?.loadingView.stop()
                     }
-                    self.loadPicForPeople()
+                    self?.loadPicForPeople()
                 case .failure(let error):
-                    self.tableViewData = []
+                    self?.tableViewData = []
                     DispatchQueue.main.async {
                         let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
                         let alert = SCLAlertView(appearance: appearence)
-                        alert.addButton("OK") { [unowned self] in
-                            self.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
+                        alert.addButton("OK") { [weak self] in
+                            self?.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
                         }
                         alert.showError("Failed to load", subTitle: error.localizedDescription)
                     }
@@ -138,18 +138,18 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     private func loadPicForPeople() {
         // Load pic for every person
-        self.tableViewData.forEach { [unowned self] person in
-            NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self.anime!.id)) { response in
+        self.tableViewData.forEach { [weak self] person in
+            NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self!.anime!.id)) { response in
                 switch response {
                 case .success(let result):
                     let data = result.data
                     person.picData = data
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        if (self.tableViewData.filter { $0.picData == nil }.count) == 0 {
+                        self?.tableView.reloadData()
+                        if (self?.tableViewData.filter { $0.picData == nil }.count) == 0 {
                             // Enable ‘add all’ button
-                            self.addAllButton.isEnabled = true
-                            self.addAllButton.image = UIImage(named: "addAll")
+                            self?.addAllButton.isEnabled = true
+                            self?.addAllButton.image = UIImage(named: "addAll")
                         }
                     }
                 case .failure(let error):
