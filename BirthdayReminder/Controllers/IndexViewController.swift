@@ -35,7 +35,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         emptyLabel.textColor = UIColor.label
         navigationController?.hidesNavigationBarHairline = true
         setupTableView()
-        tableView.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,7 +48,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.section
         let cellData = data[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "indexCell", for: indexPath) as! PersonalCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
         cell.birthLabel.text = status ? cellData.birth.toLocalizedDate(withStyle: .long) : cellData.birth.toLeftDays()
         if let imgData = cellData.picData {
@@ -58,10 +57,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -80,8 +75,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func setupTableView() {
+        tableView.backgroundColor = UIColor.clear
         tableView.tableFooterView = UIView()
-        tableView.showsVerticalScrollIndicator = false
         let request = PeopleToSave.sortedFetchRequest
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self

@@ -25,7 +25,7 @@ class PersonFormController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        form +++ Section("Name")
+        form +++ Section(NSLocalizedString("name", comment: "name"))
             <<< NameRow() { row in
                 row.tag = "name"
                 row.title = NSLocalizedString("name", comment: "name")
@@ -34,26 +34,26 @@ class PersonFormController: FormViewController {
                     row.value = name
                 }
             }
-            +++ Section("Birth")
+            +++ Section(NSLocalizedString("birth", comment: "Birth"))
             <<< DateRow() { row in
                 row.tag = "birth"
-                row.title = "Birth"
+                row.title = NSLocalizedString("birth", comment: "Birth")
                 row.value = Date()
                 if let birth = data?.stringedBirth {
                     row.value = birth.toDate()
                 }
             }
-            +++ Section("Image")
+            +++ Section(NSLocalizedString("image", comment: "Image"))
             <<< ImageRow() { row in
                 row.tag = "image"
-                row.title = "Image"
+                row.title = NSLocalizedString("image", comment: "Image")
                 if let imageData = data?.picData {
                     row.value = UIImage(data: imageData)
                 }
             }
             +++ Section()
             <<< ButtonRow() { row in
-                row.title = "Done"
+                row.title = NSLocalizedString("add",comment: "add")
             }
     }
     

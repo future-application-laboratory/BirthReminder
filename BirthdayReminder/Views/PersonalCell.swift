@@ -20,7 +20,7 @@ class PersonalCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.background
+        backgroundColor = UIColor.cell
         nameLabel.textColor = UIColor.label
         birthLabel.textColor = UIColor.label
         picView.layer.cornerRadius = 10

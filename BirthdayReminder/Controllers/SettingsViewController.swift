@@ -13,7 +13,8 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.background
+        navigationController?.navigationBar.barTintColor = .bar
+        tableView.backgroundColor = .background
         tableView.tableFooterView = UIView()
     }
     
@@ -29,7 +30,7 @@ class SettingsViewController: UITableViewController {
             
             controller.tableView.backgroundColor = UIColor.background
             controller.tableView.visibleCells.forEach { cell in
-                cell.backgroundColor = UIColor.background
+                cell.backgroundColor = .background
             }
             controller.title = NSLocalizedString("about", comment: "about")
             

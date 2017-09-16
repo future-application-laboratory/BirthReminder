@@ -34,14 +34,12 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         view.backgroundColor = UIColor.background
         
         tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.clear
         
         view.addSubview(loadingView)
         loadingView.center = view.center
         
-        tableView.backgroundView?.backgroundColor = UIColor.clear
-        tableView.backgroundColor = UIColor.clear
-        
-        tableView.tableFooterView = UIView()
         
         // Load the basic info
         loadingView.start()
@@ -49,40 +47,31 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         loadPeople()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "personalDetailFromAnime")
-        //Data
-        let row = indexPath.row
-        let data = tableViewData[row]
-        cell.textLabel?.text = data.name
-        cell.detailTextLabel?.text = data.stringedBirth.toLocalizedDate(withStyle: .long)
-        if let imageData = data.picData {
-            let image = UIImage(data: imageData)
-            cell.imageView?.image = image
+        let index = indexPath.section
+        let cellData = tableViewData[index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate(withStyle: .long)
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
         } else {
-            cell.imageView?.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 200, height: 200))
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
-        //Cell Customize
-        let imageView = cell.imageView
-        let layer = imageView?.layer
-        layer?.masksToBounds = true
-        layer?.cornerRadius = 5
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.light)
-        cell.textLabel?.textColor = UIColor.label
-        cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.semibold)
-        cell.detailTextLabel?.textColor = UIColor.label
-        cell.backgroundView?.backgroundColor = UIColor.clear
-        cell.backgroundColor = UIColor.clear
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
-        performSegue(withIdentifier: "showCharacterDetail", sender: tableViewData[row])
+        let index = indexPath.section
+        performSegue(withIdentifier: "showCharacterDetail", sender: tableViewData[index])
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -156,6 +145,26 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                     print(error.errorDescription!)
                 }
             }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 10 : 20
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let width = UIScreen.main.bounds.width - 20
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
+        view.backgroundColor = UIColor.background
+        return view
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight: CGFloat = 20
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
     }
     

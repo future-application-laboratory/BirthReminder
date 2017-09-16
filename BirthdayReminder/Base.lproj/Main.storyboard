@@ -35,7 +35,7 @@ Tap Add button to configure</string>
                                 <rect key="frame" x="10" y="64" width="394" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="indexCell" rowHeight="100" id="ZMh-je-LFZ" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="ZMh-je-LFZ" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="394" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZMh-je-LFZ" id="1eH-t5-oiR">
@@ -48,14 +48,14 @@ Tap Add button to configure</string>
                                                         <constraint firstAttribute="width" secondItem="qZl-Fk-Mta" secondAttribute="height" multiplier="1:1" id="tb9-vL-0f0"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-8B-w69">
-                                                    <rect key="frame" x="119" y="23" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-8B-w69">
+                                                    <rect key="frame" x="118.99999999999999" y="23" width="44.666666666666643" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-es-Ae7">
-                                                    <rect key="frame" x="119" y="59" width="46" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-es-Ae7">
+                                                    <rect key="frame" x="119.00000000000001" y="59" width="41.333333333333357" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -481,16 +481,52 @@ Tap Add to configure</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILb-sN-ksc">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="10" y="64" width="394" height="672"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mainBirthCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalDetailFromAnime" rowHeight="100" id="c2N-oB-8qd">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="ca7-Mz-iPU" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c2N-oB-8qd" id="drT-e1-B0L">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ca7-Mz-iPU" id="x1c-5Y-Mhq">
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kZ5-cF-C3S">
+                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="kZ5-cF-C3S" secondAttribute="height" multiplier="1:1" id="xB2-84-Jpt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wf-6A-0f9">
+                                                    <rect key="frame" x="118.99999999999999" y="23" width="44.666666666666643" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQV-xx-dak">
+                                                    <rect key="frame" x="119.00000000000001" y="59" width="41.333333333333357" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4Wf-6A-0f9" firstAttribute="top" secondItem="x1c-5Y-Mhq" secondAttribute="topMargin" constant="15" id="3KT-N4-IBb"/>
+                                                <constraint firstItem="pQV-xx-dak" firstAttribute="leading" secondItem="kZ5-cF-C3S" secondAttribute="trailing" constant="20" id="OG2-0n-WpF"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="4Wf-6A-0f9" secondAttribute="trailing" constant="20" symbolic="YES" id="Sfz-16-2s3"/>
+                                                <constraint firstItem="kZ5-cF-C3S" firstAttribute="leading" secondItem="x1c-5Y-Mhq" secondAttribute="leading" id="cWe-Cp-hBr"/>
+                                                <constraint firstItem="kZ5-cF-C3S" firstAttribute="top" secondItem="x1c-5Y-Mhq" secondAttribute="top" id="dEd-Os-WqH"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pQV-xx-dak" secondAttribute="trailing" constant="20" symbolic="YES" id="etg-bK-iFM"/>
+                                                <constraint firstItem="pQV-xx-dak" firstAttribute="top" secondItem="4Wf-6A-0f9" secondAttribute="bottom" constant="15" id="jua-3A-nh2"/>
+                                                <constraint firstAttribute="bottom" secondItem="kZ5-cF-C3S" secondAttribute="bottom" id="szc-7G-xP4"/>
+                                                <constraint firstItem="4Wf-6A-0f9" firstAttribute="leading" secondItem="kZ5-cF-C3S" secondAttribute="trailing" constant="20" id="z5W-9m-2tH"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="birthLabel" destination="pQV-xx-dak" id="Jcn-4B-ZvR"/>
+                                            <outlet property="nameLabel" destination="4Wf-6A-0f9" id="iSo-2Q-aGE"/>
+                                            <outlet property="picView" destination="kZ5-cF-C3S" id="NID-aH-YJ9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -501,8 +537,8 @@ Tap Add to configure</string>
                         </subviews>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ILb-sN-ksc" secondAttribute="bottom" id="5gv-Cy-kFk"/>
-                            <constraint firstItem="ILb-sN-ksc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ypv-b6-UhV"/>
-                            <constraint firstAttribute="trailing" secondItem="ILb-sN-ksc" secondAttribute="trailing" id="ZiN-Vd-Tdz"/>
+                            <constraint firstItem="ILb-sN-ksc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Ypv-b6-UhV"/>
+                            <constraint firstAttribute="trailing" secondItem="ILb-sN-ksc" secondAttribute="trailing" constant="10" id="ZiN-Vd-Tdz"/>
                             <constraint firstItem="ILb-sN-ksc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yFr-Ij-B1q"/>
                         </constraints>
                     </view>

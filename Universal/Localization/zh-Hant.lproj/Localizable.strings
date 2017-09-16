@@ -66,3 +66,7 @@
 "inavailable" = "不可用";
 "awNotSupported" = "不支援Apple Watch";
 
+"name" = "姓名";
+"image" = "圖片";
+"birth" = "生日";
+"add" = "新增";
