@@ -18,7 +18,7 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.row == 1 {
             let path = Bundle.main.path(forResource: "Pods-BirthdayReminder-acknowledgements", ofType: "plist")
             let controller = AcknowListViewController(acknowledgementsPlistPath: path)
             controller.acknowledgements! += [

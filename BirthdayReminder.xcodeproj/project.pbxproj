@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
-		B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
 		B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */; };
@@ -47,6 +46,7 @@
 		B0A46CCD1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */; };
+		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B31F33464D00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
@@ -127,7 +127,6 @@
 		9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPersonalDataFromServerViewController.swift; sourceTree = "<group>"; };
-		B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPersonalInfoViewController.swift; sourceTree = "<group>"; };
 		B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGettingFromServerViewController.swift; sourceTree = "<group>"; };
 		B0126A8E1F34275200C74F73 /* WatchReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchReminder.entitlements; sourceTree = "<group>"; };
 		B0126A8F1F34275A00C74F73 /* WatchReminder Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchReminder Extension.entitlements"; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BirthComputing.swift; path = Universal/BirthComputing/BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingFromIndexViewController.swift; sourceTree = "<group>"; };
+		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
 		B0E283B01F3345EC00CB5C51 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		B0F922D51F64187A0059DFDC /* Constants&Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Settings.swift"; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 		B049DC9C1F1EEE31008634C5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B0CD6B681F6D103A009899FE /* PersonFormController.swift */,
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
-				B00F7B001F1EEEC700496843 /* DetailedPersonalInfoViewController.swift */,
 				B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */,
 				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
 				B06043991F3C9978007D1016 /* SettingsViewController.swift */,
@@ -675,6 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
@@ -682,7 +683,6 @@
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
-				B00F7B021F1EEED500496843 /* DetailedPersonalInfoViewController.swift in Sources */,
 				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,

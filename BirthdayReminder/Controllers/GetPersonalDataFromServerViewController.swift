@@ -92,9 +92,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCharacterDetail" {
-            let controller = segue.destination as! DetailedPersonalInfoFromServerViewController
-            controller.personalData = sender as! People
-            controller.animeID = anime!.id
+            let controller = segue.destination as! PersonFormController
+            controller.data = sender as? People
         }
     }
     

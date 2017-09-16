@@ -4,6 +4,9 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Eureka (3.0.0)
+  - ImageRow (2.0.0):
+    - Eureka (= 3.0)
   - LTMorphingLabel (0.5.0)
   - Moya (8.0.5):
     - Moya/Core (= 8.0.5)
@@ -14,22 +17,29 @@ PODS:
   - Onboard (2.3.1)
   - Result (3.2.3)
   - SCLAlertView (0.7.0)
+  - SideMenu (2.3.3)
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
   - AcknowList
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `feature/Xcode9-Swift4`)
+  - ImageRow
   - LTMorphingLabel
   - Moya
   - ObjectMapper
   - Onboard
   - SCLAlertView
+  - SideMenu
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :branch: wip/swift4
     :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :branch: feature/Xcode9-Swift4
+    :git: https://github.com/xmartlabs/Eureka.git
   SnapKit:
     :branch: swift-4
     :git: https://github.com/SnapKit/SnapKit.git
@@ -38,6 +48,9 @@ CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
     :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :commit: 142d80535b27b3634ac5a38514bde948b8ed42de
+    :git: https://github.com/xmartlabs/Eureka.git
   SnapKit:
     :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
     :git: https://github.com/SnapKit/SnapKit.git
@@ -46,14 +59,17 @@ SPEC CHECKSUMS:
   AcknowList: 6089be555e4dcb5066de3071270ac7ad9df9ee55
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
+  ImageRow: 9dfbfa38c1e62c25d638bc40e97a48c1809443c4
   LTMorphingLabel: bc170be74b219b7dae0e5543a44676d16da70ff7
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
+  SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
   SnapKit: c71c530b73cedd2a8b998098687001baff265086
 
-PODFILE CHECKSUM: 5a83b7f022f416e9c82c89c116392ab8b51ee185
+PODFILE CHECKSUM: 59d4dcc89e0e02a2bc3af3e96ca9be48f2ebd6e7
 
 COCOAPODS: 1.2.1

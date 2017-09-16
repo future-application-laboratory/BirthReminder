@@ -11,5 +11,7 @@ target 'BirthdayReminder' do
     pod 'Moya'
     pod 'AcknowList'
     pod 'LTMorphingLabel'
-    
+    pod 'SideMenu'
+    pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', branch: 'feature/Xcode9-Swift4'
+    pod 'ImageRow'
 end

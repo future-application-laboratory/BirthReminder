@@ -16,18 +16,6 @@ class PersonalCell: UITableViewCell {
     
     @IBOutlet weak var birthLabel: UILabel!
     
-    private var data: PeopleToSave!
-    
-    public func setData(_ data: PeopleToSave) {
-        if let imgData = data.picData {
-            picView.image = UIImage(data: imgData)
-        } else {
-            // loading anime
-        }
-        nameLabel.text = data.name
-        birthLabel.text = data.birth.toLocalizedDate(withStyle: .long)
-    }
-    
     private var status = true
     
     override func awakeFromNib() {
@@ -40,11 +28,5 @@ class PersonalCell: UITableViewCell {
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }
-    
-    public func changeBirthLabel() {
-        status = !status
-        let birth = data.birth
-        birthLabel.text = status ? birth.toLocalizedDate(withStyle: .long) : birth.toLeftDays()
-    }
-    
+
 }

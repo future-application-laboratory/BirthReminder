@@ -24,7 +24,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     
     var data = [PeopleToSave]()
-    var status = false
+    var status = true
     @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
@@ -48,8 +48,15 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.section
+        let cellData = data[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "indexCell", for: indexPath) as! PersonalCell
-        cell.setData(data[index])
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = status ? cellData.birth.toLocalizedDate(withStyle: .long) : cellData.birth.toLeftDays()
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
+        } else {
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
+        }
         return cell
     }
     
@@ -94,11 +101,11 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let row = indexPath.row
-            context.delete(data[row])
-            data.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            try! context.save()
+            let index = indexPath.section
+            context.delete(data[index])
+            try? context.save()
+            data.remove(at: index)
+            tableView.reloadData()
         }
     }
     
@@ -107,9 +114,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
-        tableView.visibleCells.forEach { cell in
-            (cell as? PersonalCell)?.changeBirthLabel()
-        }
+        status = !status
+        tableView.reloadData()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -117,7 +123,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         case .insert:
             let person = anObject as! PeopleToSave
             data.append(person)
-            data = BirthComputer.compute(withBirthdayPeople: data)
+            data.sort()
             tableView.reloadData()
         case .delete:
             delegate.syncWithAppleWatch()
@@ -137,5 +143,13 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let sectionHeaderHeight: CGFloat = 20
+        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
+        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
+            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+        }
+    }
     
 }

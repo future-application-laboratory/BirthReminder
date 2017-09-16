@@ -144,3 +144,8 @@ extension String {
     
 }
 
+extension Array where Element: PeopleToSave {
+    mutating func sort() {
+        self = BirthComputer.compute(withBirthdayPeople: (self as [PeopleToSave])) as! Array
+    }
+}

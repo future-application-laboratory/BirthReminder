@@ -65,3 +65,10 @@
 
 "inavailable" = "Inavailable";
 "awNotSupported" = "Apple Watch not Supported";
+
+"name" = "Name";
+"image" = "Image";
+"birth" = "Birth";
+"clear" = "Clear";
+"choose" = "Choose";
+"done" = "Done";
