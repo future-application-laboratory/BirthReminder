@@ -22,6 +22,7 @@
 		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FB0C81F6E21E70021263D /* ContactViewController.swift */; };
 		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
@@ -143,6 +144,7 @@
 		B02FC57D1F596E2400EAB6E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = "Universal/File&DataManaging/Protocols.swift"; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
+		B05FB0C81F6E21E70021263D /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		B06043991F3C9978007D1016 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B068835C1F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				B0F0A44D1F20E143004DED3D /* IndexViewController.swift */,
 				B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */,
 				B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */,
+				B05FB0C81F6E21E70021263D /* ContactViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 			files = (
 				B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */,
 				B0D18E441F6D8C6300B2B789 /* SideMenuNavigationController.swift in Sources */,
+				B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -297,7 +297,7 @@ Tap Add button to configure</string>
         <!--Contact-->
         <scene sceneID="Kdk-GQ-JZE">
             <objects>
-                <viewController title="Contact" id="hSP-kt-Zj4" sceneMemberID="viewController">
+                <viewController title="Contact" id="hSP-kt-Zj4" customClass="ContactViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9g-UF-V2f"/>
                         <viewControllerLayoutGuide type="bottom" id="O8n-8M-mak"/>
@@ -305,12 +305,68 @@ Tap Add button to configure</string>
                     <view key="view" contentMode="scaleToFill" id="q1B-YJ-99c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can find me at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-Gs-JQl">
+                                <rect key="frame" x="44.5" y="70" width="231" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC4-VL-MKT">
+                                <rect key="frame" x="135" y="184" width="50" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Email">
+                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="7Fp-6N-jWy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD0-S1-7Qf">
+                                <rect key="frame" x="132" y="234" width="56" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="BiliBili">
+                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="ihp-Ta-0tH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-Sd-xph">
+                                <rect key="frame" x="127.5" y="284" width="65" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="GitHub">
+                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="EU6-dO-sjf"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(・ω・)ノ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Q-IU-5V3">
+                                <rect key="frame" x="61.5" y="380" width="197" height="54"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RW7-Gs-JQl" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="1XV-ef-SOL"/>
+                            <constraint firstItem="eD0-S1-7Qf" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" id="1aB-Iy-3I3"/>
+                            <constraint firstItem="RW7-Gs-JQl" firstAttribute="top" secondItem="S9g-UF-V2f" secondAttribute="bottom" constant="70" id="4DN-ve-4D9"/>
+                            <constraint firstItem="Fr0-Sd-xph" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" constant="50" id="D6c-it-2lU"/>
+                            <constraint firstItem="VC4-VL-MKT" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="NM8-ko-jSW"/>
+                            <constraint firstItem="Fr0-Sd-xph" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="dia-2W-VzU"/>
+                            <constraint firstItem="O8n-8M-mak" firstAttribute="top" secondItem="44Q-IU-5V3" secondAttribute="bottom" constant="70" id="is6-YM-gwL"/>
+                            <constraint firstItem="VC4-VL-MKT" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" constant="-50" id="kH6-wZ-aNW"/>
+                            <constraint firstItem="44Q-IU-5V3" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="lg9-6I-OmY"/>
+                            <constraint firstItem="eD0-S1-7Qf" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="sFk-JH-qaJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jw7-ri-osv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1329" y="3460"/>
+            <point key="canvasLocation" x="-1329.375" y="3459.5070422535214"/>
         </scene>
         <!--Animes-->
         <scene sceneID="QSj-fa-pW3">
