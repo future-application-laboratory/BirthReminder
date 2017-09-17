@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -416,7 +415,7 @@ Tap Add to configure</string>
                                 </state>
                                 <state key="highlighted" image="add"/>
                                 <connections>
-                                    <segue destination="Xpl-JI-Eo0" kind="show" id="chi-M4-Nih"/>
+                                    <segue destination="Y32-gE-5ws" kind="show" id="eHA-HB-jgS"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="whB-4T-TPX">
@@ -501,68 +500,87 @@ Tap Add to configure</string>
             <point key="canvasLocation" x="-71.014492753623188" y="2492.934782608696"/>
         </scene>
         <!--Add-->
-        <scene sceneID="UtQ-ac-Cza">
+        <scene sceneID="nZk-OM-U3k">
             <objects>
-                <tableViewController title="Add" id="Xpl-JI-Eo0" customClass="SelectingFromIndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xFQ-nk-ogV">
+                <viewController title="Add" id="Y32-gE-5ws" customClass="SelectingFromIndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oHk-eq-O0u"/>
+                        <viewControllerLayoutGuide type="bottom" id="1SS-UF-6Nj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fzc-cq-T2q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="tub-Qe-a0o" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tub-Qe-a0o" id="EhC-Uf-qCw">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gh2-Td-13h">
-                                            <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gXA-c9-GVI">
+                                <rect key="frame" x="10" y="0.0" width="300" height="460"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="2xe-ME-Aso" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="300" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2xe-ME-Aso" id="pDz-7n-Smj">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1sx-CQ-bqB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1sx-CQ-bqB" secondAttribute="height" multiplier="1:1" id="afa-K9-5B1"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-cD-PT1">
+                                                    <rect key="frame" x="119" y="23" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRJ-JU-D0V">
+                                                    <rect key="frame" x="119" y="59" width="40" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="gh2-Td-13h" secondAttribute="height" multiplier="1:1" id="RRT-98-2If"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hdG-cD-PT1" secondAttribute="trailing" constant="20" symbolic="YES" id="5pE-wc-70H"/>
+                                                <constraint firstItem="1sx-CQ-bqB" firstAttribute="leading" secondItem="pDz-7n-Smj" secondAttribute="leading" id="B04-Ek-5GV"/>
+                                                <constraint firstItem="1sx-CQ-bqB" firstAttribute="top" secondItem="pDz-7n-Smj" secondAttribute="top" id="BoY-94-F9x"/>
+                                                <constraint firstItem="vRJ-JU-D0V" firstAttribute="top" secondItem="hdG-cD-PT1" secondAttribute="bottom" constant="15" id="HeY-b8-hTD"/>
+                                                <constraint firstItem="hdG-cD-PT1" firstAttribute="leading" secondItem="1sx-CQ-bqB" secondAttribute="trailing" constant="20" id="R3N-jc-pmU"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vRJ-JU-D0V" secondAttribute="trailing" constant="20" symbolic="YES" id="kxJ-fX-pAu"/>
+                                                <constraint firstItem="vRJ-JU-D0V" firstAttribute="leading" secondItem="1sx-CQ-bqB" secondAttribute="trailing" constant="20" id="oyg-wm-iSs"/>
+                                                <constraint firstItem="hdG-cD-PT1" firstAttribute="top" secondItem="pDz-7n-Smj" secondAttribute="topMargin" constant="15" id="pit-df-5oB"/>
+                                                <constraint firstAttribute="bottom" secondItem="1sx-CQ-bqB" secondAttribute="bottom" id="pmy-mc-TQV"/>
                                             </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbV-cJ-pOR">
-                                            <rect key="frame" x="119" y="23" width="45" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcN-7X-DUp">
-                                            <rect key="frame" x="119" y="59" width="40" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="pcN-7X-DUp" firstAttribute="leading" secondItem="gh2-Td-13h" secondAttribute="trailing" constant="20" id="8O7-Jx-hr1"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pcN-7X-DUp" secondAttribute="trailing" constant="20" symbolic="YES" id="AZB-je-86Q"/>
-                                        <constraint firstItem="gh2-Td-13h" firstAttribute="top" secondItem="EhC-Uf-qCw" secondAttribute="top" id="Eio-J0-qig"/>
-                                        <constraint firstItem="bbV-cJ-pOR" firstAttribute="leading" secondItem="gh2-Td-13h" secondAttribute="trailing" constant="20" id="dB4-tZ-IQn"/>
-                                        <constraint firstItem="gh2-Td-13h" firstAttribute="leading" secondItem="EhC-Uf-qCw" secondAttribute="leading" id="gUU-of-eim"/>
-                                        <constraint firstItem="bbV-cJ-pOR" firstAttribute="top" secondItem="EhC-Uf-qCw" secondAttribute="topMargin" constant="15" id="gh2-oi-s6O"/>
-                                        <constraint firstAttribute="bottom" secondItem="gh2-Td-13h" secondAttribute="bottom" id="kaa-PL-Soi"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bbV-cJ-pOR" secondAttribute="trailing" constant="20" symbolic="YES" id="suW-Zs-Z9B"/>
-                                        <constraint firstItem="pcN-7X-DUp" firstAttribute="top" secondItem="bbV-cJ-pOR" secondAttribute="bottom" constant="15" id="uys-Lk-qod"/>
-                                    </constraints>
-                                </tableViewCellContentView>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="birthLabel" destination="vRJ-JU-D0V" id="eEg-wU-FXb"/>
+                                            <outlet property="nameLabel" destination="hdG-cD-PT1" id="fzt-fk-JKx"/>
+                                            <outlet property="picView" destination="1sx-CQ-bqB" id="gX9-Iy-GSM"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="birthLabel" destination="pcN-7X-DUp" id="INq-xC-wUw"/>
-                                    <outlet property="nameLabel" destination="bbV-cJ-pOR" id="3Ru-5I-o6w"/>
-                                    <outlet property="picView" destination="gh2-Td-13h" id="6lO-TT-Hf7"/>
+                                    <outlet property="dataSource" destination="Y32-gE-5ws" id="ECU-Ix-zvr"/>
+                                    <outlet property="delegate" destination="Y32-gE-5ws" id="vMM-YJ-qto"/>
                                 </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Xpl-JI-Eo0" id="7uP-Rz-wa1"/>
-                            <outlet property="delegate" destination="Xpl-JI-Eo0" id="1Cz-8G-Hh9"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oth-AM-Dcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gXA-c9-GVI" firstAttribute="top" secondItem="oHk-eq-O0u" secondAttribute="bottom" id="JwY-5z-T75"/>
+                            <constraint firstItem="1SS-UF-6Nj" firstAttribute="top" secondItem="gXA-c9-GVI" secondAttribute="bottom" id="WrE-wg-Ikx"/>
+                            <constraint firstAttribute="trailing" secondItem="gXA-c9-GVI" secondAttribute="trailing" constant="10" id="dY8-sw-8j3"/>
+                            <constraint firstItem="gXA-c9-GVI" firstAttribute="leading" secondItem="fzc-cq-T2q" secondAttribute="leading" constant="10" id="pVY-i8-3qD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="gXA-c9-GVI" id="u6O-wh-Esw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hBe-YJ-WnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="2493"/>
+            <point key="canvasLocation" x="1294" y="2492"/>
         </scene>
         <!--Get Personal Data From Server View Controller-->
         <scene sceneID="tne-QT-ifu">

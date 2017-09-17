@@ -20,7 +20,6 @@
 		B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
-		B02FC5841F598B5700EAB6E6 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
@@ -49,6 +48,7 @@
 		B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */; };
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0D18E441F6D8C6300B2B789 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */; };
+		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0E283B11F3345EC00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B31F33464D00CB5C51 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E283AF1F3345EC00CB5C51 /* Model.xcdatamodeld */; };
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
@@ -70,19 +70,19 @@
 			remoteGlobalIDString = B029294B1F26E79000AD0BC1;
 			remoteInfo = TodayReminder;
 		};
-		B02FC5851F598B5700EAB6E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B0990F251F27578400D26557;
-			remoteInfo = "WatchReminder Extension";
-		};
 		B0990F381F27578400D26557 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B0990F191F27578400D26557;
 			remoteInfo = WatchReminder;
+		};
+		B0D18E511F6E031100B2B789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0990F251F27578400D26557;
+			remoteInfo = "WatchReminder Extension";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -98,17 +98,6 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B02FC5871F598B5700EAB6E6 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				B02FC5841F598B5700EAB6E6 /* WatchReminder Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B0990F421F27578400D26557 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +107,17 @@
 				B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0D18E531F6E031100B2B789 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -461,12 +461,12 @@
 			buildPhases = (
 				B0990F181F27578400D26557 /* Resources */,
 				6A449275943E71A2DF2DD293 /* Frameworks */,
-				B02FC5871F598B5700EAB6E6 /* Embed App Extensions */,
+				B0D18E531F6E031100B2B789 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B02FC5861F598B5700EAB6E6 /* PBXTargetDependency */,
+				B0D18E521F6E031100B2B789 /* PBXTargetDependency */,
 			);
 			name = WatchReminder;
 			productName = WatchReminder;
@@ -726,15 +726,15 @@
 			target = B029294B1F26E79000AD0BC1 /* TodayReminder */;
 			targetProxy = B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */;
 		};
-		B02FC5861F598B5700EAB6E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B0990F251F27578400D26557 /* WatchReminder Extension */;
-			targetProxy = B02FC5851F598B5700EAB6E6 /* PBXContainerItemProxy */;
-		};
 		B0990F391F27578400D26557 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B0990F191F27578400D26557 /* WatchReminder */;
 			targetProxy = B0990F381F27578400D26557 /* PBXContainerItemProxy */;
+		};
+		B0D18E521F6E031100B2B789 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0990F251F27578400D26557 /* WatchReminder Extension */;
+			targetProxy = B0D18E511F6E031100B2B789 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -42,6 +42,8 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
             }
             alert.showWarning(NSLocalizedString("inavailable", comment: "Inavailable"), subTitle: NSLocalizedString("awNotSupported", comment: "Apple Watch not Supported"))
         }
+        
+        tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {

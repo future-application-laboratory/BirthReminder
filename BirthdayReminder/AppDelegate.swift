@@ -75,11 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 }
                 let data = NSKeyedArchiver.archivedData(withRootObject: people)
                 let manager = FileManager()
-                let docUrl = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                let docUrl = manager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
                 let fileUrl = docUrl.appendingPathComponent("temp.br")
                 manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
                 session.transferFile(fileUrl, metadata: nil)
-                try? manager.removeItem(at: fileUrl)
             }
         }
     }

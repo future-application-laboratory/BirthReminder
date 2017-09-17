@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 
-class SelectingFromIndexViewController: UITableViewController {
+class SelectingFromIndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
@@ -27,19 +28,19 @@ class SelectingFromIndexViewController: UITableViewController {
         setupTableView()
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return tableData?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.section
         let cellData = tableData![index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
@@ -53,11 +54,11 @@ class SelectingFromIndexViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.section
         let current = tableData![index]
         
@@ -70,6 +71,8 @@ class SelectingFromIndexViewController: UITableViewController {
     
     private func setupTableView() {
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = .clear
+        view.backgroundColor = .background
         let request = PeopleToSave.sortedFetchRequest
         tableData = try! context.fetch(request).filter { person in
             !person.shouldSync
@@ -77,18 +80,18 @@ class SelectingFromIndexViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 10 : 20
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let width = UIScreen.main.bounds.width - 20
         let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
         view.backgroundColor = UIColor.background
         return view
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let sectionHeaderHeight: CGFloat = 20
         if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
             scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
