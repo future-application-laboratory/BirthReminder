@@ -341,8 +341,8 @@ Tap Add button to configure</string>
                                                         <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="wSe-Si-aom"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
-                                                    <rect key="frame" x="119.5" y="39" width="160.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
+                                                    <rect key="frame" x="119.5" y="39" width="41.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -352,7 +352,7 @@ Tap Add button to configure</string>
                                                 <constraint firstItem="JVh-FQ-FxS" firstAttribute="centerY" secondItem="KKS-zB-4t9" secondAttribute="centerY" id="3lE-VI-diI"/>
                                                 <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="KKS-zB-4t9" secondAttribute="top" id="DLY-kG-DcP"/>
                                                 <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="Euy-Ii-YgJ"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="JVh-FQ-FxS" secondAttribute="trailing" constant="20" symbolic="YES" id="QFD-X5-WFs"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JVh-FQ-FxS" secondAttribute="trailing" constant="20" id="QFD-X5-WFs"/>
                                                 <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="aHY-Eg-JDz"/>
                                                 <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="KKS-zB-4t9" secondAttribute="leading" id="qG8-wU-WDH"/>
                                             </constraints>

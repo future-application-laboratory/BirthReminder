@@ -77,6 +77,7 @@ class SelectingFromIndexViewController: UIViewController, UITableViewDelegate, U
         tableData = try! context.fetch(request).filter { person in
             !person.shouldSync
         }
+        tableData?.sort()
         tableView.reloadData()
     }
     

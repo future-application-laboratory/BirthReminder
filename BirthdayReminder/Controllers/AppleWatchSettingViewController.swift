@@ -65,6 +65,7 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         saved = try! context.fetch(request).filter { person in
             person.shouldSync
         }
+        saved?.sort()
         tableView.reloadData()
         emptyLabel?.isHidden = !saved!.isEmpty
         tableView.separatorStyle = saved!.isEmpty ? .none : .singleLine
