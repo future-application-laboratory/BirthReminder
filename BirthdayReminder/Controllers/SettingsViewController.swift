@@ -28,11 +28,6 @@ class SettingsViewController: UITableViewController {
                 Acknow(title: "Pics on the Server", text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@protonmail.com")
             ]
             
-            controller.tableView.backgroundColor = UIColor.background
-            controller.tableView.visibleCells.forEach { cell in
-                cell.backgroundColor = .background
-            }
-            
             navigationController?.pushViewController(controller, animated: true)
         }
     }
