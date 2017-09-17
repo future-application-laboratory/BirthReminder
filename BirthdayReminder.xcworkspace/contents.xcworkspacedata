@@ -7,6 +7,28 @@
    <FileRef
       location = "group:README.md">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "GitHubPics">
+      <FileRef
+         location = "group:BirthReminder.png">
+      </FileRef>
+      <FileRef
+         location = "group:index.png">
+      </FileRef>
+      <FileRef
+         location = "group:today.png">
+      </FileRef>
+      <FileRef
+         location = "group:complication.png">
+      </FileRef>
+      <FileRef
+         location = "group:online.png">
+      </FileRef>
+      <FileRef
+         location = "group:watch.png">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:BirthdayReminder.xcodeproj">
    </FileRef>
