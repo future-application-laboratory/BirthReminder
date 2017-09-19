@@ -25,3 +25,13 @@ Here, you may import characters easily
 The only thing you need is tapping on the ADD button
 
 ![](online.png)
+
+# Contribution
+## Online Info
+If you would like to add more birth info, please email me:
+CaptainYukinoshitaHachiman@ProtonMail.com
+
+(Only ACGN characters are allowed)
+
+## APP bug fixing/feature adding
+If you have nice ideas, or find a bug with the app, please open an issue or a PR
