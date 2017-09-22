@@ -19,6 +19,10 @@ enum TCWQService {
 }
 
 extension TCWQService: TargetType {
+    var headers: [String : String]? {
+        return nil
+    }
+    
     var baseURL: URL {
         return URL(string: "https://www.tcwq.tech/api/BirthdayReminder/")!
     }
@@ -53,7 +57,7 @@ extension TCWQService: TargetType {
     }
     
     var task: Task {
-        return .request
+        return .requestPlain
     }
 }
 
