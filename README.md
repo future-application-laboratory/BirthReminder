@@ -24,12 +24,20 @@ The only thing you need is tapping on the ADD button
 
 ![](online.png)
 
+# Download
+Available on App Store soon!
+
+[![](appstore.svg)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
+
+Also, you can download it on TestFlight to try the latest version
+
+To do it, [email me](mailto:CaptainYukinoshitaHachiman@ProtonMail.com) and I'll send you an invitation
 # Contribution
 ## Online Info
 If you would like to add more birth info, please email me:
 CaptainYukinoshitaHachiman@ProtonMail.com
 
-(Only ACGN characters are allowed)
+(Only ACGN characters are welcome)
 
 ## APP bug fixing/feature adding
 If you have nice ideas, or find a bug with the app, please open an issue or a PR
