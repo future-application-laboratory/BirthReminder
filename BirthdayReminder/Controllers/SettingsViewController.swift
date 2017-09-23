@@ -8,6 +8,7 @@
 
 import UIKit
 import AcknowList
+import WatchConnectivity
 
 class SettingsViewController: UITableViewController {
     
@@ -16,6 +17,10 @@ class SettingsViewController: UITableViewController {
         navigationController?.navigationBar.barTintColor = .bar
         tableView.backgroundColor = .background
         tableView.tableFooterView = UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return !(indexPath.row == 0 && !WCSession.isSupported())
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import WatchConnectivity
 import SCLAlertView
 
 class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -33,15 +32,6 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
         emptyLabel?.textColor = .label2
-        
-        if !WCSession.isSupported() {
-            let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-            let alert = SCLAlertView(appearance: appearence)
-            alert.addButton("OK") {
-                self.navigationController?.popViewController(animated: true)
-            }
-            alert.showWarning(NSLocalizedString("inavailable", comment: "Inavailable"), subTitle: NSLocalizedString("awNotSupported", comment: "Apple Watch not Supported"))
-        }
         
         tableView.tableFooterView = UIView()
     }
