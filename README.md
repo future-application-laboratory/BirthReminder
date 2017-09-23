@@ -1,7 +1,7 @@
 # Birthday Reminder
 > A tool that helps you manage your favorite anime characters' births
 
-![](BirthReminder.png)
+![](index.png)
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
@@ -12,11 +12,11 @@ This app supports iOS, TodayExtension(iOS), watchOS and Complications(watchOS)
 
 This means you may check the birth info by just raising your wrist, or swiping down from your phone's top
 
-![](index.png)
-![](today.png)
-
-![](watch.png)
-![](complication.png)
+<div align=center>
+ <img src="watch.png" width="40%;" align=center />
+ <img src="complication.png" width="40%;" align=center />
+ <img src="today.png" width="80%;" align=center />
+</div>
 ## Online birth info
 Of course, you may add the birth info manually, but it's usually time-consuming
 
