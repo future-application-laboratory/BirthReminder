@@ -85,7 +85,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         frc.delegate = self
         try! frc.performFetch()
         data = frc.fetchedObjects!
-        data = BirthComputer.compute(withBirthdayPeople: data)
+        data = BirthComputer.peopleOrderedByBirthday(peopleToReorder: data)
         checkDataAndDisplayPlaceHolder()
     }
     

@@ -1,26 +1,26 @@
 /* Class = "UITabBarItem"; title = "Blank"; ObjectID = "03y-ad-1Mg"; */
-"03y-ad-1Mg.title" = "空白模版";
+"03y-ad-1Mg.title" = "Blank";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "4Wf-6A-0f9"; */
-"4Wf-6A-0f9.text" = "姓名";
+"4Wf-6A-0f9.text" = "Name";
 
 /* Class = "UITabBarController"; title = "Add"; ObjectID = "6c4-gZ-9wt"; */
-"6c4-gZ-9wt.title" = "添加";
+"6c4-gZ-9wt.title" = "Add";
 
 /* Class = "UILabel"; text = "Syncing with Apple Watch"; ObjectID = "8GF-Rd-csy"; */
-"8GF-Rd-csy.text" = "與Apple Watch同步";
+"8GF-Rd-csy.text" = "Syncing with Apple Watch";
 
 /* Class = "UILabel"; text = "Birth"; ObjectID = "9SD-es-Ae7"; */
-"9SD-es-Ae7.text" = "生日";
+"9SD-es-Ae7.text" = "Birth";
 
 /* Class = "UILabel"; text = "(・ω・)ノ"; ObjectID = "44Q-IU-5V3"; */
 "44Q-IU-5V3.text" = "(・ω・)ノ";
 
 /* Class = "UILabel"; text = "Nothing added to sync\nTap Add to configure"; ObjectID = "89p-iU-0BB"; */
-"89p-iU-0BB.text" = "尚未有已添加的數據\n來與Apple Watch同步\n點擊添加按鈕來設置";
+"89p-iU-0BB.text" = "Nothing added to sync\nTap Add to configure";
 
 /* Class = "UINavigationItem"; title = "Index"; ObjectID = "CHb-Xh-m3B"; */
-"CHb-Xh-m3B.title" = "首頁";
+"CHb-Xh-m3B.title" = "Index";
 
 /* Class = "UIButton"; normalTitle = "GitHub"; ObjectID = "Fr0-Sd-xph"; */
 "Fr0-Sd-xph.normalTitle" = "GitHub";
@@ -29,13 +29,13 @@
 "JVh-FQ-FxS.text" = "Label";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "QGg-6x-OpC"; */
-"QGg-6x-OpC.text" = "致謝";
+"QGg-6x-OpC.text" = "Acknowledgements";
 
 /* Class = "UINavigationItem"; title = "Animes"; ObjectID = "Qde-DH-bvt"; */
-"Qde-DH-bvt.title" = "動畫";
+"Qde-DH-bvt.title" = "Animes";
 
 /* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
-"QmJ-P1-Na2.text" = "聯繫信息";
+"QmJ-P1-Na2.text" = "Contact";
 
 /* Class = "UILabel"; text = "You can find me at"; ObjectID = "RW7-Gs-JQl"; */
 "RW7-Gs-JQl.text" = "You can find me at";
@@ -44,44 +44,44 @@
 "VC4-VL-MKT.normalTitle" = "Email";
 
 /* Class = "UIViewController"; title = "Add"; ObjectID = "Y32-gE-5ws"; */
-"Y32-gE-5ws.title" = "添加";
+"Y32-gE-5ws.title" = "Add";
 
 /* Class = "UIViewController"; title = "AW Syncing"; ObjectID = "Zip-mg-AKx"; */
-"Zip-mg-AKx.title" = "AW 設置";
+"Zip-mg-AKx.title" = "AW Syncing";
 
 /* Class = "UILabel"; text = "Birth"; ObjectID = "cGP-5e-OEr"; */
-"cGP-5e-OEr.text" = "生日";
+"cGP-5e-OEr.text" = "Birth";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "cwz-Zi-eea"; */
-"cwz-Zi-eea.text" = "姓名";
+"cwz-Zi-eea.text" = "Name";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "d8q-mA-Edg"; */
-"d8q-mA-Edg.title" = "設置";
+"d8q-mA-Edg.title" = "Settings";
 
 /* Class = "UIButton"; normalTitle = "BiliBili"; ObjectID = "eD0-S1-7Qf"; */
 "eD0-S1-7Qf.normalTitle" = "BiliBili";
 
 /* Class = "UIViewController"; title = "Contact"; ObjectID = "hSP-kt-Zj4"; */
-"hSP-kt-Zj4.title" = "聯繫";
+"hSP-kt-Zj4.title" = "Contact";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "hW9-sk-Xx1"; */
-"hW9-sk-Xx1.title" = "設置";
+"hW9-sk-Xx1.title" = "Settings";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "hdG-cD-PT1"; */
-"hdG-cD-PT1.text" = "姓名";
+"hdG-cD-PT1.text" = "Name";
 
 /* Class = "UITabBarItem"; title = "Import from Server"; ObjectID = "oc6-TQ-b2A"; */
-"oc6-TQ-b2A.title" = "從服務器導入";
+"oc6-TQ-b2A.title" = "Import from Server";
 
 /* Class = "UILabel"; text = "Birth"; ObjectID = "pQV-xx-dak"; */
-"pQV-xx-dak.text" = "生日";
+"pQV-xx-dak.text" = "Birth";
 
 /* Class = "UILabel"; text = "Birth"; ObjectID = "vRJ-JU-D0V"; */
-"vRJ-JU-D0V.text" = "生日";
+"vRJ-JU-D0V.text" = "Birth";
 
 /* Class = "UILabel"; text = "No data\nTap Add button to configure"; ObjectID = "xdC-SE-cF4"; */
-"xdC-SE-cF4.text" = "沒有數據\n點擊添加按鈕來設置";
+"xdC-SE-cF4.text" = "No data\nTap Add button to configure";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "yhd-8B-w69"; */
-"yhd-8B-w69.text" = "姓名";
+"yhd-8B-w69.text" = "Name";
 

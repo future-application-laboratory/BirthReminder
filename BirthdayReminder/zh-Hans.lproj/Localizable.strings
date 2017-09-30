@@ -1,0 +1,27 @@
+/* There are %d days left till a certain date. */
+"%d day(s) left" = "剩余 %d 天";
+
+/* add */
+"add" = "添加";
+
+/* The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index) */
+"agreement" = "这些信息收集于互联网，且他们不属于此App的开发者。\\n如果您认为这里的信息侵犯了您的著作权或著佐权，请通过邮件联络我，我会将其删除\\n（您可以在App Store页面或本应用设置界面找到我的联络方式）";
+
+/* Birth */
+"birth" = "生日";
+
+/* dayAfterTomorrow */
+"dayAfterTomorrow" = "后天";
+
+/* Image */
+"image" = "图片";
+
+/* name */
+"name" = "姓名";
+
+/* today */
+"today" = "今天";
+
+/* tomorrow */
+"tomorrow" = "明天";
+

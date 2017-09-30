@@ -8,7 +8,7 @@
       location = "group:README.md">
    </FileRef>
    <Group
-      location = "container:"
+      location = "container:GitHubPics"
       name = "GitHubPics">
       <FileRef
          location = "group:BirthReminder.png">

@@ -1,0 +1,12 @@
+/* There are %d days left till a certain date. */
+"%d day(s) left" = "剩余 %d 天";
+
+/* dayAfterTomorrow */
+"dayAfterTomorrow" = "后天";
+
+/* today */
+"today" = "今天";
+
+/* tomorrow */
+"tomorrow" = "明天";
+

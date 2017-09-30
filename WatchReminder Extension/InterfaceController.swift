@@ -48,7 +48,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
             return
         }
         
-        tableData = BirthComputer.compute(withBirthdayPeople: tableData)
+        tableData = BirthComputer.peopleOrderedByBirthday(peopleToReorder: tableData)
         
         table.setNumberOfRows(tableData.count, withRowType: "tableRowController")
         

@@ -1,43 +1,52 @@
 # Birthday Reminder
+
 > A tool that helps you manage your favorite anime characters' births
 
-![](index.png)
+![The index page of this app has a list of people and their birthdays](./GitHubPics/index.png)
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](http://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com)
+[![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![Made with Swift](https://forthebadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
+[![For You](https://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com)
+
 # Features
+
 ## Supports both iOS and watchOS
-This app supports iOS, TodayExtension(iOS), watchOS and Complications(watchOS)
 
-This means you may check the birth info by just raising your wrist, or swiping down from your phone's top
+This app supports iOS, iOS Today Extension, watchOS, and watchOS Complications
 
- <img src="watch.png" width="40%;" align=center />
- <img src="complication.png" width="40%;" align=center />
- <img src="today.png" width="80%;" align=center />
-## Online birth info
+Wanna check the birth info? Just raise your wrist or swipe down from the top of your phone!
+
+ <img src="./GitHubPics/watch.png" width="40%;" align=center />
+ <img src="./GitHubPics/complication.png" width="40%;" align=center />
+ <img src="./GitHubPics/today.png" width="80%;" align=center />
+
+## Online Birth Info
+
 Of course, you may add the birth info manually, but it's usually time-consuming
 
 Here, you may import characters easily
 
-The only thing you need is tapping on the ADD button
+The only thing you need is tapping the ADD button
 
-![](online.png)
+![Add button can be found on the upper-right corner](./GitHubPics/online.png)
 
 # Download
-Available on App Store soon!
 
-[![](appstore.svg)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
+Available on the App Store soon!
 
-Also, you can download it on TestFlight to try the latest version
+[![Download on the App Store](./GitHubPics/appstore.svg)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
 
-To do it, [email me](mailto:CaptainYukinoshitaHachiman@ProtonMail.com) and I'll send you an invitation
+If you'd like to receive the latest version through TestFlight, [email me](mailto:CaptainYukinoshitaHachiman@ProtonMail.com) your iCloud account, then I'll send you an invitation
+
 # Contribution
+
 ## Online Info
+
 If you would like to add more birth info, please email me:
-CaptainYukinoshitaHachiman@ProtonMail.com
+[CaptainYukinoshitaHachiman@ProtonMail.com](mailto:CaptainYukinoshitaHachiman@ProtonMail.com)
 
 (Only ACGN characters are welcome)
 
-## APP bug fixing/feature adding
-If you have nice ideas, or find a bug with the app, please open an issue or a PR
+## APP Bug Report/Feature Suggestion
+
+If you have nice ideas or find a bug in the app, please open an issue or a PR

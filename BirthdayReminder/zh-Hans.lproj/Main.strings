@@ -1,51 +1,65 @@
+/* Class = "UITabBarItem"; title = "Blank"; ObjectID = "03y-ad-1Mg"; */
+"03y-ad-1Mg.title" = "空白模版";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "4Wf-6A-0f9"; */
+"4Wf-6A-0f9.text" = "姓名";
 
 /* Class = "UITabBarController"; title = "Add"; ObjectID = "6c4-gZ-9wt"; */
 "6c4-gZ-9wt.title" = "添加";
 
-/* Class = "UIButton"; normalTitle = "Done"; ObjectID = "6vu-p1-U4B"; */
-"6vu-p1-U4B.normalTitle" = "完成";
+/* Class = "UILabel"; text = "Syncing with Apple Watch"; ObjectID = "8GF-Rd-csy"; */
+"8GF-Rd-csy.text" = "与Apple Watch同步";
 
-/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "7fb-hl-Vv7"; */
-"7fb-hl-Vv7.normalTitle" = "取消";
+/* Class = "UILabel"; text = "Birth"; ObjectID = "9SD-es-Ae7"; */
+"9SD-es-Ae7.text" = "生日";
+
+/* Class = "UILabel"; text = "(・ω・)ノ"; ObjectID = "44Q-IU-5V3"; */
+"44Q-IU-5V3.text" = "(・ω・)ノ";
 
 /* Class = "UILabel"; text = "Nothing added to sync\nTap Add to configure"; ObjectID = "89p-iU-0BB"; */
 "89p-iU-0BB.text" = "尚未有已添加的数据\n来与Apple Watch同步\n点击添加按钮来设置";
 
-/* Class = "UILabel"; text = "Set favourite to sync with Apple Watch"; ObjectID = "8GF-Rd-csy"; */
-"8GF-Rd-csy.text" = "与Apple Watch同步";
-
-/* Class = "UITableViewSection"; headerTitle = "Apple Watch Settings"; ObjectID = "B8A-pt-VQc"; */
-"B8A-pt-VQc.headerTitle" = "Apple Watch设置";
-
 /* Class = "UINavigationItem"; title = "Index"; ObjectID = "CHb-Xh-m3B"; */
 "CHb-Xh-m3B.title" = "首页";
 
-/* Class = "UITableViewSection"; headerTitle = "About"; ObjectID = "Dyn-wd-gwF"; */
-"Dyn-wd-gwF.headerTitle" = "关于";
+/* Class = "UIButton"; normalTitle = "GitHub"; ObjectID = "Fr0-Sd-xph"; */
+"Fr0-Sd-xph.normalTitle" = "GitHub";
 
-/* Class = "UILabel"; text = "Check the acknowledgements"; ObjectID = "QGg-6x-OpC"; */
+/* Class = "UILabel"; text = "Label"; ObjectID = "JVh-FQ-FxS"; */
+"JVh-FQ-FxS.text" = "Label";
+
+/* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "QGg-6x-OpC"; */
 "QGg-6x-OpC.text" = "致谢";
 
 /* Class = "UINavigationItem"; title = "Animes"; ObjectID = "Qde-DH-bvt"; */
 "Qde-DH-bvt.title" = "动画";
 
-/* Class = "UILabel"; text = "Check the Contect Info"; ObjectID = "QmJ-P1-Na2"; */
+/* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "联系信息";
 
-/* Class = "UITableViewController"; title = "Add"; ObjectID = "Xpl-JI-Eo0"; */
+/* Class = "UILabel"; text = "You can find me at"; ObjectID = "RW7-Gs-JQl"; */
+"RW7-Gs-JQl.text" = "你能够通过以下方式联系我";
+
+/* Class = "UIButton"; normalTitle = "Email"; ObjectID = "VC4-VL-MKT"; */
+"VC4-VL-MKT.normalTitle" = "电子邮件";
+
+/* Class = "UIViewController"; title = "Add"; ObjectID = "Y32-gE-5ws"; */
 "Y32-gE-5ws.title" = "添加";
 
-/* Class = "UIViewController"; title = "AW Settings"; ObjectID = "Zip-mg-AKx"; */
+/* Class = "UIViewController"; title = "AW Syncing"; ObjectID = "Zip-mg-AKx"; */
 "Zip-mg-AKx.title" = "AW 设置";
+
+/* Class = "UILabel"; text = "Birth"; ObjectID = "cGP-5e-OEr"; */
+"cGP-5e-OEr.text" = "生日";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "cwz-Zi-eea"; */
+"cwz-Zi-eea.text" = "姓名";
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "d8q-mA-Edg"; */
 "d8q-mA-Edg.title" = "设置";
 
-/* Class = "UITableViewSection"; headerTitle = "Contact"; ObjectID = "deJ-4u-uCS"; */
-"deJ-4u-uCS.headerTitle" = "联系";
-
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "gEu-Fu-7Q5"; */
-"gEu-Fu-7Q5.placeholder" = "名字";
+/* Class = "UIButton"; normalTitle = "BiliBili"; ObjectID = "eD0-S1-7Qf"; */
+"eD0-S1-7Qf.normalTitle" = "BiliBili";
 
 /* Class = "UIViewController"; title = "Contact"; ObjectID = "hSP-kt-Zj4"; */
 "hSP-kt-Zj4.title" = "联系";
@@ -53,23 +67,21 @@
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "hW9-sk-Xx1"; */
 "hW9-sk-Xx1.title" = "设置";
 
-/* Class = "UITextField"; placeholder = "Name"; ObjectID = "juj-gd-Nd4"; */
-"juj-gd-Nd4.placeholder" = "名字";
+/* Class = "UILabel"; text = "Name"; ObjectID = "hdG-cD-PT1"; */
+"hdG-cD-PT1.text" = "姓名";
 
 /* Class = "UITabBarItem"; title = "Import from Server"; ObjectID = "oc6-TQ-b2A"; */
 "oc6-TQ-b2A.title" = "从服务器导入";
 
-/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "rjU-SB-OLd"; */
-"rjU-SB-OLd.headerTitle" = "名字";
+/* Class = "UILabel"; text = "Birth"; ObjectID = "pQV-xx-dak"; */
+"pQV-xx-dak.text" = "生日";
 
-/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "t5C-R9-Jtk"; */
-"t5C-R9-Jtk.normalTitle" = "取消";
-
-/* Class = "UITabBarItem"; title = "Blank Template"; ObjectID = "tgX-BL-dZt"; */
-"03y-ad-1Mg.title" = "空白模版";
-
-/* Class = "UITableViewSection"; headerTitle = "Birthday"; ObjectID = "uae-XN-PrI"; */
-"uae-XN-PrI.headerTitle" = "生日";
+/* Class = "UILabel"; text = "Birth"; ObjectID = "vRJ-JU-D0V"; */
+"vRJ-JU-D0V.text" = "生日";
 
 /* Class = "UILabel"; text = "No data\nTap Add button to configure"; ObjectID = "xdC-SE-cF4"; */
 "xdC-SE-cF4.text" = "没有数据\n点击添加按钮来设置";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "yhd-8B-w69"; */
+"yhd-8B-w69.text" = "姓名";
+
