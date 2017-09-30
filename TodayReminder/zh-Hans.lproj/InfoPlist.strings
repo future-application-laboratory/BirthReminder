@@ -1,3 +1,6 @@
 /* (No Comment) */
-"CFBundleName" = "";
+"CFBundleDisplayName" = "TodayReminder";
+
+/* (No Comment) */
+"CFBundleName" = "$(PRODUCT_NAME)";
 

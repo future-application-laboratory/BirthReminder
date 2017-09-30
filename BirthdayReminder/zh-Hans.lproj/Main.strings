@@ -13,11 +13,20 @@
 /* Class = "UILabel"; text = "Birth"; ObjectID = "9SD-es-Ae7"; */
 "9SD-es-Ae7.text" = "生日";
 
+/* Class = "UILabel"; text = "(・ω・)ノ"; ObjectID = "44Q-IU-5V3"; */
+"44Q-IU-5V3.text" = "(・ω・)ノ";
+
 /* Class = "UILabel"; text = "Nothing added to sync\nTap Add to configure"; ObjectID = "89p-iU-0BB"; */
 "89p-iU-0BB.text" = "尚未有已添加的数据\n来与Apple Watch同步\n点击添加按钮来设置";
 
 /* Class = "UINavigationItem"; title = "Index"; ObjectID = "CHb-Xh-m3B"; */
 "CHb-Xh-m3B.title" = "首页";
+
+/* Class = "UIButton"; normalTitle = "GitHub"; ObjectID = "Fr0-Sd-xph"; */
+"Fr0-Sd-xph.normalTitle" = "GitHub";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JVh-FQ-FxS"; */
+"JVh-FQ-FxS.text" = "Label";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "QGg-6x-OpC"; */
 "QGg-6x-OpC.text" = "致谢";

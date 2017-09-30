@@ -1,1 +1,6 @@
-/* No Localized Strings */
+/* (No Comment) */
+"CFBundleDisplayName" = "WatchReminder Extension";
+
+/* (No Comment) */
+"CFBundleName" = "$(PRODUCT_NAME)";
+

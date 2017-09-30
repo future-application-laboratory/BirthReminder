@@ -13,11 +13,20 @@
 /* Class = "UILabel"; text = "Birth"; ObjectID = "9SD-es-Ae7"; */
 "9SD-es-Ae7.text" = "生日";
 
+/* Class = "UILabel"; text = "(・ω・)ノ"; ObjectID = "44Q-IU-5V3"; */
+"44Q-IU-5V3.text" = "(・ω・)ノ";
+
 /* Class = "UILabel"; text = "Nothing added to sync\nTap Add to configure"; ObjectID = "89p-iU-0BB"; */
 "89p-iU-0BB.text" = "尚未有已添加的數據\n來與Apple Watch同步\n點擊添加按鈕來設置";
 
 /* Class = "UINavigationItem"; title = "Index"; ObjectID = "CHb-Xh-m3B"; */
 "CHb-Xh-m3B.title" = "首頁";
+
+/* Class = "UIButton"; normalTitle = "GitHub"; ObjectID = "Fr0-Sd-xph"; */
+"Fr0-Sd-xph.normalTitle" = "GitHub";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JVh-FQ-FxS"; */
+"JVh-FQ-FxS.text" = "Label";
 
 /* Class = "UILabel"; text = "Acknowledgements"; ObjectID = "QGg-6x-OpC"; */
 "QGg-6x-OpC.text" = "致謝";
@@ -27,6 +36,12 @@
 
 /* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "聯繫信息";
+
+/* Class = "UILabel"; text = "You can find me at"; ObjectID = "RW7-Gs-JQl"; */
+"RW7-Gs-JQl.text" = "You can find me at";
+
+/* Class = "UIButton"; normalTitle = "Email"; ObjectID = "VC4-VL-MKT"; */
+"VC4-VL-MKT.normalTitle" = "Email";
 
 /* Class = "UIViewController"; title = "Add"; ObjectID = "Y32-gE-5ws"; */
 "Y32-gE-5ws.title" = "添加";
@@ -42,6 +57,9 @@
 
 /* Class = "UITableViewController"; title = "Settings"; ObjectID = "d8q-mA-Edg"; */
 "d8q-mA-Edg.title" = "設置";
+
+/* Class = "UIButton"; normalTitle = "BiliBili"; ObjectID = "eD0-S1-7Qf"; */
+"eD0-S1-7Qf.normalTitle" = "BiliBili";
 
 /* Class = "UIViewController"; title = "Contact"; ObjectID = "hSP-kt-Zj4"; */
 "hSP-kt-Zj4.title" = "聯繫";

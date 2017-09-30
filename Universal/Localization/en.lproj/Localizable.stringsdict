@@ -1,12 +1,12 @@
 {
-	"%d day(s) left" = {
-		"NSStringLocalizedFormatKey" = "%#@days@";
-		days = {
-			"NSStringFormatSpecTypeKey" = "NSStringPluralRuleType";
-			"NSStringFormatValueTypeKey" = d;
-			one = "%d day left";
-			other = "%d days left";
-			zero = "%d day left";
-		};
-	};
+    "%d day(s) left" =     {
+        NSStringLocalizedFormatKey = "%#@days@";
+        days =         {
+            NSStringFormatSpecTypeKey = NSStringPluralRuleType;
+            NSStringFormatValueTypeKey = d;
+            one = "%d day left";
+            other = "%d days left";
+            zero = "%d day left";
+        };
+    };
 }
