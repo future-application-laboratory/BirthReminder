@@ -16,9 +16,9 @@ This app supports iOS, iOS Today Extension, watchOS, and watchOS Complications
 
 Wanna check the birth info? Just raise your wrist or swipe down from the top of your phone!
 
- <img src="./GitHubPics/watch.png" width="40%;" align=center />
- <img src="./GitHubPics/complication.png" width="40%;" align=center />
- <img src="./GitHubPics/today.png" width="80%;" align=center />
+![](GitHubPics/watch.png)
+![](GitHubPics/complication.png)
+![](GitHubPics/today.png)
 
 ## Online Birth Info
 
