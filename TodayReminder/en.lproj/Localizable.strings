@@ -1,0 +1,12 @@
+/* There are %d days left till a certain date. */
+"%d day(s) left" = "%d day(s) left";
+
+/* dayAfterTomorrow */
+"dayAfterTomorrow" = "After Tomorrow";
+
+/* today */
+"today" = "Today";
+
+/* tomorrow */
+"tomorrow" = "Tomorrow";
+

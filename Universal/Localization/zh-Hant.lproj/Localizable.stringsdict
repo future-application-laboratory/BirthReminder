@@ -1,0 +1,10 @@
+{
+	"%d day(s) left" = {
+		"NSStringLocalizedFormatKey" = "%#@days@";
+		days = {
+			"NSStringFormatSpecTypeKey" = "NSStringPluralRuleType";
+			"NSStringFormatValueTypeKey" = d;
+			zero = "\U5269\U9918 %d \U5929";
+		};
+	};
+}

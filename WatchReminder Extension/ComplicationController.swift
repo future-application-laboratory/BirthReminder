@@ -13,9 +13,13 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     let context = createDataMainContext()
     let request = PeopleToSave.sortedFetchRequest
-    var source: [PeopleToSave]!
+    lazy var source: [PeopleToSave] = {
+        let fetched = try! context.fetch(request)
+        return BirthComputer.peopleOrderedByBirthday(peopleToReorder: fetched)
+    }()
     
-    let supportedComplicationFamilies:[CLKComplicationFamily] = [.utilitarianLarge,.modularLarge]
+    let supportedComplicationFamilies: [CLKComplicationFamily] = [.utilitarianLarge, .modularLarge]
+
     // MARK: - Timeline Configuration
     
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
@@ -27,7 +31,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     }
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
-        handler(source.first?.birth.toDate()?.addingTimeInterval(86400))
+        handler(source.first?.birth.toDate()?.tomorrow)
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -65,24 +69,17 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(complication)
     }
     
-    func getComplication(forFamily:CLKComplicationFamily,withName:String,stringDate:String) -> CLKComplicationTemplate? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        guard var date = formatter.date(from: BirthComputer.get(Year: .this) + "-" + stringDate) else {
-            return nil
-        }
-        if date.timeIntervalSinceNow < -86400 {
-            date = formatter.date(from: BirthComputer.get(Year: .next) + "-" + stringDate )!
-        }
-        return getComplication(forFamily: forFamily, withName: withName, date: date)
+    func getComplication(forFamily family: CLKComplicationFamily, withName name: String, stringDate: String) -> CLKComplicationTemplate? {
+        guard let date = stringDate.toDate() else { return nil }
+        return getComplication(forFamily: family, withName: name, date: date)
     }
     
-    func getComplication(forFamily:CLKComplicationFamily,withName:String,date:Date) -> CLKComplicationTemplate? {
-        switch forFamily {
+    func getComplication(forFamily family: CLKComplicationFamily, withName name: String, date: Date) -> CLKComplicationTemplate? {
+        switch family {
         case .modularLarge:
             let template = CLKComplicationTemplateModularLargeStandardBody()
             let dateProvider = CLKDateTextProvider(date: date, units: [.month,.day,.weekday])
-            let nameProvider = CLKSimpleTextProvider(text: withName)
+            let nameProvider = CLKSimpleTextProvider(text: name)
             let leftDaysProvider = CLKRelativeDateTextProvider(date: date, style: .natural, units: [.month,.day,.hour,.minute,.second])
             template.headerTextProvider = nameProvider
             template.body1TextProvider = leftDaysProvider
@@ -91,20 +88,14 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .utilitarianLarge:
             let template = CLKComplicationTemplateUtilitarianLargeFlat()
             let formatter = DateFormatter()
-            formatter.dateFormat = NSLocalizedString("dateFormat",comment: "dateFormat")
+            formatter.dateStyle = .short
             let localizedDate = formatter.string(from: date)
-            let nameAndDateProvider = CLKSimpleTextProvider(text: withName + " " + localizedDate, shortText: localizedDate)
+            let nameAndDateProvider = CLKSimpleTextProvider(text: "\(name) \(localizedDate)", shortText: localizedDate)
             template.textProvider = nameAndDateProvider
             return template
         default:
             return nil
         }
     }
-    
-    override init() {
-        super.init()
-        let fetched = try! context.fetch(request)
-        self.source = BirthComputer.compute(withBirthdayPeople: fetched)
-    }
-    
+
 }
