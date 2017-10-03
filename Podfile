@@ -14,4 +14,5 @@ target 'BirthdayReminder' do
     pod 'SideMenu'
     pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', branch: 'feature/Xcode9-Swift4'
     pod 'ImageRow'
+    pod 'PAPermissions'
 end

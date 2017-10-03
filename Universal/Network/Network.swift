@@ -16,6 +16,7 @@ enum TCWQService {
     case animepic(withID: Int)
     case people(inAnimeID: Int)
     case personalPic(withID: Int, inAnime: Int)
+    case notification(withToken: String)
 }
 
 extension TCWQService: TargetType {
@@ -37,19 +38,18 @@ extension TCWQService: TargetType {
             return "config/\(id)"
         case .personalPic(let (id,animeID)):
             return "images/\(animeID)/\(id).jpg"
+        case .notification(_):
+            return "notification"
         }
     }
     
     var method: Moya.Method {
-        return .get
-    }
-    
-    var parameters: [String : Any]? {
-        return nil
-    }
-    
-    var parameterEncoding: ParameterEncoding {
-        return URLEncoding.default
+        switch self {
+        case .notification(_):
+            return .post
+        default:
+            return .get
+        }
     }
     
     var sampleData: Data {
@@ -57,7 +57,12 @@ extension TCWQService: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        switch self {
+        case .notification(let token):
+            return .requestParameters(parameters: ["token":token], encoding: JSONEncoding.default)
+        default:
+            return .requestPlain
+        }
     }
 }
 

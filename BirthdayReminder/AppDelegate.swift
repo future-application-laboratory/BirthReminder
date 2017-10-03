@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import Foundation
 import WatchConnectivity
+import NotificationCenter
+import SCLAlertView
+import Moya
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
@@ -22,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             let session = WCSession.default
             session.delegate = self
             session.activate()
+        }
+        
+        let defaults = UserDefaults()
+        if !defaults.bool(forKey: "beenLaunched") {
+            window?.rootViewController = tutorialController
         }
         
         return true
@@ -49,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    // WatchConnectivity Sessions
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
@@ -89,4 +97,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         }
     }
     
+    // Remote notifications
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = NSData(data: deviceToken).description.replacingOccurrences(of:"<", with:"").replacingOccurrences(of:">", with:"").replacingOccurrences(of:" ", with:"")
+        sendToken(token)
+    }
+    
+    private func sendToken(_ token: String) {
+        NetworkController.networkQueue.async {
+            NetworkController.provider.request(.notification(withToken: token)) { response in
+                switch response {
+                case .success(let result):
+                    if result.statusCode != 200 {
+                        self.sendToken(token)
+                    } else {
+                        let defaults = UserDefaults()
+                        defaults.set(true, forKey: "registeredForNotification")
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    self.sendToken(token)
+                }
+            }
+        }
+    }
 }
