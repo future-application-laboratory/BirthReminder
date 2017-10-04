@@ -19,6 +19,48 @@
 /* name */
 "name" = "姓名";
 
+/* (No Comment) */
+"notificationDetail" = "从此再也不会错过老婆/老公的最新动态了！";
+
+/* notificationReason */
+"notificationReason" = "允许推送吧！";
+
+/* page1 body */
+"page1body" = "用 BirthReminder 管理生日，从此不再错过您最喜爱的 ACGN 角色的重要时刻。";
+
+/* page1 title */
+"page1title" = "欢迎使用 BirthReminder";
+
+/* page2 body */
+"page2body" = "您当然可以手动输入角色及其生日来添加，不过我们拒绝繁琐。BirthReminder 内置海量 ACGN 角色，你只需点击添加按钮，就是这么简单。";
+
+/* page2 title */
+"page2title" = "预置信息，方便快捷";
+
+/* page3 body */
+"page3body" = "BirthReminder 支持今日视图插件, Apple Watch 及复杂功能。只需抬起手腕，或是从屏幕顶部下滑，生日信息就在眼前。";
+
+/* page3 title */
+"page3title" = "随时随地，尽享所想";
+
+/* page4 body */
+"page4body" = "为了给您带来最优质的体验，我们需要推送和访问您相册的权限。";
+
+/* page4 title */
+"page4title" = "不多权限，更多精彩";
+
+/* permission */
+"permission" = "权限";
+
+/* permissionDetail */
+"permissionDetail" = "允许我们访问该权限";
+
+/* phtotReason */
+"photoReason" = "只差一步就能自定义为相册里的图片了！";
+
+/* setup */
+"setup" = "配置";
+
 /* today */
 "today" = "今天";
 
