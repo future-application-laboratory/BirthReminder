@@ -20,13 +20,10 @@
          location = "group:today.png">
       </FileRef>
       <FileRef
-         location = "group:complication.png">
+         location = "group:applewatch.png">
       </FileRef>
       <FileRef
          location = "group:online.png">
-      </FileRef>
-      <FileRef
-         location = "group:watch.png">
       </FileRef>
    </Group>
    <FileRef

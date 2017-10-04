@@ -243,7 +243,7 @@ Tap Add button to configure</string>
         <!--Navigation Controller-->
         <scene sceneID="LbW-2u-uUX">
             <objects>
-                <navigationController id="hl5-32-VsJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nc" id="hl5-32-VsJ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UhG-E6-7PW">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>

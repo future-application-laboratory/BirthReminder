@@ -33,6 +33,7 @@
 		B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
+		B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B031B91E1F81D81D001AE7DC /* Tutorial.swift */; };
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FB0C81F6E21E70021263D /* ContactViewController.swift */; };
@@ -42,6 +43,7 @@
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
 		B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
+		B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08060131F820E6B00115399 /* PermissionRequestingController.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B081452D1F4E7977007D8DD0 /* LoadingView.swift */; };
@@ -179,6 +181,7 @@
 		B02929551F26E79000AD0BC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
 		B02FC57D1F596E2400EAB6E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		B031B91E1F81D81D001AE7DC /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
 		B05FB0C81F6E21E70021263D /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 		B06883791F1EECEA00831AA6 /* FileManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManaging.swift; sourceTree = "<group>"; };
 		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
+		B08060131F820E6B00115399 /* PermissionRequestingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestingController.swift; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
 		B081452D1F4E7977007D8DD0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -310,6 +314,8 @@
 		B049DC9C1F1EEE31008634C5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B031B91E1F81D81D001AE7DC /* Tutorial.swift */,
+				B08060131F820E6B00115399 /* PermissionRequestingController.swift */,
 				B0CD6B681F6D103A009899FE /* PersonFormController.swift */,
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
 				B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */,
@@ -577,6 +583,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 					B06883531F1EEB2D00831AA6 = {
@@ -586,6 +595,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -608,6 +623,12 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 0;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -763,7 +784,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -789,11 +810,13 @@
 				B0D18E441F6D8C6300B2B789 /* SideMenuNavigationController.swift in Sources */,
 				B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
+				B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
+				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,

@@ -15,6 +15,7 @@ PODS:
     - Result (~> 3.0)
   - ObjectMapper (3.0.0)
   - Onboard (2.3.1)
+  - PAPermissions (0.9.10)
   - Result (3.2.3)
   - SCLAlertView (0.7.0)
   - SideMenu (2.3.3)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Moya (from `https://github.com/Moya/Moya.git`, branch `master`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-4`)
   - Onboard
+  - PAPermissions
   - SCLAlertView
   - SideMenu
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
@@ -89,11 +91,12 @@ SPEC CHECKSUMS:
   Moya: aa1e80374feb3894c255f3eff98913827d4bf6e1
   ObjectMapper: 739e5530df22248823f6cc7ed9e016ebf2c26a27
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
   SnapKit: c71c530b73cedd2a8b998098687001baff265086
 
-PODFILE CHECKSUM: b53687d1731bc1196edf5d5e6fe35d79f6ea3642
+PODFILE CHECKSUM: b3af941b7b18a88f22dadd4b1858fbae7a1b8058
 
 COCOAPODS: 1.2.1

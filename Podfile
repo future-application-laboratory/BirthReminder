@@ -10,8 +10,9 @@ target 'BirthdayReminder' do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'Moya', :git => 'https://github.com/Moya/Moya.git', branch: 'master'
     pod 'AcknowList', :git => 'https://github.com/vtourraine/AcknowList.git', branch: 'swift-4'
-    pod 'LTMorphingLabel', :git => 'https://github.com/lexrus/LTMorphingLabel.git', branch: 'swift4'
+    pod 'LTMorphingLabel', :git => 'https://github.com/lexrus/LTMorphingLabel.git'
     pod 'SideMenu'
     pod 'Eureka', :git => 'https://github.com/xmartlabs/Eureka.git', branch: 'feature/Xcode9-Swift4'
     pod 'ImageRow'
+    pod 'PAPermissions'
 end
