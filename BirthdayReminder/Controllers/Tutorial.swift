@@ -30,11 +30,11 @@ extension AppDelegate {
         }
         
         contentVCs.last?.viewDidAppearBlock = {
-            onboardVC?.skipButton.setTitle("Enjoy!", for: .normal)
+            onboardVC?.skipButton.setTitle(NSLocalizedString("enjoy", comment: "enjoy"), for: .normal)
         }
         for times in 0..<(contentVCs.count - 1) {
             contentVCs[times].viewDidAppearBlock = {
-                onboardVC?.skipButton.setTitle("Skip", for: .normal)
+                onboardVC?.skipButton.setTitle(NSLocalizedString("skip", comment: "skip"), for: .normal)
             }
         }
         page4.actionButton.addTarget(nil, action: #selector(onboardVC?.requestPermisson), for: .touchUpInside)

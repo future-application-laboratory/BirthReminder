@@ -40,6 +40,9 @@
 
 "setup" = "Setup";
 
+"enjoy" = "Enjoy";
+"skip" = "Skip";
+
 /* permission requesting view */
 "permission" = "Permission";
 

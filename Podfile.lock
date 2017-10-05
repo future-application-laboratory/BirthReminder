@@ -7,7 +7,7 @@ PODS:
   - Eureka (3.0.0)
   - ImageRow (2.0.0):
     - Eureka (= 3.0)
-  - LTMorphingLabel (0.5.3)
+  - LTMorphingLabel (0.5.4)
   - Moya (9.0.0):
     - Moya/Core (= 9.0.0)
   - Moya/Core (9.0.0):
@@ -26,7 +26,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `feature/Xcode9-Swift4`)
   - ImageRow
-  - LTMorphingLabel (from `https://github.com/lexrus/LTMorphingLabel.git`, branch `swift4`)
+  - LTMorphingLabel (from `https://github.com/lexrus/LTMorphingLabel.git`)
   - Moya (from `https://github.com/Moya/Moya.git`, branch `master`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-4`)
   - Onboard
@@ -46,7 +46,6 @@ EXTERNAL SOURCES:
     :branch: feature/Xcode9-Swift4
     :git: https://github.com/xmartlabs/Eureka.git
   LTMorphingLabel:
-    :branch: swift4
     :git: https://github.com/lexrus/LTMorphingLabel.git
   Moya:
     :branch: master
@@ -69,7 +68,7 @@ CHECKOUT OPTIONS:
     :commit: 142d80535b27b3634ac5a38514bde948b8ed42de
     :git: https://github.com/xmartlabs/Eureka.git
   LTMorphingLabel:
-    :commit: 4357d7bceb0c8d39bd8063eb27a8cf8bad2a3c8a
+    :commit: f0b9086bcc1d7a4c5901a4e17117ffa2212c9ed7
     :git: https://github.com/lexrus/LTMorphingLabel.git
   Moya:
     :commit: 1eb1810c653a955e59aa012152966291d477fcd7
@@ -87,7 +86,7 @@ SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: 5b9418d7bfdc21ca977d69d124a6409f3e9af2c7
   ImageRow: 9dfbfa38c1e62c25d638bc40e97a48c1809443c4
-  LTMorphingLabel: c3be357452940e653404693c83f1850ee7d226c9
+  LTMorphingLabel: e6e09f462f49ab48d100e10de4778e39306a6784
   Moya: aa1e80374feb3894c255f3eff98913827d4bf6e1
   ObjectMapper: 739e5530df22248823f6cc7ed9e016ebf2c26a27
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
@@ -97,6 +96,6 @@ SPEC CHECKSUMS:
   SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
   SnapKit: c71c530b73cedd2a8b998098687001baff265086
 
-PODFILE CHECKSUM: b3af941b7b18a88f22dadd4b1858fbae7a1b8058
+PODFILE CHECKSUM: 3cffac66489cf1f23d9d4121b7de619d6bef87db
 
 COCOAPODS: 1.2.1
