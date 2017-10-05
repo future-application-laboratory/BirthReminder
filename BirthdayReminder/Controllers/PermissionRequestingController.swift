@@ -13,7 +13,7 @@ class PermissionController: PAPermissionsViewController {
     let photoCheck = PAPhotoLibraryPermissionsCheck()
     let notificationCheck = PANotificationsPermissionsCheck()
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
         useBlurBackground = true
         backgroundImage = UIImage(named: "background")
         tintColor = UIColor.white

@@ -5,7 +5,7 @@ target 'BirthdayReminder' do
     
     pod 'ObjectMapper', :git => 'https://github.com/Hearst-DD/ObjectMapper.git', branch: 'swift-4'
     pod 'SnapKit'
-    pod 'SCLAlertView'
+    pod 'SCLAlertView', :git => 'https://github.com/vikmeup/SCLAlertView-Swift.git', branch: 'master'
     pod 'Onboard'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'Moya'
