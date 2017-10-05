@@ -42,19 +42,19 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qZl-Fk-Mta">
-                                                    <rect key="frame" x="0.0" y="0.0" width="99" height="99"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="100.66666666666667"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="qZl-Fk-Mta" secondAttribute="height" multiplier="1:1" id="tb9-vL-0f0"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-8B-w69">
-                                                    <rect key="frame" x="119" y="23" width="45" height="21"/>
+                                                    <rect key="frame" x="120.66666666666666" y="23" width="44.999999999999972" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-es-Ae7">
-                                                    <rect key="frame" x="119" y="59.000000000000007" width="38" height="21.666666666666679"/>
+                                                    <rect key="frame" x="120.66666666666666" y="59.000000000000007" width="37.999999999999972" height="21.666666666666679"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -64,7 +64,7 @@ Tap Add button to configure</string>
                                                 <constraint firstItem="qZl-Fk-Mta" firstAttribute="top" secondItem="1eH-t5-oiR" secondAttribute="top" id="3RB-60-UsY"/>
                                                 <constraint firstItem="9SD-es-Ae7" firstAttribute="leading" secondItem="qZl-Fk-Mta" secondAttribute="trailing" constant="20" id="7Em-zI-jbI"/>
                                                 <constraint firstItem="9SD-es-Ae7" firstAttribute="top" secondItem="yhd-8B-w69" secondAttribute="bottom" constant="15" id="CMc-zn-3Bp"/>
-                                                <constraint firstAttribute="bottom" secondItem="qZl-Fk-Mta" secondAttribute="bottom" id="Her-Uz-UJt"/>
+                                                <constraint firstAttribute="bottom" secondItem="qZl-Fk-Mta" secondAttribute="bottom" constant="-1" id="Her-Uz-UJt"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yhd-8B-w69" secondAttribute="trailing" constant="20" symbolic="YES" id="HhP-1W-OBO"/>
                                                 <constraint firstItem="yhd-8B-w69" firstAttribute="leading" secondItem="qZl-Fk-Mta" secondAttribute="trailing" constant="20" id="J8w-hE-4fQ"/>
                                                 <constraint firstItem="qZl-Fk-Mta" firstAttribute="leading" secondItem="1eH-t5-oiR" secondAttribute="leading" id="dgM-cH-3XG"/>
@@ -392,13 +392,13 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mel-ZO-PSh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="99.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="100.66666666666667"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="wSe-Si-aom"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
-                                                    <rect key="frame" x="119.66666666666669" y="39" width="41.333333333333314" height="21"/>
+                                                    <rect key="frame" x="120.66666666666669" y="39" width="41.333333333333314" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -409,7 +409,7 @@ Tap Add button to configure</string>
                                                 <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="KKS-zB-4t9" secondAttribute="top" id="DLY-kG-DcP"/>
                                                 <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="Euy-Ii-YgJ"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JVh-FQ-FxS" secondAttribute="trailing" constant="20" id="QFD-X5-WFs"/>
-                                                <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="aHY-Eg-JDz"/>
+                                                <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" constant="-1" id="aHY-Eg-JDz"/>
                                                 <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="KKS-zB-4t9" secondAttribute="leading" id="qG8-wU-WDH"/>
                                             </constraints>
                                         </tableViewCellContentView>

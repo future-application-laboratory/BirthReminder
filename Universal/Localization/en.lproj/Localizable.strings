@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  BirthdayReminder
+
+  Created by Jacky Yu on 29/07/2017.
+  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
+*/
+
+"dateFormat" = "dd/MM";
+"agreement" = "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)";
+
+"today" = "Today";
+"tomorrow" = "Tomorrow";
+"dayAfterTomorrow" = "After Tomorrow";
+
+"daysLeft-" = "";
+"-daysLeft" = " days left";
+
+"month1" = "January";
+"month2" = "February";
+"month3" = "March";
+"month4" = "April";
+"month5" = "May";
+"month6" = "June";
+"month7" = "July";
+"month8" = "August";
+"month9" = "September";
+"month10" = "October";
+"month11" = "November";
+"month12" = "December";
+
+"day1" = "1";
+"day2" = "2";
+"day3" = "3";
+"day4" = "4";
+"day5" = "5";
+"day6" = "6";
+"day7" = "7";
+"day8" = "8";
+"day9" = "9";
+"day10" = "10";
+"day11" = "11";
+"day12" = "12";
+"day13" = "13";
+"day14" = "14";
+"day15" = "15";
+"day16" = "16";
+"day17" = "17";
+"day18" = "18";
+"day19" = "19";
+"day20" = "20";
+"day21" = "21";
+"day22" = "22";
+"day23" = "23";
+"day24" = "24";
+"day25" = "25";
+"day26" = "26";
+"day27" = "27";
+"day28" = "28";
+"day29" = "29";
+"day30" = "30";
+"day31" = "31";
+
+"about" = "About";
+
+"inavailable" = "Inavailable";
+"awNotSupported" = "Apple Watch not Supported";
+
+"name" = "Name";
+"image" = "Image";
+"birth" = "Birth";
+"clear" = "Clear";
+"choose" = "Choose";
+"add" = "Add";
