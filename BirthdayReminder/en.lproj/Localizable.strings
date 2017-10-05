@@ -50,4 +50,5 @@
 
 "photoReason" = "We need to access your PhotoLibrary to customize the pic";
 
-"notificationDetail" = "Then we can send you interesting news about the ACGN characters";
+"notificationReason" = "Then we can send you interesting news about the ACGN characters";
+
