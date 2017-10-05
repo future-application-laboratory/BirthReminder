@@ -121,7 +121,7 @@ extension String {
         case 2:
             return NSLocalizedString("dayAfterTomorrow", comment: "dayAfterTomorrow")
         default:
-            return NSLocalizedString("daysLeft-", comment: "daysLeft-") + "\(Int(leftDays))" + NSLocalizedString("-daysLeft", comment: "-daysLeft")
+            return NSLocalizedString("daysLeft-", comment: "daysLeft-") + String(Int(leftDays)) + NSLocalizedString("-daysLeft", comment: "-daysLeft")
         }
     }
     
