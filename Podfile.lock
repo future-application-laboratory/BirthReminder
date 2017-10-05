@@ -18,7 +18,7 @@ PODS:
   - PAPermissions (0.9.10)
   - Result (3.2.3)
   - SCLAlertView (0.7.0)
-  - SideMenu (2.3.3)
+  - SideMenu (3.0.2)
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
@@ -30,9 +30,9 @@ DEPENDENCIES:
   - Moya (from `https://github.com/Moya/Moya.git`, branch `master`)
   - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-4`)
   - Onboard
-  - PAPermissions
-  - SCLAlertView
-  - SideMenu
+  - PAPermissions (~> 0.9.10)
+  - SCLAlertView (from `https://github.com/vikmeup/SCLAlertView-Swift.git`, branch `master`)
+  - SideMenu (~> 3.0.2)
   - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `swift-4`)
 
 EXTERNAL SOURCES:
@@ -53,6 +53,9 @@ EXTERNAL SOURCES:
   ObjectMapper:
     :branch: swift-4
     :git: https://github.com/Hearst-DD/ObjectMapper.git
+  SCLAlertView:
+    :branch: master
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
   SnapKit:
     :branch: swift-4
     :git: https://github.com/SnapKit/SnapKit.git
@@ -76,6 +79,9 @@ CHECKOUT OPTIONS:
   ObjectMapper:
     :commit: 18051553fc44e98ffb1b7e93fa94cd184283d993
     :git: https://github.com/Hearst-DD/ObjectMapper.git
+  SCLAlertView:
+    :commit: 85b0f31ba20780f2ab6987dd36ee32a68a5343fb
+    :git: https://github.com/vikmeup/SCLAlertView-Swift.git
   SnapKit:
     :commit: d31148f449abe819fd1a58d5e07e94874c7e6003
     :git: https://github.com/SnapKit/SnapKit.git
@@ -93,9 +99,9 @@ SPEC CHECKSUMS:
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
-  SideMenu: a447554ae5c982e8077666389e1c8b0c8656e065
+  SideMenu: 8fe957e0f5dcf1a1175c8ba5d47978d4eb2a89da
   SnapKit: c71c530b73cedd2a8b998098687001baff265086
 
-PODFILE CHECKSUM: 3cffac66489cf1f23d9d4121b7de619d6bef87db
+PODFILE CHECKSUM: 3c51775148b5144cfeb78979c6d4e29a69699e88
 
 COCOAPODS: 1.2.1
