@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             session.activate()
         }
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
     

@@ -14,7 +14,7 @@
 "dayAfterTomorrow" = "After Tomorrow";
 
 "daysLeft-" = "";
-"-daysLeft" = "days left";
+"-daysLeft" = " days left";
 
 "month1" = "January";
 "month2" = "February";
