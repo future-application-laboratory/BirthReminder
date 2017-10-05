@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             window?.rootViewController = tutorialController
         }
         
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         return true
     }
     
