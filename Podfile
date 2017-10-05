@@ -12,7 +12,7 @@ target 'BirthdayReminder' do
     pod 'AcknowList', :git => 'https://github.com/vtourraine/AcknowList.git', branch: 'swift-4'
     pod 'LTMorphingLabel'
     pod 'SideMenu'
-    pod 'Eureka'
-    pod 'ImageRow'
+    pod 'Eureka', '~> 4.0.0'
+    pod 'ImageRow', :git => 'https://github.com/EurekaCommunity/ImageRow.git', branch: 'master'
     pod 'PAPermissions'
 end
