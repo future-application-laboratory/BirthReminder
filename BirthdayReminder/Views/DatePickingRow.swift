@@ -41,16 +41,10 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         pickerView.dataSource = self
         
         if let birth = row.value {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM-dd"
-            if let date = formatter.date(from: birth) {
-                formatter.dateFormat = "MM"
-                let month = formatter.string(from: date)
-                formatter.dateFormat = "dd"
-                let day = formatter.string(from: date)
-                pickerView.selectRow(Int(month)! - 1, inComponent: 0, animated: false)
-                pickerView.selectRow(Int(day)! - 1, inComponent: 1, animated: false)
-            }
+            let month = birth[birth.startIndex..<birth.index(birth.startIndex, offsetBy: 2)]
+            let day = birth[birth.index(birth.startIndex, offsetBy: 3)..<birth.endIndex]
+            pickerView.selectRow(Int(month)! - 1, inComponent: 0, animated: false)
+            pickerView.selectRow(Int(day)! - 1, inComponent: 1, animated: false)
         }
     }
     
