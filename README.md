@@ -41,8 +41,7 @@ If you'd like to receive the latest version through TestFlight, [email me](mailt
 
 ## Online Info
 
-If you would like to add more birth info, please email me:
-[CaptainYukinoshitaHachiman@ProtonMail.com](mailto:CaptainYukinoshitaHachiman@ProtonMail.com)
+If you would like to add more birth info, please see [this page](https://captainyukinoshitahachiman.github.io/BirthReminder-Contributing/)
 
 (Only ACGN characters are welcome)
 
