@@ -9,6 +9,7 @@
 import UIKit
 import Onboard
 import PAPermissions
+import SnapKit
 
 extension AppDelegate {
     var tutorialController: OnboardViewController? {
@@ -45,7 +46,6 @@ extension AppDelegate {
                     onbordContentController.titleLabel.font = UIFont.systemFont(ofSize: 40)
                     onbordContentController.bodyLabel.font = UIFont.systemFont(ofSize: 20)
                 }
-                onbordContentController.underPageControlPadding = 10
             }
         }
         

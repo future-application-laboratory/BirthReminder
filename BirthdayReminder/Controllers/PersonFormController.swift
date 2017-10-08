@@ -34,12 +34,12 @@ class PersonFormController: FormViewController {
                 }
             }
             +++ Section(NSLocalizedString("birth", comment: "Birth"))
-            <<< DateRow() { row in
+            <<< DatePickingRow() { row in
                 row.tag = "birth"
                 row.title = NSLocalizedString("birth", comment: "Birth")
-                row.value = Date()
+                row.value = "01-01"
                 if let birth = data?.stringedBirth {
-                    row.value = birth.toDate()
+                    row.value = birth
                 }
             }
             +++ Section(NSLocalizedString("image", comment: "Image"))
