@@ -11,6 +11,7 @@ import WatchKit
 
 class TableRowController: NSObject {
     
+    @IBOutlet var imageGroup: WKInterfaceGroup!
     @IBOutlet var image: WKInterfaceImage!
     @IBOutlet var birthLabel: WKInterfaceLabel!
     @IBOutlet var nameLabel: WKInterfaceLabel!
