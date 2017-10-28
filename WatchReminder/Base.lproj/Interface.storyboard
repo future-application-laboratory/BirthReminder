@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13178.6" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13045"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
         <!--BirthReminder-->
@@ -23,7 +23,11 @@ Go to Host App to configure</string>
                                 <tableRow identifier="tableRowController" id="rc3-d3-HYE" customClass="TableRowController" customModule="WatchReminder_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="C1o-a1-A8F">
                                         <items>
-                                            <imageView width="100" height="100" alignment="center" id="XDo-gI-qbc"/>
+                                            <group width="100" alignment="center" layout="vertical" radius="10" id="PEc-kD-jJQ">
+                                                <items>
+                                                    <imageView width="100" height="100" alignment="center" id="XDo-gI-qbc"/>
+                                                </items>
+                                            </group>
                                             <label alignment="center" verticalAlignment="bottom" text="Name" textAlignment="center" id="oHM-V4-bt6"/>
                                             <label alignment="center" verticalAlignment="bottom" text="Birth" textAlignment="center" id="OjJ-WC-S7Q"/>
                                         </items>
@@ -31,6 +35,7 @@ Go to Host App to configure</string>
                                     <connections>
                                         <outlet property="birthLabel" destination="OjJ-WC-S7Q" id="Fbw-5e-HGt"/>
                                         <outlet property="image" destination="XDo-gI-qbc" id="oUD-ig-mpv"/>
+                                        <outlet property="imageGroup" destination="PEc-kD-jJQ" id="l8r-qc-UD5"/>
                                         <outlet property="nameLabel" destination="oHM-V4-bt6" id="L5a-uO-qtp"/>
                                     </connections>
                                 </tableRow>
