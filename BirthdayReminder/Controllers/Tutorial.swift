@@ -9,6 +9,7 @@
 import UIKit
 import Onboard
 import PAPermissions
+import SnapKit
 
 extension AppDelegate {
     var tutorialController: OnboardViewController? {
@@ -38,6 +39,15 @@ extension AppDelegate {
             }
         }
         page4.actionButton.addTarget(nil, action: #selector(onboardVC?.requestPermisson), for: .touchUpInside)
+        
+        onboardVC?.viewControllers.forEach { controller in
+            if let onbordContentController = controller as? OnboardingContentViewController {
+                if UIScreen.main.bounds.height < 665 {
+                    onbordContentController.titleLabel.font = UIFont.systemFont(ofSize: 40)
+                    onbordContentController.bodyLabel.font = UIFont.systemFont(ofSize: 20)
+                }
+            }
+        }
         
         return onboardVC
     }

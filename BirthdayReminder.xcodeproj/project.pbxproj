@@ -68,6 +68,7 @@
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
+		B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */; };
 		B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F922D51F64187A0059DFDC /* Constants&Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -217,6 +218,7 @@
 		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
 		B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickingRow.swift; sourceTree = "<group>"; };
 		B0F922D51F64187A0059DFDC /* Constants&Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Settings.swift"; sourceTree = "<group>"; };
 		B0FB3E0C1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B0FB3E0D1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
 				B0095EC21F6D80C50049AF0D /* AnimeCell.swift */,
 				B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */,
+				B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
+				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,

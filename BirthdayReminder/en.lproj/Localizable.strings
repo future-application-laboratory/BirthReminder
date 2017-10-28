@@ -30,7 +30,7 @@
 "page1body" = "BirthReminder helps you manage your favorite ACGN characters' births easily, and you can then checkout anytime.";
 
 "page2title" = "Online Character Info";
-"page2body" = "You can easily add the characters, but it is still time-consuming.\nHere, you can import from the online server. Instead of typing for such long time, the only thing you need is tapping the ADD button.";
+"page2body" = "You can easily add the characters, but it is still time-consuming. Here, you can import from the online server. Instead of typing for such long time, the only thing you need is tapping the ADD button.";
 
 "page3title" = "Anytime Anywhere";
 "page3body" = "BirthReminder supports TodayWidget, AppleWatch, and Complication. This means you can checkout the birth info anytime and anywhere, simply by swiping from the top of your phone or raising your wrist.";
@@ -52,3 +52,48 @@
 
 "notificationReason" = "Then we can send you interesting news about the ACGN characters";
 
+/* date picker */
+"month1" = "January";
+"month2" = "February";
+"month3" = "March";
+"month4" = "April";
+"month5" = "May";
+"month6" = "June";
+"month7" = "July";
+"month8" = "August";
+"month9" = "September";
+"month10" = "October";
+"month11" = "November";
+"month12" = "December";
+
+"day1" = "1";
+"day2" = "2";
+"day3" = "3";
+"day4" = "4";
+"day5" = "5";
+"day6" = "6";
+"day7" = "7";
+"day8" = "8";
+"day9" = "9";
+"day10" = "10";
+"day11" = "11";
+"day12" = "12";
+"day13" = "13";
+"day14" = "14";
+"day15" = "15";
+"day16" = "16";
+"day17" = "17";
+"day18" = "18";
+"day19" = "19";
+"day20" = "20";
+"day21" = "21";
+"day22" = "22";
+"day23" = "23";
+"day24" = "24";
+"day25" = "25";
+"day26" = "26";
+"day27" = "27";
+"day28" = "28";
+"day29" = "29";
+"day30" = "30";
+"day31" = "31";

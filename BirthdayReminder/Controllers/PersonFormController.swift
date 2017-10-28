@@ -1,4 +1,4 @@
-//
+﻿//
 //  PersonFormController.swift
 //  BirthdayReminder
 //
@@ -34,12 +34,12 @@ class PersonFormController: FormViewController {
                 }
             }
             +++ Section(NSLocalizedString("birth", comment: "Birth"))
-            <<< DateRow() { row in
+            <<< DatePickingRow() { row in
                 row.tag = "birth"
                 row.title = NSLocalizedString("birth", comment: "Birth")
-                row.value = Date()
+                row.value = "01-01"
                 if let birth = data?.stringedBirth {
-                    row.value = birth.toDate()
+                    row.value = birth
                 }
             }
             +++ Section(NSLocalizedString("image", comment: "Image"))
@@ -60,13 +60,10 @@ class PersonFormController: FormViewController {
     private func save() {
         let values = form.values()
         let name = values["name"] as! String?
-        let birth = values["birth"] as! Date
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd"
-        let stringBirth = formatter.string(from: birth)
+        let birth = values["birth"] as! String?
         let image = values["image"] as! UIImage?
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
-        PeopleToSave.insert(into: context, name: name ?? "", birth: stringBirth, picData: imageData)
+        PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData)
         navigationController?.popViewController(animated: true)
     }
     
