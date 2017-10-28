@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import SCLAlertView
 import ObjectMapper
+import StoreKit
 
 class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -48,7 +49,12 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         loadingView.start()
         loadAnimes()
     }
-    
+	
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		SKStoreReviewController.requestReview()
+	}
+	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAnimeDetail" {
             let viewController = segue.destination as! GetPersonalDataFromServerViewController
