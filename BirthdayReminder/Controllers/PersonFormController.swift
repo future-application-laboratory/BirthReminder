@@ -1,4 +1,4 @@
-﻿//
+//
 //  PersonFormController.swift
 //  BirthdayReminder
 //
@@ -10,6 +10,7 @@ import UIKit
 import Eureka
 import ImageRow
 import CoreData
+import StoreKit
 
 class PersonFormController: FormViewController {
     
@@ -65,6 +66,7 @@ class PersonFormController: FormViewController {
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
         PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData)
         navigationController?.popViewController(animated: true)
+        SKStoreReviewController.requestReview()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

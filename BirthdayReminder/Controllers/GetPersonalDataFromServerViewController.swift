@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SCLAlertView
 import ObjectMapper
+import StoreKit
 
 class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -47,6 +48,11 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         loadPeople()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        SKStoreReviewController.requestReview()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count
     }
@@ -60,7 +66,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         let cellData = tableViewData[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate(withStyle: .long)
+        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
         if let imgData = cellData.picData {
             cell.picView.image = UIImage(data: imgData)
         } else {

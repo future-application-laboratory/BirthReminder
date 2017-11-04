@@ -45,7 +45,7 @@ class SelectingFromIndexViewController: UIViewController, UITableViewDelegate, U
         let cellData = tableData![index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = cellData.birth.toLocalizedDate(withStyle: .long)
+        cell.birthLabel.text = cellData.birth.toLocalizedDate()
         if let imgData = cellData.picData {
             cell.picView.image = UIImage(data: imgData)
         } else {

@@ -71,10 +71,10 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         }
         var day = String(pickerView.selectedRow(inComponent: 1) + 1)
         var month = String(pickerView.selectedRow(inComponent: 0) + 1)
-        if day.characters.count != 2 {
+        if day.count != 2 {
             day = "0" + day
         }
-        if month.characters.count != 2 {
+        if month.count != 2 {
             month = "0" + month
         }
         row.value = month + "-" + day

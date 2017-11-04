@@ -53,7 +53,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let cellData = data[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = status ? cellData.birth.toLocalizedDate(withStyle: .long) : cellData.birth.toLeftDays()
+        cell.birthLabel.text = status ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
         if let imgData = cellData.picData {
             cell.picView.image = UIImage(data: imgData)
         } else {
@@ -154,10 +154,10 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     private func setupSideMenu() {
         let leftMenu = storyboard!.instantiateViewController(withIdentifier: "leftMenuNavigationController") as? SideMenuNavigationController
         leftMenu?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
-        SideMenuManager.menuLeftNavigationController = leftMenu
-        SideMenuManager.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.menuAnimationBackgroundColor = .bar
+        SideMenuManager.default.menuLeftNavigationController = leftMenu
+        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
+        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.menuAnimationBackgroundColor = .bar
     }
     
 }

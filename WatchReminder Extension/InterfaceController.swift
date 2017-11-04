@@ -36,7 +36,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
         for times in 0..<table.numberOfRows {
             if let controller = table.rowController(at: times) as? TableRowController {
                 let currentDate = tableData[times].birth
-                controller.birthLabel.setText(status ? currentDate.toLeftDays() : currentDate.toLocalizedDate(withStyle: .medium))
+                controller.birthLabel.setText(status ? currentDate.toLeftDays() : currentDate.toLocalizedDate())
             }
         }
     }
@@ -56,7 +56,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
             if let controller = table.rowController(at: times) as? TableRowController {
                 let currentData = tableData[times]
                 controller.nameLabel.setText(currentData.name)
-                controller.birthLabel.setText(currentData.birth.toLocalizedDate(withStyle: .medium))
+                controller.birthLabel.setText(currentData.birth.toLocalizedDate())
                 controller.image.setImageData(currentData.picData)
             }
         }

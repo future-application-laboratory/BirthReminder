@@ -10,3 +10,5 @@
 /* tomorrow */
 "tomorrow" = "明天";
 
+/* Date Format */
+"dateStyle" = "MMMd日 EEEE";

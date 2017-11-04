@@ -97,3 +97,6 @@
 "day29" = "29";
 "day30" = "30";
 "day31" = "31";
+
+/* Date Format */
+"dateStyle" = "MMM d, EEEE";

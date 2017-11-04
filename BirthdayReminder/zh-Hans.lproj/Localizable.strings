@@ -112,3 +112,6 @@
 "day23" = "23日";
 "day24" = "24日";
 "day25" = "25日";
+
+/* Date Format */
+"dateStyle" = "MMMd日 EEEE";
