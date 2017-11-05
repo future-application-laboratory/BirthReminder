@@ -9,7 +9,6 @@
 import UIKit
 import WatchConnectivity
 import NotificationCenter
-import SCLAlertView
 import Moya
 
 @UIApplicationMain

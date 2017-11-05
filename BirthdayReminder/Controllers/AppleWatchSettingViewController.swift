@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
-import SCLAlertView
 import ViewAnimator
+import WatchConnectivity
+import CFNotify
 
 class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -31,6 +32,17 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !WCSession.isSupported() {
+            let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("notSupported", comment: "not supported"), body: NSLocalizedString("awNotSupportedReason", comment: ""), theme: .fail(.light))
+            var config = CFNotify.Config()
+            config.initPosition = .top(.center)
+            config.appearPosition = .top
+            config.hideTime = .never
+            CFNotify.present(config: config, view: cfView)
+            navigationController?.popViewController(animated: true)
+        }
+        
         view.backgroundColor = UIColor.background
         emptyLabel?.textColor = .label2
         
