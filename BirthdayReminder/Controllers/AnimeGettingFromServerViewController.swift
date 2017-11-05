@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
-import SCLAlertView
 import ObjectMapper
+import ViewAnimator
+import CFNotify
 
 class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -28,15 +29,12 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         // Agreement
         let defaults = UserDefaults()
         if !defaults.bool(forKey: "shouldHideAgreement") {
-            let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-            let alert = SCLAlertView(appearance: appearence)
-            alert.addButton("Cancel") {
-                self.navigationController?.popViewController(animated: true)
-            }
-            alert.addButton("Got it") {
-                defaults.set(true, forKey: "shouldHideAgreement")
-            }
-            alert.showNotice("About", subTitle: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"))
+            let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("about", comment: "about"), body: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"), theme: .warning(.light))
+            var config = CFNotify.Config()
+            config.initPosition = .top(.center)
+            config.appearPosition = .top
+            config.hideTime = .never
+            CFNotify.present(config: config, view: cfView)
         }
         
         tableView.backgroundView?.backgroundColor = UIColor.clear
@@ -104,17 +102,19 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
                 }
                 self?.loadPicsForAnimes()
             case .failure(let error):
                 self?.animes = []
                 DispatchQueue.main.async {
-                    let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-                    let alert = SCLAlertView(appearance: appearence)
-                    alert.addButton("OK") { [weak self] in
-                        self?.navigationController?.popViewController(animated: true)
-                    }
-                    alert.showError("Failed to load", subTitle: error.localizedDescription)
+                    let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
+                    var config = CFNotify.Config()
+                    config.initPosition = .top(.center)
+                    config.appearPosition = .top
+                    config.hideTime = .never
+                    CFNotify.present(config: config, view: cfView)
+                    self?.navigationController?.popViewController(animated: true)
                 }
             }
         }

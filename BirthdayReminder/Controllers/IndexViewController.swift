@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 import SnapKit
-import SideMenu
+import ViewAnimator
+import Material
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
@@ -28,6 +29,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var status = true
     @IBOutlet weak var emptyLabel: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
@@ -37,7 +39,11 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationController?.hidesNavigationBarHairline = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
-        setupSideMenu()
+        tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .always
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -149,15 +155,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else if scrollView.contentOffset.y >= sectionHeaderHeight {
             scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
-    }
-    
-    private func setupSideMenu() {
-        let leftMenu = storyboard!.instantiateViewController(withIdentifier: "leftMenuNavigationController") as? SideMenuNavigationController
-        leftMenu?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
-        SideMenuManager.default.menuLeftNavigationController = leftMenu
-        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.default.menuAnimationBackgroundColor = .bar
     }
     
 }

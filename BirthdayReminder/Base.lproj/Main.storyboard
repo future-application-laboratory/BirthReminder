@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hl5-32-VsJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1gf-SW-f9J">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +31,7 @@ Tap Add button to configure</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-8O-dxu">
-                                <rect key="frame" x="10" y="88" width="355" height="690"/>
+                                <rect key="frame" x="10" y="140" width="355" height="589"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="ZMh-je-LFZ" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
@@ -48,13 +48,13 @@ Tap Add button to configure</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhd-8B-w69">
-                                                    <rect key="frame" x="120.66666666666666" y="23" width="44.999999999999972" height="21"/>
+                                                    <rect key="frame" x="120.66666666666669" y="26" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9SD-es-Ae7">
-                                                    <rect key="frame" x="120.66666666666666" y="59.000000000000007" width="37.999999999999972" height="21.666666666666679"/>
+                                                    <rect key="frame" x="120.66666666666669" y="61.999999999999993" width="38" height="21.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -84,6 +84,30 @@ Tap Add button to configure</string>
                                     <outlet property="delegate" destination="L7a-Tq-nag" id="wAN-tw-bFS"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-JG-ANo" customClass="FABButton" customModule="Material">
+                                <rect key="frame" x="295" y="649" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="fXn-Ld-VBm"/>
+                                    <constraint firstAttribute="width" constant="64" id="so7-R8-VQT"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="add">
+                                    <color key="titleColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                        <color key="value" red="0.16821733119999999" green="0.30624192950000001" blue="0.18358390029999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="add"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
@@ -93,26 +117,18 @@ Tap Add button to configure</string>
                             <constraint firstAttribute="trailing" secondItem="2fD-8O-dxu" secondAttribute="trailing" constant="10" id="aZF-nd-Ueh"/>
                             <constraint firstItem="2dV-1Y-0A0" firstAttribute="top" secondItem="2fD-8O-dxu" secondAttribute="bottom" id="gaN-e6-9yW"/>
                             <constraint firstItem="xdC-SE-cF4" firstAttribute="centerX" secondItem="J6o-ke-Vzg" secondAttribute="centerX" id="hmp-pj-or5"/>
+                            <constraint firstItem="2dV-1Y-0A0" firstAttribute="top" secondItem="Oup-JG-ANo" secondAttribute="bottom" constant="16" id="iPS-5V-Bgq"/>
+                            <constraint firstAttribute="trailing" secondItem="Oup-JG-ANo" secondAttribute="trailing" constant="16" id="l23-k8-1Nd"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Hon-mA-fcs" appends="YES" id="Rvj-Gn-Ren"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Index" largeTitleDisplayMode="never" id="CHb-Xh-m3B">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="bxP-fc-DNN">
-                            <connections>
-                                <segue destination="1Sw-Wc-OkX" kind="presentation" id="O8A-NL-DRh"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="add" id="dfj-KM-4ed">
-                            <connections>
-                                <segue destination="6c4-gZ-9wt" kind="show" id="BRc-TY-HsV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Index" largeTitleDisplayMode="always" id="CHb-Xh-m3B"/>
                     <connections>
                         <outlet property="emptyLabel" destination="xdC-SE-cF4" id="ZGd-zT-QfM"/>
                         <outlet property="tableView" destination="2fD-8O-dxu" id="8yO-6Y-MOh"/>
+                        <segue destination="vpa-0V-8ab" kind="show" identifier="animeRetrieving" id="CDg-Ub-rbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc7-Uz-RmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -122,33 +138,14 @@ Tap Add button to configure</string>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3036.2318840579715" y="1232.608695652174"/>
-        </scene>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="PvD-Yg-chf">
-            <objects>
-                <navigationController storyboardIdentifier="leftMenuNavigationController" id="1Sw-Wc-OkX" customClass="SideMenuNavigationController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="uz9-gm-FYx">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="d8q-mA-Edg" kind="relationship" relationship="rootViewController" id="Euy-4U-MEQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bbo-Kx-r7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2628" y="2493"/>
+            <point key="canvasLocation" x="-3039" y="1728"/>
         </scene>
         <!--Settings-->
         <scene sceneID="plw-vE-P2L">
             <objects>
                 <tableViewController storyboardIdentifier="settings" title="Settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d8q-mA-Edg" customClass="SettingsViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="33" sectionFooterHeight="28" id="QwZ-bL-nKX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -162,7 +159,7 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syncing with Apple Watch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GF-Rd-csy">
-                                                    <rect key="frame" x="87.666666666666686" y="14.666666666666668" width="200" height="20.333333333333332"/>
+                                                    <rect key="frame" x="87.666666666666686" y="14.666666666666666" width="200" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -187,7 +184,7 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-6x-OpC">
-                                                    <rect key="frame" x="112.66666666666669" y="14.666666666666668" width="150" height="20.333333333333332"/>
+                                                    <rect key="frame" x="112.66666666666669" y="14.666666666666666" width="150" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -209,7 +206,7 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmJ-P1-Na2">
-                                                    <rect key="frame" x="157" y="14.666666666666668" width="61" height="20.333333333333332"/>
+                                                    <rect key="frame" x="157" y="14.666666666666666" width="61" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -234,19 +231,43 @@ Tap Add button to configure</string>
                             <outlet property="delegate" destination="d8q-mA-Edg" id="LJE-xp-Ooq"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Misc" id="0oe-eG-MiR"/>
                     <navigationItem key="navigationItem" title="Settings" id="hW9-sk-Xx1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csL-h6-h8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1328" y="2493"/>
+            <point key="canvasLocation" x="-4158" y="2659"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Discovery-->
+        <scene sceneID="uwe-Kv-jJJ">
+            <objects>
+                <viewController id="faG-vw-3t6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WMM-ly-feV"/>
+                        <viewControllerLayoutGuide type="bottom" id="vuw-hY-nEl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hha-Xy-IUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Discovery" id="Qic-ZZ-lzS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gCb-Ci-eVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4159" y="802"/>
+        </scene>
+        <!--Index-->
         <scene sceneID="LbW-2u-uUX">
             <objects>
                 <navigationController storyboardIdentifier="nc" id="hl5-32-VsJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Index" id="OID-AM-Gbr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UhG-E6-7PW">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="L7a-Tq-nag" kind="relationship" relationship="rootViewController" id="qIf-jp-6Pm"/>
@@ -254,45 +275,28 @@ Tap Add button to configure</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBb-RA-b6x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4157" y="1233"/>
+            <point key="canvasLocation" x="-4159" y="1728"/>
         </scene>
-        <!--Add-->
-        <scene sceneID="qUi-NQ-HGp">
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="ajG-nb-4O6">
             <objects>
-                <tabBarController title="Add" id="6c4-gZ-9wt" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="OAL-tD-sLh">
+                <tabBarController id="1gf-SW-f9J" customClass="MainTabBarController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iMM-FG-cfD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.17873436212539673" green="0.80021655559539795" blue="0.43831586837768555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="XqU-ld-lJb" kind="relationship" relationship="viewControllers" id="zYv-Qi-vsi"/>
-                        <segue destination="vpa-0V-8ab" kind="relationship" relationship="viewControllers" id="5R2-hb-jro"/>
+                        <segue destination="faG-vw-3t6" kind="relationship" relationship="viewControllers" id="gZQ-gR-AWc"/>
+                        <segue destination="hl5-32-VsJ" kind="relationship" relationship="viewControllers" id="KuN-cs-5nf"/>
+                        <segue destination="d8q-mA-Edg" kind="relationship" relationship="viewControllers" id="ods-RC-78J"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="54l-ai-0rq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0r-ek-8OC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1896" y="1233"/>
-        </scene>
-        <!--Blank-->
-        <scene sceneID="VsQ-1e-cbB">
-            <objects>
-                <viewController id="XqU-ld-lJb" customClass="PersonFormController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2Cm-oQ-t7O"/>
-                        <viewControllerLayoutGuide type="bottom" id="cAu-Zf-NN9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p8w-VN-YRA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Blank" image="new" id="03y-ad-1Mg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uZR-2c-1YA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-746" y="685"/>
+            <point key="canvasLocation" x="-5772" y="1728"/>
         </scene>
         <!--Contact-->
         <scene sceneID="Kdk-GQ-JZE">
@@ -303,17 +307,17 @@ Tap Add button to configure</string>
                         <viewControllerLayoutGuide type="bottom" id="O8n-8M-mak"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q1B-YJ-99c">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can find me at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-Gs-JQl">
-                                <rect key="frame" x="72" y="70" width="231" height="36"/>
+                                <rect key="frame" x="72" y="114" width="231" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC4-VL-MKT">
-                                <rect key="frame" x="162.66666666666666" y="294" width="50" height="36"/>
+                                <rect key="frame" x="162.66666666666666" y="338" width="50" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Email">
                                     <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -323,7 +327,7 @@ Tap Add button to configure</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD0-S1-7Qf">
-                                <rect key="frame" x="159.66666666666666" y="344" width="56" height="36"/>
+                                <rect key="frame" x="159.66666666666666" y="388" width="56" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="BiliBili">
                                     <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -333,7 +337,7 @@ Tap Add button to configure</string>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-Sd-xph">
-                                <rect key="frame" x="155" y="394" width="65" height="36"/>
+                                <rect key="frame" x="155" y="438" width="65" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="GitHub">
                                     <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -343,7 +347,7 @@ Tap Add button to configure</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(・ω・)ノ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Q-IU-5V3">
-                                <rect key="frame" x="89" y="566" width="197" height="54"/>
+                                <rect key="frame" x="89" y="654" width="197" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -366,7 +370,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jw7-ri-osv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1329.375" y="3459.5070422535214"/>
+            <point key="canvasLocation" x="-3039" y="3605"/>
         </scene>
         <!--Animes-->
         <scene sceneID="QSj-fa-pW3">
@@ -398,7 +402,7 @@ Tap Add button to configure</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
-                                                    <rect key="frame" x="120.66666666666669" y="39" width="41.333333333333314" height="21"/>
+                                                    <rect key="frame" x="120.66666666666667" y="39" width="41.333333333333329" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -434,7 +438,7 @@ Tap Add button to configure</string>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Import from Server" image="remote" id="oc6-TQ-b2A"/>
-                    <navigationItem key="navigationItem" title="Animes" id="Qde-DH-bvt"/>
+                    <navigationItem key="navigationItem" title="Animes" largeTitleDisplayMode="never" id="Qde-DH-bvt"/>
                     <connections>
                         <outlet property="tableView" destination="E5I-wa-qJ9" id="ZKu-VC-4su"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showAnimeDetail" id="GRJ-oI-Xf1"/>
@@ -442,7 +446,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbN-5t-Tnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-746.25" y="1679.5774647887324"/>
+            <point key="canvasLocation" x="-1898" y="1728"/>
         </scene>
         <!--AW Syncing-->
         <scene sceneID="YL0-ew-SUC">
@@ -453,11 +457,11 @@ Tap Add button to configure</string>
                         <viewControllerLayoutGuide type="bottom" id="K6k-9O-7yI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dHV-m4-mdk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89p-iU-0BB">
-                                <rect key="frame" x="96" y="340.66666666666669" width="183" height="43"/>
+                                <rect key="frame" x="96" y="384.66666666666669" width="183" height="43"/>
                                 <string key="text">Nothing added to sync
 Tap Add to configure</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -465,7 +469,7 @@ Tap Add to configure</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2e-Oe-T6w">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="40"/>
                                 <state key="normal" image="add">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -475,7 +479,7 @@ Tap Add to configure</string>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="whB-4T-TPX">
-                                <rect key="frame" x="10" y="40" width="355" height="601"/>
+                                <rect key="frame" x="10" y="84" width="355" height="645"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="h62-qp-KAb" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
@@ -492,13 +496,13 @@ Tap Add to configure</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwz-Zi-eea">
-                                                    <rect key="frame" x="119" y="23" width="45" height="21"/>
+                                                    <rect key="frame" x="119" y="26" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-5e-OEr">
-                                                    <rect key="frame" x="119" y="59.000000000000007" width="38" height="21.666666666666679"/>
+                                                    <rect key="frame" x="119" y="61.999999999999993" width="38" height="21.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -553,7 +557,7 @@ Tap Add to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scE-QX-Ng0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71.014492753623188" y="2492.934782608696"/>
+            <point key="canvasLocation" x="-3038" y="2659"/>
         </scene>
         <!--Add-->
         <scene sceneID="nZk-OM-U3k">
@@ -564,11 +568,11 @@ Tap Add to configure</string>
                         <viewControllerLayoutGuide type="bottom" id="1SS-UF-6Nj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fzc-cq-T2q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gXA-c9-GVI">
-                                <rect key="frame" x="10" y="0.0" width="355" height="641"/>
+                                <rect key="frame" x="10" y="44" width="355" height="685"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="2xe-ME-Aso" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
@@ -585,13 +589,13 @@ Tap Add to configure</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-cD-PT1">
-                                                    <rect key="frame" x="119" y="23" width="45" height="21"/>
+                                                    <rect key="frame" x="119" y="26" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRJ-JU-D0V">
-                                                    <rect key="frame" x="119" y="59.000000000000007" width="38" height="21.666666666666679"/>
+                                                    <rect key="frame" x="119" y="61.999999999999993" width="38" height="21.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -636,7 +640,7 @@ Tap Add to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBe-YJ-WnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="2492"/>
+            <point key="canvasLocation" x="-1897" y="2659"/>
         </scene>
         <!--Get Personal Data From Server View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -651,7 +655,7 @@ Tap Add to configure</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ILb-sN-ksc">
-                                <rect key="frame" x="10" y="88" width="355" height="690"/>
+                                <rect key="frame" x="10" y="88" width="355" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="personalCell" rowHeight="100" id="ca7-Mz-iPU" customClass="PersonalCell" customModule="BirthdayReminder" customModuleProvider="target">
@@ -668,13 +672,13 @@ Tap Add to configure</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wf-6A-0f9">
-                                                    <rect key="frame" x="119" y="23" width="45" height="21"/>
+                                                    <rect key="frame" x="119" y="26" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQV-xx-dak">
-                                                    <rect key="frame" x="119" y="59.000000000000007" width="38" height="21.666666666666679"/>
+                                                    <rect key="frame" x="119" y="61.999999999999993" width="38" height="21.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -727,7 +731,7 @@ Tap Add to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="1680"/>
+            <point key="canvasLocation" x="-804" y="1728"/>
         </scene>
         <!--Person Form Controller-->
         <scene sceneID="GG3-tI-fe7">
@@ -745,14 +749,12 @@ Tap Add to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lnT-xM-9er" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1564" y="1679"/>
+            <point key="canvasLocation" x="279" y="1728"/>
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="24" height="24"/>
+        <image name="add" width="36" height="36"/>
         <image name="loading" width="24" height="24"/>
-        <image name="menu" width="24" height="24"/>
-        <image name="new" width="24" height="24"/>
         <image name="remote" width="24" height="24"/>
     </resources>
 </document>

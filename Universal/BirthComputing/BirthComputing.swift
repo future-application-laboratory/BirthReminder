@@ -48,7 +48,6 @@ extension String {
         guard let date = toDate(),
             let leftDays = date.daysSince(Date.now)
             else { return nil }
-        print(NSLocalizedString("%d day(s) left", comment: "There are %d days left till a certain date."))
         switch leftDays {
         case -1, 0:
             return NSLocalizedString("today", comment: "today")

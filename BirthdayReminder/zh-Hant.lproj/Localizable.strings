@@ -4,6 +4,9 @@
 /* add */
 "add" = "新增";
 
+/* about */
+"about" = "關於";
+
 /* The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index) */
 "agreement" = "這些資訊收集於網際網路，且他們不屬於此App的開發者。\n如果您認為這裡的資訊侵犯了您的著作權或著佐權，請通過郵件聯絡我，我會將其刪除\n（您可以在App Store頁面或本應用設定介面找到我的聯絡方式）";
 

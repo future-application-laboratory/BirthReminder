@@ -8,9 +8,10 @@
 
 import UIKit
 import CoreData
-import SCLAlertView
 import ObjectMapper
 import StoreKit
+import ViewAnimator
+import CFNotify
 
 class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -114,17 +115,19 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                         self?.tableView.reloadData()
                         self?.reloadSparator()
                         self?.loadingView.stop()
+                        self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
                     }
                     self?.loadPicForPeople()
                 case .failure(let error):
                     self?.tableViewData = []
                     DispatchQueue.main.async {
-                        let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-                        let alert = SCLAlertView(appearance: appearence)
-                        alert.addButton("OK") { [weak self] in
-                            self?.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
-                        }
-                        alert.showError("Failed to load", subTitle: error.localizedDescription)
+                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
+                        var config = CFNotify.Config()
+                        config.initPosition = .top(.center)
+                        config.appearPosition = .top
+                        config.hideTime = .never
+                        CFNotify.present(config: config, view: cfView)
+                        self?.navigationController?.popViewController(animated: true)
                     }
                 }
             }

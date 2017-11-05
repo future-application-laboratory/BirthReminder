@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SCLAlertView
+import ViewAnimator
 
 class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -40,6 +41,11 @@ class AppleWatchSettingViewController: UIViewController, UITableViewDelegate, UI
         super.viewWillAppear(animated)
         reloadTableView()
         reloadAddButtonStatus()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
