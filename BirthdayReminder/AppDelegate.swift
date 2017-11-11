@@ -80,14 +80,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 let request = PeopleToSave.sortedFetchRequest
                 let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
                     guard person.shouldSync else { return nil }
-					
                     let picData = person.picData
-//                    let image = UIImage(data: picData!)
-//                    image?.cornerImage(size: CGSize(width: 200, height: 200), radius:30, fillColor: UIColor.white) { (resultImage: UIImage) in
-//                        picData = UIImagePNGRepresentation(resultImage)
-//                    }
-					
-					return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData!)
+					return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
                 }
                 let data = NSKeyedArchiver.archivedData(withRootObject: people)
                 let manager = FileManager()

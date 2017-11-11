@@ -35,6 +35,8 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
             config.appearPosition = .top
             config.hideTime = .never
             CFNotify.present(config: config, view: cfView)
+            
+            defaults.set(true, forKey: "shouldHideAgreement")
         }
         
         tableView.backgroundView?.backgroundColor = UIColor.clear
@@ -112,7 +114,6 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                     var config = CFNotify.Config()
                     config.initPosition = .top(.center)
                     config.appearPosition = .top
-                    config.hideTime = .never
                     CFNotify.present(config: config, view: cfView)
                     self?.navigationController?.popViewController(animated: true)
                 }
@@ -155,6 +156,13 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         } else if scrollView.contentOffset.y >= sectionHeaderHeight {
             scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
+    }
+    
+    @IBAction func addNew(_ sender: UIBarButtonItem) {
+        let controller = PersonFormController()
+        controller.setup(with: .new, person: nil)
+        controller.title = NSLocalizedString("new", comment: "New")
+        navigationController?.pushViewController(controller, animated: true)
     }
     
 }

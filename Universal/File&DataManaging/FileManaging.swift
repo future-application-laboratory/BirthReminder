@@ -15,17 +15,18 @@ import CoreData
 
 public final class PeopleToSave: ManagedObject {
     
-    @NSManaged public private(set) var name: String
-    @NSManaged public private(set) var birth: String
-    @NSManaged public private(set) var picData: Data?
+    @NSManaged public var name: String
+    @NSManaged public var birth: String
+    @NSManaged public var picData: Data?
     @NSManaged public var shouldSync: Bool
     
-    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?) {
+    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, shouldSync: Bool) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let person = NSManagedObject(entity: entity!, insertInto: context)
         person.setValue(name, forKey: "name")
         person.setValue(birth, forKey: "birth")
         person.setValue(picData, forKey: "picData")
+        person.setValue(shouldSync, forKey: "shouldSync")
         
         do {
             try context.save()

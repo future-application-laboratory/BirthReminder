@@ -103,3 +103,5 @@
 
 /* Date Format */
 "dateStyle" = "MMM d, EEEE";
+
+"new" = "New";

@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import SnapKit
 import ViewAnimator
-import Material
 
 class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
@@ -29,7 +28,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var status = true
     @IBOutlet weak var emptyLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.background
@@ -40,10 +38,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .never
-        navigationItem.largeTitleDisplayMode = .always
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,8 +107,12 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = PersonFormController()
+        controller.title = NSLocalizedString("edit", comment: "edit")
+        controller.setup(with: .edit, person: data[indexPath.section])
+        navigationController?.pushViewController(controller, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
@@ -147,6 +145,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             emptyLabel.isHidden = true
         }
     }
+    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let sectionHeaderHeight: CGFloat = 20

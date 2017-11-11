@@ -78,7 +78,9 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.section
-        performSegue(withIdentifier: "showCharacterDetail", sender: tableViewData[index])
+        let controller = PersonFormController()
+        controller.setup(with: .new, person: tableViewData[index])
+        navigationController?.pushViewController(controller, animated: true)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -86,16 +88,9 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         return 100
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCharacterDetail" {
-            let controller = segue.destination as! PersonFormController
-            controller.data = sender as? People
-        }
-    }
-    
     @IBAction func storeAll(_ sender: Any) {
         tableViewData.forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData)
+            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData, shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -125,7 +120,6 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                         var config = CFNotify.Config()
                         config.initPosition = .top(.center)
                         config.appearPosition = .top
-                        config.hideTime = .never
                         CFNotify.present(config: config, view: cfView)
                         self?.navigationController?.popViewController(animated: true)
                     }

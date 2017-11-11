@@ -73,7 +73,7 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
         } //Delete all the previous objects
         
         (NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as! [PeopleToTransfer]).forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData)
+            PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData, shouldSync: false)
         } //Add new objects
         
         reloadController.reload()

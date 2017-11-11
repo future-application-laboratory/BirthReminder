@@ -24,7 +24,6 @@
 		B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095EC21F6D80C50049AF0D /* AnimeCell.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
-		B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */; };
 		B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022842E1FAEB58E00932EEB /* MainTabBarController.swift */; };
 		B029294E1F26E79000AD0BC1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */; };
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
@@ -59,7 +58,6 @@
 		B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0990F1A1F27578400D26557 /* WatchReminder.app */; };
 		B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */; };
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
@@ -171,7 +169,6 @@
 		B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGettingFromServerViewController.swift; sourceTree = "<group>"; };
 		B0126A8E1F34275200C74F73 /* WatchReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchReminder.entitlements; sourceTree = "<group>"; };
 		B0126A8F1F34275A00C74F73 /* WatchReminder Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchReminder Extension.entitlements"; sourceTree = "<group>"; };
-		B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchSettingViewController.swift; sourceTree = "<group>"; };
 		B022842E1FAEB58E00932EEB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B029294C1F26E79000AD0BC1 /* TodayReminder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayReminder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -212,7 +209,6 @@
 		B0A46CC91F4168B7000E5F30 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingFromIndexViewController.swift; sourceTree = "<group>"; };
 		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickingRow.swift; sourceTree = "<group>"; };
@@ -318,11 +314,9 @@
 				B08060131F820E6B00115399 /* PermissionRequestingController.swift */,
 				B0CD6B681F6D103A009899FE /* PersonFormController.swift */,
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
-				B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */,
 				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
 				B06043991F3C9978007D1016 /* SettingsViewController.swift */,
 				B0F0A44D1F20E143004DED3D /* IndexViewController.swift */,
-				B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */,
 				B05FB0C81F6E21E70021263D /* ContactViewController.swift */,
 			);
 			path = Controllers;
@@ -741,8 +735,6 @@
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
-				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
@@ -760,8 +752,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
@@ -826,11 +816,9 @@
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
-				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
 				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
-				B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,
 				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
