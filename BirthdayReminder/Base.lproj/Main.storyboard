@@ -173,19 +173,19 @@ Tap Add button to configure</string>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="qGH-JB-oJz">
                                 <connections>
-                                    <action selector="share:" destination="nba-7C-anv" id="UDY-gn-mfO"/>
+                                    <action selector="onShare:" destination="nba-7C-anv" id="5G3-yL-gdP"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="edit" id="mbU-sz-cx9">
                                 <connections>
-                                    <action selector="edit:" destination="nba-7C-anv" id="czU-8Z-x0b"/>
+                                    <action selector="onEdit:" destination="nba-7C-anv" id="iDt-2Q-RT6"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="birthLabel" destination="exn-ie-9Il" id="Qhf-to-is2"/>
-                        <outlet property="imageView" destination="bWV-Vb-vMj" id="cEy-Qg-KRj"/>
+                        <outlet property="imageView" destination="bWV-Vb-vMj" id="t3r-9j-Lbx"/>
                         <outlet property="nameLabel" destination="KJj-8t-b39" id="fDA-W3-Lq0"/>
                     </connections>
                 </viewController>

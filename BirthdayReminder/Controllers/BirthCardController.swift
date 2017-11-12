@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CFNotify
 
 class BirthCardController: UIViewController {
     
@@ -40,14 +41,23 @@ class BirthCardController: UIViewController {
         view.backgroundColor = UIColor(gradientStyle: .diagonal, withFrame: view.frame, andColors: [.flatGreen,.flatMint])
     }
     
-    @IBAction func edit(_ sender: UIBarButtonItem) {
+    
+    @IBAction func onEdit(_ sender: UIBarButtonItem) {
+        edit(navigationController: navigationController!)
+    }
+    
+    @IBAction func onShare(_ sender: UIBarButtonItem) {
+        share(controller: self)
+    }
+    
+    func edit(navigationController rootNavigationController: UINavigationController) {
         let controller = PersonFormController()
         controller.setup(with: .edit, person: person)
         controller.title = NSLocalizedString("edit", comment: "edit")
-        navigationController?.pushViewController(controller, animated: true)
+        rootNavigationController.pushViewController(controller, animated: true)
     }
     
-    @IBAction func share(_ sender: UIBarButtonItem) {
+    func share(controller rootController: UIViewController) {
         let text = String.localizedStringWithFormat(
             NSLocalizedString("%@'s birthday is coming, let's celebrate on %@!", comment: ""),
             person.name,person.birth.toLocalizedDate()!)
@@ -59,7 +69,36 @@ class BirthCardController: UIViewController {
         if let popController = controller.popoverPresentationController {
             popController.barButtonItem = navigationItem.rightBarButtonItem
         }
-        present(controller, animated: true, completion: nil)
+        rootController.present(controller, animated: true, completion: nil)
+    }
+    
+    override var previewActionItems: [UIPreviewActionItem] {
+        let tabbarController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        let _navigationController = tabbarController.viewControllers![1] as! UINavigationController
+        let indexController = _navigationController
+        return [
+            UIPreviewAction(title: "Share", style: .default) { [unowned self] _,_ in
+                self.share(controller: indexController)
+            },
+            UIPreviewAction(title: "Edit", style: .default) { [unowned self] _,_ in
+                self.edit(navigationController: _navigationController)
+            },
+            UIPreviewAction(title: "Delete", style: .destructive) { [unowned self] _,_ in
+                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                    do {
+                        let context = appDelegate.context
+                        context.delete(self.person)
+                        try context.save()
+                    } catch {
+                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                        var config = CFNotify.Config()
+                        config.initPosition = .top(.center)
+                        config.appearPosition = .top
+                        CFNotify.present(config: config, view: cfView)
+                    }
+                }
+            }
+        ]
     }
     
 }
