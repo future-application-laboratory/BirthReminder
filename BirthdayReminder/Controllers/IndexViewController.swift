@@ -11,7 +11,7 @@ import CoreData
 import SnapKit
 import ViewAnimator
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIViewControllerPreviewingDelegate {
     
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
@@ -59,6 +59,11 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else {
             cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
+        
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: cell)
+        }
+        
         return cell
     }
     
@@ -93,26 +98,17 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return true
     }
     
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let index = indexPath.section
-            context.delete(data[index])
-            try? context.save()
-            data.remove(at: index)
-            tableView.reloadData()
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = PersonFormController()
-        controller.title = NSLocalizedString("edit", comment: "edit")
-        controller.setup(with: .edit, person: data[indexPath.section])
-        navigationController?.pushViewController(controller, animated: true)
+        performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.section])
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "birthdayCard" {
+            if let person = sender as? PeopleToSave {
+                (segue.destination as? BirthCardController)?.person = person
+            }
+        }
     }
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
@@ -128,6 +124,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             data.sort()
             tableView.reloadData()
         case .delete:
+            data = frc.fetchedObjects!
+            tableView.reloadData()
             delegate.syncWithAppleWatch()
         default:
             break // tan90
@@ -154,6 +152,27 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else if scrollView.contentOffset.y >= sectionHeaderHeight {
             scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let cell = previewingContext.sourceView as? UITableViewCell {
+            let indexPath = tableView.indexPath(for: cell)!
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            if let controller = storyBoard.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController{
+                let person = data[indexPath.section]
+                controller.person = person
+                return controller
+            } else {
+                return nil
+            }
+        } else {
+            return nil
+        }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        viewControllerToCommit.hidesBottomBarWhenPushed = true
+        show(viewControllerToCommit, sender: nil)
     }
     
 }

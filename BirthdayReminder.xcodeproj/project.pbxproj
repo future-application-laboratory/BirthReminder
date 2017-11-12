@@ -60,6 +60,7 @@
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0E009561FB721A200443471 /* BirthCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E009551FB721A200443471 /* BirthCardController.swift */; };
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
@@ -210,6 +211,7 @@
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
+		B0E009551FB721A200443471 /* BirthCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCardController.swift; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickingRow.swift; sourceTree = "<group>"; };
 		B0F922D51F64187A0059DFDC /* Constants&Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Settings.swift"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				B08060131F820E6B00115399 /* PermissionRequestingController.swift */,
 				B0CD6B681F6D103A009899FE /* PersonFormController.swift */,
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
+				B0E009551FB721A200443471 /* BirthCardController.swift */,
 				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
 				B06043991F3C9978007D1016 /* SettingsViewController.swift */,
 				B0F0A44D1F20E143004DED3D /* IndexViewController.swift */,
@@ -818,6 +821,7 @@
 				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
+				B0E009561FB721A200443471 /* BirthCardController.swift in Sources */,
 				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,

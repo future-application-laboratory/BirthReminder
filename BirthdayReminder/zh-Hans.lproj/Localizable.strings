@@ -118,3 +118,6 @@
 
 /* Date Format */
 "dateStyle" = "MMMd日 EEEE";
+
+/* Birth Sharing Fomat */
+"%@'s birthday is coming, let's celebrate on %@!" = "%@'s birthday is coming, let's celebrate on %@!";

@@ -44,7 +44,7 @@ class PersonFormController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Form Defination
         form +++ Section(NSLocalizedString("name", comment: "name"))
             <<< NameRow() { row in
                 row.tag = "name"
@@ -64,17 +64,23 @@ class PersonFormController: FormViewController {
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
                 row.value = UIImage(data: (newPerson?.picData ?? persistentPerson?.picData) ?? Data())
-        }
-        +++ Section()
-            <<< SwitchRow() { row in
-                    row.tag = "shouldSync"
-                    row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
-                    row.value = persistentPerson?.shouldSync ?? false
             }
-        +++ Section()
+            +++ Section()
+            <<< SwitchRow() { row in
+                row.tag = "shouldSync"
+                row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
+                row.value = persistentPerson?.shouldSync ?? false
+            }
+            +++ Section()
             <<< ButtonRow() {row in
                 row.title = NSLocalizedString("done",comment: "done")
-            }
+        }
+        
+        // Delete Button
+        if formMode == .edit {
+            let buttonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(delete(button:)))
+            navigationItem.setRightBarButton(buttonItem, animated: true)
+        }
     }
     
     private func save() {
@@ -115,6 +121,27 @@ class PersonFormController: FormViewController {
             navigationController?.popViewController(animated: true)
             SKStoreReviewController.requestReview()
         }
+    }
+    
+    @objc private func delete(button: UIBarButtonItem) {
+        let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { [unowned self] _ in
+            do {
+                self.context.delete(self.persistentPerson!)
+                try self.context.save()
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                var config = CFNotify.Config()
+                config.initPosition = .top(.center)
+                config.appearPosition = .top
+                CFNotify.present(config: config, view: cfView)
+            }
+        }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel, handler: nil)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

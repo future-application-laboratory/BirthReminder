@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -110,11 +111,87 @@ Tap Add button to configure</string>
                     <connections>
                         <outlet property="emptyLabel" destination="xdC-SE-cF4" id="ZGd-zT-QfM"/>
                         <outlet property="tableView" destination="2fD-8O-dxu" id="8yO-6Y-MOh"/>
+                        <segue destination="nba-7C-anv" kind="show" identifier="birthdayCard" id="4WT-oq-Tnn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc7-Uz-RmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3039" y="1728"/>
+        </scene>
+        <!--Birth Card Controller-->
+        <scene sceneID="V8T-Bo-bUe">
+            <objects>
+                <viewController storyboardIdentifier="birthCard" id="nba-7C-anv" customClass="BirthCardController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fTQ-to-qWg"/>
+                        <viewControllerLayoutGuide type="bottom" id="QfJ-1e-bzR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SjO-G6-B3C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWV-Vb-vMj">
+                                <rect key="frame" x="36" y="108" width="303" height="303"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bWV-Vb-vMj" secondAttribute="height" multiplier="1:1" id="820-96-WHj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJj-8t-b39">
+                                <rect key="frame" x="161" y="431" width="53" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exn-ie-9Il">
+                                <rect key="frame" x="149.66666666666666" y="475" width="75.666666666666657" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お诞生日おめでとう!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl9-WY-p9z">
+                                <rect key="frame" x="60.666666666666657" y="519" width="253.99999999999997" height="32.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bWV-Vb-vMj" firstAttribute="centerX" secondItem="SjO-G6-B3C" secondAttribute="centerX" id="9jI-N0-wlY"/>
+                            <constraint firstItem="KJj-8t-b39" firstAttribute="top" secondItem="bWV-Vb-vMj" secondAttribute="bottom" constant="20" id="9oN-tJ-p1P"/>
+                            <constraint firstItem="sl9-WY-p9z" firstAttribute="top" secondItem="exn-ie-9Il" secondAttribute="bottom" constant="20" id="G7a-3h-wxU"/>
+                            <constraint firstItem="sl9-WY-p9z" firstAttribute="centerX" secondItem="SjO-G6-B3C" secondAttribute="centerX" id="Hhk-rJ-XcR"/>
+                            <constraint firstItem="exn-ie-9Il" firstAttribute="centerX" secondItem="SjO-G6-B3C" secondAttribute="centerX" id="LPH-N3-atC"/>
+                            <constraint firstItem="bWV-Vb-vMj" firstAttribute="leading" secondItem="SjO-G6-B3C" secondAttribute="leadingMargin" constant="20" id="Lhi-Yg-FHE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bWV-Vb-vMj" secondAttribute="trailing" constant="20" id="TaL-Gb-7LI"/>
+                            <constraint firstItem="KJj-8t-b39" firstAttribute="centerX" secondItem="SjO-G6-B3C" secondAttribute="centerX" id="pcv-Ai-2x6"/>
+                            <constraint firstItem="exn-ie-9Il" firstAttribute="top" secondItem="KJj-8t-b39" secondAttribute="bottom" constant="20" id="uXt-Kq-nl3"/>
+                            <constraint firstItem="bWV-Vb-vMj" firstAttribute="top" secondItem="fTQ-to-qWg" secondAttribute="bottom" constant="20" id="uw9-1H-mmb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iDz-Ck-GQZ">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="qGH-JB-oJz">
+                                <connections>
+                                    <action selector="share:" destination="nba-7C-anv" id="UDY-gn-mfO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="edit" id="mbU-sz-cx9">
+                                <connections>
+                                    <action selector="edit:" destination="nba-7C-anv" id="czU-8Z-x0b"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="birthLabel" destination="exn-ie-9Il" id="Qhf-to-is2"/>
+                        <outlet property="imageView" destination="bWV-Vb-vMj" id="cEy-Qg-KRj"/>
+                        <outlet property="nameLabel" destination="KJj-8t-b39" id="fDA-W3-Lq0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Su3-e6-H4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1899.375" y="2374.6478873239439"/>
         </scene>
         <!--Misc-->
         <scene sceneID="gDa-kK-4RC">
@@ -139,7 +216,7 @@ Tap Add button to configure</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWy-UB-230" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4159" y="2659"/>
+            <point key="canvasLocation" x="-4159" y="3089"/>
         </scene>
         <!--Misc-->
         <scene sceneID="plw-vE-P2L">
@@ -212,7 +289,7 @@ Tap Add button to configure</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="csL-h6-h8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3039" y="2659"/>
+            <point key="canvasLocation" x="-3039" y="3089"/>
         </scene>
         <!--Discovery-->
         <scene sceneID="uwe-Kv-jJJ">
@@ -346,7 +423,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jw7-ri-osv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="2659"/>
+            <point key="canvasLocation" x="-1898" y="3089"/>
         </scene>
         <!--Add-->
         <scene sceneID="QSj-fa-pW3">
@@ -428,7 +505,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbN-5t-Tnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1898" y="1728"/>
+            <point key="canvasLocation" x="-1898" y="1624"/>
         </scene>
         <!--Get Personal Data From Server View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -518,7 +595,7 @@ Tap Add button to configure</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-662" y="1728"/>
+            <point key="canvasLocation" x="-583" y="1623"/>
         </scene>
     </scenes>
     <resources>

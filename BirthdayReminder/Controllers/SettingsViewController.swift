@@ -19,12 +19,8 @@ class SettingsViewController: UITableViewController {
         tableView.tableFooterView = UIView()
     }
     
-    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return !(indexPath.row == 0 && !WCSession.isSupported())
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
             let path = Bundle.main.path(forResource: "Pods-BirthdayReminder-acknowledgements", ofType: "plist")
             let controller = AcknowListViewController(acknowledgementsPlistPath: path)
             controller.acknowledgements! += [

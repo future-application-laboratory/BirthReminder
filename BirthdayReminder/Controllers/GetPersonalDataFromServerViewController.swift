@@ -49,11 +49,6 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         loadPeople()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        SKStoreReviewController.requestReview()
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewData.count
     }
@@ -93,6 +88,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
             PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData, shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
+        SKStoreReviewController.requestReview()
     }
     
     func reloadSparator() {
