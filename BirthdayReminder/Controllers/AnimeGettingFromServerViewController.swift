@@ -43,7 +43,6 @@ class AnimeGettingFromServerViewController: UIViewController {
         tableView.separatorStyle = .none
         
         view.showAnimatedSkeleton()
-        view.startSkeletonAnimation()
         
         loadAnimes()
     }
@@ -67,10 +66,8 @@ class AnimeGettingFromServerViewController: UIViewController {
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                    self?.view.stopSkeletonAnimation()
                     self?.view.hideSkeleton()
-                    self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: UIScreen.main.bounds.height / 3)])
+                    self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
                 }
                 self?.loadPicsForAnimes()
             case .failure(let error):

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalCell: UITableViewCell {
+class PersonalCell: TableViewCell {
 
     @IBOutlet weak var picView: UIImageView!
     
@@ -18,7 +18,7 @@ class PersonalCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.cell
+        backgroundColor = UIColor.clear
         nameLabel.textColor = UIColor.label
         birthLabel.textColor = UIColor.label
         picView.layer.cornerRadius = 10

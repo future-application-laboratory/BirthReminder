@@ -46,7 +46,6 @@
 		B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08060131F820E6B00115399 /* PermissionRequestingController.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B081452D1F4E7977007D8DD0 /* LoadingView.swift */; };
 		B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
 		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
@@ -58,6 +57,7 @@
 		B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0990F1A1F27578400D26557 /* WatchReminder.app */; };
 		B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		B0C857881FC0EC6800E0DE97 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C857871FC0EC6800E0DE97 /* TableViewCell.swift */; };
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0E009561FB721A200443471 /* BirthCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E009551FB721A200443471 /* BirthCardController.swift */; };
@@ -193,7 +193,6 @@
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
 		B08060131F820E6B00115399 /* PermissionRequestingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestingController.swift; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
-		B081452D1F4E7977007D8DD0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = "<group>"; };
 		B0990F1A1F27578400D26557 /* WatchReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0990F1D1F27578400D26557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		B0A46CC91F4168B7000E5F30 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B0C857871FC0EC6800E0DE97 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
 		B0E009551FB721A200443471 /* BirthCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCardController.swift; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
@@ -401,10 +401,10 @@
 		B081452C1F4E7967007D8DD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
 				B0095EC21F6D80C50049AF0D /* AnimeCell.swift */,
 				B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */,
 				B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */,
+				B0C857871FC0EC6800E0DE97 /* TableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -820,10 +820,10 @@
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
-				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
 				B0E009561FB721A200443471 /* BirthCardController.swift in Sources */,
+				B0C857881FC0EC6800E0DE97 /* TableViewCell.swift in Sources */,
 				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,

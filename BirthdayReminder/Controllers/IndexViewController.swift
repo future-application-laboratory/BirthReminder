@@ -41,15 +41,15 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return data .count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.section
+        let index = indexPath.row
         let cellData = data[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
@@ -65,21 +65,6 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 10 : 20
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let width = UIScreen.main.bounds.width - 20
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-        view.backgroundColor = UIColor.background
-        return view
     }
     
     private func setupTableView() {
@@ -99,7 +84,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.section])
+        performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.row])
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
@@ -157,23 +142,12 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     private func checkDataAndDisplayPlaceHolder() {
+        tableView.separatorStyle = .none
         if data.isEmpty {
-            tableView.separatorStyle = .none
             emptyLabel.textColor = .label2
             emptyLabel.isHidden = false
         } else {
-            tableView.separatorStyle = .singleLine
             emptyLabel.isHidden = true
-        }
-    }
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let sectionHeaderHeight: CGFloat = 20
-        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
         }
     }
     
@@ -182,7 +156,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let indexPath = tableView.indexPath(for: cell)!
             let storyBoard = UIStoryboard(name: "Main", bundle: nil)
             if let controller = storyBoard.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController{
-                let person = data[indexPath.section]
+                let person = data[indexPath.row]
                 controller.person = person
                 return controller
             } else {

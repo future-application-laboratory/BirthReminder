@@ -12,8 +12,9 @@ import ObjectMapper
 import StoreKit
 import ViewAnimator
 import CFNotify
+import SkeletonView
 
-class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class GetPersonalDataFromServerViewController: UIViewController {
     
     weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
@@ -22,13 +23,10 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     var tableViewData = [People]()
     var anime:Anime?
-    var rotateDegree = 0
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addAllButton: UIBarButtonItem!
-    
-    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,48 +37,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
         
-        view.addSubview(loadingView)
-        loadingView.center = view.center
-        
-        
-        // Load the basic info
-        loadingView.start()
-        
         loadPeople()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.section
-        let cellData = tableViewData[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
-        cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
-        if let imgData = cellData.picData {
-            cell.picView.image = UIImage(data: imgData)
-        } else {
-            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.section
-        let controller = PersonFormController()
-        controller.setup(with: .new, person: tableViewData[index])
-        navigationController?.pushViewController(controller, animated: true)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
     
     @IBAction func storeAll(_ sender: Any) {
@@ -91,11 +48,8 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         SKStoreReviewController.requestReview()
     }
     
-    func reloadSparator() {
-        tableView.separatorStyle = tableViewData.isEmpty ? .none : .singleLine
-    }
-    
     private func loadPeople() {
+        view.showAnimatedSkeleton()
         NetworkController.networkQueue.async { [weak self] in
             NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { response in
                 switch response {
@@ -103,9 +57,7 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                     let json = String(data: result.data, encoding: String.Encoding.utf8)!
                     self?.tableViewData = Mapper<People>().mapArray(JSONString: json)!
                     DispatchQueue.main.async{
-                        self?.tableView.reloadData()
-                        self?.reloadSparator()
-                        self?.loadingView.stop()
+                        self?.view.hideSkeleton()
                         self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
                     }
                     self?.loadPicForPeople()
@@ -147,24 +99,42 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 10 : 20
+}
+
+extension GetPersonalDataFromServerViewController: SkeletonTableViewDataSource, UITableViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "personalCell"
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let width = UIScreen.main.bounds.width - 20
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-        view.backgroundColor = UIColor.background
-        return view
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let sectionHeaderHeight: CGFloat = 20
-        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        let cellData = tableViewData[index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
+        } else {
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let controller = PersonFormController()
+        controller.setup(with: .new, person: tableViewData[index])
+        navigationController?.pushViewController(controller, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }
