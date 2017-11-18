@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -451,41 +450,46 @@ Tap Add button to configure</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-ov-6f4">
-                                                    <rect key="frame" x="10" y="5" width="355" height="109.66666666666667"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="110"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mel-ZO-PSh">
+                                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="3Y4-3D-Ck6"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anime" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
+                                                            <rect key="frame" x="130" y="45" width="220" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mel-ZO-PSh">
-                                                    <rect key="frame" x="10.000000000000007" y="5" width="109.66666666666669" height="109.66666666666667"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="xU7-IV-ggm"/>
+                                                        <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="yMZ-ov-6f4" secondAttribute="leading" id="2hn-ty-CqP"/>
+                                                        <constraint firstItem="JVh-FQ-FxS" firstAttribute="centerY" secondItem="yMZ-ov-6f4" secondAttribute="centerY" id="8ea-Fp-3AE"/>
+                                                        <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="yMZ-ov-6f4" secondAttribute="top" id="BHk-rY-CsO"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JVh-FQ-FxS" secondAttribute="trailing" constant="5" id="Mcn-7P-O3P"/>
+                                                        <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="R24-6c-gb5"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="cCF-uB-UDc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="ewU-AD-tZw"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
-                                                    <rect key="frame" x="139.66666666666663" y="49.666666666666664" width="217.33333333333337" height="20.999999999999993"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yMZ-ov-6f4" firstAttribute="top" secondItem="KKS-zB-4t9" secondAttribute="top" constant="5" id="8RE-7g-4r3"/>
-                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="trailingMargin" secondItem="JVh-FQ-FxS" secondAttribute="trailing" id="Tqh-Rr-OHa"/>
                                                 <constraint firstAttribute="trailing" secondItem="yMZ-ov-6f4" secondAttribute="trailing" constant="10" id="ftg-h4-guJ"/>
-                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="fzD-eJ-0td"/>
-                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="yMZ-ov-6f4" secondAttribute="top" id="ge7-S8-4US"/>
-                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="hSH-jV-L3n"/>
-                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="yMZ-ov-6f4" secondAttribute="leading" id="jFM-uR-ZPo"/>
                                                 <constraint firstItem="yMZ-ov-6f4" firstAttribute="leading" secondItem="KKS-zB-4t9" secondAttribute="leading" constant="10" id="jXf-3F-3I6"/>
-                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="centerY" secondItem="yMZ-ov-6f4" secondAttribute="centerY" id="mad-cw-CeB"/>
                                                 <constraint firstAttribute="bottom" secondItem="yMZ-ov-6f4" secondAttribute="bottom" constant="5" id="olN-J2-Kth"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>

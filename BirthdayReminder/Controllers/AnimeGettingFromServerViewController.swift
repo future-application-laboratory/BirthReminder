@@ -62,9 +62,6 @@ class AnimeGettingFromServerViewController: UIViewController {
     
     func loadAnimes() {
         NetworkController.provider.request(.animes) { [weak self] response in
-            DispatchQueue.main.async {
-                self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
-            }
             switch response {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
@@ -73,6 +70,7 @@ class AnimeGettingFromServerViewController: UIViewController {
                     self?.tableView.reloadData()
                     self?.view.stopSkeletonAnimation()
                     self?.view.hideSkeleton()
+                    self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: UIScreen.main.bounds.height / 3)])
                 }
                 self?.loadPicsForAnimes()
             case .failure(let error):
