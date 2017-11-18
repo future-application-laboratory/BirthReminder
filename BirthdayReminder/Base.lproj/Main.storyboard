@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -104,7 +105,7 @@ Tap Add button to configure</string>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="add" id="9lx-nj-ros">
                             <connections>
-                                <segue destination="vpa-0V-8ab" kind="show" id="jgh-Cb-Xd5"/>
+                                <action selector="add:" destination="L7a-Tq-nag" id="ZUS-Lx-JnN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,6 +113,7 @@ Tap Add button to configure</string>
                         <outlet property="emptyLabel" destination="xdC-SE-cF4" id="ZGd-zT-QfM"/>
                         <outlet property="tableView" destination="2fD-8O-dxu" id="8yO-6Y-MOh"/>
                         <segue destination="nba-7C-anv" kind="show" identifier="birthdayCard" id="4WT-oq-Tnn"/>
+                        <segue destination="vpa-0V-8ab" kind="show" identifier="showAnimes" id="qoU-nG-b00"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc7-Uz-RmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,7 +427,7 @@ Tap Add button to configure</string>
             </objects>
             <point key="canvasLocation" x="-1898" y="3089"/>
         </scene>
-        <!--Add-->
+        <!--Animes-->
         <scene sceneID="QSj-fa-pW3">
             <objects>
                 <viewController storyboardIdentifier="animeGettingController" id="vpa-0V-8ab" customClass="AnimeGettingFromServerViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -437,46 +439,73 @@ Tap Add button to configure</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E5I-wa-qJ9">
-                                <rect key="frame" x="10" y="88" width="355" height="641"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E5I-wa-qJ9">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="animeCell" rowHeight="100" id="eq3-J2-pWE" customClass="AnimeCell" customModule="BirthdayReminder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="355" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="animeCell" rowHeight="120" id="eq3-J2-pWE" customClass="AnimeCell" customModule="BirthdayReminder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eq3-J2-pWE" id="KKS-zB-4t9">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="99.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMZ-ov-6f4">
+                                                    <rect key="frame" x="10" y="5" width="355" height="109.66666666666667"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mel-ZO-PSh">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100.66666666666667" height="100.66666666666667"/>
+                                                    <rect key="frame" x="10.000000000000007" y="5" width="109.66666666666669" height="109.66666666666667"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="wSe-Si-aom"/>
+                                                        <constraint firstAttribute="width" secondItem="mel-ZO-PSh" secondAttribute="height" multiplier="1:1" id="xU7-IV-ggm"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVh-FQ-FxS">
-                                                    <rect key="frame" x="120.66666666666667" y="39" width="41.333333333333329" height="21"/>
+                                                    <rect key="frame" x="139.66666666666663" y="49.666666666666664" width="217.33333333333337" height="20.999999999999993"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="centerY" secondItem="KKS-zB-4t9" secondAttribute="centerY" id="3lE-VI-diI"/>
-                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="KKS-zB-4t9" secondAttribute="top" id="DLY-kG-DcP"/>
-                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="Euy-Ii-YgJ"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JVh-FQ-FxS" secondAttribute="trailing" constant="20" id="QFD-X5-WFs"/>
-                                                <constraint firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" constant="-1" id="aHY-Eg-JDz"/>
-                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="KKS-zB-4t9" secondAttribute="leading" id="qG8-wU-WDH"/>
+                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="top" secondItem="KKS-zB-4t9" secondAttribute="top" constant="5" id="8RE-7g-4r3"/>
+                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="trailingMargin" secondItem="JVh-FQ-FxS" secondAttribute="trailing" id="Tqh-Rr-OHa"/>
+                                                <constraint firstAttribute="trailing" secondItem="yMZ-ov-6f4" secondAttribute="trailing" constant="10" id="ftg-h4-guJ"/>
+                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="leading" secondItem="mel-ZO-PSh" secondAttribute="trailing" constant="20" id="fzD-eJ-0td"/>
+                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="top" secondItem="yMZ-ov-6f4" secondAttribute="top" id="ge7-S8-4US"/>
+                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="bottom" secondItem="mel-ZO-PSh" secondAttribute="bottom" id="hSH-jV-L3n"/>
+                                                <constraint firstItem="mel-ZO-PSh" firstAttribute="leading" secondItem="yMZ-ov-6f4" secondAttribute="leading" id="jFM-uR-ZPo"/>
+                                                <constraint firstItem="yMZ-ov-6f4" firstAttribute="leading" secondItem="KKS-zB-4t9" secondAttribute="leading" constant="10" id="jXf-3F-3I6"/>
+                                                <constraint firstItem="JVh-FQ-FxS" firstAttribute="centerY" secondItem="yMZ-ov-6f4" secondAttribute="centerY" id="mad-cw-CeB"/>
+                                                <constraint firstAttribute="bottom" secondItem="yMZ-ov-6f4" secondAttribute="bottom" constant="5" id="olN-J2-Kth"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="background" destination="yMZ-ov-6f4" id="YE0-jl-LcT"/>
                                             <outlet property="nameLabel" destination="JVh-FQ-FxS" id="QQw-ll-i1g"/>
                                             <outlet property="picView" destination="mel-ZO-PSh" id="00F-d4-u1J"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="vpa-0V-8ab" id="NNP-Wy-aJG"/>
                                     <outlet property="delegate" destination="vpa-0V-8ab" id="gw7-O7-V4H"/>
@@ -484,20 +513,14 @@ Tap Add button to configure</string>
                             </tableView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="E5I-wa-qJ9" firstAttribute="leading" secondItem="hXj-Jd-Tia" secondAttribute="leading" constant="10" id="DC4-Eu-QTC"/>
+                            <constraint firstItem="E5I-wa-qJ9" firstAttribute="leading" secondItem="hXj-Jd-Tia" secondAttribute="leading" id="DC4-Eu-QTC"/>
                             <constraint firstItem="E5I-wa-qJ9" firstAttribute="top" secondItem="Urj-nN-rc8" secondAttribute="bottom" id="g1w-On-v3c"/>
                             <constraint firstItem="ide-0Y-Cgv" firstAttribute="top" secondItem="E5I-wa-qJ9" secondAttribute="bottom" id="mWi-bA-r3L"/>
-                            <constraint firstAttribute="trailing" secondItem="E5I-wa-qJ9" secondAttribute="trailing" constant="10" id="umW-Lp-qLe"/>
+                            <constraint firstAttribute="trailing" secondItem="E5I-wa-qJ9" secondAttribute="trailing" id="umW-Lp-qLe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Import from Server" image="remote" id="oc6-TQ-b2A"/>
-                    <navigationItem key="navigationItem" title="Add" largeTitleDisplayMode="always" id="Qde-DH-bvt">
-                        <barButtonItem key="rightBarButtonItem" image="new" id="SgU-mu-QfM">
-                            <connections>
-                                <action selector="addNew:" destination="vpa-0V-8ab" id="ut4-sk-1jR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Animes" largeTitleDisplayMode="always" id="Qde-DH-bvt"/>
                     <connections>
                         <outlet property="tableView" destination="E5I-wa-qJ9" id="ZKu-VC-4su"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showAnimeDetail" id="GRJ-oI-Xf1"/>
@@ -601,7 +624,6 @@ Tap Add button to configure</string>
     <resources>
         <image name="add" width="24" height="24"/>
         <image name="loading" width="24" height="24"/>
-        <image name="new" width="24" height="24"/>
         <image name="remote" width="24" height="24"/>
     </resources>
 </document>

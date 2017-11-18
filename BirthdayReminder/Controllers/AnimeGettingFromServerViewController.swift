@@ -11,20 +11,18 @@ import SnapKit
 import ObjectMapper
 import ViewAnimator
 import CFNotify
+import SkeletonView
 
-class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AnimeGettingFromServerViewController: UIViewController {
     
     var animes = [Anime]()
     
     @IBOutlet weak var tableView: UITableView!
-    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.background
-        
-        loadingView.center = view.center
         
         // Agreement
         let defaults = UserDefaults()
@@ -42,10 +40,11 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         tableView.backgroundView?.backgroundColor = UIColor.clear
         tableView.backgroundColor = UIColor.clear
         
-        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         
-        view.addSubview(loadingView)
-        loadingView.start()
+        view.showAnimatedSkeleton()
+        view.startSkeletonAnimation()
+        
         loadAnimes()
     }
 	
@@ -61,42 +60,10 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.section
-        performSegue(withIdentifier: "showAnimeDetail", sender: animes[index])
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return animes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.section
-        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
-        if let image = animes[index].pic {
-            cell.picView?.image = image
-        }
-        cell.nameLabel.text = animes[index].name
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    @IBAction func other(_ sender: Any) {
-        performSegue(withIdentifier: "customize", sender: nil)
-    }
-    
     func loadAnimes() {
         NetworkController.provider.request(.animes) { [weak self] response in
             DispatchQueue.main.async {
-                self?.loadingView.stop()
+                self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
             }
             switch response {
             case .success(let result):
@@ -104,7 +71,8 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
-                    self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+                    self?.view.stopSkeletonAnimation()
+                    self?.view.hideSkeleton()
                 }
                 self?.loadPicsForAnimes()
             case .failure(let error):
@@ -138,31 +106,32 @@ class AnimeGettingFromServerViewController: UIViewController, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 10 : 20
+}
+
+extension AnimeGettingFromServerViewController: SkeletonTableViewDataSource, UITableViewDelegate {
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "animeCell"
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let width = UIScreen.main.bounds.width - 20
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-        view.backgroundColor = UIColor.background
-        return view
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        performSegue(withIdentifier: "showAnimeDetail", sender: animes[index])
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let sectionHeaderHeight: CGFloat = 20
-        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return animes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
+        if let image = animes[index].pic {
+            cell.picView?.image = image
         }
-    }
-    
-    @IBAction func addNew(_ sender: UIBarButtonItem) {
-        let controller = PersonFormController()
-        controller.setup(with: .new, person: nil)
-        controller.title = NSLocalizedString("new", comment: "New")
-        navigationController?.pushViewController(controller, animated: true)
+        cell.nameLabel.text = animes[index].name
+        return cell
     }
     
 }

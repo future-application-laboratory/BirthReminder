@@ -12,3 +12,4 @@
 
 /* Date Format */
 "dateStyle" = "MMMd日 EEEE";
+"dateStyleForComplications" = "MMMd日";

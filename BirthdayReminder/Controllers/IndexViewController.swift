@@ -104,11 +104,34 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "birthdayCard" {
-            if let person = sender as? PeopleToSave {
-                (segue.destination as? BirthCardController)?.person = person
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "birthdayCard":
+                if let person = sender as? PeopleToSave {
+                    (segue.destination as? BirthCardController)?.person = person
+                }
+            default:
+                break
             }
         }
+    }
+    
+    @IBAction func add(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("new", comment: "new"), style: .default) { [unowned self] action in
+            let controller = PersonFormController()
+            controller.setup(with: .new, person: nil)
+            controller.title = NSLocalizedString("new", comment: "New")
+            self.navigationController?.pushViewController(controller, animated: true)
+        })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("import", comment: "import"), style: .default) { [unowned self] action in
+            self.performSegue(withIdentifier: "showAnimes", sender: nil)
+        })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel))
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.barButtonItem = sender
+        }
+        present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {

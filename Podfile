@@ -15,5 +15,6 @@ target 'BirthdayReminder' do
     pod 'PAPermissions'
     pod 'ViewAnimator'
     pod 'CFNotify'
+    pod ’SkeletonView‘
     
 end
