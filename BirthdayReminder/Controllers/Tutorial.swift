@@ -39,6 +39,7 @@ extension AppDelegate {
             }
         }
         page4.actionButton.addTarget(nil, action: #selector(onboardVC?.requestPermisson), for: .touchUpInside)
+        page4.bottomPadding = 10
         
         onboardVC?.viewControllers.forEach { controller in
             if let onbordContentController = controller as? OnboardingContentViewController {
@@ -54,6 +55,17 @@ extension AppDelegate {
 }
 
 class OnboardViewController: OnboardingViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if UIScreen.main.bounds.height == 812 {
+            pageControl.snp.makeConstraints() { make in
+                make.bottom.equalToSuperview().inset(20)
+                make.centerX.equalToSuperview()
+            }
+        }
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

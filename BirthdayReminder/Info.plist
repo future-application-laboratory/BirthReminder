@@ -34,6 +34,8 @@
 	<string>tan90</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To customize the pic</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To customize the pic</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

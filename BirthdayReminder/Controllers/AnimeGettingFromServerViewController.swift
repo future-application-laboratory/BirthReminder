@@ -15,7 +15,7 @@ import SkeletonView
 
 class AnimeGettingFromServerViewController: UIViewController {
     
-    var animes = [Anime]()
+    private var animes = [Anime]()
     
     @IBOutlet weak var tableView: UITableView!
     
