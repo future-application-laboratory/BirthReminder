@@ -2,5 +2,8 @@
 "CFBundleName" = "BirthReminder";
 
 /* (No Comment) */
+"NSCameraUsageDescription" = "为了自定义图片";
+
+/* (No Comment) */
 "NSPhotoLibraryUsageDescription" = "自定义图片需要相册的访问权限";
 

@@ -62,7 +62,15 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (component == 0) ? NSLocalizedString("month\(row + 1)", comment: "localized month") : NSLocalizedString("day\(row + 1)", comment: "localized day")
+        if component == 0 {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM"
+            let date = formatter.date(from: "\(row + 1)")!
+            formatter.dateFormat = "MMMM"
+            return formatter.string(from: date)
+        } else {
+            return "\(row + 1)"
+        }
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow _: Int, inComponent component: Int) {

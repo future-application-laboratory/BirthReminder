@@ -1,11 +1,14 @@
+/* No comment provided by engineer. */
+"%@'s birthday is coming, let's celebrate on %@!" = "%@'s birthday is coming, let's celebrate on %@!";
+
 /* There are %d days left till a certain date. */
 "%d day(s) left" = "剩余 %d 天";
 
-/* add */
-"add" = "添加";
-
 /* about */
 "about" = "关于";
+
+/* (No Comment) */
+"add" = "添加";
 
 /* The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index) */
 "agreement" = "这些信息收集于互联网，且他们不属于此App的开发者。\n如果您认为这里的信息侵犯了您的著作权或著佐权，请通过邮件联络我，我会将其删除\n（您可以在App Store页面或本应用设置界面找到我的联络方式）";
@@ -13,17 +16,57 @@
 /* Birth */
 "birth" = "生日";
 
+/* cameraReason */
+"cameraReason" = "为了自定义图片";
+
+/* cancel */
+"cancel" = "取消";
+
+/* No comment provided by engineer. */
+"confirm" = "确认";
+
+/* Date Style */
+"dateStyle" = "MMMd日 EEEE";
+
 /* dayAfterTomorrow */
 "dayAfterTomorrow" = "后天";
+
+/* No comment provided by engineer. */
+"deletionConfirm" = "确认要删除吗";
+
+/* No comment provided by engineer. */
+"deletionConfirmDetailed" = "真的要删除我吗 (つД`)ノ";
+
+/* done */
+"done" = "完成";
+
+/* edit */
+"edit" = "编辑";
+
+/* emptyLabelText */
+"emptyLabelText" = "还没有添加人物\n按右上角的 + 来添加";
+
+/* enjoy */
+"enjoy" = "开始使用";
+
+/* FailedToLoad */
+"failedToLoad" = "加载失败";
+
+/* FailedToSave */
+"failedToSave" = "保存失败";
 
 /* Image */
 "image" = "图片";
 
+/* import */
+"import" = "导入";
+
 /* name */
 "name" = "姓名";
 
-/* notificationDetail */
-"notificationDetail" = "从此再也不会错过老婆/老公的最新动态了！";
+/* new
+   New */
+"new" = "新建";
 
 /* notificationReason */
 "notificationReason" = "允许推送吧！";
@@ -64,60 +107,15 @@
 /* setup */
 "setup" = "配置";
 
+/* skip */
+"skip" = "跳过";
+
+/* syncWithAW */
+"syncWithAW" = "与 AW 同步";
+
 /* today */
 "today" = "今天";
 
 /* tomorrow */
 "tomorrow" = "明天";
 
-/* enjoy */
-"enjoy" = "开始使用";
-
-/* skip */
-"skip" = "跳过";
-
-/* date picker */
-"month1" = "一月";
-"month2" = "二月";
-"month3" = "三月";
-"month4" = "四月";
-"month5" = "五月";
-"month6" = "六月";
-"month7" = "七月";
-"month8" = "八月";
-"month9" = "九月";
-"month10" = "十月";
-"month11" = "十一月";
-"month12" = "十二月";
-
-"day1" = "1日";
-"day2" = "2日";
-"day3" = "3日";
-"day4" = "4日";
-"day5" = "5日";
-"day6" = "6日";
-"day7" = "7日";
-"day8" = "8日";
-"day9" = "9日";
-"day10" = "10日";
-"day11" = "11日";
-"day12" = "12日";
-"day13" = "13日";
-"day14" = "14日";
-"day15" = "15日";
-"day16" = "16日";
-"day17" = "17日";
-"day18" = "18日";
-"day19" = "19日";
-"day20" = "20日";
-"day21" = "21日";
-"day22" = "22日";
-"day23" = "23日";
-"day24" = "24日";
-"day25" = "25日";
-
-/* Date Format */
-"dateStyle" = "MMMd日 EEEE";
-
-/* Birth Sharing Fomat */
-"%@'s birthday is coming, let's celebrate on %@!" = "%@'s birthday is coming, let's celebrate on %@!";

@@ -1,6 +1,9 @@
 /* There are %d days left till a certain date. */
 "%d day(s) left" = "剩余 %d 天";
 
+/* Date Style */
+"dateStyle" = "MMMd日 EEEE";
+
 /* dayAfterTomorrow */
 "dayAfterTomorrow" = "后天";
 
@@ -10,5 +13,3 @@
 /* tomorrow */
 "tomorrow" = "明天";
 
-/* Date Format */
-"dateStyle" = "MMMd日 EEEE";
