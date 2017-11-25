@@ -115,6 +115,10 @@ extension AnimeGettingFromServerViewController: SkeletonTableViewDataSource, UIT
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return !animes.isEmpty
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return animes.count
     }

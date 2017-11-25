@@ -11,7 +11,7 @@ import CoreData
 import SnapKit
 import ViewAnimator
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UIViewControllerPreviewingDelegate {
+class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
@@ -26,7 +26,13 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var data = [PeopleToSave]()
     var status = true
-    @IBOutlet weak var emptyLabel: UILabel!
+    var emptyLabel: UILabel = {
+        let label = UILabel()
+        label.text = NSLocalizedString("emptyLabelText", comment: "emptyLabelText")
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 25)
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,13 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
         navigationController?.navigationBar.barTintColor = UIColor.bar
         navigationController?.navigationBar.tintColor = UIColor.tint
         emptyLabel.textColor = UIColor.label
+        view.addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints() { make in
+            make.center.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+        }
+        emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
@@ -150,6 +163,10 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             emptyLabel.isHidden = true
         }
     }
+    
+}
+
+extension IndexViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if let cell = previewingContext.sourceView as? UITableViewCell {
