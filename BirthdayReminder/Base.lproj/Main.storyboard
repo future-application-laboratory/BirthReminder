@@ -121,25 +121,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bWV-Vb-vMj">
-                                <rect key="frame" x="36" y="160" width="303" height="303"/>
+                                <rect key="frame" x="36" y="108" width="303" height="303"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bWV-Vb-vMj" secondAttribute="height" multiplier="1:1" id="820-96-WHj"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KJj-8t-b39">
-                                <rect key="frame" x="161" y="483" width="53" height="24"/>
+                                <rect key="frame" x="161" y="431" width="53" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exn-ie-9Il">
-                                <rect key="frame" x="149.66666666666666" y="527" width="75.666666666666657" height="24"/>
+                                <rect key="frame" x="149.66666666666666" y="475" width="75.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お诞生日おめでとう!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl9-WY-p9z">
-                                <rect key="frame" x="60.666666666666657" y="571" width="253.99999999999997" height="32.666666666666629"/>
+                                <rect key="frame" x="60.666666666666657" y="519" width="253.99999999999997" height="32.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -159,7 +159,7 @@
                             <constraint firstItem="bWV-Vb-vMj" firstAttribute="top" secondItem="fTQ-to-qWg" secondAttribute="bottom" constant="20" id="uw9-1H-mmb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iDz-Ck-GQZ">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="iDz-Ck-GQZ">
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="qGH-JB-oJz">
                                 <connections>
@@ -305,7 +305,6 @@
             <objects>
                 <navigationController storyboardIdentifier="nc" id="hl5-32-VsJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Index" id="OID-AM-Gbr"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UhG-E6-7PW">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -355,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can find me at" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RW7-Gs-JQl">
-                                <rect key="frame" x="72" y="158" width="231" height="36"/>
+                                <rect key="frame" x="72" y="210" width="231" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                 <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

@@ -26,6 +26,8 @@
 	<string>tan90</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>tan90</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To customize the pic</string>
 	<key>NSContactsUsageDescription</key>
 	<string>tan90</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -34,10 +36,9 @@
 	<string>tan90</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To customize the pic</string>
-	<key>NSCameraUsageDescription</key>
-	<string>To customize the pic</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>

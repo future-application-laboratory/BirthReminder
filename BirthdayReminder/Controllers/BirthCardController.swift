@@ -24,7 +24,6 @@ class BirthCardController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
         nameLabel.text = person.name
         birthLabel.text = "\(person.birth.toLocalizedDate() ?? "")\n(\(person.birth.toLeftDays() ?? ""))"
         imageView.image = UIImage(data: person.picData ?? Data())

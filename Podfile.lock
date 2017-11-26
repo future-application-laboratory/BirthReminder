@@ -9,16 +9,16 @@ PODS:
   - ImageRow (3.0.0):
     - Eureka (~> 4.0)
   - LTMorphingLabel (0.5.5)
-  - Moya (10.0.0):
-    - Moya/Core (= 10.0.0)
-  - Moya/Core (10.0.0):
+  - Moya (10.0.1):
+    - Moya/Core (= 10.0.1)
+  - Moya/Core (10.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - ObjectMapper (3.0.0)
   - Onboard (2.3.1)
   - PAPermissions (0.9.10)
   - Result (3.2.4)
-  - SkeletonView (1.0.2)
+  - SkeletonView (1.0.4)
   - SnapKit (4.0.0)
   - ViewAnimator (1.0.2)
 
@@ -50,7 +50,7 @@ CHECKOUT OPTIONS:
     :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
     :git: https://github.com/ViccAlexander/Chameleon.git
   ObjectMapper:
-    :commit: 18051553fc44e98ffb1b7e93fa94cd184283d993
+    :commit: cb12ab3ca9b08c4fd3cec93cafd86d181ac7818e
     :git: https://github.com/Hearst-DD/ObjectMapper.git
 
 SPEC CHECKSUMS:
@@ -61,12 +61,12 @@ SPEC CHECKSUMS:
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
   LTMorphingLabel: 86464e41c3394dbf1ad098442ed4dcf8891ba975
-  Moya: adb58b0f4e58430db43cc6e2f6ebab1836501186
+  Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
   ObjectMapper: 739e5530df22248823f6cc7ed9e016ebf2c26a27
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SkeletonView: 3bf1ff2c2276c4461e84cd1d0eea29d84b0df963
+  SkeletonView: 933a9442b08c3550f61c2ae38a02456a74ad86f4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
