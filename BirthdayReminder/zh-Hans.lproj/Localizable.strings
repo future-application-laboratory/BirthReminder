@@ -4,6 +4,12 @@
 /* There are %d days left till a certain date. */
 "%d day(s) left" = "剩余 %d 天";
 
+/* feedback */
+"Feedback" = "问题反馈";
+
+/* Give us Suggestions */
+"Give us suggestions" = "向我们提供建议";
+
 /* about */
 "about" = "关于";
 

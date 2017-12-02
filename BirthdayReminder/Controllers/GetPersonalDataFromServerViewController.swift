@@ -12,7 +12,7 @@ import ObjectMapper
 import StoreKit
 import ViewAnimator
 import CFNotify
-import SkeletonView
+import NVActivityIndicatorView
 
 class GetPersonalDataFromServerViewController: UIViewController {
     
@@ -23,6 +23,8 @@ class GetPersonalDataFromServerViewController: UIViewController {
     }
     var tableViewData = [People]()
     var anime:Anime?
+    
+    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -37,6 +39,11 @@ class GetPersonalDataFromServerViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
         
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints() { make in
+            make.center.equalToSuperview()
+        }
+        
         loadPeople()
     }
     
@@ -49,7 +56,7 @@ class GetPersonalDataFromServerViewController: UIViewController {
     }
     
     private func loadPeople() {
-        view.showAnimatedSkeleton()
+        activityIndicator.startAnimating()
         NetworkController.networkQueue.async { [weak self] in
             NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { response in
                 switch response {
@@ -57,8 +64,9 @@ class GetPersonalDataFromServerViewController: UIViewController {
                     let json = String(data: result.data, encoding: String.Encoding.utf8)!
                     self?.tableViewData = Mapper<People>().mapArray(JSONString: json)!
                     DispatchQueue.main.async{
-                        self?.view.hideSkeleton()
-                        self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+                        self?.activityIndicator.stopAnimating()
+                        self?.tableView.reloadData()
+                        self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
                     }
                     self?.loadPicForPeople()
                 case .failure(let error):
@@ -101,15 +109,7 @@ class GetPersonalDataFromServerViewController: UIViewController {
     
 }
 
-extension GetPersonalDataFromServerViewController: SkeletonTableViewDataSource, UITableViewDelegate {
-    
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "personalCell"
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewData.count

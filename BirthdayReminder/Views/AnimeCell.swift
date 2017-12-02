@@ -8,9 +8,8 @@
 
 import UIKit
 import SnapKit
-import SkeletonView
 
-class AnimeCell: TableViewCell {
+class AnimeCell: RoundConerTableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picView: UIImageView!

@@ -43,9 +43,6 @@
 /* Class = "UINavigationItem"; title = "Animes"; ObjectID = "Qde-DH-bvt"; */
 "Qde-DH-bvt.title" = "动画";
 
-/* Class = "UITabBarItem"; title = "Discovery"; ObjectID = "Qic-ZZ-lzS"; */
-"Qic-ZZ-lzS.title" = "发现";
-
 /* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "联系信息";
 
@@ -60,6 +57,9 @@
 
 /* (No Comment) */
 "Zip-mg-AKx.title" = "AW 设置";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "bf4-fq-FDT"; */
+"bf4-fq-FDT.text" = "问题反馈";
 
 /* (No Comment) */
 "cGP-5e-OEr.text" = "生日";

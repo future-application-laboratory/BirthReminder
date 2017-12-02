@@ -2,7 +2,22 @@
 "CFBundleName" = "BirthReminder";
 
 /* (No Comment) */
+"NSBluetoothPeripheralUsageDescription" = "tan90";
+
+/* (No Comment) */
+"NSCalendarsUsageDescription" = "tan90";
+
+/* (No Comment) */
 "NSCameraUsageDescription" = "为了自定义图片";
+
+/* (No Comment) */
+"NSContactsUsageDescription" = "tan90";
+
+/* (No Comment) */
+"NSMicrophoneUsageDescription" = "tan90";
+
+/* (No Comment) */
+"NSMotionUsageDescription" = "tan90";
 
 /* (No Comment) */
 "NSPhotoLibraryUsageDescription" = "自定义图片需要相册的访问权限";

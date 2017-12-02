@@ -11,11 +11,12 @@ import SnapKit
 import ObjectMapper
 import ViewAnimator
 import CFNotify
-import SkeletonView
+import NVActivityIndicatorView
 
 class AnimeGettingFromServerViewController: UIViewController {
     
     private var animes = [Anime]()
+    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,15 +43,18 @@ class AnimeGettingFromServerViewController: UIViewController {
         
         tableView.separatorStyle = .none
         
-        view.showAnimatedSkeleton()
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints() { make in
+            make.center.equalToSuperview()
+        }
         
         loadAnimes()
     }
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-	}
-	
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAnimeDetail" {
             let viewController = segue.destination as! GetPersonalDataFromServerViewController
@@ -60,14 +64,16 @@ class AnimeGettingFromServerViewController: UIViewController {
     }
     
     func loadAnimes() {
+        activityIndicator.startAnimating()
         NetworkController.provider.request(.animes) { [weak self] response in
             switch response {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 DispatchQueue.main.async {
-                    self?.view.hideSkeleton()
-                    self?.tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+                    self?.activityIndicator.stopAnimating()
+                    self?.tableView.reloadData()
+                    self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
                 }
                 self?.loadPicsForAnimes()
             case .failure(let error):
@@ -103,20 +109,12 @@ class AnimeGettingFromServerViewController: UIViewController {
     
 }
 
-extension AnimeGettingFromServerViewController: SkeletonTableViewDataSource, UITableViewDelegate {
-    
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdenfierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "animeCell"
-    }
+extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         performSegue(withIdentifier: "showAnimeDetail", sender: animes[index])
         tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return !animes.isEmpty
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

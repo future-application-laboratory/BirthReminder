@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalCell: TableViewCell {
+class PersonalCell: RoundConerTableViewCell {
 
     @IBOutlet weak var picView: UIImageView!
     

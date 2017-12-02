@@ -9,8 +9,9 @@
 import UIKit
 import AcknowList
 import WatchConnectivity
+import Moya
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,8 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let path = Bundle.main.path(forResource: "Pods-BirthdayReminder-acknowledgements", ofType: "plist")
             let controller = AcknowsController(acknowledgementsPlistPath: path)
             controller.acknowledgements! += [
@@ -29,6 +31,33 @@ class SettingsViewController: UITableViewController {
                 Acknow(title: "Pics on the Server", text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@protonmail.com")
             ]
             navigationController?.pushViewController(controller, animated: true)
+        case 2:
+            let alertController = UIAlertController(title: NSLocalizedString("Feedback", comment: "feedback"), message: NSLocalizedString("Give us suggestions", comment: "Give us Suggestions"), preferredStyle: .alert)
+            alertController.addTextField() { _ in }
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("done", comment: "done"), style: .default) { action in
+                if let field = alertController.textFields?.first {
+                    self.submitFeedback(field.text!)
+                }
+            })
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel) { _ in })
+            present(alertController, animated: true, completion: nil)
+            tableView.reloadData()
+        default:
+            break
+        }
+    }
+    
+    func submitFeedback(_ feedback: String) {
+        let service = SlackService.feedback(content: feedback)
+        NetworkController.networkQueue.async {
+            MoyaProvider<SlackService>().request(service) { [weak self] result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(_):
+                    self?.submitFeedback(feedback)
+                }
+            }
         }
     }
     

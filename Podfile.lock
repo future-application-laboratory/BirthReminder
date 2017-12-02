@@ -1,6 +1,8 @@
 PODS:
   - AcknowList (1.4)
   - Alamofire (4.5.1)
+  - Cards (1.3.0):
+    - Player
   - CFNotify (1.0.1)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
@@ -8,68 +10,55 @@ PODS:
   - Eureka (4.0.1)
   - ImageRow (3.0.0):
     - Eureka (~> 4.0)
-  - LTMorphingLabel (0.5.5)
   - Moya (10.0.1):
     - Moya/Core (= 10.0.1)
   - Moya/Core (10.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - ObjectMapper (3.0.0)
+  - NVActivityIndicatorView (4.0.1):
+    - NVActivityIndicatorView/Presenter (= 4.0.1)
+  - NVActivityIndicatorView/Presenter (4.0.1)
+  - ObjectMapper (3.1.0)
   - Onboard (2.3.1)
   - PAPermissions (0.9.10)
+  - Player (0.8.4)
   - Result (3.2.4)
-  - SkeletonView (1.0.4)
   - SnapKit (4.0.0)
   - ViewAnimator (1.0.2)
 
 DEPENDENCIES:
   - AcknowList
+  - Cards
   - CFNotify
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - ChameleonFramework/Swift
   - Eureka
   - ImageRow
-  - LTMorphingLabel
   - Moya
-  - ObjectMapper (from `https://github.com/Hearst-DD/ObjectMapper.git`, branch `swift-4`)
+  - NVActivityIndicatorView
+  - ObjectMapper
   - Onboard
   - PAPermissions
-  - SkeletonView
   - SnapKit
   - ViewAnimator
-
-EXTERNAL SOURCES:
-  ChameleonFramework:
-    :branch: wip/swift4
-    :git: https://github.com/ViccAlexander/Chameleon.git
-  ObjectMapper:
-    :branch: swift-4
-    :git: https://github.com/Hearst-DD/ObjectMapper.git
-
-CHECKOUT OPTIONS:
-  ChameleonFramework:
-    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
-    :git: https://github.com/ViccAlexander/Chameleon.git
-  ObjectMapper:
-    :commit: cb12ab3ca9b08c4fd3cec93cafd86d181ac7818e
-    :git: https://github.com/Hearst-DD/ObjectMapper.git
 
 SPEC CHECKSUMS:
   AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Cards: 40bd9052b7ffca2ff621ed282fe596c474af80c8
   CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
-  LTMorphingLabel: 86464e41c3394dbf1ad098442ed4dcf8891ba975
   Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
-  ObjectMapper: 739e5530df22248823f6cc7ed9e016ebf2c26a27
+  NVActivityIndicatorView: 77ed6d7b571643e24899e7858bf9ae2ee4c21f31
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
+  Player: e45514e9e5fb8ff18f50eb2ba6f84dac9b6a0024
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SkeletonView: 933a9442b08c3550f61c2ae38a02456a74ad86f4
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
-PODFILE CHECKSUM: 3c6b6c4e73cee939ebb4e9f8bf6faa2ca6a0241e
+PODFILE CHECKSUM: c7f58dd57b7408e7163cdc30682fc7d8eb1ba7ac
 
 COCOAPODS: 1.3.1
