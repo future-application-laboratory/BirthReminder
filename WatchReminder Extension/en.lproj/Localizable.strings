@@ -9,3 +9,7 @@
 
 /* tomorrow */
 "tomorrow" = "Tomorrow";
+
+/* Date Format */
+"dateStyle" = "MMM d, EEEE";
+"dateStyleForComplications" = "MMM d";

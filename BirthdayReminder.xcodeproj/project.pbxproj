@@ -24,7 +24,7 @@
 		B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095EC21F6D80C50049AF0D /* AnimeCell.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
-		B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */; };
+		B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022842E1FAEB58E00932EEB /* MainTabBarController.swift */; };
 		B029294E1F26E79000AD0BC1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */; };
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
@@ -46,7 +46,6 @@
 		B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08060131F820E6B00115399 /* PermissionRequestingController.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B081452D1F4E7977007D8DD0 /* LoadingView.swift */; };
 		B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
 		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
@@ -57,14 +56,11 @@
 		B0990F361F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F351F27578400D26557 /* Assets.xcassets */; };
 		B0990F3A1F27578400D26557 /* WatchReminder.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B0990F1A1F27578400D26557 /* WatchReminder.app */; };
 		B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
-		B0A46CCB1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
-		B0A46CCC1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
-		B0A46CCD1F4168B7000E5F30 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0A46CC91F4168B7000E5F30 /* Media.xcassets */; };
 		B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */; };
+		B0C857881FC0EC6800E0DE97 /* RoundConerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C857871FC0EC6800E0DE97 /* RoundConerTableViewCell.swift */; };
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
-		B0D18E441F6D8C6300B2B789 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */; };
 		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B0E009561FB721A200443471 /* BirthCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E009551FB721A200443471 /* BirthCardController.swift */; };
 		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
@@ -135,7 +131,6 @@
 /* Begin PBXFileReference section */
 		1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522153A31F7F4439006CF8F2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
-		522153A41F7F4452006CF8F2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		526C89C41F7F3E4D006A2E57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		52AD42F51F7F164700306D47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -146,14 +141,6 @@
 		52AD430A1F7F19E800306D47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		52AD43141F7F19EA00306D47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		52AD43191F7F1A3500306D47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		52AD431B1F7F1A4700306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		52AD431C1F7F1A4800306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		52AD431D1F7F1A4900306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		52AD431E1F7F1A4A00306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		52AD431F1F7F1A4B00306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		52AD43201F7F1A4C00306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		52AD43211F7F1A4C00306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		52AD43221F7F1A4D00306D47 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		52AD43231F7F1AE600306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52AD43241F7F1AE700306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52AD43251F7F1AE800306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -174,7 +161,7 @@
 		B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeGettingFromServerViewController.swift; sourceTree = "<group>"; };
 		B0126A8E1F34275200C74F73 /* WatchReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchReminder.entitlements; sourceTree = "<group>"; };
 		B0126A8F1F34275A00C74F73 /* WatchReminder Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchReminder Extension.entitlements"; sourceTree = "<group>"; };
-		B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchSettingViewController.swift; sourceTree = "<group>"; };
+		B022842E1FAEB58E00932EEB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B029294C1F26E79000AD0BC1 /* TodayReminder.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayReminder.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		B02929501F26E79000AD0BC1 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -197,7 +184,6 @@
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
 		B08060131F820E6B00115399 /* PermissionRequestingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestingController.swift; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
-		B081452D1F4E7977007D8DD0 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = "<group>"; };
 		B0990F1A1F27578400D26557 /* WatchReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0990F1D1F27578400D26557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -214,18 +200,15 @@
 		B0A46CC91F4168B7000E5F30 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B0AB99D21F244E79006C8F29 /* BirthComputing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputing.swift; sourceTree = "<group>"; };
 		B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingFromIndexViewController.swift; sourceTree = "<group>"; };
+		B0C857871FC0EC6800E0DE97 /* RoundConerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundConerTableViewCell.swift; sourceTree = "<group>"; };
 		B0CD6B681F6D103A009899FE /* PersonFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonFormController.swift; sourceTree = "<group>"; };
-		B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		B0E009551FB721A200443471 /* BirthCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthCardController.swift; sourceTree = "<group>"; };
 		B0F0A44D1F20E143004DED3D /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
 		B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickingRow.swift; sourceTree = "<group>"; };
 		B0F922D51F64187A0059DFDC /* Constants&Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants&Settings.swift"; sourceTree = "<group>"; };
 		B0FB3E0C1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		B0FB3E0D1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
 		B0FB3E0E1F4FD3790022509B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
-		B0FB3E0F1F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
-		B0FB3E101F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
-		B0FB3E111F4FD3810022509B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Interface.strings"; sourceTree = "<group>"; };
 		BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.release.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -317,15 +300,14 @@
 			isa = PBXGroup;
 			children = (
 				B031B91E1F81D81D001AE7DC /* Tutorial.swift */,
+				B022842E1FAEB58E00932EEB /* MainTabBarController.swift */,
 				B08060131F820E6B00115399 /* PermissionRequestingController.swift */,
 				B0CD6B681F6D103A009899FE /* PersonFormController.swift */,
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
-				B0B45EE21F3EF43C00498997 /* SelectingFromIndexViewController.swift */,
+				B0E009551FB721A200443471 /* BirthCardController.swift */,
 				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
 				B06043991F3C9978007D1016 /* SettingsViewController.swift */,
 				B0F0A44D1F20E143004DED3D /* IndexViewController.swift */,
-				B016D0681F3DD3EF008D19E9 /* AppleWatchSettingViewController.swift */,
-				B0D18E431F6D8C6300B2B789 /* SideMenuNavigationController.swift */,
 				B05FB0C81F6E21E70021263D /* ContactViewController.swift */,
 			);
 			path = Controllers;
@@ -359,6 +341,7 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
+				B0A46CC91F4168B7000E5F30 /* Media.xcassets */,
 				B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				B081452C1F4E7967007D8DD0 /* Views */,
 				B049DC9C1F1EEE31008634C5 /* Controllers */,
@@ -374,8 +357,8 @@
 		B06883721F1EEC9D00831AA6 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				52AD43331F7F1C1300306D47 /* Localization */,
 				B0F922D51F64187A0059DFDC /* Constants&Settings.swift */,
+				52AD43331F7F1C1300306D47 /* Localization */,
 				B0A46CC81F416896000E5F30 /* Images */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
 				B06883771F1EECBE00831AA6 /* File&Data Managing */,
@@ -406,10 +389,10 @@
 		B081452C1F4E7967007D8DD0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B081452D1F4E7977007D8DD0 /* LoadingView.swift */,
 				B0095EC21F6D80C50049AF0D /* AnimeCell.swift */,
 				B02F096A1F6C524A007EF8C1 /* PersonalCell.swift */,
 				B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */,
+				B0C857871FC0EC6800E0DE97 /* RoundConerTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,7 +436,6 @@
 		B0A46CC81F416896000E5F30 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B0A46CC91F4168B7000E5F30 /* Media.xcassets */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -606,6 +588,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
 						};
 					};
 					B0990F191F27578400D26557 = {
@@ -646,7 +631,6 @@
 				en,
 				Base,
 				"zh-Hans",
-				"zh-Hant",
 			);
 			mainGroup = B068834B1F1EEB2D00831AA6;
 			productRefGroup = B06883551F1EEB2D00831AA6 /* Products */;
@@ -670,7 +654,6 @@
 				B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */,
 				52AD43091F7F19E800306D47 /* Localizable.strings in Resources */,
 				52AD43041F7F164F00306D47 /* InfoPlist.strings in Resources */,
-				B0A46CCB1F4168B7000E5F30 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +677,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0990F201F27578400D26557 /* Assets.xcassets in Resources */,
-				B0A46CCC1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */,
 				52AD42FE1F7F164B00306D47 /* InfoPlist.strings in Resources */,
 			);
@@ -708,7 +690,6 @@
 				B0990F361F27578400D26557 /* Assets.xcassets in Resources */,
 				52AD43131F7F19EA00306D47 /* Localizable.strings in Resources */,
 				52AD42F91F7F164900306D47 /* InfoPlist.strings in Resources */,
-				B0A46CCD1F4168B7000E5F30 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,35 +720,39 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
+				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
-				"${BUILT_PRODUCTS_DIR}/LTMorphingLabel/LTMorphingLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/PAPermissions/PAPermissions.framework",
+				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LTMorphingLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PAPermissions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -812,11 +797,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */,
-				B0D18E441F6D8C6300B2B789 /* SideMenuNavigationController.swift in Sources */,
 				B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
+				B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
 				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
@@ -824,12 +809,11 @@
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
-				B081452E1F4E7977007D8DD0 /* LoadingView.swift in Sources */,
-				B016D0691F3DD3F0008D19E9 /* AppleWatchSettingViewController.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
 				B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */,
+				B0E009561FB721A200443471 /* BirthCardController.swift in Sources */,
+				B0C857881FC0EC6800E0DE97 /* RoundConerTableViewCell.swift in Sources */,
 				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
-				B0B45EE31F3EF43C00498997 /* SelectingFromIndexViewController.swift in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,
 				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
@@ -878,7 +862,6 @@
 			children = (
 				526C89C41F7F3E4D006A2E57 /* en */,
 				522153A31F7F4439006CF8F2 /* zh-Hans */,
-				522153A41F7F4452006CF8F2 /* zh-Hant */,
 			);
 			name = Localizable.stringsdict;
 			sourceTree = "<group>";
@@ -887,7 +870,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD42F51F7F164700306D47 /* zh-Hans */,
-				52AD431C1F7F1A4800306D47 /* zh-Hant */,
 				52AD43241F7F1AE700306D47 /* en */,
 			);
 			name = InfoPlist.strings;
@@ -897,7 +879,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD42FA1F7F164900306D47 /* zh-Hans */,
-				52AD431D1F7F1A4900306D47 /* zh-Hant */,
 				52AD43251F7F1AE800306D47 /* en */,
 			);
 			name = InfoPlist.strings;
@@ -907,7 +888,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD42FF1F7F164B00306D47 /* zh-Hans */,
-				52AD431E1F7F1A4A00306D47 /* zh-Hant */,
 				52AD43261F7F1AE900306D47 /* en */,
 			);
 			name = InfoPlist.strings;
@@ -917,7 +897,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD43051F7F164F00306D47 /* zh-Hans */,
-				52AD431B1F7F1A4700306D47 /* zh-Hant */,
 				52AD43231F7F1AE600306D47 /* en */,
 			);
 			name = InfoPlist.strings;
@@ -927,7 +906,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD430A1F7F19E800306D47 /* zh-Hans */,
-				52AD43201F7F1A4C00306D47 /* zh-Hant */,
 				52AD43291F7F1AEB00306D47 /* en */,
 			);
 			name = Localizable.strings;
@@ -937,7 +915,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD43141F7F19EA00306D47 /* zh-Hans */,
-				52AD43221F7F1A4D00306D47 /* zh-Hant */,
 				52AD432D1F7F1AEF00306D47 /* en */,
 			);
 			name = Localizable.strings;
@@ -947,7 +924,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				52AD43191F7F1A3500306D47 /* zh-Hans */,
-				52AD43211F7F1A4C00306D47 /* zh-Hant */,
 				52AD432A1F7F1AEC00306D47 /* en */,
 			);
 			name = Localizable.strings;
@@ -958,7 +934,6 @@
 			children = (
 				B02929531F26E79000AD0BC1 /* Base */,
 				B0FB3E0D1F4FD3790022509B /* zh-Hans */,
-				B0FB3E101F4FD3810022509B /* zh-Hant */,
 				52AD432C1F7F1AEE00306D47 /* en */,
 			);
 			name = MainInterface.storyboard;
@@ -969,7 +944,6 @@
 			children = (
 				B068835C1F1EEB2D00831AA6 /* Base */,
 				B0FB3E0C1F4FD3790022509B /* zh-Hans */,
-				B0FB3E0F1F4FD3810022509B /* zh-Hant */,
 				52AD43271F7F1AE900306D47 /* en */,
 			);
 			name = Main.storyboard;
@@ -980,7 +954,6 @@
 			children = (
 				B06883611F1EEB2D00831AA6 /* Base */,
 				52AD43011F7F164C00306D47 /* zh-Hans */,
-				52AD431F1F7F1A4B00306D47 /* zh-Hant */,
 				52AD43281F7F1AEA00306D47 /* en */,
 			);
 			name = LaunchScreen.storyboard;
@@ -991,7 +964,6 @@
 			children = (
 				B0990F1D1F27578400D26557 /* Base */,
 				B0FB3E0E1F4FD3790022509B /* zh-Hans */,
-				B0FB3E111F4FD3810022509B /* zh-Hant */,
 				52AD432B1F7F1AED00306D47 /* en */,
 			);
 			name = Interface.storyboard;

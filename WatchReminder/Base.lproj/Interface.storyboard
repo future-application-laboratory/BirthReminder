@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
     </dependencies>
     <scenes>
         <!--BirthReminder-->
@@ -42,6 +42,15 @@ Go to Host App to configure</string>
                             </items>
                         </table>
                     </items>
+                    <menu key="menu" id="VG0-tL-ebf">
+                        <items>
+                            <menuItem title="Switch Date/Left days" icon="repeat" id="uWU-uF-lAe">
+                                <connections>
+                                    <action selector="switchLeftAndDate" destination="AgC-eL-Hgc" id="Axh-Bd-fty"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="emptyLabel" destination="ai9-ss-3f3" id="X0F-TH-TKA"/>
                         <outlet property="table" destination="rUj-7F-e7J" id="ucC-TQ-sje"/>

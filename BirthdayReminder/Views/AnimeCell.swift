@@ -7,20 +7,19 @@
 //
 
 import UIKit
+import SnapKit
 
-class AnimeCell: UITableViewCell {
+class AnimeCell: RoundConerTableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var picView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.cell
+        backgroundColor = UIColor.clear
         nameLabel.textColor = UIColor.label
         picView.layer.cornerRadius = 10
         picView.layer.masksToBounds = true
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
     }
     
 }

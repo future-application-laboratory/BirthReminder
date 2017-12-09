@@ -13,3 +13,6 @@
 /* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "oHM-V4-bt6"; */
 "oHM-V4-bt6.text" = "姓名";
 
+/* Class = "WKInterfaceMenuItem"; title = "Switch Date/Left days"; ObjectID = "uWU-uF-lAe"; */
+"uWU-uF-lAe.title" = "切换 日期/剩余天数";
+

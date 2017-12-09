@@ -4,6 +4,9 @@
 /* add */
 "add" = "Add";
 
+/* about */
+"about" = "About";
+
 /* The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index) */
 "agreement" = "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)";
 
@@ -33,7 +36,7 @@
 "page2body" = "You can easily add the characters, but it is still time-consuming. Here, you can import from the online server. Instead of typing for such long time, the only thing you need is tapping the ADD button.";
 
 "page3title" = "Anytime Anywhere";
-"page3body" = "BirthReminder supports TodayWidget, AppleWatch, and Complication. This means you can checkout the birth info anytime and anywhere, simply by swiping from the top of your phone or raising your wrist.";
+"page3body" = "BirthReminder supports TodayWidget, AppleWatch, and Complications. This means you can checkout the birth info anytime and anywhere, simply by swiping from the top of your phone or raising your wrist.";
 
 "page4title" = "Permission";
 "page4body" = "To enjoy all the features within the app, you need to allow us to access your PhototLibrary and to send you notification.";
@@ -50,50 +53,38 @@
 
 "photoReason" = "We need to access your PhotoLibrary to customize the pic";
 
+"cameraReason" = "We need to access your Camera to customize the pic";
+
 "notificationReason" = "Then we can send you interesting news about the ACGN characters";
 
-/* date picker */
-"month1" = "January";
-"month2" = "February";
-"month3" = "March";
-"month4" = "April";
-"month5" = "May";
-"month6" = "June";
-"month7" = "July";
-"month8" = "August";
-"month9" = "September";
-"month10" = "October";
-"month11" = "November";
-"month12" = "December";
+/* Date Format */
+"dateStyle" = "MMM d, EEEE";
 
-"day1" = "1";
-"day2" = "2";
-"day3" = "3";
-"day4" = "4";
-"day5" = "5";
-"day6" = "6";
-"day7" = "7";
-"day8" = "8";
-"day9" = "9";
-"day10" = "10";
-"day11" = "11";
-"day12" = "12";
-"day13" = "13";
-"day14" = "14";
-"day15" = "15";
-"day16" = "16";
-"day17" = "17";
-"day18" = "18";
-"day19" = "19";
-"day20" = "20";
-"day21" = "21";
-"day22" = "22";
-"day23" = "23";
-"day24" = "24";
-"day25" = "25";
-"day26" = "26";
-"day27" = "27";
-"day28" = "28";
-"day29" = "29";
-"day30" = "30";
-"day31" = "31";
+/* add new */
+"new" = "New";
+
+/* add from server */
+"import" = "Import";
+
+/* cancel */
+"cancel" = "Cancel";
+
+/* sync with aw */
+"syncWithAW" = "Sync with AW";
+
+/* Done */
+"done" = "Done";
+
+"confirm" = "Confirm";
+
+"deletionConfirm" = "Are your sure?";
+
+"deletionConfirmDetailed" = "Are you sure to remove this character?";
+
+"edit" = "Edit";
+
+"emptyLabelText" = "No data set, tap '+' button to configure";
+
+"failedToLoad" = "Failed to load";
+
+"failedToSave" = "Failed to save";

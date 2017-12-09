@@ -8,10 +8,13 @@
 
 import UIKit
 import CoreData
-import SCLAlertView
 import ObjectMapper
+import StoreKit
+import ViewAnimator
+import CFNotify
+import NVActivityIndicatorView
 
-class GetPersonalDataFromServerViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class GetPersonalDataFromServerViewController: UIViewController {
     
     weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared
@@ -20,13 +23,12 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
     }
     var tableViewData = [People]()
     var anime:Anime?
-    var rotateDegree = 0
+    
+    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var addAllButton: UIBarButtonItem!
-    
-    let loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,67 +39,24 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
         
-        view.addSubview(loadingView)
-        loadingView.center = view.center
-        
-        
-        // Load the basic info
-        loadingView.start()
+        view.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints() { make in
+            make.center.equalToSuperview()
+        }
         
         loadPeople()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return tableViewData.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let index = indexPath.section
-        let cellData = tableViewData[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
-        cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate(withStyle: .long)
-        if let imgData = cellData.picData {
-            cell.picView.image = UIImage(data: imgData)
-        } else {
-            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.section
-        performSegue(withIdentifier: "showCharacterDetail", sender: tableViewData[index])
-        tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCharacterDetail" {
-            let controller = segue.destination as! PersonFormController
-            controller.data = sender as? People
-        }
-    }
-    
     @IBAction func storeAll(_ sender: Any) {
         tableViewData.forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData)
+            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData, shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
-    }
-    
-    func reloadSparator() {
-        tableView.separatorStyle = tableViewData.isEmpty ? .none : .singleLine
+        SKStoreReviewController.requestReview()
     }
     
     private func loadPeople() {
+        activityIndicator.startAnimating()
         NetworkController.networkQueue.async { [weak self] in
             NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { response in
                 switch response {
@@ -105,20 +64,20 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
                     let json = String(data: result.data, encoding: String.Encoding.utf8)!
                     self?.tableViewData = Mapper<People>().mapArray(JSONString: json)!
                     DispatchQueue.main.async{
+                        self?.activityIndicator.stopAnimating()
                         self?.tableView.reloadData()
-                        self?.reloadSparator()
-                        self?.loadingView.stop()
+                        self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
                     }
                     self?.loadPicForPeople()
                 case .failure(let error):
                     self?.tableViewData = []
                     DispatchQueue.main.async {
-                        let appearence = SCLAlertView.SCLAppearance(showCloseButton: false)
-                        let alert = SCLAlertView(appearance: appearence)
-                        alert.addButton("OK") { [weak self] in
-                            self?.navigationController?.popViewController(animated: true) // Go back to previous view if fails to load
-                        }
-                        alert.showError("Failed to load", subTitle: error.localizedDescription)
+                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
+                        var config = CFNotify.Config()
+                        config.initPosition = .top(.center)
+                        config.appearPosition = .top
+                        CFNotify.present(config: config, view: cfView)
+                        self?.navigationController?.popViewController(animated: true)
                     }
                 }
             }
@@ -148,24 +107,34 @@ class GetPersonalDataFromServerViewController: UIViewController,UITableViewDeleg
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 10 : 20
+}
+
+extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableViewData.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let width = UIScreen.main.bounds.width - 20
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 20))
-        view.backgroundColor = UIColor.background
-        return view
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let sectionHeaderHeight: CGFloat = 20
-        if scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0 {
-            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0)
-        } else if scrollView.contentOffset.y >= sectionHeaderHeight {
-            scrollView.contentInset = UIEdgeInsetsMake(CGFloat(-sectionHeaderHeight), 0, 0, 0)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        let cellData = tableViewData[index]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.nameLabel.text = cellData.name
+        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
+        if let imgData = cellData.picData {
+            cell.picView.image = UIImage(data: imgData)
+        } else {
+            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        let controller = PersonFormController()
+        controller.setup(with: .new, person: tableViewData[index])
+        navigationController?.pushViewController(controller, animated: true)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
 }

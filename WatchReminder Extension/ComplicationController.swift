@@ -88,9 +88,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .utilitarianLarge:
             let template = CLKComplicationTemplateUtilitarianLargeFlat()
             let formatter = DateFormatter()
-            formatter.dateStyle = .short
+            formatter.dateFormat = NSLocalizedString("dateStyleForComplications", comment: "MMM d")
             let localizedDate = formatter.string(from: date)
-            let nameAndDateProvider = CLKSimpleTextProvider(text: "\(name) \(localizedDate)", shortText: localizedDate)
+            let nameAndDateProvider = CLKSimpleTextProvider(text: "\(name) \(localizedDate)", shortText: name)
             template.textProvider = nameAndDateProvider
             return template
         default:

@@ -19,6 +19,10 @@ enum TCWQService {
     case notification(withToken: String)
 }
 
+enum SlackService {
+    case feedback(content: String)
+}
+
 extension TCWQService: TargetType {
     var headers: [String : String]? {
         return nil
@@ -66,6 +70,36 @@ extension TCWQService: TargetType {
     }
 }
 
+extension SlackService: TargetType {
+    var baseURL: URL {
+        return URL(string: "https://hooks.slack.com")!
+    }
+    
+    var path: String {
+        return "/services/T7RGQGPM3/B7RH06U2W/8PkGptdj864Y5rqwitfbWLM3"
+    }
+    
+    var method: Moya.Method {
+        return .post
+    }
+    
+    var sampleData: Data {
+        return Data()
+    }
+    
+    var task: Task {
+        switch self {
+        case .feedback(content: let content):
+            return .requestParameters(parameters: ["text":content], encoding: JSONEncoding.default)
+        }
+    }
+    
+    var headers: [String : String]? {
+        return nil
+    }
+    
+}
+
 final class People: Mappable {
     var name = ""
     var stringedBirth = ""
@@ -78,10 +112,6 @@ final class People: Mappable {
         self.stringedBirth = birth
         self.picData = picData
         self.id = id
-    }
-    
-    init() {
-        
     }
     
     required init?(map: Map) {
@@ -113,7 +143,6 @@ final class Anime: Mappable {
         id <- map["id"]
     }
 }
-
 
 class NetworkController {
     

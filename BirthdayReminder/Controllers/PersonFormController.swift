@@ -1,4 +1,4 @@
-﻿//
+//
 //  PersonFormController.swift
 //  BirthdayReminder
 //
@@ -10,51 +10,77 @@ import UIKit
 import Eureka
 import ImageRow
 import CoreData
+import StoreKit
+import CFNotify
 
 class PersonFormController: FormViewController {
     
-    public var data: People?
+    private var formMode = Mode.new
     
-    private var context: NSManagedObjectContext {
+    private var newPerson: People?
+    private var persistentPerson: PeopleToSave?
+    
+    
+    public func setup(with mode: Mode, person: Any?) {
+        switch mode {
+        case .new:
+            newPerson = person as? People
+        case .edit:
+            persistentPerson = person as? PeopleToSave
+        }
+        formMode = mode
+    }
+    
+    enum Mode {
+        case edit
+        case new
+    }
+    
+    private let context: NSManagedObjectContext = {
         let app = UIApplication.shared
         let delegate = app.delegate as! AppDelegate
         return delegate.context
-    }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Form Defination
         form +++ Section(NSLocalizedString("name", comment: "name"))
             <<< NameRow() { row in
                 row.tag = "name"
                 row.title = NSLocalizedString("name", comment: "name")
                 row.placeholder = NSLocalizedString("name", comment: "name")
-                if let name = data?.name {
-                    row.value = name
-                }
+                row.value = newPerson?.name ?? persistentPerson?.name
             }
             +++ Section(NSLocalizedString("birth", comment: "Birth"))
             <<< DatePickingRow() { row in
                 row.tag = "birth"
                 row.title = NSLocalizedString("birth", comment: "Birth")
-                row.value = "01-01"
-                if let birth = data?.stringedBirth {
-                    row.value = birth
-                }
+                row.value = (newPerson?.stringedBirth ?? persistentPerson?.birth) ?? "01-01"
+                
             }
             +++ Section(NSLocalizedString("image", comment: "Image"))
             <<< ImageRow() { row in
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
-                if let imageData = data?.picData {
-                    row.value = UIImage(data: imageData)
-                }
+                row.value = UIImage(data: (newPerson?.picData ?? persistentPerson?.picData) ?? Data())
             }
             +++ Section()
-            <<< ButtonRow() { row in
-                row.title = NSLocalizedString("add",comment: "add")
+            <<< SwitchRow() { row in
+                row.tag = "shouldSync"
+                row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
+                row.value = persistentPerson?.shouldSync ?? false
             }
+            +++ Section()
+            <<< ButtonRow() {row in
+                row.title = NSLocalizedString("done",comment: "done")
+        }
         
+        // Delete Button
+        if formMode == .edit {
+            let buttonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(delete(button:)))
+            navigationItem.setRightBarButton(buttonItem, animated: true)
+        }
     }
     
     private func save() {
@@ -63,15 +89,59 @@ class PersonFormController: FormViewController {
         let birth = values["birth"] as! String?
         let image = values["image"] as! UIImage?
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
-        PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData)
-        navigationController?.popViewController(animated: true)
+        let shouldSync = values["shouldSync"] as! Bool?
+        
+        switch formMode {
+        case .new:
+            PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData, shouldSync: shouldSync ?? false)
+        case .edit:
+            do {
+                persistentPerson?.name = name ?? ""
+                persistentPerson?.birth = birth ?? "01-01"
+                persistentPerson?.picData = imageData
+                persistentPerson?.shouldSync = shouldSync ?? false
+                try context.save()
+                
+                // Remember to modify the notifications
+                
+            } catch {
+                let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                var config = CFNotify.Config()
+                config.initPosition = .top(.center)
+                config.appearPosition = .top
+                CFNotify.present(config: config, view: cfView)
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        if indexPath.section == 3 {
+        if indexPath.section == 4 {
             save()
+            navigationController?.popViewController(animated: true)
+            SKStoreReviewController.requestReview()
         }
+    }
+    
+    @objc private func delete(button: UIBarButtonItem) {
+        let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { [unowned self] _ in
+            do {
+                self.context.delete(self.persistentPerson!)
+                try self.context.save()
+                self.navigationController?.popViewController(animated: true)
+            } catch {
+                let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                var config = CFNotify.Config()
+                config.initPosition = .top(.center)
+                config.appearPosition = .top
+                CFNotify.present(config: config, view: cfView)
+            }
+        }
+        let cancelAction = UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel, handler: nil)
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

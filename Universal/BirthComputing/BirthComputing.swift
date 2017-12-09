@@ -37,9 +37,9 @@ class BirthComputer {
 }
 
 extension String {
-    func toLocalizedDate(withStyle style: DateFormatter.Style) -> String? {
+    func toLocalizedDate() -> String? {
         let formatter = DateFormatter()
-        formatter.dateStyle = style
+        formatter.dateFormat = NSLocalizedString("dateStyle", comment: "Date Style")
         guard let date = toDate() else { return nil }
         return formatter.string(from: date)
     }
@@ -48,7 +48,6 @@ extension String {
         guard let date = toDate(),
             let leftDays = date.daysSince(Date.now)
             else { return nil }
-
         switch leftDays {
         case -1, 0:
             return NSLocalizedString("today", comment: "today")
