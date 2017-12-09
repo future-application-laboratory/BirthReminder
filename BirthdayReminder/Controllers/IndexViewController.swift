@@ -46,6 +46,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             make.width.lessThanOrEqualToSuperview()
             make.height.lessThanOrEqualToSuperview()
         }
+        emptyLabel.numberOfLines = 0
         emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
