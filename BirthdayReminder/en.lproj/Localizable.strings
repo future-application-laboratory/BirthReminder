@@ -88,3 +88,7 @@
 "failedToLoad" = "Failed to load";
 
 "failedToSave" = "Failed to save";
+
+"It's %@'s birthday" = "It's %@'s birthday";
+
+"%@ is %@'s birthday, let's celebrate!" = "%@ is %@'s birthday, let's celebrate!";

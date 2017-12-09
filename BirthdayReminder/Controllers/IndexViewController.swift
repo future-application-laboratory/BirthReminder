@@ -139,6 +139,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        NotificationManager.reloadNotifications()
         switch type {
         case .insert:
             let person = anObject as! PeopleToSave
@@ -147,6 +148,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             tableView.reloadData()
         case .delete:
             data = frc.fetchedObjects!
+            data.sort()
             tableView.reloadData()
             delegate.syncWithAppleWatch()
         default:
