@@ -64,6 +64,7 @@ class PersonFormController: FormViewController {
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
                 row.value = UIImage(data: (newPerson?.picData ?? persistentPerson?.picData) ?? Data())
+                row.allowEditing = true
             }
             +++ Section()
             <<< SwitchRow() { row in
