@@ -120,6 +120,7 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let controller = PersonFormController()
             controller.setup(with: .new, person: nil)
             controller.title = NSLocalizedString("new", comment: "New")
+            controller.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(controller, animated: true)
         })
         alertController.addAction(UIAlertAction(title: NSLocalizedString("import", comment: "import"), style: .default) { [unowned self] action in

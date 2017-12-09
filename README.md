@@ -35,11 +35,11 @@ The only thing you need is tapping the ADD button
 
 # Download
 
-Available on the App Store soon!
+Coming soon on the App Store
 
 [![Download on the App Store](./GitHubPics/appstore.svg)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
 
-If you'd like to receive the latest version through TestFlight, [email me](mailto:CaptainYukinoshitaHachiman@ProtonMail.com) your iCloud account, then I'll send you an invitation
+Also, you may [join in beta testing](https://birth-reminder-testflight.herokuapp.com) in order to try the latest features.
 
 # Contribution
 

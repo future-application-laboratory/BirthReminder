@@ -42,6 +42,8 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
             alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel) { _ in })
             present(alertController, animated: true, completion: nil)
             tableView.reloadData()
+        case 3:
+            present(tutorialController, animated: true, completion: nil)
         default:
             break
         }

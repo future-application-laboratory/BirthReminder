@@ -53,6 +53,8 @@
 
 "photoReason" = "We need to access your PhotoLibrary to customize the pic";
 
+"cameraReason" = "We need to access your Camera to customize the pic";
+
 "notificationReason" = "Then we can send you interesting news about the ACGN characters";
 
 /* Date Format */
@@ -69,3 +71,20 @@
 
 /* sync with aw */
 "syncWithAW" = "Sync with AW";
+
+/* Done */
+"done" = "Done";
+
+"confirm" = "Confirm";
+
+"deletionConfirm" = "Are your sure?";
+
+"deletionConfirmDetailed" = "Are you sure to remove this character?";
+
+"edit" = "Edit";
+
+"emptyLabelText" = "No data set, tap '+' button to configure";
+
+"failedToLoad" = "Failed to load";
+
+"failedToSave" = "Failed to save";

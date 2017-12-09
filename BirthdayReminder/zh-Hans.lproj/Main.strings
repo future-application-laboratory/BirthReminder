@@ -1,6 +1,9 @@
 /* Class = "UITabBarItem"; title = "Misc"; ObjectID = "0oe-eG-MiR"; */
 "0oe-eG-MiR.title" = "其他";
 
+/* Class = "UILabel"; text = "Show Tutorial"; ObjectID = "2Tb-ld-rJx"; */
+"2Tb-ld-rJx.text" = "显示导览";
+
 /* (No Comment) */
 "03y-ad-1Mg.title" = "空白模版";
 

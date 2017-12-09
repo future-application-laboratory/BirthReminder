@@ -357,8 +357,8 @@
 		B06883721F1EEC9D00831AA6 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				52AD43331F7F1C1300306D47 /* Localization */,
 				B0F922D51F64187A0059DFDC /* Constants&Settings.swift */,
+				52AD43331F7F1C1300306D47 /* Localization */,
 				B0A46CC81F416896000E5F30 /* Images */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
 				B06883771F1EECBE00831AA6 /* File&Data Managing */,
