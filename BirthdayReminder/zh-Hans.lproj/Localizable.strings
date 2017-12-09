@@ -1,5 +1,5 @@
-/* No comment provided by engineer. */
-"%@'s birthday is coming, let's celebrate on %@!" = "%@'s birthday is coming, let's celebrate on %@!";
+/* %@ is %@'s birthday, let's celebrate! */
+"%@ is %@'s birthday, let's celebrate!" = "%@的生日就在%@,一起庆祝吧！";
 
 /* There are %d days left till a certain date. */
 "%d day(s) left" = "剩余 %d 天";
@@ -9,6 +9,9 @@
 
 /* Give us Suggestions */
 "Give us suggestions" = "向我们提供建议";
+
+/* It's %@'s birthday */
+"It's %@'s birthday" = "今天是%@的生日";
 
 /* about */
 "about" = "关于";

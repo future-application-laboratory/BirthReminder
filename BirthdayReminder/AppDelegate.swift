@@ -85,8 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 }
                 let data = NSKeyedArchiver.archivedData(withRootObject: people)
                 let manager = FileManager()
-                let docUrl = manager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-                let fileUrl = docUrl.appendingPathComponent("temp.br")
+                let tempUrl = manager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+                let fileUrl = tempUrl.appendingPathComponent("temp.br")
                 manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
                 session.transferFile(fileUrl, metadata: nil)
             }

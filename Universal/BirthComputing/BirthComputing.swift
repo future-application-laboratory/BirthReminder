@@ -17,17 +17,23 @@ class BirthComputer {
     fileprivate static func putIntoDate(with monthAndDay: String, year: YearType = .this) -> Date? {
         let formmater = DateFormatter()
         formmater.dateFormat = "yyyy-MM-dd"
-        let date = formmater.date(from: "\(getYear(year))-\(monthAndDay)")
-        return date
+        if monthAndDay == "02-29" {
+            return formmater.date(from: "\(leapYear)-\(monthAndDay)")
+        }
+        return formmater.date(from: "\(simpleYear(year))-\(monthAndDay)")
     }
     
-    static func getYear(_ year: YearType) -> Int {
+    static func simpleYear(_ year: YearType) -> Int {
         switch year {
         case .this:
             return Calendar.current.component(.year, from: Date.now)
         case .next:
-            return getYear(.this) + 1
+            return simpleYear(.this) + 1
         }
+    }
+    
+    static var leapYear: Int {
+        fatalError("not implenmented")
     }
     
     enum YearType {
@@ -94,6 +100,18 @@ extension Date {
 
     func daysSince(_ start: Date) -> Int! {
         return Calendar.current.dateComponents([.day], from: start, to: self).day
+    }
+    
+    var day: Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        return Int(formatter.string(from: self))!
+    }
+    
+    var month: Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM"
+        return Int(formatter.string(from: self))!
     }
 }
 
