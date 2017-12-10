@@ -15,6 +15,5 @@ target 'BirthdayReminder' do
     pod 'ViewAnimator'
     pod 'CFNotify'
     pod 'NVActivityIndicatorView'
-    pod 'Cards'
     
 end

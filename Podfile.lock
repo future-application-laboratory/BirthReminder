@@ -30,9 +30,9 @@ DEPENDENCIES:
   - AcknowList
   - Cards
   - CFNotify
-  - ChameleonFramework/Swift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Eureka
-  - ImageRow
+  - ImageRow (from `https://github.com/LiulietLee/ImageRow.git`, branch `master`)
   - Moya
   - NVActivityIndicatorView
   - ObjectMapper
@@ -42,11 +42,23 @@ DEPENDENCIES:
   - ViewAnimator
 
 EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  ImageRow:
+    :branch: master
+    :git: https://github.com/LiulietLee/ImageRow.git
   Onboard:
     :branch: master
     :git: https://github.com/mamaral/Onboard.git
 
 CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
+  ImageRow:
+    :commit: 7db3681c96523a80d3a32c7fb98a1c1b5f501757
+    :git: https://github.com/LiulietLee/ImageRow.git
   Onboard:
     :commit: fd44e4478e50fe068732ec2995f4135daef4a02e
     :git: https://github.com/mamaral/Onboard.git
@@ -58,7 +70,7 @@ SPEC CHECKSUMS:
   CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
-  ImageRow: 048123c296de9a6ac3998c415a6706c45ce480af
+  ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
   Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
   NVActivityIndicatorView: dc4726052dc24e89fa8576d43acf9e96f61d49db
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
@@ -69,6 +81,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
-PODFILE CHECKSUM: f938b8ab171c6714e2dc7481b8f6008181b96ae9
+PODFILE CHECKSUM: a6f79c9dd49d12bca83c16d24daf3d311a08b350
 
 COCOAPODS: 1.3.1

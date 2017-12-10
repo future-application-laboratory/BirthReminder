@@ -102,9 +102,6 @@ class PersonFormController: FormViewController {
                 persistentPerson?.picData = imageData
                 persistentPerson?.shouldSync = shouldSync ?? false
                 try context.save()
-                
-                // Remember to modify the notifications
-                
             } catch {
                 let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
                 var config = CFNotify.Config()
