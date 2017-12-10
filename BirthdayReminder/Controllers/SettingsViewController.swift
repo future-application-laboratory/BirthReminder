@@ -50,7 +50,10 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func submitFeedback(_ feedback: String) {
-        let service = SlackService.feedback(content: feedback)
+        let defaults = UserDefaults.standard
+        let token = defaults.string(forKey: "remoteToken")
+        let content = feedback + "\ntoken: \(token ?? "not set")"
+        let service = SlackService.feedback(content: content)
         NetworkController.networkQueue.async {
             MoyaProvider<SlackService>().request(service) { [weak self] result in
                 switch result {

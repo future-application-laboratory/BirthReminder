@@ -101,6 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     // Remote notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "remoteToken") {
+            return
+        }
         let token = NSData(data: deviceToken).description.replacingOccurrences(of:"<", with:"").replacingOccurrences(of:">", with:"").replacingOccurrences(of:" ", with:"")
         sendToken(token)
     }
@@ -114,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                         self.sendToken(token)
                     } else {
                         let defaults = UserDefaults()
-                        defaults.set(true, forKey: "registeredForNotification")
+                        defaults.set(token, forKey: "remoteToken")
                     }
                 case .failure(let error):
                     print(error.localizedDescription)
