@@ -9,31 +9,33 @@
 import Foundation
 
 class BirthComputer {
-    // Reorder people based on their birthday.
+    /// Reorder people based on their birthday.
     static func peopleOrderedByBirthday(peopleToReorder people: [PeopleToSave]) -> [PeopleToSave] {
         return people.sorted { p1, p2 in p1.birth.toDate()! < p2.birth.toDate()! }
     }
     
-    fileprivate static func putIntoDate(with monthAndDay: String, year: YearType = .this) -> Date? {
+    fileprivate static func putIntoDate(with monthAndDay: String, year yearType: YearType = .this) -> Date? {
         let formmater = DateFormatter()
         formmater.dateFormat = "yyyy-MM-dd"
-        if monthAndDay == "02-29" {
-            return formmater.date(from: "\(leapYear)-\(monthAndDay)")
-        }
-        return formmater.date(from: "\(simpleYear(year))-\(monthAndDay)")
+        let year = monthAndDay == "02-29" ? leapYear() : simpleYear(yearType)
+        return formmater.date(from: "\(year)-\(monthAndDay)")
     }
     
-    static func simpleYear(_ year: YearType) -> Int {
-        switch year {
+    static func simpleYear(_ yearType: YearType) -> Int {
+        switch yearType {
         case .this:
             return Calendar.current.component(.year, from: Date.now)
         case .next:
             return simpleYear(.this) + 1
         }
     }
-    
-    static var leapYear: Int {
-        fatalError("not implenmented")
+
+    static func leapYear(after thisYear: Int = simpleYear(.this)) -> Int {
+        var year = thisYear / 4 * 4
+        if year < thisYear { year += 4 }
+        if year % 100 == 0 && thisYear % 400 != 0
+        { year += 4 }
+        return year
     }
     
     enum YearType {
@@ -52,7 +54,7 @@ extension String {
     
     func toLeftDays() -> String? {
         guard let date = toDate(),
-            let leftDays = date.daysSince(Date.now)
+            let leftDays = date.daysSince(.now)
             else { return nil }
         switch leftDays {
         case -1, 0:
@@ -103,15 +105,11 @@ extension Date {
     }
     
     var day: Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd"
-        return Int(formatter.string(from: self))!
+        return Calendar.current.dateComponents([.day], from: self).day!
     }
     
     var month: Int {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM"
-        return Int(formatter.string(from: self))!
+        return Calendar.current.dateComponents([.month], from: self).month!
     }
 }
 

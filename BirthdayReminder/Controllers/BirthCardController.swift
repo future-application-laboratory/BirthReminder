@@ -62,7 +62,7 @@ class BirthCardController: UIViewController {
             NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!,person.name)
         let image = imageView.image ?? UIImage()
-        let url = URL(string: "https://www.tcwq.tech/")!
+        let url: URL = "https://www.tcwq.tech/"
         
         let controller = UIActivityViewController(activityItems: [text,image,url], applicationActivities: nil)
         
