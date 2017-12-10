@@ -18,7 +18,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var emptyLabel: UILabel!
     
     var status = true
-    //CoreData
+    // CoreData
     let context = createDataMainContext()
     var current: PeopleToSave?
     var isEmpty: Bool {

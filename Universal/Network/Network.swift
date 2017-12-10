@@ -29,7 +29,7 @@ extension TCWQService: TargetType {
     }
     
     var baseURL: URL {
-        return URL(string: "https://www.tcwq.tech/api/BirthdayReminder/")!
+        return "https://www.tcwq.tech/api/BirthdayReminder/"
     }
     
     var path: String {
@@ -72,7 +72,7 @@ extension TCWQService: TargetType {
 
 extension SlackService: TargetType {
     var baseURL: URL {
-        return URL(string: "https://hooks.slack.com")!
+        return "https://hooks.slack.com"
     }
     
     var path: String {
@@ -107,7 +107,7 @@ final class People: Mappable {
     var id: Int?
     var status = false
     
-    init(withName name: String,birth: String,picData: Data?,id: Int?) {
+    init(withName name: String, birth: String, picData: Data?, id: Int?) {
         self.name = name
         self.stringedBirth = birth
         self.picData = picData
@@ -127,9 +127,9 @@ final class People: Mappable {
 final class Anime: Mappable {
     var id = -1
     var name = ""
-    var pic:UIImage?
+    var pic: UIImage?
     
-    init(withId id: Int,name: String,pic: UIImage?) {
+    init(withId id: Int, name: String, pic: UIImage?) {
         self.id = id
         self.name = name
         self.pic = pic
@@ -150,4 +150,11 @@ class NetworkController {
     
     static let provider = MoyaProvider<TCWQService>()
     
+}
+
+extension URL: ExpressibleByStringLiteral {
+    public typealias StringLiteralType = String
+    public init(stringLiteral value: String) {
+        self.init(string: value)!
+    }
 }
