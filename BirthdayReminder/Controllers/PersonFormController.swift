@@ -127,7 +127,7 @@ class PersonFormController: FormViewController {
             do {
                 self.context.delete(self.persistentPerson!)
                 try self.context.save()
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             } catch {
                 let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
                 var config = CFNotify.Config()
