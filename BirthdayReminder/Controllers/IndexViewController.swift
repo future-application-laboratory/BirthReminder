@@ -11,7 +11,7 @@ import CoreData
 import SnapKit
 import ViewAnimator
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared

@@ -55,6 +55,11 @@ var tutorialController: OnboardViewController {
 
 class OnboardViewController: OnboardingViewController {
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PresentingViewController.shared = self
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

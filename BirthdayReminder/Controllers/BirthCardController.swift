@@ -9,7 +9,7 @@
 import UIKit
 import CFNotify
 
-class BirthCardController: UIViewController {
+class BirthCardController: ViewController {
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {

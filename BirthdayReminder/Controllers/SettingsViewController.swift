@@ -20,6 +20,11 @@ class SettingsViewController: UITableViewController, UITextFieldDelegate {
         tableView.tableFooterView = UIView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PresentingViewController.shared = self
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:

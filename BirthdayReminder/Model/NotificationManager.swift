@@ -44,9 +44,7 @@ class NotificationManager {
             if let pngData = person.picData,
                 let image = UIImage(data: pngData),
                 let jpegData = UIImageJPEGRepresentation(image, 1.0) {
-                let fileManager = FileManager()
-                let tempUrl = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-                let picUrl = tempUrl.appendingPathComponent("temp\(person.name)\(person.birth)" + ".jpg")
+                let picUrl = URL.temporary
                 if let _ = try? jpegData.write(to: picUrl),
                     let attachment = try? UNNotificationAttachment(identifier: pngData.base64EncodedString(), url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
                     content.attachments.append(attachment)

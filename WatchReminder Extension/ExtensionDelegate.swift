@@ -64,10 +64,6 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        print("Got file")
-        let defaults = UserDefaults()
-        defaults.set(true, forKey: "dataBaseIsUpdated")
-        
         try? context.fetch(request).forEach { object in
             context.delete(object)
         } //Delete all the previous objects

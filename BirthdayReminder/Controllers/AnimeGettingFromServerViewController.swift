@@ -13,7 +13,7 @@ import ViewAnimator
 import CFNotify
 import NVActivityIndicatorView
 
-class AnimeGettingFromServerViewController: UIViewController {
+class AnimeGettingFromServerViewController: ViewController {
     
     private var animes = [Anime]()
     private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
@@ -49,10 +49,6 @@ class AnimeGettingFromServerViewController: UIViewController {
         }
         
         loadAnimes()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -84,6 +84,11 @@ class PersonFormController: FormViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PresentingViewController.shared = self
+    }
+    
     private func save() {
         let values = form.values()
         let name = values["name"] as! String?

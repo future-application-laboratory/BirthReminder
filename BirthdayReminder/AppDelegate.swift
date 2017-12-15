@@ -10,6 +10,7 @@ import UIKit
 import WatchConnectivity
 import NotificationCenter
 import Moya
+import InAppNotify
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
@@ -29,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         if !defaults.bool(forKey: "beenLaunched") {
             window?.rootViewController = tutorialController
         }
+        
+        UIApplication.shared.registerForRemoteNotifications()
         
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -81,13 +84,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
                     guard person.shouldSync else { return nil }
                     let picData = person.picData
-					return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
+                    return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
                 }
                 let data = NSKeyedArchiver.archivedData(withRootObject: people)
-                let manager = FileManager()
-                let tempUrl = manager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-                let fileUrl = tempUrl.appendingPathComponent("temp.br")
-                manager.createFile(atPath: fileUrl.path, contents: data, attributes: nil)
+                let fileUrl = URL.temporary
+                try? data.write(to: fileUrl)
                 session.transferFile(fileUrl, metadata: nil)
             }
         }
@@ -101,12 +102,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     // Remote notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let defaults = UserDefaults.standard
-        if let _ = defaults.string(forKey: "remoteToken") {
-            return
-        }
         let token = NSData(data: deviceToken).description.replacingOccurrences(of:"<", with:"").replacingOccurrences(of:">", with:"").replacingOccurrences(of:" ", with:"")
+        let defaults = UserDefaults.standard
+        if let alreadyToken = defaults.string(forKey: "remoteToken") {
+            if alreadyToken == token { return }
+        }
         sendToken(token)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        guard let vc = PresentingViewController.shared,
+        let content = userInfo["aps"] as? [String:Any],
+        let alert = content["alert"] as? [String:String],
+        let title = alert["title"],
+        let subTitle = alert["subtitle"],
+        let imageUrl = alert["image"] else { return }
+        let announcement = Announcement(title: title, subtitle: subTitle, image: nil, urlImage: imageUrl, duration: 3, interactionType: .none, userInfo: nil, action: nil)
+        DispatchQueue.main.async {
+            InAppNotify.theme = Themes.light
+            InAppNotify.Show(announcement, to: vc)
+        }
     }
     
     private func sendToken(_ token: String) {
