@@ -46,11 +46,11 @@ class NotificationManager {
                 let jpegData = UIImageJPEGRepresentation(image, 1.0) {
                 let picUrl = URL.temporary
                 if let _ = try? jpegData.write(to: picUrl),
-                    let attachment = try? UNNotificationAttachment(identifier: pngData.base64EncodedString(), url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
+                    let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
                     content.attachments.append(attachment)
                 }
             }
-            let notificationRequest = UNNotificationRequest(identifier: "\(person.name)\(person.birth)\(person.picData?.base64EncodedString() ?? "")", content: content, trigger: trigger)
+            let notificationRequest = UNNotificationRequest(identifier: person.uuid.uuidString, content: content, trigger: trigger)
             notificationCenter.add(notificationRequest, withCompletionHandler: nil)
         }
     }
