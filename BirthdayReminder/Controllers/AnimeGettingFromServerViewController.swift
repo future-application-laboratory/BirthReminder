@@ -62,6 +62,7 @@ class AnimeGettingFromServerViewController: ViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.tintColor = .white
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         loadAnimes()
     }
