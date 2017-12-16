@@ -12,7 +12,7 @@ import ObjectMapper
 import Moya
 
 enum TCWQService {
-    case animes
+    case animes(requirements: String?)
     case animepic(withID: Int)
     case people(inAnimeID: Int)
     case personalPic(withID: Int, inAnime: Int)
@@ -34,8 +34,12 @@ extension TCWQService: TargetType {
     
     var path: String {
         switch self {
-        case .animes:
-            return "animes"
+        case .animes(let requirements):
+            if let requirement = requirements {
+                return "animes/\(requirement)"
+            } else {
+                return "animes"
+            }
         case .animepic(let id):
             return "images/\(id)/anime.jpg"
         case .people(let id):

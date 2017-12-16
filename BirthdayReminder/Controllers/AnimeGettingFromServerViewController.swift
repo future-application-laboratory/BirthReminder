@@ -15,7 +15,15 @@ import NVActivityIndicatorView
 
 class AnimeGettingFromServerViewController: ViewController {
     
-    private var animes = [Anime]()
+    private var requirements: String?
+    
+    private var animes = [Anime]() {
+        didSet {
+            loadPicsForAnimes()
+        }
+    }
+    private var allAnimes = [Anime]()
+    
     private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
@@ -48,6 +56,13 @@ class AnimeGettingFromServerViewController: ViewController {
             make.center.equalToSuperview()
         }
         
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = .white
+        navigationItem.searchController = searchController
+        
         loadAnimes()
     }
     
@@ -60,18 +75,29 @@ class AnimeGettingFromServerViewController: ViewController {
     }
     
     func loadAnimes() {
+        activityIndicator.stopAnimating()
+        if let requirement = requirements, requirement != ""  {
+            animes = []
+            tableView.reloadData()
+        } else {
+            animes = allAnimes
+            tableView.reloadData()
+            if !animes.isEmpty { return }
+        }
         activityIndicator.startAnimating()
-        NetworkController.provider.request(.animes) { [weak self] response in
+        NetworkController.provider.request(.animes(requirements: requirements)) { [weak self] response in
             switch response {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
+                if self?.requirements == nil || self?.requirements == "" {
+                    self?.allAnimes = self?.animes ?? []
+                }
                 DispatchQueue.main.async {
                     self?.activityIndicator.stopAnimating()
                     self?.tableView.reloadData()
                     self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
                 }
-                self?.loadPicsForAnimes()
             case .failure(let error):
                 self?.animes = []
                 DispatchQueue.main.async {
@@ -127,4 +153,11 @@ extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableVi
         return cell
     }
     
+}
+
+extension AnimeGettingFromServerViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        requirements = searchController.searchBar.text
+        loadAnimes()
+    }
 }
