@@ -14,7 +14,7 @@ import ViewAnimator
 import CFNotify
 import NVActivityIndicatorView
 
-class GetPersonalDataFromServerViewController: UIViewController {
+class GetPersonalDataFromServerViewController: ViewController {
     
     weak var context: NSManagedObjectContext! {
         let app = UIApplication.shared

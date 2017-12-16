@@ -9,7 +9,7 @@
 import UIKit
 import CFNotify
 
-class BirthCardController: UIViewController {
+class BirthCardController: ViewController {
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -59,10 +59,10 @@ class BirthCardController: UIViewController {
     
     func share(controller rootController: UIViewController) {
         let text = String.localizedStringWithFormat(
-            NSLocalizedString("%@'s birthday is coming, let's celebrate on %@!", comment: ""),
-            person.name,person.birth.toLocalizedDate()!)
+            NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
+            person.birth.toLocalizedDate()!,person.name)
         let image = imageView.image ?? UIImage()
-        let url = URL(string: "https://www.tcwq.tech/")!
+        let url: URL = "https://www.tcwq.tech/"
         
         let controller = UIActivityViewController(activityItems: [text,image,url], applicationActivities: nil)
         

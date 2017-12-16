@@ -17,4 +17,3 @@ extension UIColor {
     static let label2 = UIColor.flatGreen
     static let cell = UIColor.flatGreen
 }
-

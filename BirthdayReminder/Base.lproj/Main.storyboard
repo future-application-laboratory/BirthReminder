@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1gf-SW-f9J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1gf-SW-f9J">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -187,7 +187,7 @@
         <scene sceneID="gDa-kK-4RC">
             <objects>
                 <navigationController id="Nf2-ea-tuI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Misc" id="hih-gq-XP3"/>
+                    <tabBarItem key="tabBarItem" title="Misc" image="ic_settings" id="hih-gq-XP3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="0Hw-ax-ohw">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -329,7 +329,7 @@
         <scene sceneID="LbW-2u-uUX">
             <objects>
                 <navigationController storyboardIdentifier="nc" id="hl5-32-VsJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Index" id="OID-AM-Gbr"/>
+                    <tabBarItem key="tabBarItem" title="Index" image="ic_favorite" id="OID-AM-Gbr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="UhG-E6-7PW">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -610,6 +610,8 @@
     </scenes>
     <resources>
         <image name="add" width="24" height="24"/>
+        <image name="ic_favorite" width="24" height="24"/>
+        <image name="ic_settings" width="24" height="24"/>
         <image name="loading" width="24" height="24"/>
         <image name="remote" width="24" height="24"/>
     </resources>

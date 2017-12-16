@@ -84,6 +84,11 @@ class PersonFormController: FormViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PresentingViewController.shared = self
+    }
+    
     private func save() {
         let values = form.values()
         let name = values["name"] as! String?
@@ -102,9 +107,6 @@ class PersonFormController: FormViewController {
                 persistentPerson?.picData = imageData
                 persistentPerson?.shouldSync = shouldSync ?? false
                 try context.save()
-                
-                // Remember to modify the notifications
-                
             } catch {
                 let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
                 var config = CFNotify.Config()
@@ -130,7 +132,7 @@ class PersonFormController: FormViewController {
             do {
                 self.context.delete(self.persistentPerson!)
                 try self.context.save()
-                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             } catch {
                 let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
                 var config = CFNotify.Config()

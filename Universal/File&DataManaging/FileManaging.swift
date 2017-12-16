@@ -19,6 +19,17 @@ public final class PeopleToSave: ManagedObject {
     @NSManaged public var birth: String
     @NSManaged public var picData: Data?
     @NSManaged public var shouldSync: Bool
+    @NSManaged private var identifier: UUID?
+    
+    public var uuid: UUID {
+        if let _ = identifier {
+            return identifier!
+        } else {
+            let uuid = UUID()
+            identifier = uuid
+            return uuid
+        }
+    }
     
     static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, shouldSync: Bool) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
@@ -27,6 +38,7 @@ public final class PeopleToSave: ManagedObject {
         person.setValue(birth, forKey: "birth")
         person.setValue(picData, forKey: "picData")
         person.setValue(shouldSync, forKey: "shouldSync")
+        person.setValue(UUID(), forKey: "identifier")
         
         do {
             try context.save()
@@ -66,7 +78,7 @@ public func createDataMainContext() -> NSManagedObjectContext {
         fatalError("Model not found")
     }
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
-    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: nil)
+    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: [NSMigratePersistentStoresAutomaticallyOption:true,NSInferMappingModelAutomaticallyOption:true])
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = psc
     return context

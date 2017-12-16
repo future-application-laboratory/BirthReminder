@@ -11,7 +11,7 @@ import CoreData
 import SnapKit
 import ViewAnimator
 
-class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
@@ -45,8 +45,8 @@ class IndexViewController: UIViewController, UITableViewDelegate, UITableViewDat
             make.center.equalToSuperview()
             make.width.lessThanOrEqualToSuperview()
             make.height.lessThanOrEqualToSuperview()
-            make.left.equalTo(view).offset(20)
-            make.right.equalTo(view).offset(-20)
+            make.leading.equalTo(view).offset(20)
+            make.trailing.equalTo(view).offset(-20)
         }
         emptyLabel.numberOfLines = 0
         emptyLabel.textAlignment = .center

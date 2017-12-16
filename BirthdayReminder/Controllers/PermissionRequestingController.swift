@@ -33,11 +33,13 @@ class PermissionController: PAPermissionsViewController {
         detailsText = NSLocalizedString("permissionDetail", comment: "permissionDetail")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        PresentingViewController.shared = self
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let defaults = UserDefaults()
-        if !defaults.bool(forKey: "registeredForNotification") {
-            UIApplication.shared.registerForRemoteNotifications()
-        }
+        UIApplication.shared.registerForRemoteNotifications()
     }
 }

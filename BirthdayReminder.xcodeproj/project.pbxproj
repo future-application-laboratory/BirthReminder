@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5232356C1FDCB96200CAB37D /* BirthComputingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */; };
 		526C89C11F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
 		526C89C21F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
 		526C89C31F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
@@ -20,7 +21,9 @@
 		52AD43091F7F19E800306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD430B1F7F19E800306D47 /* Localizable.strings */; };
 		52AD43131F7F19EA00306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD43151F7F19EA00306D47 /* Localizable.strings */; };
 		52AD43181F7F1A3500306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD431A1F7F1A3500306D47 /* Localizable.strings */; };
+		702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D2BC21FE3F6E400F30C7B /* Utilities.swift */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
+		70C72BF01FDD20D60079AF2D /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */; };
 		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
 		B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0095EC21F6D80C50049AF0D /* AnimeCell.swift */; };
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
@@ -70,6 +73,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		523235661FDCB8EA00CAB37D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B06883531F1EEB2D00831AA6;
+			remoteInfo = BirthdayReminder;
+		};
 		B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
@@ -132,6 +142,9 @@
 /* Begin PBXFileReference section */
 		1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522153A31F7F4439006CF8F2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
+		523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthReminderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		523235651FDCB8EA00CAB37D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputingTests.swift; sourceTree = "<group>"; };
 		526C89C41F7F3E4D006A2E57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		52AD42F51F7F164700306D47 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -154,7 +167,10 @@
 		52AD432C1F7F1AEE00306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		52AD432D1F7F1AEF00306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		702D2BC21FE3F6E400F30C7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
 		723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BirthdayReminder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder.debug.xcconfig"; sourceTree = "<group>"; };
 		9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BirthdayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +231,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5232355E1FDCB8EA00CAB37D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A449275943E71A2DF2DD293 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +271,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		523235621FDCB8EA00CAB37D /* BirthReminderTests */ = {
+			isa = PBXGroup;
+			children = (
+				5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */,
+				523235651FDCB8EA00CAB37D /* Info.plist */,
+			);
+			path = BirthReminderTests;
+			sourceTree = "<group>";
+		};
 		526C89B81F7F3640006A2E57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */,
+				70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -331,6 +364,7 @@
 				B029294F1F26E79000AD0BC1 /* TodayReminder */,
 				B0990F1B1F27578400D26557 /* WatchReminder */,
 				B0990F2A1F27578400D26557 /* WatchReminder Extension */,
+				523235621FDCB8EA00CAB37D /* BirthReminderTests */,
 				B06883551F1EEB2D00831AA6 /* Products */,
 				B22BCE9328D65D5E0F0246C3 /* Pods */,
 				C36CBA21C215B6052304E768 /* Frameworks */,
@@ -344,6 +378,7 @@
 				B029294C1F26E79000AD0BC1 /* TodayReminder.appex */,
 				B0990F1A1F27578400D26557 /* WatchReminder.app */,
 				B0990F261F27578400D26557 /* WatchReminder Extension.appex */,
+				523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,8 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				B0F922D51F64187A0059DFDC /* Constants&Settings.swift */,
+				702D2BC21FE3F6E400F30C7B /* Utilities.swift */,
 				52AD43331F7F1C1300306D47 /* Localization */,
-				B0A46CC81F416896000E5F30 /* Images */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
 				B06883771F1EECBE00831AA6 /* File&Data Managing */,
 				B06883781F1EECD400831AA6 /* Network */,
@@ -444,13 +479,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B0A46CC81F416896000E5F30 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
 		B0AB99D41F244E7F006C8F29 /* BirthComputing */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +512,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		523235601FDCB8EA00CAB37D /* BirthReminderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5232356A1FDCB8EA00CAB37D /* Build configuration list for PBXNativeTarget "BirthReminderTests" */;
+			buildPhases = (
+				5232355D1FDCB8EA00CAB37D /* Sources */,
+				5232355E1FDCB8EA00CAB37D /* Frameworks */,
+				5232355F1FDCB8EA00CAB37D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				523235671FDCB8EA00CAB37D /* PBXTargetDependency */,
+			);
+			name = BirthReminderTests;
+			productName = BirthReminderTests;
+			productReference = 523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B029294B1F26E79000AD0BC1 /* TodayReminder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B029295B1F26E79000AD0BC1 /* Build configuration list for PBXNativeTarget "TodayReminder" */;
@@ -566,10 +612,15 @@
 		B068834C1F1EEB2D00831AA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = CaptainYukinoshitaHachiman;
 				TargetAttributes = {
+					523235601FDCB8EA00CAB37D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B06883531F1EEB2D00831AA6;
+					};
 					B029294B1F26E79000AD0BC1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
@@ -652,11 +703,19 @@
 				B029294B1F26E79000AD0BC1 /* TodayReminder */,
 				B0990F191F27578400D26557 /* WatchReminder */,
 				B0990F251F27578400D26557 /* WatchReminder Extension */,
+				523235601FDCB8EA00CAB37D /* BirthReminderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5232355F1FDCB8EA00CAB37D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B029294A1F26E79000AD0BC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,16 +791,15 @@
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
-				"${BUILT_PRODUCTS_DIR}/Cards/Cards.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
+				"${BUILT_PRODUCTS_DIR}/InAppNotify/InAppNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/PAPermissions/PAPermissions.framework",
-				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
@@ -751,16 +809,15 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cards.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PAPermissions.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
@@ -791,6 +848,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5232355D1FDCB8EA00CAB37D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5232356C1FDCB96200CAB37D /* BirthComputingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B02929481F26E79000AD0BC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -808,10 +873,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */,
+				70C72BF01FDD20D60079AF2D /* PresentingViewController.swift in Sources */,
 				B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */,
 				70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */,
+				702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
@@ -851,6 +918,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		523235671FDCB8EA00CAB37D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B06883531F1EEB2D00831AA6 /* BirthdayReminder */;
+			targetProxy = 523235661FDCB8EA00CAB37D /* PBXContainerItemProxy */;
+		};
 		B02929571F26E79000AD0BC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B029294B1F26E79000AD0BC1 /* TodayReminder */;
@@ -984,6 +1056,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		523235681FDCB8EA00CAB37D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BirthReminderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BirthdayReminder.app/BirthdayReminder";
+			};
+			name = Debug;
+		};
+		523235691FDCB8EA00CAB37D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BirthReminderTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BirthdayReminder.app/BirthdayReminder";
+			};
+			name = Release;
+		};
 		B02929591F26E79000AD0BC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1133,9 +1245,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1151,9 +1264,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1253,6 +1367,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5232356A1FDCB8EA00CAB37D /* Build configuration list for PBXNativeTarget "BirthReminderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				523235681FDCB8EA00CAB37D /* Debug */,
+				523235691FDCB8EA00CAB37D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B029295B1F26E79000AD0BC1 /* Build configuration list for PBXNativeTarget "TodayReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1304,9 +1427,10 @@
 		52AD42ED1F7ED82900306D47 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */,
 				52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */,
 			);
-			currentVersion = 52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */;
+			currentVersion = 7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
