@@ -71,10 +71,16 @@ class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
         cell.birthLabel.text = status ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
-        if let imgData = cellData.picData {
-            cell.picView.image = UIImage(data: imgData)
-        } else {
-            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
+        DispatchQueue.global(qos: .userInteractive).async {
+            var picImage: UIImage?
+            if let imgData = cellData.picData {
+                picImage = UIImage(data: imgData)
+            } else {
+                picImage = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
+            }
+            DispatchQueue.main.async {
+                cell.picView.image = picImage
+            }
         }
         
         if traitCollection.forceTouchCapability == .available {
