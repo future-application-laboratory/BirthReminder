@@ -13,7 +13,7 @@ import CoreData
 import StoreKit
 import CFNotify
 
-class PersonFormController: FormViewController {
+class PersonFormController: FormViewController, ManagedObjectContextUsing {
     
     private var formMode = Mode.new
     
@@ -35,12 +35,6 @@ class PersonFormController: FormViewController {
         case edit
         case new
     }
-    
-    private let context: NSManagedObjectContext = {
-        let app = UIApplication.shared
-        let delegate = app.delegate as! AppDelegate
-        return delegate.context
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,11 +85,11 @@ class PersonFormController: FormViewController {
     
     private func save() {
         let values = form.values()
-        let name = values["name"] as! String?
-        let birth = values["birth"] as! String?
-        let image = values["image"] as! UIImage?
+        let name = values["name"] as? String
+        let birth = values["birth"] as? String
+        let image = values["image"] as? UIImage
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
-        let shouldSync = values["shouldSync"] as! Bool?
+        let shouldSync = values["shouldSync"] as? Bool
         
         switch formMode {
         case .new:

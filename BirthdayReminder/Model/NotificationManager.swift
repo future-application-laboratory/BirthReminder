@@ -12,13 +12,7 @@ import UIKit
 import CoreData
 import MobileCoreServices
 
-class NotificationManager {
-    
-    static private var context: NSManagedObjectContext {
-        let app = UIApplication.shared
-        let delegate = app.delegate as! AppDelegate
-        return delegate.context
-    }
+enum NotificationManager {
     
     static public func reloadNotifications() {
         let notifyQueue = DispatchQueue(label: "notification", qos: .userInitiated)
@@ -29,7 +23,7 @@ class NotificationManager {
             // add notifications
             DispatchQueue.main.async {
                 let fetchRequest = PeopleToSave.sortedFetchRequest
-                let people = try? context.fetch(fetchRequest)
+                let people = try? AppDelegate.context.fetch(fetchRequest)
                 notifyQueue.async {people?.forEach() { person in
                     let birth = person.birth.toDate()!
                     var components = DateComponents()

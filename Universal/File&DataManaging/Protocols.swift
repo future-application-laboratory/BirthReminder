@@ -9,6 +9,11 @@
 import Foundation
 import CoreData
 
+protocol ManagedObjectContextUsing: class {
+    weak var context: NSManagedObjectContext! { get }
+}
+
+// FIXME: Never Used
 public protocol ManagedObjectContextSettable: class {
     var context: NSManagedObjectContext! { get set }
 }

@@ -11,15 +11,12 @@ import CoreData
 import SnapKit
 import ViewAnimator
 
-class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, ManagedObjectContextUsing {
     
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
-        let delegate = app.delegate as! AppDelegate
+        let delegate = app.delegate as? AppDelegate
         return delegate
-    }
-    weak var context: NSManagedObjectContext! {
-        return delegate.context
     }
     var frc: NSFetchedResultsController<PeopleToSave>!
     @IBOutlet weak var tableView: UITableView!
@@ -31,34 +28,34 @@ class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataS
         label.text = NSLocalizedString("emptyLabelText", comment: "emptyLabelText")
         label.textColor = .white
         label.font = .systemFont(ofSize: 25)
+        label.textColor = .label
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.background
-        navigationController?.navigationBar.barTintColor = UIColor.bar
-        navigationController?.navigationBar.tintColor = UIColor.tint
-        emptyLabel.textColor = UIColor.label
+        view.backgroundColor = .background
         view.addSubview(emptyLabel)
         emptyLabel.snp.makeConstraints() { make in
             make.center.equalToSuperview()
-            make.width.lessThanOrEqualToSuperview()
             make.height.lessThanOrEqualToSuperview()
-            make.leading.equalTo(view).offset(20)
-            make.trailing.equalTo(view).offset(-20)
+            make.width.lessThanOrEqualToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
-        emptyLabel.numberOfLines = 0
-        emptyLabel.textAlignment = .center
         emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
+        navigationController?.navigationBar.barTintColor = .bar
+        navigationController?.navigationBar.tintColor = .tint
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data .count
+        return data.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,11 +69,11 @@ class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataS
         cell.nameLabel.text = cellData.name
         cell.birthLabel.text = status ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
         DispatchQueue.global(qos: .userInteractive).async {
-            var picImage: UIImage?
+            let picImage: UIImage?
             if let imgData = cellData.picData {
                 picImage = UIImage(data: imgData)
             } else {
-                picImage = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
+                picImage = UIImage().imageScaled(to: CGSize(width: 100, height: 100))
             }
             DispatchQueue.main.async {
                 cell.picView.image = picImage
@@ -91,7 +88,7 @@ class IndexViewController: ViewController, UITableViewDelegate, UITableViewDataS
     }
     
     private func setupTableView() {
-        tableView.backgroundColor = UIColor.clear
+        tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         let request = PeopleToSave.sortedFetchRequest
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)

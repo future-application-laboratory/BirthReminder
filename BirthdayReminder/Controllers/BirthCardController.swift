@@ -9,7 +9,7 @@
 import UIKit
 import CFNotify
 
-class BirthCardController: ViewController {
+class BirthCardController: ViewController, ManagedObjectContextUsing {
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
@@ -83,12 +83,10 @@ class BirthCardController: ViewController {
             UIPreviewAction(title: "Edit", style: .default) { [unowned self] _,_ in
                 self.edit(navigationController: _navigationController)
             },
-            UIPreviewAction(title: "Delete", style: .destructive) { [unowned self] _,_ in
-                if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            UIPreviewAction(title: "Delete", style: .destructive) { [ctx = context!, person = person!] _,_ in
                     do {
-                        let context = appDelegate.context
-                        context.delete(self.person)
-                        try context.save()
+                        ctx.delete(person)
+                        try ctx.save()
                     } catch {
                         let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
                         var config = CFNotify.Config()
@@ -96,7 +94,6 @@ class BirthCardController: ViewController {
                         config.appearPosition = .top
                         CFNotify.present(config: config, view: cfView)
                     }
-                }
             }
         ]
     }

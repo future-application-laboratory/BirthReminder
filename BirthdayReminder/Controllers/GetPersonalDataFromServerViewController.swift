@@ -14,13 +14,7 @@ import ViewAnimator
 import CFNotify
 import NVActivityIndicatorView
 
-class GetPersonalDataFromServerViewController: ViewController {
-    
-    weak var context: NSManagedObjectContext! {
-        let app = UIApplication.shared
-        let delegate = app.delegate as! AppDelegate
-        return delegate.context
-    }
+class GetPersonalDataFromServerViewController: ViewController, ManagedObjectContextUsing {
     var tableViewData = [People]()
     var anime:Anime?
     
@@ -33,11 +27,11 @@ class GetPersonalDataFromServerViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.background
+        view.backgroundColor = .background
         
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
-        tableView.backgroundColor = UIColor.clear
+        tableView.backgroundColor = .clear
         
         view.addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints() { make in
@@ -71,7 +65,7 @@ class GetPersonalDataFromServerViewController: ViewController {
                     self?.loadPicForPeople()
                 case .failure(let error):
                     self?.tableViewData = []
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [weak self] in
                         let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
                         var config = CFNotify.Config()
                         config.initPosition = .top(.center)
@@ -86,7 +80,7 @@ class GetPersonalDataFromServerViewController: ViewController {
     
     private func loadPicForPeople() {
         // Load pic for every person
-        self.tableViewData.forEach { [weak self] person in
+        tableViewData.forEach { [weak self] person in
             NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self!.anime!.id)) { response in
                 switch response {
                 case .success(let result):

@@ -11,12 +11,14 @@ import WatchConnectivity
 import NotificationCenter
 import Moya
 import InAppNotify
+import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate,
+ManagedObjectContextUsing {
     
     var window: UIWindow?
-    let context = createDataMainContext()
+    static let context = createDataMainContext()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //Watch Connectivity Configuration
@@ -75,30 +77,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     }
     
     func syncWithAppleWatch() {
-        if WCSession.isSupported() {
-            let session = WCSession.default
-            if session.isWatchAppInstalled {
-                session.outstandingFileTransfers.forEach { transfer in
-                    transfer.cancel()
-                }
-                let request = PeopleToSave.sortedFetchRequest
-                let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
-                    guard person.shouldSync else { return nil }
-                    let picData = person.picData
-                    return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
-                }
-                let data = NSKeyedArchiver.archivedData(withRootObject: people)
-                let fileUrl = URL.temporary
-                try? data.write(to: fileUrl)
-                session.transferFile(fileUrl, metadata: nil)
-            }
+        let session = WCSession.default
+        guard WCSession.isSupported(),
+            session.isWatchAppInstalled
+            else { return }
+        session.outstandingFileTransfers.forEach { $0.cancel() }
+        let request = PeopleToSave.sortedFetchRequest
+        let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
+            guard person.shouldSync else { return nil }
+            let picData = person.picData
+            return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
         }
+        let data = NSKeyedArchiver.archivedData(withRootObject: people)
+        let fileUrl = URL.temporary
+        try? data.write(to: fileUrl)
+        session.transferFile(fileUrl, metadata: nil)
     }
     
     func sessionReachabilityDidChange(_ session: WCSession) {
-        if session.isWatchAppInstalled {
-            syncWithAppleWatch()
-        }
+        syncWithAppleWatch()
     }
     
     // Remote notifications
@@ -113,11 +110,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         guard let vc = PresentingViewController.shared,
-        let content = userInfo["aps"] as? [String:Any],
-        let alert = content["alert"] as? [String:String],
-        let title = alert["title"],
-        let subTitle = alert["subtitle"],
-        let imageUrl = alert["image"] else { return }
+            let content = userInfo["aps"] as? [String:Any],
+            let alert = content["alert"] as? [String:String],
+            let title = alert["title"],
+            let subTitle = alert["subtitle"],
+            let imageUrl = alert["image"] else { return }
         let announcement = Announcement(title: title, subtitle: subTitle, image: nil, urlImage: imageUrl, duration: 3, interactionType: .none, userInfo: nil, action: nil)
         DispatchQueue.main.async {
             InAppNotify.theme = Themes.light
@@ -142,5 +139,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 }
             }
         }
+    }
+}
+
+extension ManagedObjectContextUsing {
+    var context: NSManagedObjectContext! {
+        return AppDelegate.context
     }
 }

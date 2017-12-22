@@ -18,9 +18,9 @@ class PersonalCell: RoundConerTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clear
-        nameLabel.textColor = UIColor.label
-        birthLabel.textColor = UIColor.label
+        backgroundColor = .clear
+        nameLabel.textColor = .label
+        birthLabel.textColor = .label
         picView.layer.cornerRadius = 10
         picView.layer.masksToBounds = true
         layer.cornerRadius = 10

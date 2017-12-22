@@ -16,8 +16,8 @@ class AnimeCell: RoundConerTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clear
-        nameLabel.textColor = UIColor.label
+        backgroundColor = .clear
+        nameLabel.textColor = .label
         picView.layer.cornerRadius = 10
         picView.layer.masksToBounds = true
     }

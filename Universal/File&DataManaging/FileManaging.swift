@@ -13,7 +13,7 @@ import CoreData
 
 // Core Data Persisting
 
-public final class PeopleToSave: ManagedObject {
+final class PeopleToSave: ManagedObject {
     
     @NSManaged public var name: String
     @NSManaged public var birth: String
@@ -22,8 +22,8 @@ public final class PeopleToSave: ManagedObject {
     @NSManaged private var identifier: UUID?
     
     public var uuid: UUID {
-        if let _ = identifier {
-            return identifier!
+        if let uuid = identifier {
+            return uuid
         } else {
             let uuid = UUID()
             identifier = uuid
@@ -31,14 +31,14 @@ public final class PeopleToSave: ManagedObject {
         }
     }
     
-    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, shouldSync: Bool) {
+    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, shouldSync: Bool, identifier: UUID? = nil) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let person = NSManagedObject(entity: entity!, insertInto: context)
         person.setValue(name, forKey: "name")
         person.setValue(birth, forKey: "birth")
         person.setValue(picData, forKey: "picData")
         person.setValue(shouldSync, forKey: "shouldSync")
-        person.setValue(UUID(), forKey: "identifier")
+        person.setValue(identifier ?? UUID(), forKey: "identifier")
         
         do {
             try context.save()
@@ -66,9 +66,7 @@ extension PeopleToSave: ManagedObjectType {
     }
 }
 
-public class ManagedObject: NSManagedObject {
-    
-}
+typealias ManagedObject = NSManagedObject
 
 private let storeUrl = FileManager().containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")?.appendingPathComponent("Data.br")
 
@@ -84,8 +82,6 @@ public func createDataMainContext() -> NSManagedObjectContext {
     return context
 }
 
-@objc(PeopleToTransfer)
-
 class PeopleToTransfer: NSObject, NSCoding {
     var name: String
     var birth: String
@@ -97,13 +93,15 @@ class PeopleToTransfer: NSObject, NSCoding {
         aCoder.encode(picData, forKey: "picData")
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.birth = aDecoder.decodeObject(forKey: "birth") as! String
-        self.picData = aDecoder.decodeObject(forKey: "picData") as! Data?
+    required convenience init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObject(forKey: "name") as? String,
+            let birth = aDecoder.decodeObject(forKey: "birth") as? String
+            else { return nil }
+        let picData = aDecoder.decodeObject(forKey: "picData") as? Data
+        self.init(withName: name, birth: birth, picData: picData)
     }
     
-    init(withName: String,birth: String,picData: Data?) {
+    init(withName: String, birth: String, picData: Data?) {
         self.name = withName
         self.birth = birth
         self.picData = picData

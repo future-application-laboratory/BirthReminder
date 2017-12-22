@@ -16,6 +16,9 @@ import NVActivityIndicatorView
 class AnimeGettingFromServerViewController: ViewController {
     
     private var requirements: String?
+    private var showsAllAnimes: Bool {
+        return requirements?.isEmpty == true
+    }
     
     private var animes = [Anime]() {
         didSet {
@@ -24,14 +27,14 @@ class AnimeGettingFromServerViewController: ViewController {
     }
     private var allAnimes = [Anime]()
     
-    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
+    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.background
+        view.backgroundColor = .background
         
         // Agreement
         let defaults = UserDefaults()
@@ -46,8 +49,8 @@ class AnimeGettingFromServerViewController: ViewController {
             defaults.set(true, forKey: "shouldHideAgreement")
         }
         
-        tableView.backgroundView?.backgroundColor = UIColor.clear
-        tableView.backgroundColor = UIColor.clear
+        tableView.backgroundView?.backgroundColor = .clear
+        tableView.backgroundColor = .clear
         
         tableView.separatorStyle = .none
         
@@ -77,13 +80,13 @@ class AnimeGettingFromServerViewController: ViewController {
     
     func loadAnimes() {
         activityIndicator.stopAnimating()
-        if let requirement = requirements, requirement != ""  {
-            animes = []
-            tableView.reloadData()
-        } else {
+        if showsAllAnimes {
             animes = allAnimes
             tableView.reloadData()
             if !animes.isEmpty { return }
+        } else {
+            animes = []
+            tableView.reloadData()
         }
         activityIndicator.startAnimating()
         NetworkController.provider.request(.animes(requirements: requirements)) { [weak self] response in
@@ -91,17 +94,17 @@ class AnimeGettingFromServerViewController: ViewController {
             case .success(let result):
                 let json = String(data: result.data, encoding: String.Encoding.utf8)!
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
-                if self?.requirements == nil || self?.requirements == "" {
+                if self?.showsAllAnimes == true {
                     self?.allAnimes = self?.animes ?? []
                 }
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     self?.activityIndicator.stopAnimating()
                     self?.tableView.reloadData()
                     self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
                 }
             case .failure(let error):
                 self?.animes = []
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
                     var config = CFNotify.Config()
                     config.initPosition = .top(.center)
@@ -129,7 +132,13 @@ class AnimeGettingFromServerViewController: ViewController {
             }
         }
     }
-    
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // TODO: We should consider report this as a bug since
+        // this would be expected bahavior (than black screen)
+        navigationItem.searchController?.isActive = false
+    }
 }
 
 extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableViewDelegate {

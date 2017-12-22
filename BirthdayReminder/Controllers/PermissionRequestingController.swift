@@ -17,7 +17,7 @@ class PermissionController: PAPermissionsViewController {
         super.viewDidLoad() 
         useBlurBackground = true
         backgroundImage = UIImage(named: "background")
-        tintColor = UIColor.white
+        tintColor = .white
         let permissions = [
             PAPermissionsItem.itemForType(.photoLibrary, reason: NSLocalizedString("photoReason", comment: "phtotReason"))!,
             PAPermissionsItem.itemForType(.camera, reason: NSLocalizedString("cameraReason", comment: "cameraReason"))!,
