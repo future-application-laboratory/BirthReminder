@@ -87,14 +87,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Index" largeTitleDisplayMode="always" id="CHb-Xh-m3B">
-                        <barButtonItem key="leftBarButtonItem" image="loading" id="pYG-M6-boK">
+                        <barButtonItem key="rightBarButtonItem" image="loading" id="pYG-M6-boK">
                             <connections>
                                 <action selector="changeDateDisplayingType:" destination="L7a-Tq-nag" id="F4R-o0-5S0"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="add" id="9lx-nj-ros">
-                            <connections>
-                                <action selector="add:" destination="L7a-Tq-nag" id="ZUS-Lx-JnN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -274,7 +269,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bf4-fq-FDT">
-                                                    <rect key="frame" x="150" y="14.666666666666666" width="75.333333333333314" height="20.333333333333336"/>
+                                                    <rect key="frame" x="150" y="14.666666666666666" width="75" height="20.333333333333336"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -296,7 +291,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show Tutorial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tb-ld-rJx">
-                                                    <rect key="frame" x="136" y="14.666666666666664" width="104" height="21"/>
+                                                    <rect key="frame" x="135.66666666666666" y="14.666666666666664" width="104" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -506,7 +501,6 @@
                             <constraint firstAttribute="trailing" secondItem="E5I-wa-qJ9" secondAttribute="trailing" id="umW-Lp-qLe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Import from Server" image="remote" id="oc6-TQ-b2A"/>
                     <navigationItem key="navigationItem" title="Animes" largeTitleDisplayMode="always" id="Qde-DH-bvt"/>
                     <connections>
                         <outlet property="tableView" destination="E5I-wa-qJ9" id="ZKu-VC-4su"/>
@@ -609,10 +603,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="24" height="24"/>
         <image name="ic_favorite" width="24" height="24"/>
         <image name="ic_settings" width="24" height="24"/>
         <image name="loading" width="24" height="24"/>
-        <image name="remote" width="24" height="24"/>
     </resources>
 </document>
