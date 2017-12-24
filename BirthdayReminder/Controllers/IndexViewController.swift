@@ -133,7 +133,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
 extension IndexViewController: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        NotificationManager.reloadNotifications()
         switch type {
         case .insert:
             let person = anObject as! PeopleToSave
@@ -144,11 +143,12 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
             data = frc.fetchedObjects!
             data.sort()
             tableView.reloadData()
-            delegate.syncWithAppleWatch()
         default:
             break // tan90
         }
         checkDataAndDisplayPlaceHolder()
+        NotificationManager.reloadNotifications()
+        delegate.syncWithAppleWatch()
     }
     
 }

@@ -82,6 +82,8 @@ public func createDataMainContext() -> NSManagedObjectContext {
     return context
 }
 
+@objc(PeopleToTransfer) // MagicCode, don't remove it
+
 class PeopleToTransfer: NSObject, NSCoding {
     var name: String
     var birth: String
@@ -95,9 +97,9 @@ class PeopleToTransfer: NSObject, NSCoding {
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let name = aDecoder.decodeObject(forKey: "name") as? String,
-            let birth = aDecoder.decodeObject(forKey: "birth") as? String
+            let birth = aDecoder.decodeObject(forKey: "birth") as? String,
+            let picData = aDecoder.decodeObject(forKey: "picData") as? Data?
             else { return nil }
-        let picData = aDecoder.decodeObject(forKey: "picData") as? Data
         self.init(withName: name, birth: birth, picData: picData)
     }
     
