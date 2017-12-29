@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SnapKit
 import ViewAnimator
-import CircleMenu
+import Floaty
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
     
@@ -21,7 +21,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     }
     var frc: NSFetchedResultsController<PeopleToSave>!
     @IBOutlet weak var tableView: UITableView!
-    let menu: CircleMenu = CircleMenu(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)), normalIcon: "add", selectedIcon: "ic_close", buttonsCount: 2, duration: 0.75, distance: 150)
     
     var data = [PeopleToSave]()
     var status = true
@@ -53,17 +52,32 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         navigationController?.navigationBar.tintColor = .tint
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
-        setupMenu()
+        setupFloaty()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
     
-    private func setupMenu() {
-        menu.backgroundColor = .flatLime
-        menu.delegate = self
-        menu.layer.cornerRadius = menu.frame.size.width / 2.0
-        menu.addTarget(self, action: #selector(menuTouched(_:)), for: .touchUpInside)
-        view.addSubview(menu)
-        hideMenu()
+    private func setupFloaty() {
+        let floaty = Floaty()
+        floaty.sticky = true
+        floaty.friendlyTap = true
+        floaty.hasShadow = false
+        floaty.buttonImage = UIImage(named: "add")
+        floaty.overlayColor = .clear
+        floaty.buttonColor = .flatLime
+        floaty.addItem(NSLocalizedString("edit", comment: "edit"), icon: UIImage(named: "ic_edit")) { item in
+            let controller = PersonFormController()
+            controller.setup(with: .new, person: nil)
+            controller.title = NSLocalizedString("new", comment: "New")
+            controller.navigationItem.largeTitleDisplayMode = .never
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: UIImage(named: "ic_remote")) { item in
+            self.performSegue(withIdentifier: "showAnimes", sender: nil)
+        }
+        floaty.items.forEach() { item in
+            item.buttonColor = .flatMint
+        }
+        tableView.addSubview(floaty)
     }
     
     private func setupTableView() {
@@ -88,28 +102,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
             default:
                 break
             }
-        }
-    }
-    
-    @objc func menuTouched(_ sender: CircleMenu) {
-        if menu.buttonsIsShown() {
-            showMenu()
-        } else {
-            hideMenu()
-        }
-    }
-    
-    private func showMenu() {
-        UIView.animate(withDuration: 0.1) {
-            self.menu.center = self.view.center
-        }
-    }
-    
-    private func hideMenu() {
-        UIView.animate(withDuration: 0.1) {
-            let width = self.view.bounds.width
-            let height = self.view.bounds.height
-            self.menu.center = CGPoint(x: width - 50, y: height - 150)
         }
     }
     
@@ -149,43 +141,6 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
         checkDataAndDisplayPlaceHolder()
         NotificationManager.reloadNotifications()
         delegate.syncWithAppleWatch()
-    }
-    
-}
-
-extension IndexViewController: CircleMenuDelegate {
-    
-    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-        let image: UIImage?
-        let color: UIColor
-        switch atIndex {
-        case 0:
-            image = UIImage(named: "ic_edit")
-            color = .flatBlue
-        case 1:
-            image = UIImage(named: "ic_settings_remote")
-            color = .flatWatermelon
-        default:
-            fatalError()
-        }
-        button.setImage(image, for: .normal)
-        button.backgroundColor = color
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-        switch atIndex {
-        case 0:
-            let controller = PersonFormController()
-            controller.setup(with: .new, person: nil)
-            controller.title = NSLocalizedString("new", comment: "New")
-            controller.navigationItem.largeTitleDisplayMode = .never
-            navigationController?.pushViewController(controller, animated: true)
-        case 1:
-            performSegue(withIdentifier: "showAnimes", sender: nil)
-        default:
-            fatalError()
-        }
-        hideMenu()
     }
     
 }

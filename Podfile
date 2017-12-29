@@ -16,6 +16,6 @@ target 'BirthdayReminder' do
     pod 'CFNotify'
     pod 'NVActivityIndicatorView'
     pod 'InAppNotify', :git=> 'https://github.com/lucabecchetti/InAppNotify.git', branch: 'swift4'
-    pod 'CircleMenu'
+    pod 'Floaty'
     
 end

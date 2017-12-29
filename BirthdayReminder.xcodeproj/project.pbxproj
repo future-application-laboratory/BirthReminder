@@ -22,6 +22,7 @@
 		52AD43131F7F19EA00306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD43151F7F19EA00306D47 /* Localizable.strings */; };
 		52AD43181F7F1A3500306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD431A1F7F1A3500306D47 /* Localizable.strings */; };
 		702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D2BC21FE3F6E400F30C7B /* Utilities.swift */; };
+		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
 		70C72BF01FDD20D60079AF2D /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */; };
 		A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */; };
@@ -50,7 +51,6 @@
 		B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08060131F820E6B00115399 /* PermissionRequestingController.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
-		B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		B0990F1E1F27578400D26557 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1C1F27578400D26557 /* Interface.storyboard */; };
 		B0990F201F27578400D26557 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0990F1F1F27578400D26557 /* Assets.xcassets */; };
 		B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0990F2D1F27578400D26557 /* InterfaceController.swift */; };
@@ -169,6 +169,7 @@
 		661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		702D2BC21FE3F6E400F30C7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
 		723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WatchReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +203,6 @@
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
 		B08060131F820E6B00115399 /* PermissionRequestingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestingController.swift; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
-		B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = "<group>"; };
 		B0990F1A1F27578400D26557 /* WatchReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0990F1D1F27578400D26557 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B0990F1F1F27578400D26557 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -386,8 +386,8 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
+				70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				B0A46CC91F4168B7000E5F30 /* Media.xcassets */,
-				B08145301F4E8B20007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				70C5EF7F1FDBFD2C0068FAC2 /* Model */,
 				B081452C1F4E7967007D8DD0 /* Views */,
 				B049DC9C1F1EEE31008634C5 /* Controllers */,
@@ -559,7 +559,6 @@
 				339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */,
 				B029295C1F26E79000AD0BC1 /* Embed App Extensions */,
 				B0990F421F27578400D26557 /* Embed Watch Content */,
-				70CA1FD81FEF0E7F00C6E815 /* Fengniao */,
 			);
 			buildRules = (
 			);
@@ -732,13 +731,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B08145311F4E8B37007D8DD0 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
 				52AD42F41F7F164700306D47 /* InfoPlist.strings in Resources */,
 				B0A46CCA1F4168B7000E5F30 /* Media.xcassets in Resources */,
 				52AD43181F7F1A3500306D47 /* Localizable.strings in Resources */,
 				B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */,
 				526C89C11F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */,
 				B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */,
+				70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */,
 				B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -782,20 +781,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		70CA1FD81FEF0E7F00C6E815 /* Fengniao */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fengniao;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "fengniao --project . --exclude Pods GitHubPics --force";
-		};
 		AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -807,8 +792,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/CircleMenu/CircleMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/InAppNotify/InAppNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -826,8 +811,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",

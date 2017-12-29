@@ -64,17 +64,19 @@
 /* FailedToSave */
 "failedToSave" = "保存失败";
 
+/* FromBirthReminder */
+"fromBirthReminder" = "发送自 BirthReminder";
+
 /* Image */
 "image" = "图片";
 
-/* import */
+/* (No Comment) */
 "import" = "导入";
 
 /* name */
 "name" = "姓名";
 
-/* new
-   New */
+/* New */
 "new" = "新建";
 
 /* notificationReason */
@@ -112,6 +114,9 @@
 
 /* phtotReason */
 "photoReason" = "只差一步就能自定义为相册里的图片了！";
+
+/* remote */
+"remote" = "在线";
 
 /* setup */
 "setup" = "配置";

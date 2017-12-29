@@ -91,14 +91,14 @@
 /* Class = "UITabBarItem"; title = "Misc"; ObjectID = "hih-gq-XP3"; */
 "hih-gq-XP3.title" = "其他";
 
-/* Class = "UITabBarItem"; title = "Import from Server"; ObjectID = "oc6-TQ-b2A"; */
+/* (No Comment) */
 "oc6-TQ-b2A.title" = "从服务器导入";
 
 /* Class = "UILabel"; text = "Birth"; ObjectID = "pQV-xx-dak"; */
 "pQV-xx-dak.text" = "生日";
 
-/* Class = "UILabel"; text = "お诞生日おめでとう!"; ObjectID = "sl9-WY-p9z"; */
-"sl9-WY-p9z.text" = "お誕生日おめでとうと！";
+/* Class = "UILabel"; text = "Happy birthday!"; ObjectID = "sl9-WY-p9z"; */
+"sl9-WY-p9z.text" = "生日快乐！";
 
 /* (No Comment) */
 "vRJ-JU-D0V.text" = "生日";

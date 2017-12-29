@@ -5,8 +5,8 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - CircleMenu (3.0.0)
   - Eureka (4.0.1)
+  - Floaty (4.0.0)
   - ImageRow (3.0.0):
     - Eureka (~> 4.0)
   - InAppNotify (0.1.4)
@@ -29,8 +29,8 @@ DEPENDENCIES:
   - AcknowList
   - CFNotify
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
-  - CircleMenu
   - Eureka
+  - Floaty
   - ImageRow (from `https://github.com/LiulietLee/ImageRow.git`, branch `master`)
   - InAppNotify (from `https://github.com/lucabecchetti/InAppNotify.git`, branch `swift4`)
   - Moya
@@ -74,8 +74,8 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  CircleMenu: 63d02351f5cb550777b47aa19cc336e09fec2a98
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
   InAppNotify: e83f6087b82091ec402406eee65afe8f0a84ab87
   Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
@@ -87,6 +87,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
 
-PODFILE CHECKSUM: ea6b6531be4622331be9aa628c90dcdb42c52abf
+PODFILE CHECKSUM: e4b249de3f6b44deea7440f38015cdb34aa53a33
 
 COCOAPODS: 1.3.1
