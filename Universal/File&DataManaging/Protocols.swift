@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol ManagedObjectContextUsing: class {
-    weak var context: NSManagedObjectContext! { get }
+    var context: NSManagedObjectContext! { get }
 }
 
 public protocol ManagedObjectType: class {
