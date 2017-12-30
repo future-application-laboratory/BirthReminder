@@ -43,7 +43,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     
     @IBAction func storeAll(_ sender: Any) {
         tableViewData.forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picData, shouldSync: false)
+            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picPack?.data, shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
         SKStoreReviewController.requestReview()
@@ -81,14 +81,15 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     private func loadPicForPeople() {
         // Load pic for every person
         tableViewData.forEach { [weak self] person in
-            NetworkController.provider.request(.personalPic(withID: person.id!, inAnime: self!.anime!.id)) { response in
+            NetworkController.provider.request(.personalPic(withID: person.id!)) { response in
                 switch response {
                 case .success(let result):
-                    let data = result.data
-                    person.picData = data
+                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
+                    let picPack = Mapper<PicPack>().map(JSONString: json)
+                    person.picPack = picPack
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
-                        if (self?.tableViewData.filter { $0.picData == nil }.count) == 0 {
+                        if (self?.tableViewData.filter { $0.picPack == nil }.count) == 0 {
                             // Enable ‘add all’ button
                             self?.addAllButton.isEnabled = true
                             self?.addAllButton.image = UIImage(named: "addAll")
@@ -113,10 +114,14 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
         let index = indexPath.row
         let cellData = tableViewData[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
+        cell.delegate = self
+        if let picPack = tableViewData[index].picPack {
+            cell.picPack = picPack
+        }
         cell.nameLabel.text = cellData.name
         cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
-        if let imgData = cellData.picData {
-            cell.picView.image = UIImage(data: imgData)
+        if let image = cellData.picPack?.pic {
+            cell.picView.image = image
         } else {
             cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
         }
@@ -131,4 +136,15 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+}
+
+extension GetPersonalDataFromServerViewController: CopyrightViewing {
+    func showCopyrightInfo(_ info: String) {
+        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("aboutThePic", comment: "AboutThePic"), body: info, theme: .info(.light))
+        var config = CFNotify.Config()
+        config.initPosition = .top(.center)
+        config.appearPosition = .top
+        config.hideTime = .default
+        CFNotify.present(config: config, view: cfView)
+    }
 }

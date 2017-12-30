@@ -121,8 +121,9 @@ class AnimeGettingFromServerViewController: ViewController {
             NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] response in
                 switch response {
                 case .success(let result):
-                    let data = result.data
-                    anime.pic = UIImage(data: data)
+                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
+                    let pack = Mapper<PicPack>().map(JSONString: json)
+                    anime.picPack = pack
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }
@@ -156,13 +157,25 @@ extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
-        if let image = animes[index].pic {
-            cell.picView?.image = image
+        cell.delegate = self
+        if let picPack = animes[index].picPack {
+            cell.picPack = picPack
         }
         cell.nameLabel.text = animes[index].name
         return cell
     }
     
+}
+
+extension AnimeGettingFromServerViewController: CopyrightViewing {
+    func showCopyrightInfo(_ info: String) {
+        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("aboutThePic", comment: "AboutThePic"), body: info, theme: .info(.light))
+        var config = CFNotify.Config()
+        config.initPosition = .top(.center)
+        config.appearPosition = .top
+        config.hideTime = .default
+        CFNotify.present(config: config, view: cfView)
+    }
 }
 
 extension AnimeGettingFromServerViewController: UISearchResultsUpdating {

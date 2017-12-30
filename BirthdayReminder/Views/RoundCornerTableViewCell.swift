@@ -1,5 +1,5 @@
 //
-//  RoundConerTableViewCell.swift
+//  RoundCornerTableViewCell.swift
 //  BirthdayReminder
 //
 //  Created by Jacky Yu on 19/11/2017.
@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class RoundConerTableViewCell: UITableViewCell {
+class RoundCornerTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

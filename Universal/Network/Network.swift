@@ -15,7 +15,7 @@ enum TCWQService {
     case animes(requirements: String?)
     case animepic(withID: Int)
     case people(inAnimeID: Int)
-    case personalPic(withID: Int, inAnime: Int)
+    case personalPic(withID: Int)
     case notification(withToken: String)
 }
 
@@ -41,11 +41,11 @@ extension TCWQService: TargetType {
                 return "animes"
             }
         case .animepic(let id):
-            return "images/\(id)/anime.jpg"
+            return "image/anime/\(id)"
         case .people(let id):
-            return "config/\(id)"
-        case .personalPic(let (id,animeID)):
-            return "images/\(animeID)/\(id).jpg"
+            return "characters/\(id)"
+        case .personalPic(let id):
+            return "image/character/\(id)"
         case .notification(_):
             return "notification"
         }
@@ -107,14 +107,14 @@ extension SlackService: TargetType {
 final class People: Mappable {
     var name = ""
     var stringedBirth = ""
-    var picData: Data?
+    var picPack: PicPack?
     var id: Int?
     var status = false
     
     init(withName name: String, birth: String, picData: Data?, id: Int?) {
         self.name = name
         self.stringedBirth = birth
-        self.picData = picData
+        self.picPack = PicPack(data: picData)
         self.id = id
     }
     
@@ -131,12 +131,11 @@ final class People: Mappable {
 final class Anime: Mappable {
     var id = -1
     var name = ""
-    var pic: UIImage?
+    var picPack: PicPack?
     
-    init(withId id: Int, name: String, pic: UIImage?) {
+    init(withId id: Int, name: String) {
         self.id = id
         self.name = name
-        self.pic = pic
     }
     
     required init?(map: Map) {
@@ -146,6 +145,41 @@ final class Anime: Mappable {
         name <- map["name"]
         id <- map["id"]
     }
+}
+
+final class PicPack: Mappable {
+    
+    private var base64: String!
+    var picData: NSData? {
+        return NSData(base64Encoded: base64, options: .ignoreUnknownCharacters)
+    }
+    var copyright: String!
+    var pic: UIImage? {
+        guard let data = picData else { return nil }
+        return UIImage(data: data as Data)
+    }
+    var data: Data? {
+        guard let pic = pic else { return nil }
+        return UIImagePNGRepresentation(pic)
+    }
+    
+    init?(data: Data?) {
+        guard let data = data else { return nil }
+        base64 = data.base64EncodedString()
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        base64 <- map["pic"]
+        copyright <- map["copyright"]
+    }
+    
+}
+
+protocol CopyrightViewing: class {
+    func showCopyrightInfo(_ info: String)
 }
 
 class NetworkController {

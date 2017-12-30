@@ -57,7 +57,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
             <<< ImageRow() { row in
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
-                row.value = UIImage(data: (newPerson?.picData ?? persistentPerson?.picData) ?? Data())
+                row.value = UIImage(data: (newPerson?.picPack?.data ?? persistentPerson?.picData) ?? Data())
                 row.allowEditing = true
             }
             +++ Section()

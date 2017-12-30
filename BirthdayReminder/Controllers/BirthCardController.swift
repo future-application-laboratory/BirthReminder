@@ -59,7 +59,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     
     func share(controller rootController: UIViewController) {
         let text = String.localizedStringWithFormat(
-            NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
+            NSLocalizedString("%1$@ is %2$@'s birthday, let's celebrate!", comment: "%1$@ is %2$@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!,person.name) + "\n\(NSLocalizedString("fromBirthReminder", comment: "FromBirthReminder"))"
         let image = imageView.image ?? UIImage()
         let url: URL = "https://captainyukinoshitahachiman.github.io/BirthReminder/"

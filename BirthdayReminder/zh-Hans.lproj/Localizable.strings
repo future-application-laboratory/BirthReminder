@@ -1,5 +1,8 @@
+/* %1$@ is %2$@'s birthday, let's celebrate! */
+"%1$@ is %2$@'s birthday, let's celebrate!" = "%2$@的生日就在%1$@,一起庆祝吧！";
+
 /* %@ is %@'s birthday, let's celebrate! */
-"%@ is %@'s birthday, let's celebrate!" = "%@的生日就在%@,一起庆祝吧！";
+"%@ is %@'s birthday, let's celebrate!" = "%1$@是%2$@的生日，一起庆祝吧！";
 
 /* There are %d days left till a certain date. */
 "%d day(s) left" = "剩余 %d 天";
@@ -15,6 +18,9 @@
 
 /* about */
 "about" = "关于";
+
+/* AboutThePic */
+"aboutThePic" = "关于此画作";
 
 /* (No Comment) */
 "add" = "添加";
@@ -125,7 +131,7 @@
 "skip" = "跳过";
 
 /* syncWithAW */
-"syncWithAW" = "与 AW 同步";
+"syncWithAW" = "与 Apple Watch 同步";
 
 /* today */
 "today" = "今天";

@@ -8,16 +8,23 @@
 
 import UIKit
 
-class PersonalCell: RoundConerTableViewCell {
-
+class PersonalCell: RoundCornerTableViewCell {
+    
     @IBOutlet weak var picView: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var birthLabel: UILabel!
+    
+    weak var picPack: PicPack? {
+        didSet {
+            picView.image = picPack?.pic
+        }
+    }
+    weak var delegate: CopyrightViewing?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(showCopyright(_:)))
+        addGestureRecognizer(recognizer)
         backgroundColor = .clear
         nameLabel.textColor = .label
         birthLabel.textColor = .label
@@ -26,5 +33,14 @@ class PersonalCell: RoundConerTableViewCell {
         layer.cornerRadius = 10
         layer.masksToBounds = true
     }
-
+    
+    @objc func showCopyright(_ sender: UIGestureRecognizer) {
+        let location = sender.location(in: self)
+        if let copyright = picPack?.copyright,
+            picView.frame.contains(location),
+            sender.state == .began {
+            delegate?.showCopyrightInfo(copyright)
+        }
+    }
+    
 }

@@ -70,7 +70,7 @@
 "cancel" = "Cancel";
 
 /* sync with aw */
-"syncWithAW" = "Sync with AW";
+"syncWithAW" = "Sync with Apple Watch";
 
 /* Done */
 "done" = "Done";
@@ -91,4 +91,8 @@
 
 "It's %@'s birthday" = "It's %@'s birthday";
 
-"%@ is %@'s birthday, let's celebrate!" = "%@ is %@'s birthday, let's celebrate!";
+"%1$@ is %2$@'s birthday, let's celebrate!" = "%1$@ is %2$@'s birthday, let's celebrate!";
+
+"remote" = "Remote";
+
+"aboutThePic" = "About The Pic";

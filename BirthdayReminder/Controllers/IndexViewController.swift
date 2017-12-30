@@ -63,8 +63,8 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         floaty.hasShadow = false
         floaty.buttonImage = UIImage(named: "add")
         floaty.overlayColor = .clear
-        floaty.buttonColor = .flatLime
-        floaty.addItem(NSLocalizedString("edit", comment: "edit"), icon: UIImage(named: "ic_edit")) { item in
+        floaty.buttonColor = .flatMintDark
+        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: UIImage(named: "ic_edit")) { item in
             let controller = PersonFormController()
             controller.setup(with: .new, person: nil)
             controller.title = NSLocalizedString("new", comment: "New")
