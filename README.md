@@ -52,3 +52,5 @@ If you would like to add more birth info, please see [this page](https://captain
 ## APP Bug Report/Feature Suggestion
 
 If you have nice ideas or find a bug in the app, please open an issue or a PR
+
+<meta name="apple-itunes-app" content="app-id=1286497475">
