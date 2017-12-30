@@ -24,35 +24,51 @@ enum NotificationManager {
             DispatchQueue.main.async {
                 let fetchRequest = PeopleToSave.sortedFetchRequest
                 let people = try? AppDelegate.context.fetch(fetchRequest)
-                notifyQueue.async {people?.forEach() { person in
-                    let birth = person.birth.toDate()!
-                    var components = DateComponents()
-                    components.month = birth.month
-                    components.day = birth.day
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-                    let content = UNMutableNotificationContent()
-                    content.title = String.localizedStringWithFormat(
-                        NSLocalizedString("It's %@'s birthday", comment: "It's %@'s birthday"),
-                        person.name)
-                    content.body = String.localizedStringWithFormat(
-                        NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
-                        person.birth.toLocalizedDate()!,person.name)
-                    content.sound = .default()
-                    if let pngData = person.picData,
-                        let image = UIImage(data: pngData),
-                        let jpegData = UIImageJPEGRepresentation(image, 1.0) {
-                        let picUrl = URL.temporary
-                        if let _ = try? jpegData.write(to: picUrl),
-                            let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
-                            content.attachments.append(attachment)
-                        }
-                    }
-                    let notificationRequest = UNNotificationRequest(identifier: person.uuid.uuidString, content: content, trigger: trigger)
-                    notificationCenter.add(notificationRequest, withCompletionHandler: nil)
+                notifyQueue.async {
+                    people?.forEach() { person in
+                        onInsert(person: person)
                     }
                 }
             }
         }
+    }
+    
+    static func onInsert(person: PeopleToSave) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        let birth = person.birth.toDate()!
+        var components = DateComponents()
+        components.month = birth.month
+        components.day = birth.day
+        let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+        let content = UNMutableNotificationContent()
+        content.title = String.localizedStringWithFormat(
+            NSLocalizedString("It's %@'s birthday", comment: "It's %@'s birthday"),
+            person.name)
+        content.body = String.localizedStringWithFormat(
+            NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
+            person.birth.toLocalizedDate()!,person.name)
+        content.sound = .default()
+        if let pngData = person.picData,
+            let image = UIImage(data: pngData),
+            let jpegData = UIImageJPEGRepresentation(image, 1.0) {
+            let picUrl = URL.temporary
+            if let _ = try? jpegData.write(to: picUrl),
+                let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
+                content.attachments.append(attachment)
+            }
+        }
+        let notificationRequest = UNNotificationRequest(identifier: person.uuid.uuidString, content: content, trigger: trigger)
+        notificationCenter.add(notificationRequest, withCompletionHandler: nil)
+    }
+    
+    static func onRemove(person: PeopleToSave) {
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [person.uuid.uuidString])
+    }
+    
+    static func onModify(person: PeopleToSave) {
+        onRemove(person: person)
+        onInsert(person: person)
     }
     
 }

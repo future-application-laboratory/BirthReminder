@@ -28,9 +28,13 @@ ManagedObjectContextUsing {
             session.activate()
         }
         
-        let defaults = UserDefaults()
+        let defaults = UserDefaults.standard
         if !defaults.bool(forKey: "beenLaunched") {
             window?.rootViewController = tutorialController
+        }
+        if !defaults.bool(forKey: "notificationLoaded") {
+            NotificationManager.reloadNotifications()
+            defaults.set(true, forKey: "notificationLoaded")
         }
         
         UIApplication.shared.registerForRemoteNotifications()

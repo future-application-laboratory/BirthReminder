@@ -125,21 +125,25 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
 extension IndexViewController: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        guard let person = anObject as? PeopleToSave else { return }
         switch type {
         case .insert:
             let person = anObject as! PeopleToSave
             data.append(person)
             data.sort()
             tableView.reloadData()
+            NotificationManager.onInsert(person: person)
         case .delete:
             data = frc.fetchedObjects!
             data.sort()
             tableView.reloadData()
+            NotificationManager.onRemove(person: person)
+        case .update:
+            NotificationManager.onModify(person: person)
         default:
-            break // tan90
+            break
         }
         checkDataAndDisplayPlaceHolder()
-        NotificationManager.reloadNotifications()
         delegate.syncWithAppleWatch()
     }
     
