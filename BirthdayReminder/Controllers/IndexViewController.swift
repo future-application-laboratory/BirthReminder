@@ -22,9 +22,11 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     var frc: NSFetchedResultsController<PeopleToSave>!
     @IBOutlet weak var tableView: UITableView!
     
-    var data = [PeopleToSave]()
-    var status = true
-    var emptyLabel: UILabel = {
+    private var data = [PeopleToSave]()
+    private var timeShouldShowAsLocalizedDate = true
+    private var isContributing = false
+    
+    private var emptyLabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("emptyLabelText", comment: "emptyLabelText")
         label.textColor = .white
@@ -34,6 +36,8 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         label.textAlignment = .center
         return label
     }()
+    
+    private let floaty = Floaty()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +58,10 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         setupTableView()
         setupFloaty()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+        setupContributingButton()
     }
     
     private func setupFloaty() {
-        let floaty = Floaty()
         floaty.sticky = true
         floaty.friendlyTap = true
         floaty.hasShadow = false
@@ -106,7 +110,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     }
     
     @IBAction func changeDateDisplayingType(_ sender: Any) {
-        status = !status
+        timeShouldShowAsLocalizedDate = !timeShouldShowAsLocalizedDate
         tableView.reloadData()
     }
     
@@ -118,6 +122,38 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         } else {
             emptyLabel.isHidden = true
         }
+    }
+    
+    private func setupContributingButton() {
+        let buttonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onContribute(_:)))
+        navigationItem.leftBarButtonItem = buttonItem
+    }
+    
+    @objc private func onContribute(_ sender: UIBarButtonItem) {
+        isContributing = !isContributing
+        floaty.isHidden = isContributing
+        tableView.allowsMultipleSelection = isContributing
+        let barButtonSystemItem = isContributing ? UIBarButtonSystemItem.done : .action
+        let buttonItem = UIBarButtonItem(barButtonSystemItem: barButtonSystemItem, target: self, action: #selector(onContribute(_:)))
+        navigationItem.leftBarButtonItem = buttonItem
+        if isContributing {
+            showContributeInstructionsIfNeeded()
+        } else {
+            let alertController = UIAlertController(title: "End editing", message: "Are you sure to contribute these selected characters?", preferredStyle: .actionSheet)
+            alertController.addAction(UIAlertAction(title: "Done", style: .default) { action in
+                self.showFurtherContributeOptions()
+            })
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    private func showContributeInstructionsIfNeeded() {
+        fatalError("not implemented")
+    }
+    
+    private func showFurtherContributeOptions() {
+        fatalError("not implemented")
     }
     
 }
@@ -164,7 +200,7 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
         let cellData = data[index]
         let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
         cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = status ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
+        cell.birthLabel.text = timeShouldShowAsLocalizedDate ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
         DispatchQueue.global(qos: .userInteractive).async {
             let picImage: UIImage?
             if let imgData = cellData.picData {
@@ -189,8 +225,10 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.row])
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        if !tableView.allowsMultipleSelection {
+            performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.row])
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
     
 }

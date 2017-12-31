@@ -11,9 +11,6 @@
       location = "container:GitHubPics"
       name = "GitHubPics">
       <FileRef
-         location = "group:BirthReminder.png">
-      </FileRef>
-      <FileRef
          location = "group:index.png">
       </FileRef>
       <FileRef

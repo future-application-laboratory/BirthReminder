@@ -55,8 +55,8 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "cwz-Zi-eea"; */
 "cwz-Zi-eea.text" = "Name";
 
-/* Class = "UITableViewController"; title = "Settings"; ObjectID = "d8q-mA-Edg"; */
-"d8q-mA-Edg.title" = "Settings";
+/* Class = "UITableViewController"; title = "Misc"; ObjectID = "d8q-mA-Edg"; */
+"d8q-mA-Edg.title" = "Misc";
 
 /* Class = "UIButton"; normalTitle = "BiliBili"; ObjectID = "eD0-S1-7Qf"; */
 "eD0-S1-7Qf.normalTitle" = "BiliBili";
@@ -64,8 +64,8 @@
 /* Class = "UIViewController"; title = "Contact"; ObjectID = "hSP-kt-Zj4"; */
 "hSP-kt-Zj4.title" = "Contact";
 
-/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "hW9-sk-Xx1"; */
-"hW9-sk-Xx1.title" = "Settings";
+/* Class = "UINavigationItem"; title = "Misc"; ObjectID = "hW9-sk-Xx1"; */
+"hW9-sk-Xx1.title" = "Misc";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "hdG-cD-PT1"; */
 "hdG-cD-PT1.text" = "Name";

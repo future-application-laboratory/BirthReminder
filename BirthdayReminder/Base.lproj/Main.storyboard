@@ -134,7 +134,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy birthday!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sl9-WY-p9z">
-                                <rect key="frame" x="94.999999999999986" y="519" width="185.66666666666663" height="32.666666666666629"/>
+                                <rect key="frame" x="94.666666666666686" y="519" width="186" height="32.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -206,7 +206,7 @@
         <!--Misc-->
         <scene sceneID="plw-vE-P2L">
             <objects>
-                <tableViewController storyboardIdentifier="settings" title="Misc" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d8q-mA-Edg" customClass="SettingsViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Misc" id="d8q-mA-Edg" customClass="MiscViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="33" sectionFooterHeight="28" id="QwZ-bL-nKX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

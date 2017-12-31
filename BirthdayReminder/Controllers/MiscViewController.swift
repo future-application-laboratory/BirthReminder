@@ -1,5 +1,5 @@
 //
-//  SettingsViewController.swift
+//  MiscViewController.swift
 //  BirthdayReminder
 //
 //  Created by Jacky Yu on 10/08/2017.
@@ -11,7 +11,7 @@ import AcknowList
 import WatchConnectivity
 import Moya
 
-class SettingsViewController: UITableViewController, UITextFieldDelegate {
+class MiscViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()

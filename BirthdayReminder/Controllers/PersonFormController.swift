@@ -60,7 +60,12 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
                 row.value = UIImage(data: (newPerson?.picPack?.data ?? persistentPerson?.picData) ?? Data())
                 row.allowEditing = true
             }
-            +++ Section()
+            <<< TextRow() { row in
+                row.tag = "imageCopyright"
+                row.title = NSLocalizedString("copyrightInfo", comment: "copyrightInfo")
+                row.placeholder = NSLocalizedString("optional", comment: "optional")
+            }
+            +++ Section(NSLocalizedString("appleWatchSyncing", comment: "AppleWatchSyncing"))
             <<< SwitchRow() { row in
                 row.tag = "shouldSync"
                 row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
@@ -89,16 +94,18 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
         let birth = values["birth"] as? String
         let image = values["image"] as? UIImage
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
+        let imageCopyright = values["imageCopyright"] as? String
         let shouldSync = values["shouldSync"] as? Bool
         
         switch formMode {
         case .new:
-            PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData, shouldSync: shouldSync ?? false)
+            PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData, picCopyright: imageCopyright, shouldSync: shouldSync ?? false)
         case .edit:
             do {
                 persistentPerson?.name = name ?? ""
                 persistentPerson?.birth = birth ?? "01-01"
                 persistentPerson?.picData = imageData
+                persistentPerson?.picCopyright = imageCopyright
                 persistentPerson?.shouldSync = shouldSync ?? false
                 try context.save()
             } catch {

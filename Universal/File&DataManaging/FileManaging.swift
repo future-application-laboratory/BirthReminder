@@ -18,6 +18,7 @@ final class PeopleToSave: ManagedObject {
     @NSManaged public var name: String
     @NSManaged public var birth: String
     @NSManaged public var picData: Data?
+    @NSManaged public var picCopyright: String?
     @NSManaged public var shouldSync: Bool
     @NSManaged private var identifier: UUID?
     
@@ -31,7 +32,7 @@ final class PeopleToSave: ManagedObject {
         }
     }
     
-    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, shouldSync: Bool, identifier: UUID? = nil) {
+    static func insert(into context:NSManagedObjectContext, name: String, birth: String, picData: Data?, picCopyright: String? = nil, shouldSync: Bool, identifier: UUID? = nil) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let person = NSManagedObject(entity: entity!, insertInto: context)
         person.setValue(name, forKey: "name")
@@ -39,6 +40,7 @@ final class PeopleToSave: ManagedObject {
         person.setValue(picData, forKey: "picData")
         person.setValue(shouldSync, forKey: "shouldSync")
         person.setValue(identifier ?? UUID(), forKey: "identifier")
+        person.setValue(picCopyright, forKey: "picCopyright")
         
         do {
             try context.save()

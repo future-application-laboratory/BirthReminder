@@ -40,7 +40,7 @@
 		B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */; };
 		B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FB0C81F6E21E70021263D /* ContactViewController.swift */; };
-		B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* SettingsViewController.swift */; };
+		B060439A1F3C9978007D1016 /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06043991F3C9978007D1016 /* MiscViewController.swift */; };
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
@@ -163,6 +163,7 @@
 		661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		702D2BC21FE3F6E400F30C7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +187,7 @@
 		B049DC9A1F1EEDA9008634C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B05952F51F26EB23008AD597 /* TodayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayReminder.entitlements; sourceTree = "<group>"; };
 		B05FB0C81F6E21E70021263D /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
-		B06043991F3C9978007D1016 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B06043991F3C9978007D1016 /* MiscViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscViewController.swift; sourceTree = "<group>"; };
 		B06883541F1EEB2D00831AA6 /* BirthdayReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BirthdayReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B068835C1F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B068835E1F1EEB2D00831AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,7 +343,7 @@
 				B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */,
 				B0E009551FB721A200443471 /* BirthCardController.swift */,
 				B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */,
-				B06043991F3C9978007D1016 /* SettingsViewController.swift */,
+				B06043991F3C9978007D1016 /* MiscViewController.swift */,
 				B0F0A44D1F20E143004DED3D /* IndexViewController.swift */,
 				B05FB0C81F6E21E70021263D /* ContactViewController.swift */,
 			);
@@ -874,7 +875,7 @@
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
-				B060439A1F3C9978007D1016 /* SettingsViewController.swift in Sources */,
+				B060439A1F3C9978007D1016 /* MiscViewController.swift in Sources */,
 				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
@@ -1401,10 +1402,11 @@
 		52AD42ED1F7ED82900306D47 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */,
 				7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */,
 				52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */,
 			);
-			currentVersion = 7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */;
+			currentVersion = 709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
