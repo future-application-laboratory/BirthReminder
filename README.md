@@ -1,12 +1,17 @@
 # Birthday Reminder
 
-> A tool that helps you manage your favorite anime characters' births
+> The tool that helps you manage your favorite anime characters' births
 
 ![The index page of this app has a list of people and their birthdays](./GitHubPics/index.png)
 
 [![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 [![Made with Swift](https://forthebadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
 [![For You](https://forthebadge.com/images/badges/for-you.svg)](http://forthebadge.com)
+
+[![Stars](https://img.shields.io/github/stars/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge&label=Stars)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
+[![Forks](https://img.shields.io/github/forks/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge&label=Forks)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
+[![Watchers](https://img.shields.io/github/watchers/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge&label=Watchers)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
+[![Commit Activity](https://img.shields.io/github/commit-activity/y/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
 
 [![Platform](https://img.shields.io/badge/Platform-iOS%20watchOS-green.svg?style=for-the-badge)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
 [![Travis](https://img.shields.io/travis/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://www.travis-ci.org/CaptainYukinoshitaHachiman/BirthReminder)
@@ -29,7 +34,7 @@ Of course, you may add the birth info manually, but it's usually time-consuming
 
 Here, you may import characters easily
 
-The only thing you need is tapping the ADD button
+The only thing you need is to tap the ADD button
 
 ![Add button can be found on the upper-right corner](./GitHubPics/online.png)
 
