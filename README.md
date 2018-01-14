@@ -50,7 +50,24 @@ Also, you may [join in beta testing](https://birth-reminder-testflight.herokuapp
 
 ## Online Info
 
-If you would like to add more birth info, please see [this page](https://captainyukinoshitahachiman.github.io/BirthReminder-Contributing/)
+If you would like to add more birth info, please [email the info](mailto:CaptainYukinoshitaHachiman@tcwq.tech) in this format
+```JSON
+{
+	"anime":{
+    	"name":"",
+        "picUrl":"", // a url to the anime's pic (JPEG format, 200px*200px)
+        "picCopyright":"" // a description of the copyright info of the pic, e.g. "pixiv, pidXXX", "Offical LOGO, http://xxx.png"
+	},
+    "characters":[ // an array which includes all the characters in the anime
+    	{
+        	"name":"",
+            "birth":"", // the birth of the character, "MM-dd" formatted. e.g. "09-06" for Sept.6
+            "picUrl":"", // a url to the anime's pic (JPEG format, 200px*200px)
+        	"picCopyright":"" // a description of the copyright info of the pic, e.g. "pixiv, pidXXX", "CHARACTERS | 「妹さえいればいい。」\nhttp://.../chara_itsuki.png"
+        }
+    ]
+}
+```
 
 (Only ACGN characters are welcome)
 
