@@ -62,7 +62,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
             NSLocalizedString("%1$@ is %2$@'s birthday, let's celebrate!", comment: "%1$@ is %2$@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!,person.name) + "\n\(NSLocalizedString("fromBirthReminder", comment: "FromBirthReminder"))"
         let image = imageView.image ?? UIImage()
-        let url: URL = "https://captainyukinoshitahachiman.github.io/BirthReminder/"
+        let url: URL = "https://www.tcwq.tech/BirthReminder"
         
         let controller = UIActivityViewController(activityItems: [text,image,url], applicationActivities: nil)
         

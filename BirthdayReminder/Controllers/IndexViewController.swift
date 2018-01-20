@@ -11,6 +11,7 @@ import CoreData
 import SnapKit
 import ViewAnimator
 import Floaty
+import MobileCoreServices
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
     
@@ -24,7 +25,22 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     
     private var data = [PeopleToSave]()
     private var timeShouldShowAsLocalizedDate = true
-    private var isContributing = false
+    
+    private var isContributing = false {
+        didSet {
+            floaty.isHidden = isContributing
+            tableView.allowsMultipleSelection = isContributing
+            if isContributing {
+                onContribute()
+            } else {
+                navigationItem.setLeftBarButtonItems([], animated: true)
+            }
+        }
+    }
+    private var animePic: UIImage!
+    private var picCopyright: String!
+    private var animeName: String!
+    private var contactInfo: String!
     
     private var emptyLabel: UILabel = {
         let label = UILabel()
@@ -58,7 +74,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         setupTableView()
         setupFloaty()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
-        setupContributingButton()
     }
     
     private func setupFloaty() {
@@ -122,38 +137,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         } else {
             emptyLabel.isHidden = true
         }
-    }
-    
-    private func setupContributingButton() {
-        let buttonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(onContribute(_:)))
-        navigationItem.leftBarButtonItem = buttonItem
-    }
-    
-    @objc private func onContribute(_ sender: UIBarButtonItem) {
-        isContributing = !isContributing
-        floaty.isHidden = isContributing
-        tableView.allowsMultipleSelection = isContributing
-        let barButtonSystemItem = isContributing ? UIBarButtonSystemItem.done : .action
-        let buttonItem = UIBarButtonItem(barButtonSystemItem: barButtonSystemItem, target: self, action: #selector(onContribute(_:)))
-        navigationItem.leftBarButtonItem = buttonItem
-        if isContributing {
-            showContributeInstructionsIfNeeded()
-        } else {
-            let alertController = UIAlertController(title: "End editing", message: "Are you sure to contribute these selected characters?", preferredStyle: .actionSheet)
-            alertController.addAction(UIAlertAction(title: "Done", style: .default) { action in
-                self.showFurtherContributeOptions()
-            })
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in })
-            present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    private func showContributeInstructionsIfNeeded() {
-        fatalError("not implemented")
-    }
-    
-    private func showFurtherContributeOptions() {
-        fatalError("not implemented")
     }
     
 }
@@ -220,12 +203,16 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if !tableView.allowsMultipleSelection {
+        if tableView.allowsMultipleSelection {
+            let index = indexPath.row
+            let person = data[index]
+            let readyForContribution = person.picCopyright != nil && person.picCopyright != ""
+            if !readyForContribution {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+                illegalContributionAlert()
+            }
+        } else {
             performSegue(withIdentifier: "birthdayCard", sender: data[indexPath.row])
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
@@ -254,6 +241,132 @@ extension IndexViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         viewControllerToCommit.hidesBottomBarWhenPushed = true
         show(viewControllerToCommit, sender: nil)
+    }
+    
+}
+
+// Contributing
+extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if !isContributing {
+            isContributing = true
+        }
+    }
+    
+    private func onContribute() {
+        showContributeInstructions()
+        let buttonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.setLeftBarButtonItems([buttonItem], animated: true)
+    }
+    
+    private func showContributeInstructions() {
+        let alertController = UIAlertController(title: "You're entering contributing mode", message: "For more details, checkout URL", preferredStyle: .alert) // todo
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "No, that's not what I want", style: .default) { _ in
+            self.isContributing = false
+        })
+        present(alertController, animated: true)
+    }
+    
+    private func illegalContributionAlert() {
+        let alertController = UIAlertController(title: "No pic copyright provided", message: "Pic copyright is required to contribute, please edit the character before contributing", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Got it", style: .default))
+        present(alertController, animated: true)
+    }
+    
+    @objc private func done() {
+        let alertController = UIAlertController(title: "End editing", message: "Are you sure to contribute these selected characters?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Yes, I'd like to contribute the selected \(tableView.indexPathsForSelectedRows?.count ?? 0) character(s)", style: .default) { _ in
+            self.getAnimeName()
+        })
+        alertController.addAction(UIAlertAction(title: "No, I'd like to make a few more changes", style: .cancel))
+        alertController.addAction(UIAlertAction(title: "No, I'd like to exit contributing mode", style: .destructive) { _ in
+            self.isContributing = false
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func getAnimeName() {
+        let alertController = UIAlertController(title: "What's the name of the character set?", message: "e.g. Anime names, Galgame names, Lightnovel names...", preferredStyle: .alert)
+        alertController.addTextField() { field in
+            field.placeholder = "The name of the set of characters"
+        }
+        alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in
+            self.animeName = alertController.textFields!.first!.text!
+            self.askForAnimePic()
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in self.isContributing = false })
+        present(alertController, animated: true)
+    }
+    
+    private func askForAnimePic() {
+        let alertController = UIAlertController(title: "Choose the pic for the set", message: "Its copyright info is also required", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Choose from album", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+            let picker = UIImagePickerController()
+            picker.allowsEditing = true
+            picker.delegate = self
+            picker.mediaTypes =  [kUTTypeImage as String]
+            picker.sourceType = .savedPhotosAlbum
+            self.present(picker, animated: true, completion: nil)
+        })
+        present(alertController, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        animePic = info[UIImagePickerControllerEditedImage] as? UIImage
+        picker.dismiss(animated: true, completion: nil)
+        askForCopyrightInfo()
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+        isContributing = false
+    }
+    
+    private func askForCopyrightInfo() {
+        let alertController = UIAlertController(title: "Copyright Info", message: "Enter the copyright info for the pic you've just selected", preferredStyle: .alert)
+        alertController.addTextField() { field in
+            field.placeholder = "Copyright Info"
+        }
+        alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in
+            self.picCopyright = alertController.textFields?.first?.text
+            self.askForContactInfo()
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func askForContactInfo() {
+        let alertController = UIAlertController(title: "Almost done", message: "Finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so.", preferredStyle: .alert)
+        alertController.addTextField() { field in
+            field.placeholder = "Nickname and contact info (optional)"
+        }
+        alertController.addAction(UIAlertAction(title: "Submit", style: .default) { _ in
+            self.contactInfo = alertController.textFields?.first?.text
+            self.submit()
+        })
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func submit() {
+        let picPack = PicPack(image: animePic, copyrightInfo: picCopyright)!
+        let people: [People] = (tableView.indexPathsForSelectedRows ?? []).map() { indexPath -> PeopleToSave in
+            let index = indexPath.row
+            return data[index]
+            }.map() { person in
+                let name = person.name
+                let birth = person.birth
+                let picData = person.picData!
+                let copyright = person.picCopyright!
+                let personForContribution = People(withName: name, birth: birth, picData: nil, id: nil)
+                personForContribution.picPack = PicPack(image: UIImage(data: picData)!, copyrightInfo: copyright)
+                return personForContribution
+        }
+        NetworkController.provider.request(TCWQService.contribution(animeName: animeName, animePicPack: picPack, people: people)) { response in
+            // todo
+        }
+        isContributing = false
     }
     
 }

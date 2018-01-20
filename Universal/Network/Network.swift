@@ -17,6 +17,7 @@ enum TCWQService {
     case people(inAnimeID: Int)
     case personalPic(withID: Int)
     case notification(withToken: String)
+    case contribution(animeName: String, animePicPack: PicPack, people: [People])
 }
 
 enum SlackService {
@@ -48,12 +49,16 @@ extension TCWQService: TargetType {
             return "image/character/\(id)"
         case .notification(_):
             return "notification"
+        case .contribution(_):
+            return "contribution"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .notification(_):
+            return .post
+        case .contribution(_):
             return .post
         default:
             return .get
@@ -68,6 +73,8 @@ extension TCWQService: TargetType {
         switch self {
         case .notification(let token):
             return .requestParameters(parameters: ["token":token], encoding: JSONEncoding.default)
+        case .contribution(let (animeName,picPack,people)):
+            return .requestParameters(parameters: ["anime":["name":animeName,"animePicPack":picPack.jsonForContribution],"people":people.map{$0.jsonForContribution}], encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
@@ -114,7 +121,7 @@ final class People: Mappable {
     init(withName name: String, birth: String, picData: Data?, id: Int?) {
         self.name = name
         self.stringedBirth = birth
-        self.picPack = PicPack(data: picData)
+        self.picPack = PicPack(picData: picData)
         self.id = id
     }
     
@@ -126,6 +133,11 @@ final class People: Mappable {
         stringedBirth <- map["birth"]
         id <- map["id"]
     }
+    
+    var jsonForContribution: [String:Any] {
+        return ["name":name,"birth":stringedBirth,"picPack":picPack!.jsonForContribution]
+    }
+    
 }
 
 final class Anime: Mappable {
@@ -163,7 +175,7 @@ final class PicPack: Mappable {
         return UIImagePNGRepresentation(pic)
     }
     
-    init?(data: Data?) {
+    init?(picData: Data?) {
         guard let data = data else { return nil }
         base64 = data.base64EncodedString()
     }
@@ -171,9 +183,19 @@ final class PicPack: Mappable {
     required init?(map: Map) {
     }
     
+    init?(image: UIImage, copyrightInfo: String) {
+        guard let jpegData = UIImageJPEGRepresentation(image, 1.0) else { return nil }
+        base64 = jpegData.base64EncodedString()
+        copyright = copyrightInfo
+    }
+    
     func mapping(map: Map) {
         base64 <- map["pic"]
         copyright <- map["copyright"]
+    }
+    
+    var jsonForContribution: [String:Any] {
+        return ["base64":base64,"copyright":copyright]
     }
     
 }
