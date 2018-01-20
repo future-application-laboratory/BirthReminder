@@ -117,9 +117,9 @@ ManagedObjectContextUsing {
             let content = userInfo["aps"] as? [String:Any],
             let alert = content["alert"] as? [String:String],
             let title = alert["title"],
-            let subTitle = alert["subtitle"] else { return }
-        let imageUrl = alert["image"]
-        let announcement = Announcement(title: title, subtitle: subTitle, image: nil, urlImage: imageUrl, duration: 3, interactionType: .none, userInfo: nil, action: nil)
+            let body = alert["body"],
+            let imageUrl = userInfo["image"] as? String? else { return }
+        let announcement = Announcement(title: title, subtitle: body, image: nil, urlImage: imageUrl, duration: 3, interactionType: .none, userInfo: nil, action: nil)
         DispatchQueue.main.async {
             InAppNotify.theme = Themes.light
             InAppNotify.Show(announcement, to: vc)
