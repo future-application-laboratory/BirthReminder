@@ -13,6 +13,7 @@ import StoreKit
 import ViewAnimator
 import CFNotify
 import NVActivityIndicatorView
+import Moya_ObjectMapper
 
 class GetPersonalDataFromServerViewController: ViewController, ManagedObjectContextUsing {
     var tableViewData = [People]()
@@ -52,11 +53,10 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     private func loadPeople() {
         activityIndicator.startAnimating()
         NetworkController.networkQueue.async { [weak self] in
-            NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { response in
-                switch response {
-                case .success(let result):
-                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
-                    self?.tableViewData = Mapper<People>().mapArray(JSONString: json)!
+            NetworkController.provider.request(.people(inAnimeID: self!.anime!.id)) { result in
+                switch result {
+                case .success(let response):
+                    self?.tableViewData = (try? response.mapArray(People.self)) ?? []
                     DispatchQueue.main.async{
                         self?.activityIndicator.stopAnimating()
                         self?.tableView.reloadData()
@@ -81,12 +81,10 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     private func loadPicForPeople() {
         // Load pic for every person
         tableViewData.forEach { [weak self] person in
-            NetworkController.provider.request(.personalPic(withID: person.id!)) { response in
-                switch response {
-                case .success(let result):
-                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
-                    let picPack = Mapper<PicPack>().map(JSONString: json)
-                    person.picPack = picPack
+            NetworkController.provider.request(.personalPic(withID: person.id!)) { result in
+                switch result {
+                case .success(let response):
+                    person.picPack = try? response.mapObject(PicPack.self)
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                         if (self?.tableViewData.filter { $0.picPack == nil }.count) == 0 {

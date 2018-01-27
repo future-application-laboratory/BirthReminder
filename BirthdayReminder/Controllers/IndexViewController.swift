@@ -153,9 +153,9 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
             tableView.reloadData()
             NotificationManager.onInsert(person: person)
         case .delete:
-            data = frc.fetchedObjects!
-            data.sort()
-            tableView.reloadData()
+            let index = data.index(of: person)!
+            data.remove(at: index)
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
             NotificationManager.onRemove(person: person)
         case .update:
             NotificationManager.onModify(person: person)

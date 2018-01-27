@@ -92,8 +92,7 @@ class AnimeGettingFromServerViewController: ViewController {
         NetworkController.provider.request(.animes(requirements: requirements)) { [weak self] result in
             switch result {
             case .success(let response):
-                let json = String(data: response.data, encoding: String.Encoding.utf8)!
-                self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
+                self?.animes = (try? response.mapArray(Anime.self)) ?? []
                 if self?.showsAllAnimes == true {
                     self?.allAnimes = self?.animes ?? []
                 }
@@ -121,9 +120,7 @@ class AnimeGettingFromServerViewController: ViewController {
             NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] result in
                 switch result {
                 case .success(let response):
-                    let json = String(data: response.data, encoding: String.Encoding.utf8)!
-                    let pack = Mapper<PicPack>().map(JSONString: json)
-                    anime.picPack = pack
+                    anime.picPack = try? response.mapObject(PicPack.self)
                     DispatchQueue.main.async {
                         self?.tableView.reloadData()
                     }

@@ -32,6 +32,9 @@ class PersonalCell: RoundCornerTableViewCell {
         picView.layer.masksToBounds = true
         layer.cornerRadius = 10
         layer.masksToBounds = true
+        
+        nameLabel.text = ""
+        picPack = nil
     }
     
     @objc func showCopyright(_ sender: UIGestureRecognizer) {

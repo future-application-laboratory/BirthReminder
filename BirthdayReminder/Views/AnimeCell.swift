@@ -29,6 +29,9 @@ class AnimeCell: RoundCornerTableViewCell {
         nameLabel.textColor = .label
         picView.layer.cornerRadius = 10
         picView.layer.masksToBounds = true
+        
+        nameLabel.text = ""
+        picPack = nil
     }
     
     @objc func showCopyright(_ sender: UIGestureRecognizer) {
