@@ -64,6 +64,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
                 row.tag = "imageCopyright"
                 row.title = NSLocalizedString("copyrightInfo", comment: "copyrightInfo")
                 row.placeholder = NSLocalizedString("optional", comment: "optional")
+                row.value = persistentPerson?.picCopyright
             }
             +++ Section(NSLocalizedString("appleWatchSyncing", comment: "AppleWatchSyncing"))
             <<< SwitchRow() { row in

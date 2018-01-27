@@ -44,7 +44,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     
     @IBAction func storeAll(_ sender: Any) {
         tableViewData.forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picPack?.data, shouldSync: false)
+            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picPack?.data, picCopyright: person.picPack?.copyright, shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
         SKStoreReviewController.requestReview()
