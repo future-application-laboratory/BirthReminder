@@ -363,7 +363,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
             return personForContribution
         }
         NetworkController.provider.request(TCWQService.contribution(animeName: animeName, animePicPack: animePicPack, people: people, contributorInfo: contactInfo)) { response in
-            // todo
+            // Todo
         }
         isContributing = false
     }

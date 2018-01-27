@@ -56,7 +56,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     }
     
     func reload() {
-        tableData = try! context.fetch(request)
+        tableData = (try? context.fetch(request)) ?? []
         reloadTable()
     }
     

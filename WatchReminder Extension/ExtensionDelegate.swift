@@ -64,24 +64,26 @@ class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
     }
     
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
-        try? context.fetch(request).forEach { object in
-            context.delete(object)
-        } //Delete all the previous objects
-        
-        if let unarchivedPeople = NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as? [PeopleToTransfer] {
-            unarchivedPeople.forEach { person in
-                PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData, shouldSync: false)
-            } //Add new objects
-            
-            reloadController.reload()
-            
-            //Update the complications
-            let server = CLKComplicationServer.sharedInstance()
-            server.activeComplications?.forEach { complication in
-                server.reloadTimeline(for: complication)
+        if let type = file.metadata?["type"] as? String,
+            type == "BR/reload" {
+            if let unarchivedPeople = NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as? [PeopleToTransfer] {
+                try? context.fetch(request).forEach { object in
+                    context.delete(object)
+                } //Delete all the previous objects
+                
+                unarchivedPeople.forEach { person in
+                    PeopleToSave.insert(into: context, name: person.name, birth: person.birth, picData: person.picData, shouldSync: false)
+                } //Add new objects
+                
+                reloadController.reload()
+                
+                //Update the complications
+                let server = CLKComplicationServer.sharedInstance()
+                server.activeComplications?.forEach { complication in
+                    server.reloadTimeline(for: complication)
+                }
             }
         }
-        
     }
     
 }

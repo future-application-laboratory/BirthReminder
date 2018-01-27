@@ -95,7 +95,7 @@ ManagedObjectContextUsing {
         let data = NSKeyedArchiver.archivedData(withRootObject: people)
         let fileUrl = URL.temporary
         try? data.write(to: fileUrl)
-        session.transferFile(fileUrl, metadata: nil)
+        session.transferFile(fileUrl, metadata: ["type":"BR/reload"])
     }
     
     func sessionReachabilityDidChange(_ session: WCSession) {

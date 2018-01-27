@@ -30,7 +30,7 @@ extension TCWQService: TargetType {
     }
     
     var baseURL: URL {
-        return "https://www.tcwq.tech/api/BirthdayReminder/"
+        return "https://www.tcwq.tech/api/BirthReminder/"
     }
     
     var path: String {
