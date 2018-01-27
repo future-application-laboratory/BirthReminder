@@ -40,7 +40,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
         super.viewDidLoad()
         // Form Defination
         form +++ Section(NSLocalizedString("name", comment: "name"))
-            <<< NameRow() { row in
+            <<< TextRow() { row in
                 row.tag = "name"
                 row.title = NSLocalizedString("name", comment: "name")
                 row.placeholder = NSLocalizedString("name", comment: "name")

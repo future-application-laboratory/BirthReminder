@@ -89,10 +89,10 @@ class AnimeGettingFromServerViewController: ViewController {
             tableView.reloadData()
         }
         activityIndicator.startAnimating()
-        NetworkController.provider.request(.animes(requirements: requirements)) { [weak self] response in
-            switch response {
-            case .success(let result):
-                let json = String(data: result.data, encoding: String.Encoding.utf8)!
+        NetworkController.provider.request(.animes(requirements: requirements)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                let json = String(data: response.data, encoding: String.Encoding.utf8)!
                 self?.animes = Mapper<Anime>().mapArray(JSONString: json)!
                 if self?.showsAllAnimes == true {
                     self?.allAnimes = self?.animes ?? []
@@ -118,10 +118,10 @@ class AnimeGettingFromServerViewController: ViewController {
     
     func loadPicsForAnimes() {
         animes.forEach { anime in
-            NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] response in
-                switch response {
-                case .success(let result):
-                    let json = String(data: result.data, encoding: String.Encoding.utf8)!
+            NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] result in
+                switch result {
+                case .success(let response):
+                    let json = String(data: response.data, encoding: String.Encoding.utf8)!
                     let pack = Mapper<PicPack>().map(JSONString: json)
                     anime.picPack = pack
                     DispatchQueue.main.async {

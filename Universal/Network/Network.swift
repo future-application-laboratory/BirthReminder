@@ -17,7 +17,7 @@ enum TCWQService {
     case people(inAnimeID: Int)
     case personalPic(withID: Int)
     case notification(withToken: String)
-    case contribution(animeName: String, animePicPack: PicPack, people: [People])
+    case contribution(animeName: String, animePicPack: PicPack, people: [People], contributorInfo: String)
 }
 
 enum SlackService {
@@ -73,8 +73,10 @@ extension TCWQService: TargetType {
         switch self {
         case .notification(let token):
             return .requestParameters(parameters: ["token":token], encoding: JSONEncoding.default)
-        case .contribution(let (animeName,picPack,people)):
-            return .requestParameters(parameters: ["anime":["name":animeName,"animePicPack":picPack.jsonForContribution],"people":people.map{$0.jsonForContribution}], encoding: JSONEncoding.default)
+        case .contribution(let (animeName,picPack,people,contributorInfo)):
+            // Refactor required here!
+            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo]
+            return .requestParameters(parameters: object, encoding: JSONEncoding.default)
         default:
             return .requestPlain
         }
@@ -134,8 +136,8 @@ final class People: Mappable {
         id <- map["id"]
     }
     
-    var jsonForContribution: [String:Any] {
-        return ["name":name,"birth":stringedBirth,"picPack":picPack!.jsonForContribution]
+    var objectForContribution: [String:Any] {
+        return ["name":name,"birth":stringedBirth,"picPack":picPack!.objectForContribution]
     }
     
 }
@@ -176,8 +178,8 @@ final class PicPack: Mappable {
     }
     
     init?(picData: Data?) {
-        guard let data = data else { return nil }
-        base64 = data.base64EncodedString()
+        guard let picData = picData else { return nil }
+        base64 = picData.base64EncodedString()
     }
     
     required init?(map: Map) {
@@ -194,7 +196,7 @@ final class PicPack: Mappable {
         copyright <- map["copyright"]
     }
     
-    var jsonForContribution: [String:Any] {
+    var objectForContribution: [String:Any] {
         return ["base64":base64,"copyright":copyright]
     }
     

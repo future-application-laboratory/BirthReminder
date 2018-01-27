@@ -350,20 +350,19 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func submit() {
-        let picPack = PicPack(image: animePic, copyrightInfo: picCopyright)!
-        let people: [People] = (tableView.indexPathsForSelectedRows ?? []).map() { indexPath -> PeopleToSave in
+        let animePicPack = PicPack(image: animePic, copyrightInfo: picCopyright)!
+        let people: [People] = (tableView.indexPathsForSelectedRows ?? []).map() { indexPath in
             let index = indexPath.row
-            return data[index]
-            }.map() { person in
-                let name = person.name
-                let birth = person.birth
-                let picData = person.picData!
-                let copyright = person.picCopyright!
-                let personForContribution = People(withName: name, birth: birth, picData: nil, id: nil)
-                personForContribution.picPack = PicPack(image: UIImage(data: picData)!, copyrightInfo: copyright)
-                return personForContribution
+            let person =  data[index]
+            let name = person.name
+            let birth = person.birth
+            let picData = person.picData!
+            let copyright = person.picCopyright!
+            let personForContribution = People(withName: name, birth: birth, picData: picData, id: nil)
+            personForContribution.picPack?.copyright = copyright
+            return personForContribution
         }
-        NetworkController.provider.request(TCWQService.contribution(animeName: animeName, animePicPack: picPack, people: people)) { response in
+        NetworkController.provider.request(TCWQService.contribution(animeName: animeName, animePicPack: animePicPack, people: people, contributorInfo: contactInfo)) { response in
             // todo
         }
         isContributing = false
