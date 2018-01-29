@@ -155,9 +155,7 @@ extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableVi
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
         cell.delegate = self
-        if let picPack = animes[index].picPack {
-            cell.picPack = picPack
-        }
+        cell.picPack = animes[index].picPack
         cell.nameLabel.text = animes[index].name
         return cell
     }

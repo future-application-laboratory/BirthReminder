@@ -1,7 +1,7 @@
 PODS:
-  - AcknowList (1.4)
+  - AcknowList (1.5)
   - Alamofire (4.6.0)
-  - CFNotify (1.0.1)
+  - CFNotify (1.0.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -10,25 +10,25 @@ PODS:
   - ImageRow (3.0.0):
     - Eureka (~> 4.0)
   - InAppNotify (0.1.4)
-  - Moya (10.0.1):
-    - Moya/Core (= 10.0.1)
+  - Moya (10.0.2):
+    - Moya/Core (= 10.0.2)
   - Moya-ObjectMapper (2.5):
     - Moya-ObjectMapper/Core (= 2.5)
   - Moya-ObjectMapper/Core (2.5):
     - Moya (~> 10.0.0)
     - ObjectMapper (~> 3.0.0)
-  - Moya/Core (10.0.1):
+  - Moya/Core (10.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - NVActivityIndicatorView (4.1.0):
-    - NVActivityIndicatorView/Presenter (= 4.1.0)
-  - NVActivityIndicatorView/Presenter (4.1.0)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - ObjectMapper (3.0.0)
   - Onboard (2.3.1)
   - PAPermissions (0.9.10)
   - Result (3.2.4)
   - SnapKit (4.0.0)
-  - ViewAnimator (1.0.2)
+  - ViewAnimator (1.0.4)
 
 DEPENDENCIES:
   - AcknowList
@@ -74,23 +74,23 @@ CHECKOUT OPTIONS:
     :git: https://github.com/mamaral/Onboard.git
 
 SPEC CHECKSUMS:
-  AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
+  AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  CFNotify: b34a7989d2bafe85a6bba7543ba3a4323abc7b47
+  CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
   InAppNotify: e83f6087b82091ec402406eee65afe8f0a84ab87
-  Moya: 9e621707ff754eeb51ff3ec51a3d54e517c0733a
+  Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
   Moya-ObjectMapper: 167adf69db0298bf3a19ea05cb9a16ee117c8ef5
-  NVActivityIndicatorView: dc4726052dc24e89fa8576d43acf9e96f61d49db
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  ViewAnimator: d7b18e0be98e05807f61ad886a36363727209377
+  ViewAnimator: 1f3fa25f3c9010ab0dda06cf9e3e49a4b55834ff
 
 PODFILE CHECKSUM: 147db40631834cc551ac9e72a013e76c60a915be
 

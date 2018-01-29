@@ -118,11 +118,7 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
         }
         cell.nameLabel.text = cellData.name
         cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
-        if let image = cellData.picPack?.pic {
-            cell.picView.image = image
-        } else {
-            cell.picView.image = UIImage(image: UIImage(), scaledTo: CGSize(width: 100, height: 100))
-        }
+        cell.picPack = cellData.picPack
         return cell
     }
     

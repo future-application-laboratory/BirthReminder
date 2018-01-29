@@ -8,6 +8,7 @@
 
 import UIKit
 import CFNotify
+import SnapKit
 
 class BirthCardController: ViewController, ManagedObjectContextUsing {
     
@@ -34,11 +35,12 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         // Blur Effects
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.frame = view.frame
         view.addSubview(blurView)
+        blurView.snp.makeConstraints() { make in
+            make.edges.equalToSuperview()
+        }
         view.sendSubview(toBack: blurView)
-        
-        view.backgroundColor = UIColor(gradientStyle: .diagonal, withFrame: view.frame, andColors: [.flatGreen,.flatMint])
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [.flatGreen,.flatMint])
     }
     
     
@@ -83,19 +85,23 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
             UIPreviewAction(title: "Edit", style: .default) { [unowned self] _,_ in
                 self.edit(navigationController: _navigationController)
             },
-            UIPreviewAction(title: "Delete", style: .destructive) { [ctx = context!, person = person!] _,_ in
-                    do {
-                        ctx.delete(person)
-                        try ctx.save()
-                    } catch {
-                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
-                        var config = CFNotify.Config()
-                        config.initPosition = .top(.center)
-                        config.appearPosition = .top
-                        CFNotify.present(config: config, view: cfView)
-                    }
+            UIPreviewAction(title: "Delete", style: .destructive) { [context = context!, person = person!] _,_ in
+                do {
+                    context.delete(person)
+                    try context.save()
+                } catch {
+                    let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                    var config = CFNotify.Config()
+                    config.initPosition = .top(.center)
+                    config.appearPosition = .top
+                    CFNotify.present(config: config, view: cfView)
+                }
             }
         ]
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen,.flatMint])
     }
     
 }

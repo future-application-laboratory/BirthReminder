@@ -87,7 +87,7 @@ ManagedObjectContextUsing {
             else { return }
         session.outstandingFileTransfers.forEach { $0.cancel() }
         let request = PeopleToSave.sortedFetchRequest
-        let people = try! context.fetch(request).flatMap { person -> PeopleToTransfer? in
+        let people = try! context.fetch(request).compactMap { person -> PeopleToTransfer? in
             guard person.shouldSync else { return nil }
             let picData = person.picData
             return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
