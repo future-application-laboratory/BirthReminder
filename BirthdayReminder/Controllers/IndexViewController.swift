@@ -145,19 +145,19 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let person = anObject as? PeopleToSave else { return }
+        let index = data.index(of: person)
         switch type {
         case .insert:
-            let person = anObject as! PeopleToSave
             data.append(person)
             data.sort()
             tableView.reloadData()
             NotificationManager.onInsert(person: person)
         case .delete:
-            let index = data.index(of: person)!
-            data.remove(at: index)
-            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            data.remove(at: index!)
+            tableView.deleteRows(at: [IndexPath(row: index!, section: 0)], with: .automatic)
             NotificationManager.onRemove(person: person)
         case .update:
+            tableView.reloadRows(at: [IndexPath(row: index!, section: 0)], with: .automatic)
             NotificationManager.onModify(person: person)
         default:
             break

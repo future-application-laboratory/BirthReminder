@@ -39,8 +39,6 @@ ManagedObjectContextUsing {
         
         UIApplication.shared.registerForRemoteNotifications()
         
-        UIApplication.shared.statusBarStyle = .lightContent
-        
         return true
     }
     

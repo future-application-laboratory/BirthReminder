@@ -22,11 +22,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>tan90</string>
 	<key>NSCalendarsUsageDescription</key>

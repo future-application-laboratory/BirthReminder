@@ -19,6 +19,12 @@
 		52AD43091F7F19E800306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD430B1F7F19E800306D47 /* Localizable.strings */; };
 		52AD43131F7F19EA00306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD43151F7F19EA00306D47 /* Localizable.strings */; };
 		52AD43181F7F1A3500306D47 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52AD431A1F7F1A3500306D47 /* Localizable.strings */; };
+		701151B8201ECFD500E34678 /* libACRCloud_IOS_SDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 701151B6201ECF7500E34678 /* libACRCloud_IOS_SDK.a */; };
+		701FC03F201EC7A700C72B37 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */; };
+		701FC048201ECBAB00C72B37 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC047201ECBAB00C72B37 /* Security.framework */; };
+		701FC04A201ECBBD00C72B37 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC049201ECBBD00C72B37 /* libc++.tbd */; };
+		701FC04C201ECBC500C72B37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC04B201ECBC400C72B37 /* AVFoundation.framework */; };
+		701FC04E201ECBCC00C72B37 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC04D201ECBCB00C72B37 /* AudioToolbox.framework */; };
 		702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D2BC21FE3F6E400F30C7B /* Utilities.swift */; };
 		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
@@ -28,7 +34,6 @@
 		B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7B011F1EEEC700496843 /* AnimeGettingFromServerViewController.swift */; };
 		B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00F7AFF1F1EEEC700496843 /* GetPersonalDataFromServerViewController.swift */; };
 		B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022842E1FAEB58E00932EEB /* MainTabBarController.swift */; };
-		B029294E1F26E79000AD0BC1 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */; };
 		B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02929501F26E79000AD0BC1 /* TodayViewController.swift */; };
 		B02929541F26E79000AD0BC1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02929521F26E79000AD0BC1 /* MainInterface.storyboard */; };
 		B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B029294C1F26E79000AD0BC1 /* TodayReminder.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -161,6 +166,14 @@
 		52AD432C1F7F1AEE00306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		52AD432D1F7F1AEF00306D47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayReminder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		701151B4201ECF7400E34678 /* ACRCloudConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRCloudConfig.h; sourceTree = "<group>"; };
+		701151B5201ECF7400E34678 /* ACRCloudRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACRCloudRecognition.h; sourceTree = "<group>"; };
+		701151B6201ECF7500E34678 /* libACRCloud_IOS_SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libACRCloud_IOS_SDK.a; sourceTree = "<group>"; };
+		701FC047201ECBAB00C72B37 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		701FC049201ECBBD00C72B37 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		701FC04B201ECBC400C72B37 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		701FC04D201ECBCB00C72B37 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		701FC05C201ECDEE00C72B37 /* BirthdayReminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BirthdayReminder-Bridging-Header.h"; sourceTree = "<group>"; };
 		702D2BC21FE3F6E400F30C7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -244,7 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B029294E1F26E79000AD0BC1 /* NotificationCenter.framework in Frameworks */,
+				701FC03F201EC7A700C72B37 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +265,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701151B8201ECFD500E34678 /* libACRCloud_IOS_SDK.a in Frameworks */,
+				701FC04E201ECBCC00C72B37 /* AudioToolbox.framework in Frameworks */,
+				701FC04C201ECBC500C72B37 /* AVFoundation.framework in Frameworks */,
+				701FC04A201ECBBD00C72B37 /* libc++.tbd in Frameworks */,
+				701FC048201ECBAB00C72B37 /* Security.framework in Frameworks */,
 				A435AA602AA462230C2E03DD /* Pods_BirthdayReminder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,9 +317,12 @@
 			isa = PBXGroup;
 			children = (
 				52AD431A1F7F1A3500306D47 /* Localizable.strings */,
+				701151B3201ECF7400E34678 /* include */,
+				701151B6201ECF7500E34678 /* libACRCloud_IOS_SDK.a */,
 				52AD42F61F7F164700306D47 /* InfoPlist.strings */,
 				B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */,
 				B06883631F1EEB2D00831AA6 /* Info.plist */,
+				701FC05C201ECDEE00C72B37 /* BirthdayReminder-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -312,6 +333,15 @@
 				526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		701151B3201ECF7400E34678 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				701151B4201ECF7400E34678 /* ACRCloudConfig.h */,
+				701151B5201ECF7400E34678 /* ACRCloudRecognition.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		70C5EF7F1FDBFD2C0068FAC2 /* Model */ = {
@@ -492,6 +522,10 @@
 		C36CBA21C215B6052304E768 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				701FC04D201ECBCB00C72B37 /* AudioToolbox.framework */,
+				701FC04B201ECBC400C72B37 /* AVFoundation.framework */,
+				701FC049201ECBBD00C72B37 /* libc++.tbd */,
+				701FC047201ECBAB00C72B37 /* Security.framework */,
 				B0B18E411F204FC000B0A0A8 /* MobileCoreServices.framework */,
 				9FCDD88D92AEE57FE4CD5285 /* Pods_BirthdayReminder.framework */,
 				B029294D1F26E79000AD0BC1 /* NotificationCenter.framework */,
@@ -631,7 +665,7 @@
 					B06883531F1EEB2D00831AA6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -1220,7 +1254,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1233,6 +1266,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1240,8 +1274,14 @@
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BirthdayReminder",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BirthdayReminder/BirthdayReminder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
@@ -1253,6 +1293,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1260,8 +1301,13 @@
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BirthdayReminder",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthdayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BirthdayReminder/BirthdayReminder-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};

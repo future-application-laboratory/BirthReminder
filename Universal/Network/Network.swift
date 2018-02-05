@@ -75,7 +75,7 @@ extension TCWQService: TargetType {
             return .requestParameters(parameters: ["token":token], encoding: JSONEncoding.default)
         case .contribution(let (animeName,picPack,people,contributorInfo)):
             // Refactor required here!
-            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo]
+            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution!],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo]
             return .requestParameters(parameters: object, encoding: JSONEncoding.default)
         default:
             return .requestPlain
@@ -120,7 +120,7 @@ final class People: Mappable {
     var id: Int?
     var status = false
     
-    init(withName name: String, birth: String, picData: Data?, id: Int?) {
+    init(withName name: String, birth: String, picData: Data, id: Int?) {
         self.name = name
         self.stringedBirth = birth
         self.picPack = PicPack(picData: picData)
@@ -137,7 +137,7 @@ final class People: Mappable {
     }
     
     var objectForContribution: [String:Any] {
-        return ["name":name,"birth":stringedBirth,"picPack":picPack!.objectForContribution]
+        return ["name":name,"birth":stringedBirth,"picPack":picPack!.objectForContribution!]
     }
     
 }
@@ -170,24 +170,24 @@ final class PicPack: Mappable {
     var copyright: String!
     var pic: UIImage? {
         guard let data = picData else { return nil }
-        return UIImage(data: data as Data)
+        return UIImage(data: data as Data)!
     }
     var data: Data? {
         guard let pic = pic else { return nil }
         return UIImagePNGRepresentation(pic)
     }
     
-    init?(picData: Data?) {
-        guard let picData = picData else { return nil }
-        base64 = picData.base64EncodedString()
+    convenience init?(picData: Data) {
+        guard let image = UIImage(data: picData) else { return nil }
+        self.init(image: image, copyrightInfo: "")
     }
     
     required init?(map: Map) {
     }
     
     init?(image: UIImage, copyrightInfo: String) {
-        guard let jpegData = UIImageJPEGRepresentation(image, 1.0) else { return nil }
-        base64 = jpegData.base64EncodedString()
+        guard let jpegData = UIImageJPEGRepresentation(image, 1) as NSData? else { return nil }
+        base64 = jpegData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
         copyright = copyrightInfo
     }
     
@@ -196,7 +196,7 @@ final class PicPack: Mappable {
         copyright <- map["copyright"]
     }
     
-    var objectForContribution: [String:Any] {
+    var objectForContribution: [String:Any]? {
         return ["base64":base64,"copyright":copyright]
     }
     

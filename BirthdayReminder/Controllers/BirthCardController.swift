@@ -25,10 +25,13 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setBackground()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         nameLabel.text = person.name
         birthLabel.text = "\(person.birth.toLocalizedDate() ?? "")\n(\(person.birth.toLeftDays() ?? ""))"
         imageView.image = UIImage(data: person.picData ?? Data())
-        setBackground()
     }
     
     private func setBackground() {
