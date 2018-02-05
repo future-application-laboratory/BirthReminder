@@ -20,7 +20,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
     private var newPerson: People?
     private var persistentPerson: PeopleToSave?
     
-    private var editedImage: UIImage?
+    private var imageRow: ImageRow!
     
     public func setup(with mode: Mode, person: Any?) {
         switch mode {
@@ -67,6 +67,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                         self.navigationController?.pushViewController(controller, animated: true)
                     }
                 }
+                self.imageRow = row
             }
             <<< TextRow() { row in
                 row.tag = "imageCopyright"
@@ -101,7 +102,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         let values = form.values()
         let name = values["name"] as? String
         let birth = values["birth"] as? String
-        let image = editedImage ?? (values["image"] as? UIImage)
+        let image = values["image"] as? UIImage
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
         let imageCopyright = values["imageCopyright"] as? String
         let shouldSync = values["shouldSync"] as? Bool
@@ -158,7 +159,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
     }
     
     func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
-        editedImage = croppedImage
+        imageRow.value = croppedImage
     }
     
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
