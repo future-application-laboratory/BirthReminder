@@ -36,7 +36,7 @@ DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Eureka
   - Floaty
-  - ImageRow (from `https://github.com/LiulietLee/ImageRow.git`, branch `master`)
+  - ImageRow (from `https://github.com/CaptainYukinoshitaHachiman/ImageRow.git`, branch `master`)
   - InAppNotify (from `https://github.com/lucabecchetti/InAppNotify.git`, branch `swift4`)
   - Moya-ObjectMapper
   - NVActivityIndicatorView
@@ -51,7 +51,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/ViccAlexander/Chameleon.git
   ImageRow:
     :branch: master
-    :git: https://github.com/LiulietLee/ImageRow.git
+    :git: https://github.com/CaptainYukinoshitaHachiman/ImageRow.git
   InAppNotify:
     :branch: swift4
     :git: https://github.com/lucabecchetti/InAppNotify.git
@@ -64,8 +64,8 @@ CHECKOUT OPTIONS:
     :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
     :git: https://github.com/ViccAlexander/Chameleon.git
   ImageRow:
-    :commit: 7db3681c96523a80d3a32c7fb98a1c1b5f501757
-    :git: https://github.com/LiulietLee/ImageRow.git
+    :commit: 3af4ed52ed3f64f9d3713289bcaa4a99f3983b90
+    :git: https://github.com/CaptainYukinoshitaHachiman/ImageRow.git
   InAppNotify:
     :commit: 6c197409f43d09abfb5db2a1a9efdb14d194465b
     :git: https://github.com/lucabecchetti/InAppNotify.git
@@ -92,6 +92,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: 1f3fa25f3c9010ab0dda06cf9e3e49a4b55834ff
 
-PODFILE CHECKSUM: 147db40631834cc551ac9e72a013e76c60a915be
+PODFILE CHECKSUM: c010f6def4edc35aada83058e5ac905fdcd72712
 
 COCOAPODS: 1.3.1

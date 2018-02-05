@@ -10,7 +10,7 @@ target 'BirthdayReminder' do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'AcknowList'
     pod 'Eureka'
-    pod 'ImageRow', :git=> 'https://github.com/LiulietLee/ImageRow.git', branch: 'master'
+    pod 'ImageRow', :git=> 'https://github.com/CaptainYukinoshitaHachiman/ImageRow.git', branch: 'master'
     pod 'PAPermissions'
     pod 'ViewAnimator'
     pod 'CFNotify'

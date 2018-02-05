@@ -246,7 +246,7 @@ extension IndexViewController: UIViewControllerPreviewingDelegate {
 }
 
 // Contributing
-extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, IGRPhotoTweakViewControllerDelegate {
     
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if !isContributing {
@@ -305,7 +305,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         alertController.addAction(UIAlertAction(title: "Choose from album", style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
             let picker = UIImagePickerController()
-            picker.allowsEditing = true
+            picker.allowsEditing = false
             picker.delegate = self
             picker.mediaTypes =  [kUTTypeImage as String]
             picker.sourceType = .savedPhotosAlbum
@@ -314,10 +314,27 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         present(alertController, animated: true)
     }
     
+    func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
+        animePic = croppedImage
+    }
+    
+    func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
+        
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        animePic = info[UIImagePickerControllerEditedImage] as? UIImage
-        picker.dismiss(animated: true, completion: nil)
-        askForCopyrightInfo()
+        animePic = info[UIImagePickerControllerOriginalImage] as? UIImage
+        picker.dismiss(animated: true) {
+            // cropping
+            let controller = SquareImageCroppingViewController()
+            controller.image = self.animePic
+            controller.delegate = self
+            controller.previousController = self
+            controller.misc = {
+                self.askForCopyrightInfo()
+            }
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

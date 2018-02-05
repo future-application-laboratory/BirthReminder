@@ -13,13 +13,14 @@ import CoreData
 import StoreKit
 import CFNotify
 
-class PersonFormController: FormViewController, ManagedObjectContextUsing {
+class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPhotoTweakViewControllerDelegate {
     
     private var formMode = Mode.new
     
     private var newPerson: People?
     private var persistentPerson: PeopleToSave?
     
+    private var editedImage: UIImage?
     
     public func setup(with mode: Mode, person: Any?) {
         switch mode {
@@ -51,14 +52,21 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
                 row.tag = "birth"
                 row.title = NSLocalizedString("birth", comment: "Birth")
                 row.value = (newPerson?.stringedBirth ?? persistentPerson?.birth) ?? "01-01"
-                
             }
             +++ Section(NSLocalizedString("image", comment: "Image"))
             <<< ImageRow() { row in
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
                 row.value = UIImage(data: (newPerson?.picPack?.data ?? persistentPerson?.picData) ?? Data())
-                row.allowEditing = true
+                row.didSetImage = { image in
+                    if let image = image {
+                        let controller = SquareImageCroppingViewController()
+                        controller.image = image
+                        controller.delegate = self
+                        controller.previousController = self
+                        self.navigationController?.pushViewController(controller, animated: true)
+                    }
+                }
             }
             <<< TextRow() { row in
                 row.tag = "imageCopyright"
@@ -93,7 +101,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
         let values = form.values()
         let name = values["name"] as? String
         let birth = values["birth"] as? String
-        let image = values["image"] as? UIImage
+        let image = editedImage ?? (values["image"] as? UIImage)
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
         let imageCopyright = values["imageCopyright"] as? String
         let shouldSync = values["shouldSync"] as? Bool
@@ -147,6 +155,14 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing {
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
+        editedImage = croppedImage
+    }
+    
+    func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
+
     }
     
 }
