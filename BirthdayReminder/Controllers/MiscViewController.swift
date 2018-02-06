@@ -33,30 +33,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
             controller.acknowledgements! += [
                 Acknow(title: "Material Icons", text: "Icons in the app are from Google Materail Icons.\nThe icons are available under the Apache License Version 2.0. We'd love attribution in your app's \"about\" screen, but it's not required. The only thing we ask is that you not re-sell these icons. https://material.io/icons/", license: "apache-2.0"),
                 Acknow(title: "OpenCC", text: "The Traditional Chinese Localization are converted from Simplefied Chinese by OpenCC, which is licenced under Apache License 2.0 https://github.com/BYVoid/OpenCC", license: "apache-2.0"),
-                Acknow(title: "Pics on the Server", text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@protonmail.com"),
-                Acknow(title: "IGRPhotoTweaks", text: """
-                MIT License
-
-                Copyright (c) 2017 IGR Software
-
-                Permission is hereby granted, free of charge, to any person obtaining a copy
-                of this software and associated documentation files (the "Software"), to deal
-                in the Software without restriction, including without limitation the rights
-                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                copies of the Software, and to permit persons to whom the Software is
-                furnished to do so, subject to the following conditions:
-
-                The above copyright notice and this permission notice shall be included in all
-                copies or substantial portions of the Software.
-
-                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-                SOFTWARE.
-                """, license: "mit")
+                Acknow(title: "Pics on the Server", text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@protonmail.com")
             ]
             navigationController?.pushViewController(controller, animated: true)
         case 2:

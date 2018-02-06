@@ -12,6 +12,7 @@ import SnapKit
 import ViewAnimator
 import Floaty
 import MobileCoreServices
+import IGRPhotoTweaks
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
     

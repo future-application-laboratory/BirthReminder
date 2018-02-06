@@ -17,5 +17,6 @@ target 'BirthdayReminder' do
     pod 'NVActivityIndicatorView'
     pod 'InAppNotify', :git=> 'https://github.com/lucabecchetti/InAppNotify.git', branch: 'swift4'
     pod 'Floaty'
+    pod 'IGRPhotoTweaks'
     
 end

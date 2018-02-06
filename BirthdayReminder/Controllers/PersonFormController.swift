@@ -12,6 +12,7 @@ import ImageRow
 import CoreData
 import StoreKit
 import CFNotify
+import IGRPhotoTweaks
 
 class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPhotoTweakViewControllerDelegate {
     

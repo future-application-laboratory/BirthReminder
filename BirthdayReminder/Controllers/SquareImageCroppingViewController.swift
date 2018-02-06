@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IGRPhotoTweaks
 
 class SquareImageCroppingViewController: IGRPhotoTweakViewController {
 
