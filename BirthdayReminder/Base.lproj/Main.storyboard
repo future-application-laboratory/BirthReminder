@@ -14,7 +14,7 @@
         <!--Index-->
         <scene sceneID="Q42-TR-MOL">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="L7a-Tq-nag" customClass="IndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="indexController" automaticallyAdjustsScrollViewInsets="NO" id="L7a-Tq-nag" customClass="IndexViewController" customModule="BirthdayReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n35-VN-Pqi"/>
                         <viewControllerLayoutGuide type="bottom" id="2dV-1Y-0A0"/>
@@ -232,7 +232,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acknowledgements" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGg-6x-OpC">
-                                                    <rect key="frame" x="112.66666666666669" y="14.666666666666666" width="150" height="20.333333333333336"/>
+                                                    <rect key="frame" x="112.66666666666669" y="14.666666666666664" width="151" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -311,6 +311,28 @@
                                             <constraints>
                                                 <constraint firstItem="2Tb-ld-rJx" firstAttribute="centerX" secondItem="CqU-qj-GtO" secondAttribute="centerX" id="otl-B3-5Di"/>
                                                 <constraint firstItem="2Tb-ld-rJx" firstAttribute="centerY" secondItem="CqU-qj-GtO" secondAttribute="centerY" id="uFx-mq-nkj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Pur-Ud-fmY">
+                                        <rect key="frame" x="0.0" y="200" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pur-Ud-fmY" id="dVU-Uv-R4q">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contribute Online Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D72-xj-yss">
+                                                    <rect key="frame" x="103.66666666666669" y="14.666666666666664" width="168" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="D72-xj-yss" firstAttribute="centerY" secondItem="dVU-Uv-R4q" secondAttribute="centerY" id="2gk-NR-B3O"/>
+                                                <constraint firstItem="D72-xj-yss" firstAttribute="centerX" secondItem="dVU-Uv-R4q" secondAttribute="centerX" id="Hm9-Yr-D9a"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

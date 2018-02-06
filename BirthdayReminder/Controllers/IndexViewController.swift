@@ -13,6 +13,7 @@ import ViewAnimator
 import Floaty
 import MobileCoreServices
 import IGRPhotoTweaks
+import NVActivityIndicatorView
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
     
@@ -54,6 +55,9 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         return label
     }()
     
+    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
+    private let indicatorBackground = UIView()
+    
     private let floaty = Floaty()
     
     override func viewDidLoad() {
@@ -74,6 +78,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
         setupTableView()
         setupFloaty()
+        setupIndicator()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
     
@@ -110,6 +115,20 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         data = frc.fetchedObjects!
         data = BirthComputer.peopleOrderedByBirthday(peopleToReorder: data)
         checkDataAndDisplayPlaceHolder()
+    }
+    
+    private func setupIndicator() {
+        indicatorBackground.backgroundColor = .gray
+        indicatorBackground.alpha = 0.5
+        indicatorBackground.isHidden = true
+        view.addSubview(indicatorBackground)
+        indicatorBackground.snp.makeConstraints() { make in
+            make.edges.equalToSuperview()
+        }
+        indicatorBackground.addSubview(activityIndicator)
+        activityIndicator.snp.makeConstraints() { make in
+            make.center.equalToSuperview()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -249,8 +268,8 @@ extension IndexViewController: UIViewControllerPreviewingDelegate {
 // Contributing
 extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, IGRPhotoTweakViewControllerDelegate {
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        if !isContributing {
+    public func startContributingIfNotAlready() {
+        if isContributing != true {
             isContributing = true
         }
     }
@@ -380,10 +399,43 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
             personForContribution.picPack?.copyright = copyright
             return personForContribution
         }
-        NetworkController.provider.request(TCWQService.contribution(animeName: animeName, animePicPack: animePicPack, people: people, contributorInfo: contactInfo)) { response in
-            // Todo
+        activityIndicator.startAnimating()
+        indicatorBackground.isHidden = false
+        NetworkController.networkQueue.async {
+            NetworkController.provider.request(TCWQService.contribution(animeName: self.animeName, animePicPack: animePicPack, people: people, contributorInfo: self.contactInfo)) { result in
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    self.indicatorBackground.isHidden = true
+                    switch result {
+                    case .success(let response):
+                        if response.statusCode == 200 {
+                            self.isContributing = false
+                            let controller = UIAlertController(title: NSLocalizedString("done", comment: "Done"), message: NSLocalizedString("contributionThanks", comment: "contributionThanks"), preferredStyle: .alert)
+                            controller.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "ok"), style: .default))
+                            self.present(controller, animated: true, completion: nil)
+                        } else {
+                            let controller = UIAlertController(title: NSLocalizedString("failedToUpload", comment: "Failed To Upload"), message: response.description, preferredStyle: .alert)
+                            controller.addAction(UIAlertAction(title: NSLocalizedString("retry", comment: "Retry"), style: .default) { _ in
+                                self.submit()
+                            })
+                            controller.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .default) { _ in
+                                self.isContributing = false
+                            })
+                            self.present(controller, animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        let controller = UIAlertController(title: NSLocalizedString("failedToUpload", comment: "Failed To Upload"), message: error.localizedDescription, preferredStyle: .alert)
+                        controller.addAction(UIAlertAction(title: NSLocalizedString("retry", comment: "Retry"), style: .default) { _ in
+                            self.submit()
+                        })
+                        controller.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .default) { _ in
+                            self.isContributing = false
+                        })
+                        self.present(controller, animated: true, completion: nil)
+                    }
+                }
+            }
         }
-        isContributing = false
     }
     
 }

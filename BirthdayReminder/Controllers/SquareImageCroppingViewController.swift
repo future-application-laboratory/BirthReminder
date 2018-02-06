@@ -19,14 +19,14 @@ class SquareImageCroppingViewController: IGRPhotoTweakViewController {
         
         title = NSLocalizedString("cropping", comment: "cropping")
         
+        navigationItem.largeTitleDisplayMode = .never
+        
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
         navigationItem.setRightBarButton(doneBarButtonItem, animated: true)
         navigationItem.hidesBackButton = true
         
         setCropAspectRect(aspect: "1:1")
         lockAspectRatio(true)
-        
-        self.view.backgroundColor = .background
     }
 
     override func didReceiveMemoryWarning() {

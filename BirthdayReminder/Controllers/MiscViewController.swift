@@ -49,6 +49,11 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
             tableView.reloadData()
         case 3:
             present(tutorialController, animated: true, completion: nil)
+        case 4:
+            let navigationController = tabBarController?.viewControllers?.first as! UINavigationController
+            let indexController = navigationController.viewControllers.first as! IndexViewController
+            indexController.startContributingIfNotAlready()
+            tabBarController?.selectedIndex = 0
         default:
             break
         }
