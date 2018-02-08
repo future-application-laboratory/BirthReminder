@@ -74,8 +74,10 @@ extension TCWQService: TargetType {
         case .notification(let token):
             return .requestParameters(parameters: ["token":token], encoding: JSONEncoding.default)
         case .contribution(let (animeName,picPack,people,contributorInfo)):
-            // Refactor required here!
-            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution!],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo]
+            let defaults = UserDefaults.standard
+            let token = defaults.string(forKey: "remoteToken") ?? "nil"
+            
+            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution!],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo,"token":token]
             return .requestParameters(parameters: object, encoding: JSONEncoding.default)
         default:
             return .requestPlain

@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-
 // Core Data Persisting
-
 final class PeopleToSave: ManagedObject {
     
     @NSManaged public var name: String
@@ -72,13 +70,17 @@ typealias ManagedObject = NSManagedObject
 
 private let storeUrl = FileManager().containerURL(forSecurityApplicationGroupIdentifier: "group.tech.tcwq.birthdayreminder")?.appendingPathComponent("Data.br")
 
-public func createDataMainContext() -> NSManagedObjectContext {
+public func createDataMainContext(with configuration: ((NSPersistentStoreDescription, NSManagedObjectModel)->())? = nil) -> NSManagedObjectContext {
     let bundles = [Bundle(for: PeopleToSave.self)]
     guard let model = NSManagedObjectModel.mergedModel(from: bundles) else {
         fatalError("Model not found")
     }
     let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
-    try! psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: [NSMigratePersistentStoresAutomaticallyOption:true,NSInferMappingModelAutomaticallyOption:true])
+    let storeDescription = NSPersistentStoreDescription(url: storeUrl!)
+    storeDescription.shouldMigrateStoreAutomatically = true
+    storeDescription.shouldInferMappingModelAutomatically = true
+    configuration?(storeDescription, model)
+    psc.addPersistentStore(with: storeDescription) { _,_ in }
     let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     context.persistentStoreCoordinator = psc
     return context

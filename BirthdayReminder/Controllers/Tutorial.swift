@@ -60,10 +60,6 @@ class OnboardViewController: OnboardingViewController {
         PresentingViewController.shared = self
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     @objc func requestPermisson() {
         show(PermissionController(), sender: nil)
     }

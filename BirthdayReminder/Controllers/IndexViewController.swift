@@ -125,7 +125,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         indicatorBackground.snp.makeConstraints() { make in
             make.edges.equalToSuperview()
         }
-        indicatorBackground.addSubview(activityIndicator)
+        view.addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints() { make in
             make.center.equalToSuperview()
         }
