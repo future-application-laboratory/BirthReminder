@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 
 public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+    // TODO: Do you know `UIDatePicker` exists?
     let pickerView = UIPickerView()
     
     let monthDict = [
@@ -46,7 +46,6 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
             pickerView.selectRow(Int(month)! - 1, inComponent: 0, animated: false)
             pickerView.selectRow(Int(day)! - 1, inComponent: 1, animated: false)
         }
-        
     }
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {

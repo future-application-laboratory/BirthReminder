@@ -21,7 +21,7 @@ class RoundCornerTableViewCell: UITableViewCell {
         selectedFrontView.snp.makeConstraints() { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
         }
-        selectedFrontView.backgroundColor = UIColor(hexString: "D9D9D9")
+        selectedFrontView.backgroundColor = #colorLiteral(red: 0.8797392845, green: 0.8797599673, blue: 0.8797488809, alpha: 1)
         selectedFrontView.layer.cornerRadius = 10
         selectedFrontView.layer.masksToBounds = true
         
