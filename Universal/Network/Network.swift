@@ -172,7 +172,7 @@ final class PicPack: Mappable {
     var copyright: String!
     var pic: UIImage? {
         guard let data = picData else { return nil }
-        return UIImage(data: data as Data)!
+        return UIImage(data: data as Data)
     }
     var data: Data? {
         guard let pic = pic else { return nil }
@@ -199,7 +199,10 @@ final class PicPack: Mappable {
     }
     
     var objectForContribution: [String:Any]? {
-        return ["base64":base64,"copyright":copyright]
+        guard let image = pic,
+            let resizedImage = UIImage(image: image, scaledTo: CGSize(width: 200, height: 200)),
+            let resizedPack = PicPack(image: resizedImage, copyrightInfo: copyright) else { return nil }
+        return ["base64":resizedPack.base64,"copyright":copyright]
     }
     
 }

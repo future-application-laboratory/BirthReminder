@@ -10,7 +10,7 @@ import UIKit
 
 class ContactViewController: ViewController {
     let urls: [URL] = [
-        "mailto://CaptainYukinoshitaHachiman@ProtonMail.com",
+        "mailto://CaptainYukinoshitaHachiman@tcwq.tech",
         "https://space.bilibili.com/5766898",
         "https://github.com/CaptainYukinoshitaHachiman"
     ]

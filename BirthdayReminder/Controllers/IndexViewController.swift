@@ -57,7 +57,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     
     private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     private let indicatorBackground = UIView()
-    
+    private let uploadingLabel = UILabel()
     private let floaty = Floaty()
     
     override func viewDidLoad() {
@@ -128,6 +128,15 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         view.addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints() { make in
             make.center.equalToSuperview()
+        }
+        uploadingLabel.isHidden = true
+        uploadingLabel.text = NSLocalizedString("uploading", comment: "Uploading...")
+        uploadingLabel.font = UIFont.systemFont(ofSize: 32)
+        uploadingLabel.textColor = .white
+        view.addSubview(uploadingLabel)
+        uploadingLabel.snp.makeConstraints() { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(activityIndicator.snp.bottom).offset(5)
         }
     }
     
@@ -276,7 +285,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     private func onContribute() {
         showContributeInstructions()
-        let buttonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        let buttonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done(sender:)))
         navigationItem.setLeftBarButtonItems([buttonItem], animated: true)
     }
     
@@ -295,7 +304,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         present(alertController, animated: true)
     }
     
-    @objc private func done() {
+    @objc private func done(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "End editing", message: "Are you sure to contribute these selected characters?", preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Yes, I'd like to contribute the selected \(tableView.indexPathsForSelectedRows?.count ?? 0) character(s)", style: .default) { _ in
             self.getAnimeName()
@@ -304,6 +313,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         alertController.addAction(UIAlertAction(title: "No, I'd like to exit contributing mode", style: .destructive) { _ in
             self.isContributing = false
         })
+        alertController.popoverPresentationController?.barButtonItem = sender
         present(alertController, animated: true, completion: nil)
     }
     
@@ -401,11 +411,13 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         }
         activityIndicator.startAnimating()
         indicatorBackground.isHidden = false
+        uploadingLabel.isHidden = false
         NetworkController.networkQueue.async {
             NetworkController.provider.request(TCWQService.contribution(animeName: self.animeName, animePicPack: animePicPack, people: people, contributorInfo: self.contactInfo)) { result in
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.indicatorBackground.isHidden = true
+                    self.uploadingLabel.isHidden = true
                     switch result {
                     case .success(let response):
                         if response.statusCode == 200 {
@@ -414,7 +426,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
                             controller.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "ok"), style: .default))
                             self.present(controller, animated: true, completion: nil)
                         } else {
-                            let controller = UIAlertController(title: NSLocalizedString("failedToUpload", comment: "Failed To Upload"), message: response.description, preferredStyle: .alert)
+                            let controller = UIAlertController(title: NSLocalizedString("failedToUpload", comment: "Failed To Upload"), message: "Status code: \(response.statusCode)\nError message: \(String(data: response.data, encoding: .utf8) ?? "Empty")", preferredStyle: .alert)
                             controller.addAction(UIAlertAction(title: NSLocalizedString("retry", comment: "Retry"), style: .default) { _ in
                                 self.submit()
                             })

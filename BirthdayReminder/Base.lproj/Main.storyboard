@@ -8,6 +8,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -100,6 +101,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sc7-Uz-RmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="au5-T4-y33">
+                    <rect key="frame" x="0.0" y="0.0" width="260" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </objects>
             <point key="canvasLocation" x="-3039" y="1728"/>
         </scene>
@@ -412,38 +420,43 @@
                                 <color key="textColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC4-VL-MKT">
-                                <rect key="frame" x="162.66666666666666" y="338" width="50" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="Email">
-                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="7Fp-6N-jWy"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD0-S1-7Qf">
-                                <rect key="frame" x="159.66666666666666" y="388" width="56" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="BiliBili">
-                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="ihp-Ta-0tH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-Sd-xph">
-                                <rect key="frame" x="155" y="438" width="65" height="36"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="GitHub">
-                                    <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="EU6-dO-sjf"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s2s-se-kNi">
+                                <rect key="frame" x="155" y="344" width="65" height="124"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VC4-VL-MKT">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="Email">
+                                            <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="7Fp-6N-jWy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eD0-S1-7Qf">
+                                        <rect key="frame" x="0.0" y="44" width="65" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="BiliBili">
+                                            <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="ihp-Ta-0tH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-Sd-xph">
+                                        <rect key="frame" x="0.0" y="88" width="65" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="GitHub">
+                                            <color key="titleColor" red="0.23018704349999999" green="0.77713233230000001" blue="0.31589496140000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTouch:" destination="hSP-kt-Zj4" eventType="touchUpInside" id="EU6-dO-sjf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(・ω・)ノ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44Q-IU-5V3">
-                                <rect key="frame" x="89" y="605" width="197" height="54"/>
+                                <rect key="frame" x="89.333333333333329" y="605" width="196.33333333333337" height="54"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -452,15 +465,11 @@
                         <color key="backgroundColor" red="0.90823972225189209" green="0.92638683319091797" blue="0.9317171573638916" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="RW7-Gs-JQl" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="1XV-ef-SOL"/>
-                            <constraint firstItem="eD0-S1-7Qf" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" id="1aB-Iy-3I3"/>
                             <constraint firstItem="RW7-Gs-JQl" firstAttribute="top" secondItem="S9g-UF-V2f" secondAttribute="bottom" constant="70" id="4DN-ve-4D9"/>
-                            <constraint firstItem="Fr0-Sd-xph" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" constant="50" id="D6c-it-2lU"/>
-                            <constraint firstItem="VC4-VL-MKT" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="NM8-ko-jSW"/>
-                            <constraint firstItem="Fr0-Sd-xph" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="dia-2W-VzU"/>
+                            <constraint firstItem="s2s-se-kNi" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" id="CRd-xg-AUD"/>
+                            <constraint firstItem="s2s-se-kNi" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="Nq2-IY-F2e"/>
                             <constraint firstItem="O8n-8M-mak" firstAttribute="top" secondItem="44Q-IU-5V3" secondAttribute="bottom" constant="70" id="is6-YM-gwL"/>
-                            <constraint firstItem="VC4-VL-MKT" firstAttribute="centerY" secondItem="q1B-YJ-99c" secondAttribute="centerY" constant="-50" id="kH6-wZ-aNW"/>
                             <constraint firstItem="44Q-IU-5V3" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="lg9-6I-OmY"/>
-                            <constraint firstItem="eD0-S1-7Qf" firstAttribute="centerX" secondItem="q1B-YJ-99c" secondAttribute="centerX" id="sFk-JH-qaJ"/>
                         </constraints>
                     </view>
                 </viewController>
