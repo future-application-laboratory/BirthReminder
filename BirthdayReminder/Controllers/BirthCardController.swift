@@ -36,7 +36,6 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         isTranslucent = true
     }
 
-    private var bgColor: UIColor?
     private var isTranslucent: Bool = false {
         didSet {
             if oldValue == isTranslucent { return }
@@ -58,21 +57,11 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        isTranslucent = true
-    }
-
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         isTranslucent = false
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        isTranslucent = false
-    }
-    
+
     private func setBackground() {
         // Blur Effects
         let blurEffect = UIBlurEffect(style: .light)

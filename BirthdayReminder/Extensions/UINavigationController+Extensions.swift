@@ -20,8 +20,11 @@ extension UINavigationController {
     
     func setVisualEffectViewHidden(_ isHidden: Bool = true) {
         navigationBar.subviews.forEach {
-            ($0 as? UIVisualEffectView)?.isHidden = isHidden
-            $0.subviews.forEach { $0.isHidden = isHidden }
+            $0.subviews.forEach {
+                if let background = $0 as? UIVisualEffectView {
+                    background.isHidden = isHidden
+                }
+            }
         }
     }
     
