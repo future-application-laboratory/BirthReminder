@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5232356C1FDCB96200CAB37D /* BirthComputingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */; };
+		526B5BC1202ED2A700E76FB3 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */; };
 		526C89C11F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
 		526C89C21F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
 		526C89C31F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
@@ -151,6 +152,7 @@
 		523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthReminderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		523235651FDCB8EA00CAB37D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputingTests.swift; sourceTree = "<group>"; };
+		526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		526C89C41F7F3E4D006A2E57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		527F58AE202DFF44005A9A7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		527F58B1202DFF44005A9A7D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -300,6 +302,14 @@
 			path = BirthReminderTests;
 			sourceTree = "<group>";
 		};
+		526B5BBF202ED27F00E76FB3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		526C89B81F7F3640006A2E57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -418,6 +428,7 @@
 		B06883561F1EEB2D00831AA6 /* BirthdayReminder */ = {
 			isa = PBXGroup;
 			children = (
+				526B5BBF202ED27F00E76FB3 /* Extensions */,
 				70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */,
 				B0A46CC91F4168B7000E5F30 /* Media.xcassets */,
 				70C5EF7F1FDBFD2C0068FAC2 /* Model */,
@@ -927,6 +938,7 @@
 				B060439A1F3C9978007D1016 /* MiscViewController.swift in Sources */,
 				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
+				526B5BC1202ED2A700E76FB3 /* UINavigationController+Extensions.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,

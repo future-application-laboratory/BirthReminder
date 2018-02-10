@@ -73,9 +73,8 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
         emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
-        navigationController?.navigationBar.barTintColor = .bar
-        navigationController?.navigationBar.tintColor = .tint
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor.title]
+        navigationController?.barTintColor = .bar
+        navigationController?.tintColor = .tint
         setupTableView()
         setupFloaty()
         setupIndicator()
@@ -86,17 +85,17 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         floaty.sticky = true
         floaty.friendlyTap = true
         floaty.hasShadow = false
-        floaty.buttonImage = UIImage(named: "add")
+        floaty.buttonImage = #imageLiteral(resourceName: "add")
         floaty.overlayColor = .clear
         floaty.buttonColor = .flatMintDark
-        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: UIImage(named: "ic_edit")) { item in
+        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: #imageLiteral(resourceName: "ic_edit")) { item in
             let controller = PersonFormController()
             controller.setup(with: .new, person: nil)
             controller.title = NSLocalizedString("new", comment: "New")
             controller.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: UIImage(named: "ic_remote")) { item in
+        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: #imageLiteral(resourceName: "ic_remote")) { item in
             self.performSegue(withIdentifier: "showAnimes", sender: nil)
         }
         floaty.items.forEach() { item in

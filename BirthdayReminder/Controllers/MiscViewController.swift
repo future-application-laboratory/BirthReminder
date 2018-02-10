@@ -15,7 +15,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = .bar
+        navigationController?.barTintColor = .bar
         tableView.backgroundColor = .background
         tableView.tableFooterView = UIView()
     }
@@ -83,9 +83,9 @@ class AcknowsController: AcknowListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            .font:UIFont.systemFont(ofSize: 32, weight: .semibold),
-            .foregroundColor:UIColor.white
+            .font: UIFont.systemFont(ofSize: 32, weight: .semibold)
         ]
+        navigationController?.tintColor = .tint
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

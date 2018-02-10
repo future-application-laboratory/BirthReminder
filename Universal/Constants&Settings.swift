@@ -12,7 +12,6 @@ extension UIColor {
     static let background = UIColor.flatWhite
     static let bar = UIColor.flatGreenDark
     static let tint = UIColor.flatWhite
-    static let title = UIColor.flatWhite
     static let label = UIColor.flatWhite
     static let label2 = UIColor.flatGreen
     static let cell = UIColor.flatGreen

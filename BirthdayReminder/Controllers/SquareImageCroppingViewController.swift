@@ -12,7 +12,7 @@ import IGRPhotoTweaks
 class SquareImageCroppingViewController: IGRPhotoTweakViewController {
 
     public var previousController: UIViewController!
-    public var misc: (() -> ())?
+    public var misc: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,6 @@ class SquareImageCroppingViewController: IGRPhotoTweakViewController {
         
         setCropAspectRect(aspect: "1:1")
         lockAspectRatio(true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     @objc private func onDone() {

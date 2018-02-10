@@ -10,9 +10,9 @@ import UIKit
 import Eureka
 
 public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPickerViewDataSource {
-    // TODO: Do you know `UIDatePicker` exists?
     let pickerView = UIPickerView()
-    
+
+    // TODO: Consider flatterning this to Array?
     let monthDict = [
         1:31,
         2:29,
@@ -36,7 +36,7 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         pickerView.snp.makeConstraints() { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 20))
         }
-        height = { return 200 }
+        height = { 200 }
         pickerView.delegate = self
         pickerView.dataSource = self
         
@@ -72,30 +72,21 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
             return "\(row + 1)"
         }
     }
-    
+
+    // FIXME: Displays wrong date when swipe too fast.
     public func pickerView(_ pickerView: UIPickerView, didSelectRow _: Int, inComponent component: Int) {
         if component == 0 {
             pickerView.reloadComponent(1)
         }
-        var day = String(pickerView.selectedRow(inComponent: 1) + 1)
-        var month = String(pickerView.selectedRow(inComponent: 0) + 1)
-        if day.count != 2 {
-            day = "0" + day
-        }
-        if month.count != 2 {
-            month = "0" + month
-        }
-        row.value = month + "-" + day
+        row.value = String(format: "%02d-%02d",
+                           pickerView.selectedRow(inComponent: 0) + 1,
+                           pickerView.selectedRow(inComponent: 1) + 1)
         row.updateCell()
     }
-    
-    
 }
 
 public final class DatePickingRow: Row<DatePickingCell>, RowType {
-    
     public required init(tag: String?) {
         super.init(tag: tag)
     }
-    
 }
