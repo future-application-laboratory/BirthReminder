@@ -38,9 +38,7 @@ extension UINavigationController {
         set {
             navigationBar.tintColor = newValue
             navigationBar.titleTextAttributes![.foregroundColor] = newValue
-            if #available(iOS 11.0, *) {
-                navigationBar.largeTitleTextAttributes![.foregroundColor] = newValue
-            }
+            navigationBar.largeTitleTextAttributes![.foregroundColor] = newValue
         }
     }
 }

@@ -26,7 +26,7 @@
 "add" = "添加";
 
 /* The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index) */
-"agreement" = "这些信息收集于互联网，且他们不属于此App的开发者。\n如果您认为这里的信息侵犯了您的著作权或著佐权，请通过邮件联络我，我会将其删除\n（您可以在App Store页面或本应用设置界面找到我的联络方式）";
+"agreement" = "这些信息收集于互联网，且他们不属于此 App 的开发者。\n如果您认为这里的信息侵犯了您的著作权或著佐权，请通过邮件联络我，我会将其删除\n（您可以在App Store页面或本应用设置界面找到我的联络方式）";
 
 /* AppleWatchSyncing */
 "appleWatchSyncing" = "同步到 Apple Watch";
@@ -73,7 +73,7 @@
 "edit" = "编辑";
 
 /* emptyLabelText */
-"emptyLabelText" = "还没有添加人物\n按右上角的 + 来添加";
+"emptyLabelText" = "还没有添加人物\n按右下角的 + 来添加";
 
 /* enjoy */
 "enjoy" = "开始使用";
@@ -88,7 +88,7 @@
 "failedToUpload" = "上传失败";
 
 /* FromBirthReminder */
-"fromBirthReminder" = "发送自 BirthReminder";
+"fromBirthReminder" = "分享自 BirthReminder";
 
 /* Image */
 "image" = "图片";
@@ -118,7 +118,7 @@
 "page1title" = "欢迎使用 BirthReminder";
 
 /* page2 body */
-"page2body" = "您当然可以手动输入角色及其生日来添加，不过我们拒绝繁琐。BirthReminder 内置海量 ACGN 角色，你只需点击添加按钮，就是这么简单。";
+"page2body" = "您当然可以手动输入角色及其生日来添加，但我们拒绝繁琐。BirthReminder 内置海量 ACGN 角色，你只需点击添加按钮，就是这么简单。";
 
 /* page2 title */
 "page2title" = "预置信息\n方便快捷";
@@ -167,4 +167,7 @@
 
 /* Uploading... */
 "uploading" = "上传中";
+
+/* Delete */
+"delete" = "删除";
 

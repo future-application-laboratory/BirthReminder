@@ -40,6 +40,7 @@ var tutorialController: OnboardViewController {
     page4.actionButton.addTarget(nil, action: #selector(onboardVC?.requestPermisson), for: .touchUpInside)
     page4.bottomPadding = 10
     
+    // iPhone 5 screen support
     onboardVC?.viewControllers.forEach { controller in
         if let onbordContentController = controller as? OnboardingContentViewController {
             if UIScreen.main.bounds.height < 665 {

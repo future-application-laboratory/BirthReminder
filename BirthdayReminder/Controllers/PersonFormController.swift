@@ -183,6 +183,7 @@ final class DeleteButtonRow: _ButtonRowOf<String>, RowType {
         alertController.addAction(UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { _ in
             self.context?.delete(self.objectToDelete)
             try? self.context?.save()
+            self.confirmationParentViewControlelr.navigationController?.popToRootViewController(animated: true)
         })
         alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel))
         confirmationParentViewControlelr.present(alertController, animated: true, completion: nil)
@@ -190,6 +191,7 @@ final class DeleteButtonRow: _ButtonRowOf<String>, RowType {
     
     required init(tag: String?) {
         super.init(tag: tag)
+        cell.tintColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
     }
     
 }

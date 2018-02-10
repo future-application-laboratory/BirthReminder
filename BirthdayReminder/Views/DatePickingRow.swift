@@ -10,23 +10,8 @@ import UIKit
 import Eureka
 
 public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPickerViewDataSource {
-    let pickerView = UIPickerView()
-
-    // TODO: Consider flatterning this to Array?
-    let monthDict = [
-        1:31,
-        2:29,
-        3:31,
-        4:30,
-        5:31,
-        6:30,
-        7:31,
-        8:31,
-        9:30,
-        10:31,
-        11:30,
-        12:31
-    ]
+    private let pickerView = UIPickerView()
+    private let daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     
     public override func setup() {
         super.setup()
@@ -57,7 +42,7 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         case 0:
             return 12
         default:
-            return monthDict[pickerView.selectedRow(inComponent: 0)+1]!
+            return daysInMonth[pickerView.selectedRow(inComponent: 0)]
         }
     }
     
