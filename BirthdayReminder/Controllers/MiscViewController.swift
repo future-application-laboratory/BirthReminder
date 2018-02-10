@@ -52,6 +52,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
         case 4:
             let navigationController = tabBarController?.viewControllers?.first as! UINavigationController
             let indexController = navigationController.viewControllers.first as! IndexViewController
+            navigationController.popToRootViewController(animated: true)
             indexController.startContributingIfNotAlready()
             tabBarController?.selectedIndex = 0
         default:
@@ -59,7 +60,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    func submitFeedback(_ feedback: String) {
+    private func submitFeedback(_ feedback: String) {
         let defaults = UserDefaults.standard
         let token = defaults.string(forKey: "remoteToken")
         let content = feedback + "\ntoken: \(token ?? "not set")"

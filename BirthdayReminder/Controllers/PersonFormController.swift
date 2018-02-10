@@ -68,6 +68,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                         self.navigationController?.pushViewController(controller, animated: true)
                     }
                 }
+                row.sourceTypes = ImageRowSourceTypes.PhotoLibrary
                 self.imageRow = row
             }
             <<< TextRow() { row in
@@ -81,17 +82,19 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 row.tag = "shouldSync"
                 row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
                 row.value = persistentPerson?.shouldSync ?? false
+        }
+        if formMode == .edit {
+            form +++ Section()
+                <<< DeleteButtonRow() { row in
+                    row.context = context
+                    row.objectToDelete = persistentPerson
+                    row.confirmationParentViewControlelr = self
+                    row.title = NSLocalizedString("delete", comment: "Delete")
             }
-            +++ Section()
-            <<< ButtonRow() {row in
-                row.title = NSLocalizedString("done",comment: "done")
         }
         
-        // Delete Button
-        if formMode == .edit {
-            let buttonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(delete(button:)))
-            navigationItem.setRightBarButton(buttonItem, animated: true)
-        }
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSave(sender:)))
+        navigationItem.setRightBarButton(barButtonItem, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,7 +102,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         PresentingViewController.shared = self
     }
     
-    private func save() {
+    @objc private func onSave(sender: UIBarButtonItem) {
         let values = form.values()
         let name = values["name"] as? String
         let birth = values["birth"] as? String
@@ -127,18 +130,18 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 CFNotify.present(config: config, view: cfView)
             }
         }
+        
+        navigationController?.popViewController(animated: true)
+        SKStoreReviewController.requestReview()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
         if indexPath.section == 4 {
-            save()
-            navigationController?.popViewController(animated: true)
-            SKStoreReviewController.requestReview()
         }
     }
     
-    @objc private func delete(button: UIBarButtonItem) {
+    private func delete() {
         let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { [unowned self] _ in
             do {
@@ -164,7 +167,29 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
     }
     
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
+        
+    }
+    
+}
 
+final class DeleteButtonRow: _ButtonRowOf<String>, RowType {
+    
+    weak var objectToDelete: NSManagedObject!
+    weak var context: NSManagedObjectContext!
+    weak var confirmationParentViewControlelr: UIViewController!
+    
+    override func customDidSelect() {
+        let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { _ in
+            self.context?.delete(self.objectToDelete)
+            try? self.context?.save()
+        })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel))
+        confirmationParentViewControlelr.present(alertController, animated: true, completion: nil)
+    }
+    
+    required init(tag: String?) {
+        super.init(tag: tag)
     }
     
 }
