@@ -27,11 +27,43 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         super.viewDidLoad()
         setBackground()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         nameLabel.text = person.name
         birthLabel.text = "\(person.birth.toLocalizedDate() ?? "")\n(\(person.birth.toLeftDays() ?? ""))"
         imageView.image = UIImage(data: person.picData ?? Data())
+        isTranslucent = true
+    }
+
+    private var isTranslucent: Bool = false {
+        didSet {
+            if isTranslucent {
+                navigationController?.barTintColor = .clear
+                navigationController?.tintColor = .flatBlack
+
+                tabBarController?.tabBar.backgroundImage = UIImage()
+                tabBarController?.tabBar.shadowImage = UIImage()
+                tabBarController?.tabBar.isTranslucent = true
+            } else {
+                navigationController?.barTintColor = .bar
+                navigationController?.tintColor = .tint
+
+                tabBarController?.tabBar.barTintColor = .bar
+                tabBarController?.tabBar.shadowImage = nil
+                tabBarController?.tabBar.isTranslucent = false
+            }
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        isTranslucent = true
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isTranslucent = false
     }
     
     private func setBackground() {
@@ -105,5 +137,4 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen,.flatMint])
     }
-    
 }

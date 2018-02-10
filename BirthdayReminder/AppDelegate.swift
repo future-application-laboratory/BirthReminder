@@ -19,14 +19,14 @@ ManagedObjectContextUsing {
     
     var window: UIWindow?
     
-    // Help wanted: CoreData Spotlight Integration not working
+    // FIXME: Help wanted: CoreData Spotlight Integration not working
     static let context = createDataMainContext() { storeDescription,model in
         let coreDataCoreSpotlightDelegate = NSCoreDataCoreSpotlightDelegate(forStoreWith: storeDescription, model: model)
         storeDescription.setOption(coreDataCoreSpotlightDelegate, forKey: NSCoreDataCoreSpotlightExporter)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //Watch Connectivity Configuration
+        // Watch Connectivity Configuration
         if WCSession.isSupported() {
             let session = WCSession.default
             session.delegate = self
@@ -89,7 +89,7 @@ ManagedObjectContextUsing {
             else { return }
         session.outstandingFileTransfers.forEach { $0.cancel() }
         let request = PeopleToSave.sortedFetchRequest
-        let people = try! context.fetch(request).compactMap { person -> PeopleToTransfer? in
+        let people = try! context.fetch(request).filterOutNil { person -> PeopleToTransfer? in
             guard person.shouldSync else { return nil }
             let picData = person.picData
             return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
