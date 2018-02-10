@@ -12,7 +12,7 @@ import PAPermissions
 import SnapKit
 
 var tutorialController: OnboardViewController {
-    let backgroundImage = UIImage(named: "background")
+    let backgroundImage = #imageLiteral(resourceName: "background")
     
     let page1 = OnboardingContentViewController(title: NSLocalizedString("page1title", comment: "page1 title"), body: NSLocalizedString("page1body", comment: "page1 body"), image: nil, buttonText: nil, action: nil)
     let page2 = OnboardingContentViewController(title: NSLocalizedString("page2title", comment: "page2 title"), body: NSLocalizedString("page2body", comment: "page2 body"), image: nil, buttonText: nil, action: nil)
@@ -26,7 +26,7 @@ var tutorialController: OnboardViewController {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "beenLaunched")
         onboardVC?.show(UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!, sender: nil)
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     contentVCs.last?.viewDidAppearBlock = {

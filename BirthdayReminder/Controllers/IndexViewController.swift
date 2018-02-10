@@ -98,7 +98,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: #imageLiteral(resourceName: "ic_remote")) { item in
             self.performSegue(withIdentifier: "showAnimes", sender: nil)
         }
-        floaty.items.forEach() { item in
+        floaty.items.forEach { item in
             item.buttonColor = .flatMint
         }
         tableView.addSubview(floaty)
@@ -273,7 +273,7 @@ extension IndexViewController: UIViewControllerPreviewingDelegate {
     
 }
 
-// Contributing
+// MARK: - Contributing
 extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, IGRPhotoTweakViewControllerDelegate {
     
     public func startContributingIfNotAlready() {
