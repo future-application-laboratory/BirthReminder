@@ -73,12 +73,16 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
         emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
-        navigationController?.barTintColor = .bar
-        navigationController?.tintColor = .tint
         setupTableView()
         setupFloaty()
         setupIndicator()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.barTintColor = .bar
+        navigationController?.tintColor = .tint
     }
     
     private func setupFloaty() {

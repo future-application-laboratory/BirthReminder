@@ -36,17 +36,19 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         isTranslucent = true
     }
 
+    private var bgColor: UIColor?
     private var isTranslucent: Bool = false {
         didSet {
+            if oldValue == isTranslucent { return }
             if isTranslucent {
-                navigationController?.barTintColor = .clear
+                navigationController?.setVisualEffectViewHidden()
                 navigationController?.tintColor = .flatBlack
 
                 tabBarController?.tabBar.backgroundImage = UIImage()
                 tabBarController?.tabBar.shadowImage = UIImage()
                 tabBarController?.tabBar.isTranslucent = true
             } else {
-                navigationController?.barTintColor = .bar
+                navigationController?.setVisualEffectViewHidden(false)
                 navigationController?.tintColor = .tint
 
                 tabBarController?.tabBar.barTintColor = .bar
@@ -63,6 +65,11 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        isTranslucent = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         isTranslucent = false
     }
     
