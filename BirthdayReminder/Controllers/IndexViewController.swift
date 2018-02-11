@@ -265,8 +265,6 @@ extension IndexViewController: UIViewControllerPreviewingDelegate {
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        // FIXME: What does this do...
-        viewControllerToCommit.hidesBottomBarWhenPushed = true
         show(viewControllerToCommit, sender: nil)
     }
     
