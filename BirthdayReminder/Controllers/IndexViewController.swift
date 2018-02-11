@@ -64,7 +64,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         super.viewDidLoad()
         view.backgroundColor = .background
         view.addSubview(emptyLabel)
-        emptyLabel.snp.makeConstraints() { make in
+        emptyLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.lessThanOrEqualToSuperview()
             make.width.lessThanOrEqualToSuperview()
@@ -125,11 +125,11 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         indicatorBackground.alpha = 0.5
         indicatorBackground.isHidden = true
         view.addSubview(indicatorBackground)
-        indicatorBackground.snp.makeConstraints() { make in
+        indicatorBackground.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         view.addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints() { make in
+        activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         uploadingLabel.isHidden = true
@@ -137,7 +137,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         uploadingLabel.font = UIFont.systemFont(ofSize: 32)
         uploadingLabel.textColor = .white
         view.addSubview(uploadingLabel)
-        uploadingLabel.snp.makeConstraints() { make in
+        uploadingLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(activityIndicator.snp.bottom).offset(5)
         }
@@ -255,22 +255,17 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
 extension IndexViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let cell = previewingContext.sourceView as? UITableViewCell {
-            let indexPath = tableView.indexPath(for: cell)!
-            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-            if let controller = storyBoard.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController{
-                let person = data[indexPath.row]
-                controller.person = person
-                return controller
-            } else {
-                return nil
-            }
-        } else {
-            return nil
-        }
+        guard let cell = previewingContext.sourceView as? UITableViewCell
+            , let indexPath = tableView.indexPath(for: cell)
+            , let controller = UIStoryboard.main.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController
+            else { return nil }
+        let person = data[indexPath.row]
+        controller.person = person
+        return controller
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        // FIXME: What does this do...
         viewControllerToCommit.hidesBottomBarWhenPushed = true
         show(viewControllerToCommit, sender: nil)
     }
@@ -322,7 +317,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     private func getAnimeName() {
         let alertController = UIAlertController(title: "What's the name of the character set?", message: "e.g. Anime names, Galgame names, Lightnovel names...", preferredStyle: .alert)
-        alertController.addTextField() { field in
+        alertController.addTextField { field in
             field.placeholder = "The name of the set of characters"
         }
         alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in
@@ -363,9 +358,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
             controller.image = self.animePic
             controller.delegate = self
             controller.previousController = self
-            controller.misc = {
-                self.askForCopyrightInfo()
-            }
+            controller.misc = self.askForCopyrightInfo
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
@@ -377,7 +370,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     
     private func askForCopyrightInfo() {
         let alertController = UIAlertController(title: "Copyright Info", message: "Enter the copyright info for the pic you've just selected", preferredStyle: .alert)
-        alertController.addTextField() { field in
+        alertController.addTextField { field in
             field.placeholder = "Copyright Info"
         }
         alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in

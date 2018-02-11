@@ -18,7 +18,7 @@ class RoundCornerTableViewCell: UITableViewCell {
         selectedBackgroundView?.backgroundColor = .clear
         let selectedFrontView = UIView()
         selectedBackgroundView?.addSubview(selectedFrontView)
-        selectedFrontView.snp.makeConstraints() { make in
+        selectedFrontView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
         }
         selectedFrontView.backgroundColor = #colorLiteral(red: 0.8797392845, green: 0.8797599673, blue: 0.8797488809, alpha: 1)
@@ -28,7 +28,7 @@ class RoundCornerTableViewCell: UITableViewCell {
         backgroundView = UIView()
         let insideBackgroundView = UIView()
         backgroundView?.addSubview(insideBackgroundView)
-        insideBackgroundView.snp.makeConstraints() { make in
+        insideBackgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
         }
         insideBackgroundView.backgroundColor = .cell

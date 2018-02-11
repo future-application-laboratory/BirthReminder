@@ -36,6 +36,13 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         isTranslucent = true
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isTranslucent = false
+    }
+
+    // MARK: - Styling
+
     private var isTranslucent: Bool = false {
         didSet {
             if oldValue == isTranslucent { return }
@@ -57,23 +64,23 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        isTranslucent = false
-    }
-
     private func setBackground() {
         // Blur Effects
         let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         view.addSubview(blurView)
-        blurView.snp.makeConstraints() { make in
+        blurView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         view.sendSubview(toBack: blurView)
         view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [.flatGreen,.flatMint])
     }
-    
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen,.flatMint])
+    }
+
+    // MARK: - Functionalities
     
     @IBAction func onEdit(_ sender: UIBarButtonItem) {
         edit(navigationController: navigationController!)
@@ -128,9 +135,5 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
                 }
             }
         ]
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen,.flatMint])
     }
 }
