@@ -171,3 +171,9 @@
 /* Delete */
 "delete" = "删除";
 
+/* Photo Library */
+"Photo Library" = "从照片图库中选择";
+
+/* Clear Photo */
+"Clear Photo" = "清空照片";
+

@@ -22,6 +22,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
     private var persistentPerson: PeopleToSave?
     
     private var imageRow: ImageRow!
+    private var nameRow: TextRow!
     
     public func setup(with mode: Mode, person: Any?) {
         switch mode {
@@ -47,6 +48,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 row.title = NSLocalizedString("name", comment: "name")
                 row.placeholder = NSLocalizedString("name", comment: "name")
                 row.value = newPerson?.name ?? persistentPerson?.name
+                self.nameRow = row
             }
             +++ Section(NSLocalizedString("birth", comment: "Birth"))
             <<< DatePickingRow() { row in
@@ -59,15 +61,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
                 row.value = UIImage(data: (newPerson?.picPack?.data ?? persistentPerson?.picData) ?? Data())
-                row.didSetImage = { image in
-                    if let image = image {
-                        let controller = SquareImageCroppingViewController()
-                        controller.image = image
-                        controller.delegate = self
-                        controller.previousController = self
-                        self.navigationController?.pushViewController(controller, animated: true)
-                    }
-                }
+                row.didSetImage = didSet
                 row.sourceTypes = ImageRowSourceTypes.PhotoLibrary
                 self.imageRow = row
             }
@@ -95,6 +89,10 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSave(sender:)))
         navigationItem.setRightBarButton(barButtonItem, animated: true)
+        
+        // Drag&Drop Integration
+        let dropInteraction = UIDropInteraction(delegate: self)
+        view.addInteraction(dropInteraction)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -135,12 +133,6 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         SKStoreReviewController.requestReview()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
-        if indexPath.section == 4 {
-        }
-    }
-    
     private func delete() {
         let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { [unowned self] _ in
@@ -164,10 +156,48 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
     
     func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
         imageRow.value = croppedImage
+        imageRow.cell.update()
     }
     
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
         
+    }
+    
+    private func didSet(image: UIImage?) {
+        if let image = image {
+            let controller = SquareImageCroppingViewController()
+            controller.image = image
+            controller.delegate = self
+            controller.previousController = self
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+}
+
+extension PersonFormController: UIDropInteractionDelegate {
+    
+    func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
+        return session.canLoadObjects(ofClass: UIImage.self)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
+        return UIDropProposal(operation: .copy)
+    }
+    
+    func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
+        session.loadObjects(ofClass: UIImage.self) { images in
+            if let image = images.first {
+                self.didSet(image: image as? UIImage)
+            }
+        }
+        session.loadObjects(ofClass: NSURL.self) { nsurls in
+            if let urls = nsurls as? [URL],
+                let url = urls.first,
+                let _ = self.nameRow.value {
+                self.nameRow.value! += url.path
+            }
+        }
     }
     
 }
