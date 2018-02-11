@@ -16,3 +16,7 @@ extension UIColor {
     static let label2 = #colorLiteral(red: 0.262835294, green: 0.8022480607, blue: 0.3886030316, alpha: 1)
     static let cell = #colorLiteral(red: 0.262835294, green: 0.8022480607, blue: 0.3886030316, alpha: 1)
 }
+
+extension UIStoryboard {
+    static let main = UIStoryboard(name: "Main", bundle: nil)
+}

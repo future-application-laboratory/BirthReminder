@@ -35,7 +35,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
         tableView.backgroundColor = .clear
         
         view.addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints() { make in
+        activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         
@@ -80,12 +80,12 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
     
     private func loadPicForPeople() {
         // Load pic for every person
-        tableViewData.forEach { [weak self] person in
+        tableViewData.forEach { person in
             NetworkController.provider.request(.personalPic(withID: person.id!)) { result in
                 switch result {
                 case .success(let response):
                     person.picPack = try? response.mapObject(PicPack.self)
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { [weak self] in
                         self?.tableView.reloadData()
                         if (self?.tableViewData.filter { $0.picPack == nil }.count) == 0 {
                             // Enable ‘add all’ button

@@ -18,7 +18,7 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         
         contentMode = .scaleAspectFit
         contentView.addSubview(pickerView)
-        pickerView.snp.makeConstraints() { make in
+        pickerView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 20))
         }
         height = { 200 }

@@ -25,7 +25,7 @@ var tutorialController: OnboardViewController {
     onboardVC?.skipHandler = {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "beenLaunched")
-        onboardVC?.show(UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!, sender: nil)
+        onboardVC?.show(UIStoryboard.main.instantiateInitialViewController()!, sender: nil)
         UIApplication.shared.statusBarStyle = .lightContent
     }
     

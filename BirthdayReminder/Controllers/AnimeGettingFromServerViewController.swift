@@ -55,7 +55,7 @@ class AnimeGettingFromServerViewController: ViewController {
         tableView.separatorStyle = .none
         
         view.addSubview(activityIndicator)
-        activityIndicator.snp.makeConstraints() { make in
+        activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         
