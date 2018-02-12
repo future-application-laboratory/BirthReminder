@@ -1,6 +1,7 @@
 PODS:
   - AcknowList (1.5)
   - Alamofire (4.6.0)
+  - Animators (2.0.1)
   - CFNotify (1.0.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
@@ -33,6 +34,7 @@ PODS:
 
 DEPENDENCIES:
   - AcknowList
+  - Animators
   - CFNotify
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - Eureka
@@ -78,6 +80,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Animators: d86f948a39fd9f1920296535d043d4f2cec87c0a
   CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
@@ -95,6 +98,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: 1f3fa25f3c9010ab0dda06cf9e3e49a4b55834ff
 
-PODFILE CHECKSUM: a163e6af4814e0459220335567121638d07acea0
+PODFILE CHECKSUM: 939da486a7976e17f4270640b61ca6b434858bfc
 
 COCOAPODS: 1.4.0

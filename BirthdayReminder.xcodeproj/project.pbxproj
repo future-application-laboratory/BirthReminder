@@ -29,6 +29,16 @@
 		701FC04C201ECBC500C72B37 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC04B201ECBC400C72B37 /* AVFoundation.framework */; };
 		701FC04E201ECBCC00C72B37 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 701FC04D201ECBCB00C72B37 /* AudioToolbox.framework */; };
 		702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702D2BC21FE3F6E400F30C7B /* Utilities.swift */; };
+		704A46DC2031B9AE003218B5 /* PicPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46DB2031B9AE003218B5 /* PicPack.swift */; };
+		704A46DE2031B9D3003218B5 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46DD2031B9D3003218B5 /* Anime.swift */; };
+		704A46E02031BA0A003218B5 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46DF2031BA0A003218B5 /* People.swift */; };
+		704A46E22031BA30003218B5 /* Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E12031BA30003218B5 /* Moya.swift */; };
+		704A46E42031BF16003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
+		704A46E62031C067003218B5 /* PeopleToTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E52031C067003218B5 /* PeopleToTransfer.swift */; };
+		704A46E82031C0AA003218B5 /* PeopleToTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E52031C067003218B5 /* PeopleToTransfer.swift */; };
+		704A46EA2031C0B6003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
+		704A46EB2031C0B7003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
+		704A46EC2031C0C8003218B5 /* PeopleToTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E52031C067003218B5 /* PeopleToTransfer.swift */; };
 		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
 		70C72BF01FDD20D60079AF2D /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */; };
@@ -53,8 +63,8 @@
 		B068835D1F1EEB2D00831AA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B068835B1F1EEB2D00831AA6 /* Main.storyboard */; };
 		B068835F1F1EEB2D00831AA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B068835E1F1EEB2D00831AA6 /* Assets.xcassets */; };
 		B06883621F1EEB2D00831AA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B06883601F1EEB2D00831AA6 /* LaunchScreen.storyboard */; };
-		B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
-		B068837C1F1EECF100831AA6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Network.swift */; };
+		B068837A1F1EECEA00831AA6 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* Utility.swift */; };
+		B068837C1F1EECF100831AA6 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B068837B1F1EECF100831AA6 /* Misc.swift */; };
 		B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08060131F820E6B00115399 /* PermissionRequestingController.swift */; };
 		B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0811C931F282DA00006CBC5 /* TableRowController.swift */; };
 		B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
@@ -72,8 +82,8 @@
 		B0CD6B691F6D103A009899FE /* PersonFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CD6B681F6D103A009899FE /* PersonFormController.swift */; };
 		B0D18E501F6E031100B2B789 /* WatchReminder Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B0990F261F27578400D26557 /* WatchReminder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B0E009561FB721A200443471 /* BirthCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E009551FB721A200443471 /* BirthCardController.swift */; };
-		B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
-		B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* FileManaging.swift */; };
+		B0E283B41F334DA700CB5C51 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* Utility.swift */; };
+		B0E283B61F334DB800CB5C51 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06883791F1EECEA00831AA6 /* Utility.swift */; };
 		B0F0A44E1F20E143004DED3D /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0A44D1F20E143004DED3D /* IndexViewController.swift */; };
 		B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F0CE7F1F890D750055C00A /* DatePickingRow.swift */; };
 		B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F922D51F64187A0059DFDC /* Constants&Settings.swift */; };
@@ -183,6 +193,12 @@
 		701FC05C201ECDEE00C72B37 /* BirthdayReminder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BirthdayReminder-Bridging-Header.h"; sourceTree = "<group>"; };
 		702D2BC21FE3F6E400F30C7B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
+		704A46DB2031B9AE003218B5 /* PicPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPack.swift; sourceTree = "<group>"; };
+		704A46DD2031B9D3003218B5 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		704A46DF2031BA0A003218B5 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		704A46E12031BA30003218B5 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
+		704A46E32031BF15003218B5 /* PeopleToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToSave.swift; sourceTree = "<group>"; };
+		704A46E52031C067003218B5 /* PeopleToTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToTransfer.swift; sourceTree = "<group>"; };
 		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -214,8 +230,8 @@
 		B068835E1F1EEB2D00831AA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B06883611F1EEB2D00831AA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B06883631F1EEB2D00831AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B06883791F1EECEA00831AA6 /* FileManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManaging.swift; sourceTree = "<group>"; };
-		B068837B1F1EECF100831AA6 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B06883791F1EECEA00831AA6 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		B068837B1F1EECF100831AA6 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		B077FA141F20D80E0065550A /* BirthdayReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BirthdayReminder.entitlements; sourceTree = "<group>"; };
 		B08060131F820E6B00115399 /* PermissionRequestingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionRequestingController.swift; sourceTree = "<group>"; };
 		B0811C931F282DA00006CBC5 /* TableRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableRowController.swift; sourceTree = "<group>"; };
@@ -459,8 +475,10 @@
 		B06883771F1EECBE00831AA6 /* File&Data Managing */ = {
 			isa = PBXGroup;
 			children = (
-				B06883791F1EECEA00831AA6 /* FileManaging.swift */,
+				B06883791F1EECEA00831AA6 /* Utility.swift */,
+				704A46E52031C067003218B5 /* PeopleToTransfer.swift */,
 				B02FC57D1F596E2400EAB6E6 /* Protocols.swift */,
+				704A46E32031BF15003218B5 /* PeopleToSave.swift */,
 				52AD42ED1F7ED82900306D47 /* Model.xcdatamodeld */,
 			);
 			name = "File&Data Managing";
@@ -470,7 +488,11 @@
 		B06883781F1EECD400831AA6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				B068837B1F1EECF100831AA6 /* Network.swift */,
+				704A46E12031BA30003218B5 /* Moya.swift */,
+				704A46DD2031B9D3003218B5 /* Anime.swift */,
+				704A46DF2031BA0A003218B5 /* People.swift */,
+				704A46DB2031B9AE003218B5 /* PicPack.swift */,
+				B068837B1F1EECF100831AA6 /* Misc.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -837,6 +859,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Animators/Animators.framework",
 				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -858,6 +881,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Animators.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -914,9 +938,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02FC57E1F596E2400EAB6E6 /* Protocols.swift in Sources */,
-				B0E283B61F334DB800CB5C51 /* FileManaging.swift in Sources */,
+				B0E283B61F334DB800CB5C51 /* Utility.swift in Sources */,
+				704A46EB2031C0B7003218B5 /* PeopleToSave.swift in Sources */,
 				B05952F31F26E834008AD597 /* BirthComputing.swift in Sources */,
 				B02929511F26E79000AD0BC1 /* TodayViewController.swift in Sources */,
+				704A46EC2031C0C8003218B5 /* PeopleToTransfer.swift in Sources */,
 				52AD42F01F7ED83200306D47 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -934,12 +960,14 @@
 				702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
 				B022842F1FAEB58E00932EEB /* MainTabBarController.swift in Sources */,
+				704A46DC2031B9AE003218B5 /* PicPack.swift in Sources */,
+				704A46E42031BF16003218B5 /* PeopleToSave.swift in Sources */,
 				B049DCA31F1EEE7A008634C5 /* AppDelegate.swift in Sources */,
 				B060439A1F3C9978007D1016 /* MiscViewController.swift in Sources */,
 				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
 				526B5BC1202ED2A700E76FB3 /* UINavigationController+Extensions.swift in Sources */,
-				B068837C1F1EECF100831AA6 /* Network.swift in Sources */,
+				B068837C1F1EECF100831AA6 /* Misc.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
 				B00F7B041F1EEEDA00496843 /* GetPersonalDataFromServerViewController.swift in Sources */,
@@ -948,9 +976,13 @@
 				B0E009561FB721A200443471 /* BirthCardController.swift in Sources */,
 				B0C857881FC0EC6800E0DE97 /* RoundCornerTableViewCell.swift in Sources */,
 				B02FC57F1F596E2400EAB6E6 /* Protocols.swift in Sources */,
+				704A46DE2031B9D3003218B5 /* Anime.swift in Sources */,
+				704A46E22031BA30003218B5 /* Moya.swift in Sources */,
 				B0AB99D31F244E79006C8F29 /* BirthComputing.swift in Sources */,
 				B0095EC31F6D80C50049AF0D /* AnimeCell.swift in Sources */,
-				B068837A1F1EECEA00831AA6 /* FileManaging.swift in Sources */,
+				B068837A1F1EECEA00831AA6 /* Utility.swift in Sources */,
+				704A46E62031C067003218B5 /* PeopleToTransfer.swift in Sources */,
+				704A46E02031BA0A003218B5 /* People.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,12 +992,14 @@
 			files = (
 				B0990F321F27578400D26557 /* NotificationController.swift in Sources */,
 				B0990F341F27578400D26557 /* ComplicationController.swift in Sources */,
-				B0E283B41F334DA700CB5C51 /* FileManaging.swift in Sources */,
+				B0E283B41F334DA700CB5C51 /* Utility.swift in Sources */,
 				B02FC5801F596E2400EAB6E6 /* Protocols.swift in Sources */,
 				B0811C941F282DA00006CBC5 /* TableRowController.swift in Sources */,
 				B0990F301F27578400D26557 /* ExtensionDelegate.swift in Sources */,
 				52AD42F11F7ED83300306D47 /* Model.xcdatamodeld in Sources */,
 				B0811C951F282F160006CBC5 /* BirthComputing.swift in Sources */,
+				704A46E82031C0AA003218B5 /* PeopleToTransfer.swift in Sources */,
+				704A46EA2031C0B6003218B5 /* PeopleToSave.swift in Sources */,
 				B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1306,7 +1340,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1333,7 +1367,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
