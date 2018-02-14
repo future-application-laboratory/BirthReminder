@@ -14,6 +14,7 @@ import Floaty
 import MobileCoreServices
 import IGRPhotoTweaks
 import NVActivityIndicatorView
+import SafariServices
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
     
@@ -63,16 +64,8 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
-        view.addSubview(emptyLabel)
-        emptyLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.height.lessThanOrEqualToSuperview()
-            make.width.lessThanOrEqualToSuperview()
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-        }
-        emptyLabel.bringSubview(toFront: tableView)
         navigationController?.hidesNavigationBarHairline = true
+        setupEmptyLabel()
         setupTableView()
         setupFloaty()
         setupIndicator()
@@ -83,6 +76,18 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         super.viewDidAppear(animated)
         navigationController?.barTintColor = .bar
         navigationController?.tintColor = .tint
+    }
+    
+    private func setupEmptyLabel() {
+        view.addSubview(emptyLabel)
+        emptyLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.lessThanOrEqualToSuperview()
+            make.width.lessThanOrEqualToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        emptyLabel.bringSubview(toFront: tableView)
     }
     
     private func setupFloaty() {
@@ -286,27 +291,31 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func showContributeInstructions() {
-        let alertController = UIAlertController(title: "You're entering contributing mode", message: "For more details, checkout URL", preferredStyle: .alert) // todo
-        alertController.addAction(UIAlertAction(title: "Got it", style: .default, handler: nil))
-        alertController.addAction(UIAlertAction(title: "No, that's not what I want", style: .default) { _ in
-            self.isContributing = false
+        let alertController = UIAlertController(title: NSLocalizedString("you're entering contributing mode", comment: "You're entering contributing mode"), message: NSLocalizedString("for more details, checkout the contributing guide", comment: "For more details, checkout the contributing guide"), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "OK"), style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("show the guide", comment: "Show the guide"), style: .default) { action in
+            let sfController = SFSafariViewController(url: "https://github.com/CaptainYukinoshitaHachiman/BirthReminder/blob/master/ContributingGuide.md")
+            self.present(sfController, animated: true)
         })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .default) { _ in self.isContributing = false })
         present(alertController, animated: true)
     }
     
     private func illegalContributionAlert() {
-        let alertController = UIAlertController(title: "No pic copyright provided", message: "Pic copyright is required to contribute, please edit the character before contributing", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Got it", style: .default))
+        let alertController = UIAlertController(title: NSLocalizedString("no pic copyright provided", comment: "No pic copyright provided"), message: NSLocalizedString("Pic copyright is required to contribute, please edit the character before contributing", comment: "pic copyright is required to contribute, please edit the character before contributing"), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("got it", comment: "Got it"), style: .default))
         present(alertController, animated: true)
     }
     
     @objc private func done(sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "End editing", message: "Are you sure to contribute these selected characters?", preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Yes, I'd like to contribute the selected \(tableView.indexPathsForSelectedRows?.count ?? 0) character(s)", style: .default) { _ in
-            self.getAnimeName()
+        let alertController = UIAlertController(title: NSLocalizedString("end choosing", comment: "End choosing"), message: NSLocalizedString("are you sure to contribute these selected characters?", comment: "Are you sure to contribute these selected characters?"), preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: String.localizedStringWithFormat(
+            NSLocalizedString("contribute the selected %d character(s)", comment: "Contribute the selected %d character(s)"),
+            tableView.indexPathsForSelectedRows?.count ?? 0), style: .default) { _ in
+                self.getAnimeName()
         })
-        alertController.addAction(UIAlertAction(title: "No, I'd like to make a few more changes", style: .cancel))
-        alertController.addAction(UIAlertAction(title: "No, I'd like to exit contributing mode", style: .destructive) { _ in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("make a few more changes", comment: "Make a few more changes"), style: .cancel))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("exit contributing mode", comment: "Exit contributing mode"), style: .destructive) { _ in
             self.isContributing = false
         })
         alertController.popoverPresentationController?.barButtonItem = sender
@@ -314,21 +323,21 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func getAnimeName() {
-        let alertController = UIAlertController(title: "What's the name of the character set?", message: "e.g. Anime names, Galgame names, Lightnovel names...", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("what's the name of the character set?", comment: "What's the name of the character set?"), message: NSLocalizedString("e.g. Anime names, Galgame names, Lightnovel names...", comment: "e.g. Anime names, Galgame names, Lightnovel names..."), preferredStyle: .alert)
         alertController.addTextField { field in
-            field.placeholder = "The name of the set of characters"
+            field.placeholder = NSLocalizedString("the name of the set of characters", comment: "The name of the set of characters")
         }
-        alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("next", comment: "Next"), style: .default) { _ in
             self.animeName = alertController.textFields!.first!.text!
             self.askForAnimePic()
         })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in self.isContributing = false })
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel) { _ in self.isContributing = false })
         present(alertController, animated: true)
     }
     
     private func askForAnimePic() {
-        let alertController = UIAlertController(title: "Choose the pic for the set", message: "Its copyright info is also required", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Choose from album", style: .default) { _ in
+        let alertController = UIAlertController(title: NSLocalizedString("choose the pic for the set", comment: "Choose the pic for the set"), message: NSLocalizedString("its copyright info is also required", comment: "Its copyright info is also required"), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("choose from album", comment: "Choose from album"), style: .default) { _ in
             alertController.dismiss(animated: true, completion: nil)
             let picker = UIImagePickerController()
             picker.allowsEditing = false
@@ -367,11 +376,11 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func askForCopyrightInfo() {
-        let alertController = UIAlertController(title: "Copyright Info", message: "Enter the copyright info for the pic you've just selected", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("copyright Info", comment: "Copyright Info"), message: NSLocalizedString("enter the copyright info for the pic you've just selected", comment: "Enter the copyright info for the pic you've just selected"), preferredStyle: .alert)
         alertController.addTextField { field in
-            field.placeholder = "Copyright Info"
+            field.placeholder = NSLocalizedString("copyright Info", comment: "Copyright Info")
         }
-        alertController.addAction(UIAlertAction(title: "Next", style: .default) { _ in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("next", comment: "Next"), style: .default) { _ in
             self.picCopyright = alertController.textFields?.first?.text
             self.askForContactInfo()
         })
@@ -379,11 +388,11 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     private func askForContactInfo() {
-        let alertController = UIAlertController(title: "Almost done", message: "Finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: NSLocalizedString("almost done", comment: "Almost done"), message: NSLocalizedString("finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so.", comment: "Finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so."), preferredStyle: .alert)
         alertController.addTextField() { field in
-            field.placeholder = "Nickname and contact info (optional)"
+            field.placeholder = NSLocalizedString("nickname and contact info (optional)", comment: "Nickname and contact info (optional)")
         }
-        alertController.addAction(UIAlertAction(title: "Submit", style: .default) { _ in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("submit", comment: "Submit"), style: .default) { _ in
             self.contactInfo = alertController.textFields?.first?.text
             self.submit()
         })

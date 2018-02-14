@@ -98,3 +98,53 @@
 "aboutThePic" = "About The Pic";
 
 "delete" = "Delete";
+
+"you're entering contributing mode" = "You're entering contributing mode";
+
+"for more details, checkout the contributing guide" = "For more details, checkout the contributing guide";
+
+"ok" = "OK";
+
+"show the guide" = "Show the guide";
+
+"got it" = "Got it";
+
+"no pic copyright provided" = "No pic copyright provided";
+
+"pic copyright is required to contribute, please edit the character before contributing" =  "Pic copyright is required to contribute, please edit the character before contributing";
+
+"end choosing" = "End editing";
+
+"are you sure to contribute these selected characters?" = "Are you sure to contribute these selected characters?";
+
+"contribute the selected %d character(s)" = "Contribute the selected %d character(s)";
+
+"make a few more changes" = "Make a few more changes";
+
+"exit contributing mode" = "Exit contributing mode";
+
+"what's the name of the character set?" = "What's the name of the character set?";
+
+"e.g. Anime names, Galgame names, Lightnovel names..." = "e.g. Anime names, Galgame names, Lightnovel names...";
+
+"the name of the set of characters" = "The name of the set of characters";
+
+"next" = "Next";
+
+"choose the pic for the set" = "Choose the pic for the set";
+
+"its copyright info is also required" = "Its copyright info is also required";
+
+"choose from album" = "Choose from album";
+
+"copyright Info" = "Copyright Info";
+
+"enter the copyright info for the pic you've just selected" = "Enter the copyright info for the pic you've just selected";
+
+"almost done" = "Almost done";
+
+"finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so." = "Finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so.";
+
+"nickname and contact info (optional)" = "Nickname and contact info (optional)";
+
+"submit" = "Submit";
