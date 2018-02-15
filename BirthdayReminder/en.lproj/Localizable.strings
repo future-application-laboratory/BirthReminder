@@ -148,3 +148,11 @@
 "nickname and contact info (optional)" = "Nickname and contact info (optional)";
 
 "submit" = "Submit";
+
+"failedToUpload" = "failedToUpload";
+
+"retry" = "Retry";
+
+"uploading" = "Uploading";
+
+"contributionThanks" = "Thank you!";

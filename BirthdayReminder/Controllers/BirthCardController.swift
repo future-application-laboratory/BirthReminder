@@ -53,6 +53,8 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
                 tabBarController?.tabBar.backgroundImage = UIImage()
                 tabBarController?.tabBar.shadowImage = UIImage()
                 tabBarController?.tabBar.isTranslucent = true
+                
+                UIApplication.shared.statusBarStyle = .default
             } else {
                 navigationController?.setVisualEffectViewHidden(false)
                 navigationController?.tintColor = .tint
@@ -60,6 +62,8 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
                 tabBarController?.tabBar.barTintColor = .bar
                 tabBarController?.tabBar.shadowImage = nil
                 tabBarController?.tabBar.isTranslucent = false
+                
+                UIApplication.shared.statusBarStyle = .lightContent
             }
         }
     }
@@ -136,4 +140,5 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
             }
         ]
     }
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ContactViewController: ViewController {
     let urls: [URL] = [
@@ -14,10 +15,17 @@ class ContactViewController: ViewController {
         "https://space.bilibili.com/5766898",
         "https://github.com/CaptainYukinoshitaHachiman"
     ]
-
+    
     @IBAction func didTouch(_ sender: UIButton) {
+        let tag = sender.tag
         if urls.indices.contains(sender.tag) {
-            UIApplication.shared.open(urls[sender.tag])
+            let url = urls[tag]
+            if sender.tag == 0 {
+                UIApplication.shared.open(url)
+            } else {
+                let sfController = SFSafariViewController(url: url)
+                present(sfController, animated: true)
+            }
         }
     }
 }
