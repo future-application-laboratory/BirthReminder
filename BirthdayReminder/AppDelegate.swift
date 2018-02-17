@@ -33,6 +33,7 @@ ManagedObjectContextUsing {
             session.activate()
         }
         
+        // Decide to show tutorial or not
         let defaults = UserDefaults.standard
         if !defaults.bool(forKey: "beenLaunched") {
             window?.rootViewController = tutorialController

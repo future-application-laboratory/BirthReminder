@@ -14,16 +14,15 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     
     @IBOutlet var emptyLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
-    var status = false
-    var tableData: [PeopleToSave]!
-    var delegate: ExtensionDelegate {
+    private var status = false
+    private var tableData: [PeopleToSave]!
+    private var delegate: ExtensionDelegate {
         return WKExtension.shared().delegate as! ExtensionDelegate
     }
-    var context: NSManagedObjectContext {
+    private var context: NSManagedObjectContext {
         return delegate.context
     }
-    let request = PeopleToSave.sortedFetchRequest
-    var first = true
+    private let request = PeopleToSave.sortedFetchRequest
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
@@ -31,7 +30,7 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
         reload()
     }
     
-    func reloadTable() {
+    private func reloadTable() {
         guard !tableData.isEmpty else {
             emptyLabel.setHidden(false)
             table.setHidden(true)

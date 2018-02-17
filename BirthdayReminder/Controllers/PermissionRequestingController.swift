@@ -11,8 +11,8 @@ import PAPermissions
 
 class PermissionController: PAPermissionsViewController {
     let photoCheck = PAPhotoLibraryPermissionsCheck()
-    let cameraCheck = PACameraPermissionsCheck()
     let notificationCheck = PANotificationsPermissionsCheck()
+    
     override func viewDidLoad() {
         super.viewDidLoad() 
         useBlurBackground = true
@@ -20,12 +20,10 @@ class PermissionController: PAPermissionsViewController {
         tintColor = .white
         let permissions = [
             PAPermissionsItem.itemForType(.photoLibrary, reason: NSLocalizedString("photoReason", comment: "phtotReason"))!,
-            PAPermissionsItem.itemForType(.camera, reason: NSLocalizedString("cameraReason", comment: "cameraReason"))!,
             PAPermissionsItem.itemForType(.notifications, reason: NSLocalizedString("notificationReason", comment: "notificationReason"))!
         ]
         let handlers = [
             PAPermissionsType.photoLibrary.rawValue : photoCheck,
-            PAPermissionsType.camera.rawValue : cameraCheck,
             PAPermissionsType.notifications.rawValue : notificationCheck
         ]
         setupData(permissions, handlers: handlers)
@@ -40,6 +38,5 @@ class PermissionController: PAPermissionsViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.registerForRemoteNotifications()
     }
 }

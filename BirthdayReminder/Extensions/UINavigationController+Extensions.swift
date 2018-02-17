@@ -9,6 +9,7 @@
 import UIKit
 
 extension UINavigationController {
+    
     var barTintColor: UIColor? {
         get {
             return navigationBar.barTintColor
@@ -39,4 +40,5 @@ extension UINavigationController {
             navigationBar.largeTitleTextAttributes![.foregroundColor] = newValue
         }
     }
+    
 }

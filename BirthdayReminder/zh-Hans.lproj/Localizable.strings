@@ -251,3 +251,6 @@
 
  /* Submit */
 "submit" = "提交";
+
+/* Apple Watch Synchronization */
+"appleWatchSyncing" = "Apple Watch 同步";
