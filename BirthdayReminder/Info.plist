@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.98</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>13</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -61,6 +61,7 @@
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
+		<string>arm64</string>
 		<string>armv7</string>
 	</array>
 	<key>UIRequiresFullScreen</key>

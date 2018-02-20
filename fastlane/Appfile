@@ -1,0 +1,8 @@
+app_identifier "tech.TCWQ.BirthdayReminder" # The bundle identifier of your app
+apple_id "qcmf@iCloud.com" # Your Apple email address
+
+itc_team_id "118586644" # iTunes Connect Team ID
+team_id "F248CK9C8M" # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
