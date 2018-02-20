@@ -1,5 +1,12 @@
 language: swift
 osx_image: xcode9.2
+xcode_project: BirthdayReminder.xcworkspace
+xcode_scheme: BirthdayReminder
 before_install:
-- sudo gem install cocoapods
-- pod repo update
+   - rvm use system
+   - sudo gem install cocoapods -v '1.4.0'
+   - pod repo update
+script:
+    xcodebuild -workspace BirthdayReminder.xcworkspace -scheme BirthdayReminder ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+notifications:
+    slack: birthreminder:Nzv0j52r06OKMH5kAMZo0hJo
