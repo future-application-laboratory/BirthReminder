@@ -18,5 +18,7 @@ target 'BirthdayReminder' do
     pod 'InAppNotify', :git=> 'https://github.com/lucabecchetti/InAppNotify.git', branch: 'swift4'
     pod 'Floaty'
     pod 'IGRPhotoTweaks'
+    pod 'Fabric'
+    pod 'Crashlytics'
     
 end

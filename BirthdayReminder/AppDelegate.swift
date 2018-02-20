@@ -12,6 +12,8 @@ import NotificationCenter
 import Moya
 import InAppNotify
 import CoreData
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate,
@@ -26,6 +28,9 @@ ManagedObjectContextUsing {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Crashlytics Integration
+        Fabric.with([Crashlytics.self])
+        
         // Watch Connectivity Configuration
         if WCSession.isSupported() {
             let session = WCSession.default
@@ -147,6 +152,7 @@ ManagedObjectContextUsing {
             }
         }
     }
+    
 }
 
 extension ManagedObjectContextUsing {

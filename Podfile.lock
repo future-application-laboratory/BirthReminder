@@ -1,12 +1,14 @@
 PODS:
   - AcknowList (1.5)
   - Alamofire (4.6.0)
-  - Animators (2.0.1)
   - CFNotify (1.0.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
   - Eureka (4.0.1)
+  - Fabric (1.7.3)
   - Floaty (4.0.0)
   - IGRPhotoTweaks (1.0.7)
   - ImageRow (3.0.0):
@@ -34,10 +36,11 @@ PODS:
 
 DEPENDENCIES:
   - AcknowList
-  - Animators
   - CFNotify
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - Crashlytics
   - Eureka
+  - Fabric
   - Floaty
   - IGRPhotoTweaks
   - ImageRow (from `https://github.com/CaptainYukinoshitaHachiman/ImageRow.git`, branch `master`)
@@ -80,10 +83,11 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
-  Animators: d86f948a39fd9f1920296535d043d4f2cec87c0a
   CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
   Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
+  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   IGRPhotoTweaks: 8fe6b62c6599238d860b19b46a85a454e202f502
   ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
@@ -98,6 +102,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   ViewAnimator: 1f3fa25f3c9010ab0dda06cf9e3e49a4b55834ff
 
-PODFILE CHECKSUM: 939da486a7976e17f4270640b61ca6b434858bfc
+PODFILE CHECKSUM: 489669721edb949bc52e27de51f2bb63ae09e68f
 
 COCOAPODS: 1.4.0

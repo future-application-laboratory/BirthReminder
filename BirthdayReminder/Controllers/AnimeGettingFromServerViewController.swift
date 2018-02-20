@@ -137,6 +137,7 @@ class AnimeGettingFromServerViewController: ViewController {
         // this would be expected bahavior (than black screen)
         navigationItem.searchController?.isActive = false
     }
+
 }
 
 extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableViewDelegate {
