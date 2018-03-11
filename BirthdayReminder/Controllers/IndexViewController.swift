@@ -98,8 +98,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         floaty.overlayColor = .clear
         floaty.buttonColor = .flatMintDark
         floaty.addItem(NSLocalizedString("new", comment: "New"), icon: #imageLiteral(resourceName: "ic_edit")) { item in
-            let controller = PersonFormController()
-            controller.setup(with: .new, person: nil)
+            let controller = PersonFormController(with: .new(nil))
             controller.title = NSLocalizedString("new", comment: "New")
             controller.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(controller, animated: true)

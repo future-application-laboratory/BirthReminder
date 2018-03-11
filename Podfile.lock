@@ -5,10 +5,10 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Crashlytics (3.10.0):
-    - Fabric (~> 1.7.3)
-  - Eureka (4.0.1)
-  - Fabric (1.7.3)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Eureka (4.1.0)
+  - Fabric (1.7.5)
   - Floaty (4.0.0)
   - IGRPhotoTweaks (1.0.7)
   - ImageRow (3.0.0):
@@ -32,7 +32,7 @@ PODS:
   - PAPermissions (0.9.10)
   - Result (3.2.4)
   - SnapKit (4.0.0)
-  - ViewAnimator (1.0.4)
+  - ViewAnimator (1.0.5)
 
 DEPENDENCIES:
   - AcknowList
@@ -85,9 +85,9 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
-  Eureka: c8bd5cc07143b6f66268c208d28a246c99b41955
-  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Eureka: 5770ef95bbbbe52f8abbc0d9bea6ee8282c50209
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
   Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   IGRPhotoTweaks: 8fe6b62c6599238d860b19b46a85a454e202f502
   ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
@@ -100,7 +100,7 @@ SPEC CHECKSUMS:
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  ViewAnimator: 1f3fa25f3c9010ab0dda06cf9e3e49a4b55834ff
+  ViewAnimator: d87d691fbcaf994db7ee8fc632afa3073bd3b851
 
 PODFILE CHECKSUM: 489669721edb949bc52e27de51f2bb63ae09e68f
 

@@ -95,8 +95,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     }
     
     func edit(navigationController rootNavigationController: UINavigationController) {
-        let controller = PersonFormController()
-        controller.setup(with: .edit, person: person)
+        let controller = PersonFormController(with: .persistent(person))
         controller.title = NSLocalizedString("edit", comment: "edit")
         rootNavigationController.pushViewController(controller, animated: true)
     }

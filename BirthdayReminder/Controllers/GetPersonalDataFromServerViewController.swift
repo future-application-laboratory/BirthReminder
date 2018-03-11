@@ -124,8 +124,8 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
-        let controller = PersonFormController()
-        controller.setup(with: .new, person: tableViewData[index])
+        let person = tableViewData[index]
+        let controller = PersonFormController(with: .new(person))
         navigationController?.pushViewController(controller, animated: true)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }

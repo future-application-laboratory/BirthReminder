@@ -16,28 +16,32 @@ import IGRPhotoTweaks
 
 class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPhotoTweakViewControllerDelegate {
     
-    private var formMode = Mode.new
+    private let formMode: Mode
     
-    private var newPerson: People?
-    private var persistentPerson: PeopleToSave?
+    enum Mode {
+        case new(People?)
+        case persistent(PeopleToSave)
+    }
+    
+    private lazy var newPerson: People? = {
+        switch formMode {
+        case .new(let person):
+            return person
+        default:
+            return nil
+        }
+    }()
+    private lazy var persistentPerson: PeopleToSave? = {
+        switch formMode {
+        case .persistent(let person):
+            return person
+        default:
+            return nil
+        }
+    }()
     
     private var imageRow: ImageRow!
     private var nameRow: TextRow!
-    
-    public func setup(with mode: Mode, person: Any?) {
-        switch mode {
-        case .new:
-            newPerson = person as? People
-        case .edit:
-            persistentPerson = person as? PeopleToSave
-        }
-        formMode = mode
-    }
-    
-    enum Mode {
-        case edit
-        case new
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +81,8 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
                 row.value = persistentPerson?.shouldSync ?? false
         }
-        if formMode == .edit {
+        switch formMode {
+        case .persistent(let persistentPerson):
             form +++ Section()
                 <<< DeleteButtonRow() { row in
                     row.context = context
@@ -85,6 +90,8 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                     row.confirmationParentViewControlelr = self
                     row.title = NSLocalizedString("delete", comment: "Delete")
             }
+        default:
+            break
         }
         
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSave(sender:)))
@@ -112,7 +119,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         switch formMode {
         case .new:
             PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData, picCopyright: imageCopyright, shouldSync: shouldSync ?? false)
-        case .edit:
+        case .persistent:
             do {
                 persistentPerson?.name = name ?? ""
                 persistentPerson?.birth = birth ?? "01-01"
@@ -171,6 +178,15 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
             controller.previousController = self
             self.navigationController?.pushViewController(controller, animated: true)
         }
+    }
+    
+    init(with mode: Mode) {
+        formMode = mode
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
