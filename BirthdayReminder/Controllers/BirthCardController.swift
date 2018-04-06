@@ -104,9 +104,9 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         let text = String.localizedStringWithFormat(
             NSLocalizedString("%1$@ is %2$@'s birthday, let's celebrate!", comment: "%1$@ is %2$@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!,person.name) + "\n\(NSLocalizedString("fromBirthReminder", comment: "FromBirthReminder"))"
-        // let image = imageView.image ?? UIImage()
+        let image = imageView.image ?? UIImage()
         
-        let controller = UIActivityViewController(activityItems: [text], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [text,image], applicationActivities: nil)
         
         if let popController = controller.popoverPresentationController {
             popController.barButtonItem = navigationItem.rightBarButtonItem
