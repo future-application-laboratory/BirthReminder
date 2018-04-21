@@ -254,3 +254,6 @@
 
 /* Apple Watch Synchronization */
 "appleWatchSyncing" = "Apple Watch 同步";
+
+/* Share */
+"share" = "分享";

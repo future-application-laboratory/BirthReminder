@@ -94,7 +94,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
             break
         }
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onSave(sender:)))
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSave(sender:)))
         navigationItem.setRightBarButton(barButtonItem, animated: true)
         
         // Drag&Drop Integration

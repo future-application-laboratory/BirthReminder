@@ -115,17 +115,22 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     }
     
     override var previewActionItems: [UIPreviewActionItem] {
-        let tabbarController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
-        let _navigationController = tabbarController.viewControllers![1] as! UINavigationController
-        let indexController = _navigationController
+        let tabbarController: UITabBarController
+        if let onboardController = UIApplication.shared.keyWindow?.rootViewController as? OnboardViewController {
+            tabbarController = onboardController.presentedViewController as! UITabBarController
+        } else {
+            tabbarController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
+        }
+        let indexController = tabbarController.viewControllers![0] as! UINavigationController
+        
         return [
-            UIPreviewAction(title: "Share", style: .default) { [unowned self] _,_ in
+            UIPreviewAction(title: NSLocalizedString("share", comment: "share"), style: .default) { [unowned self] _,_ in
                 self.share(controller: indexController)
             },
-            UIPreviewAction(title: "Edit", style: .default) { [unowned self] _,_ in
-                self.edit(navigationController: _navigationController)
+            UIPreviewAction(title: NSLocalizedString("edit", comment: "edit"), style: .default) { [unowned self] _,_ in
+                self.edit(navigationController: indexController)
             },
-            UIPreviewAction(title: "Delete", style: .destructive) { [context = context!, person = person!] _,_ in
+            UIPreviewAction(title: NSLocalizedString("delete", comment: "delete"), style: .destructive) { [context = context!, person = person!] _,_ in
                 do {
                     context.delete(person)
                     try context.save()

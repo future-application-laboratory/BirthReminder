@@ -65,6 +65,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         super.viewDidLoad()
         view.backgroundColor = .background
         navigationController?.hidesNavigationBarHairline = true
+        navigationController?.barTintColor = .bar
         setupEmptyLabel()
         setupTableView()
         setupFloaty()
