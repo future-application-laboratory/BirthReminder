@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.98</string>
 	<key>CFBundleVersion</key>
-	<string>13</string>
+	<string>1</string>
 	<key>CLKComplicationPrincipalClass</key>
 	<string>$(PRODUCT_MODULE_NAME).ComplicationController</string>
 	<key>CLKComplicationSupportedFamilies</key>
@@ -32,7 +32,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>tech.TCWQ.BirthdayReminder.watchkitapp</string>
+			<string>tech.TCWQ.BirthReminder.watchkitapp</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>

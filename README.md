@@ -42,7 +42,7 @@ The only thing you need is to tap the ADD button
 
 Coming soon on the App Store
 
-[![Download on the App Store](./GitHubPics/appstore.svg)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
+[![Download on the App Store](./GitHubPics/appstore.svg)](https://itunes.apple.com/us/app/birthreminder/id1375252429?ls=1&mt=8)
 
 Also, you may [join in beta testing](https://birth-reminder-testflight.herokuapp.com) in order to try the latest features.
 
@@ -57,5 +57,3 @@ If you would like to add more birth info, please go to Misc -> Contributing and 
 ## APP Bug Report/Feature Suggestion
 
 If you have nice ideas or find a bug in the app, please open an issue or a PR
-
-<meta name="apple-itunes-app" content="app-id=1286497475">
