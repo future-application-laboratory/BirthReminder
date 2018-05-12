@@ -30,6 +30,13 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
         reload()
     }
     
+    override func willActivate() {
+        super.willActivate()
+        if needToUpdateSorting {
+            reload()
+        }
+    }
+    
     private func reloadTable() {
         guard !tableData.isEmpty else {
             emptyLabel.setHidden(false)

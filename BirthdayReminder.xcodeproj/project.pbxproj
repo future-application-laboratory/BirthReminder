@@ -39,6 +39,7 @@
 		704A46EA2031C0B6003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
 		704A46EB2031C0B7003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
 		704A46EC2031C0C8003218B5 /* PeopleToTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E52031C067003218B5 /* PeopleToTransfer.swift */; };
+		7096989B20A6B4CF00E55BC3 /* ShouldReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */; };
 		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
 		70C72BF01FDD20D60079AF2D /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */; };
@@ -199,6 +200,7 @@
 		704A46E12031BA30003218B5 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
 		704A46E32031BF15003218B5 /* PeopleToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToSave.swift; sourceTree = "<group>"; };
 		704A46E52031C067003218B5 /* PeopleToTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToTransfer.swift; sourceTree = "<group>"; };
+		7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouldReload.swift; sourceTree = "<group>"; };
 		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				B0990F2F1F27578400D26557 /* ExtensionDelegate.swift */,
 				B0990F311F27578400D26557 /* NotificationController.swift */,
 				B0990F331F27578400D26557 /* ComplicationController.swift */,
+				7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */,
 				B0990F351F27578400D26557 /* Assets.xcassets */,
 				B0990F2B1F27578400D26557 /* Supporting Files */,
 			);
@@ -1014,6 +1017,7 @@
 				704A46E82031C0AA003218B5 /* PeopleToTransfer.swift in Sources */,
 				704A46EA2031C0B6003218B5 /* PeopleToSave.swift in Sources */,
 				B0990F2E1F27578400D26557 /* InterfaceController.swift in Sources */,
+				7096989B20A6B4CF00E55BC3 /* ShouldReload.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
