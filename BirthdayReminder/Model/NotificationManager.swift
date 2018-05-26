@@ -48,6 +48,7 @@ enum NotificationManager {
             NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!,person.name)
         content.sound = .default()
+        content.categoryIdentifier = "UpcomingBirthday"
         if let pngData = person.picData,
             let image = UIImage(data: pngData),
             let jpegData = UIImageJPEGRepresentation(image, 1.0) {
@@ -57,6 +58,9 @@ enum NotificationManager {
                 content.attachments.append(attachment)
             }
         }
+        content.userInfo["name"] = person.name
+        content.userInfo["birth"] = person.birth
+        content.userInfo["picData"] = person.picData
         let notificationRequest = UNNotificationRequest(identifier: person.uuid.uuidString, content: content, trigger: trigger)
         notificationCenter.add(notificationRequest, withCompletionHandler: nil)
     }

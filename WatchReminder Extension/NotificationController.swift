@@ -13,6 +13,10 @@ import UserNotifications
 
 class NotificationController: WKUserNotificationInterfaceController {
 
+    @IBOutlet weak var nameLabel: WKInterfaceLabel!
+    @IBOutlet weak var birthdayLabel: WKInterfaceLabel!
+    @IBOutlet weak var interfaceImage: WKInterfaceImage!
+    
     override init() {
         // Initialize variables here.
         super.init()
@@ -29,14 +33,18 @@ class NotificationController: WKUserNotificationInterfaceController {
         super.didDeactivate()
     }
 
-    /*
     override func didReceive(_ notification: UNNotification, withCompletion completionHandler: @escaping (WKUserNotificationInterfaceType) -> Swift.Void) {
-        // This method is called when a notification needs to be presented.
-        // Implement it if you use a dynamic notification interface.
-        // Populate your dynamic notification interface as quickly as possible.
-        //
-        // After populating your dynamic notification interface call the completion block.
-        completionHandler(.custom)
+        if let userInfo = notification.request.content.userInfo as? [String:Any],
+            let name = userInfo["name"] as? String,
+            let birth = userInfo["birth"] as? String,
+            let picData = userInfo["picData"] as? Data? {
+            nameLabel.setText(name)
+            birthdayLabel.setText(birth.toLocalizedDate(with: "MMM-d"))
+            interfaceImage.setImageData(picData)
+            completionHandler(.custom)
+        } else {
+            completionHandler(.default)
+        }
     }
-    */
+    
 }

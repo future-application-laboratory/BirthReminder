@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14111" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch42" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
     </dependencies>
     <scenes>
         <!--BirthReminder-->
@@ -66,7 +66,9 @@ Go to Host App to configure</string>
                     <items>
                         <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
                     </items>
-                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <notificationCategory key="notificationCategory" identifier="UpcomingBirthday" id="JfB-70-Muf">
+                        <color key="sashColor" red="0.38678665509999999" green="0.90049913189999997" blue="0.5424237905" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </notificationCategory>
                     <connections>
                         <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
                         <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
@@ -78,7 +80,32 @@ Go to Host App to configure</string>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchReminder" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchReminder" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Upcoming Birthday" textAlignment="center" minimumScaleFactor="0.5" id="lW0-bI-wmd"/>
+                        <separator alignment="left" id="wdY-qk-pHW"/>
+                        <group width="1" alignment="left" id="0gl-2L-PBx">
+                            <items>
+                                <label alignment="left" text="Name" id="gvh-Ld-cEQ"/>
+                                <label alignment="right" text="Label" id="Fpq-mK-5ja"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="1LK-Hj-Mtb">
+                            <items>
+                                <label alignment="left" text="Birthday" id="9Mq-WZ-hg6"/>
+                                <label alignment="right" text="Label" id="xDs-br-On8"/>
+                            </items>
+                        </group>
+                        <imageView alignment="center" id="Ruc-0X-gMo"/>
+                        <separator alignment="left" id="7YU-BQ-hrM"/>
+                        <label alignment="center" text="Let's celebrate!" textAlignment="center" minimumScaleFactor="0.5" id="nzI-Hh-Wzu"/>
+                    </items>
+                    <connections>
+                        <outlet property="birthdayLabel" destination="xDs-br-On8" id="Qs9-ei-wu9"/>
+                        <outlet property="interfaceImage" destination="Ruc-0X-gMo" id="gqR-ei-v8m"/>
+                        <outlet property="nameLabel" destination="Fpq-mK-5ja" id="36m-hQ-wN4"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>

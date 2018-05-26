@@ -45,9 +45,9 @@ class BirthComputer {
 }
 
 extension String {
-    func toLocalizedDate() -> String? {
+    func toLocalizedDate(with style: String? = nil) -> String? {
         let formatter = DateFormatter()
-        formatter.dateFormat = NSLocalizedString("dateStyle", comment: "Date Style")
+        formatter.dateFormat = style ?? NSLocalizedString("dateStyle", comment: "Date Style")
         guard let date = toDate() else { return nil }
         return formatter.string(from: date)
     }
