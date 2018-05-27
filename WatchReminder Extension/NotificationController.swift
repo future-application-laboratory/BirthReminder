@@ -39,7 +39,7 @@ class NotificationController: WKUserNotificationInterfaceController {
             let birth = userInfo["birth"] as? String,
             let picData = userInfo["picData"] as? Data? {
             nameLabel.setText(name)
-            birthdayLabel.setText(birth.toLocalizedDate(with: "MMM-d"))
+            birthdayLabel.setText(birth.toLocalizedDate(with: "MMM/d"))
             interfaceImage.setImageData(picData)
             completionHandler(.custom)
         } else {

@@ -39,6 +39,14 @@
 		704A46EA2031C0B6003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
 		704A46EB2031C0B7003218B5 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
 		704A46EC2031C0C8003218B5 /* PeopleToTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E52031C067003218B5 /* PeopleToTransfer.swift */; };
+		7060399320BA2C2700279F23 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7060399220BA2C2700279F23 /* UserNotifications.framework */; };
+		7060399520BA2C2700279F23 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7060399420BA2C2700279F23 /* UserNotificationsUI.framework */; };
+		7060399820BA2C2700279F23 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7060399720BA2C2700279F23 /* NotificationViewController.swift */; };
+		7060399B20BA2C2700279F23 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7060399920BA2C2700279F23 /* MainInterface.storyboard */; };
+		7060399F20BA2C2700279F23 /* iOSUpcomingNotificationContentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7060399120BA2C2600279F23 /* iOSUpcomingNotificationContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		706039A320BA2F5300279F23 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
+		706039A420BA2FF200279F23 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
+		706039A520BA301300279F23 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
 		7096989B20A6B4CF00E55BC3 /* ShouldReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */; };
 		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
@@ -98,6 +106,13 @@
 			remoteGlobalIDString = B06883531F1EEB2D00831AA6;
 			remoteInfo = BirthdayReminder;
 		};
+		7060399D20BA2C2700279F23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7060399020BA2C2600279F23;
+			remoteInfo = iOSNotificationContentExtension;
+		};
 		B02929561F26E79000AD0BC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B068834C1F1EEB2D00831AA6 /* Project object */;
@@ -129,6 +144,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				B02929581F26E79000AD0BC1 /* TodayReminder.appex in Embed App Extensions */,
+				7060399F20BA2C2700279F23 /* iOSUpcomingNotificationContentExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +216,12 @@
 		704A46E12031BA30003218B5 /* Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moya.swift; sourceTree = "<group>"; };
 		704A46E32031BF15003218B5 /* PeopleToSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToSave.swift; sourceTree = "<group>"; };
 		704A46E52031C067003218B5 /* PeopleToTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleToTransfer.swift; sourceTree = "<group>"; };
+		7060399120BA2C2600279F23 /* iOSUpcomingNotificationContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iOSUpcomingNotificationContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7060399220BA2C2700279F23 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		7060399420BA2C2700279F23 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		7060399720BA2C2700279F23 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		7060399A20BA2C2700279F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7060399C20BA2C2700279F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouldReload.swift; sourceTree = "<group>"; };
 		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
@@ -276,6 +298,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7060398E20BA2C2600279F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7060399520BA2C2700279F23 /* UserNotificationsUI.framework in Frameworks */,
+				7060399320BA2C2700279F23 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +410,16 @@
 			path = include;
 			sourceTree = "<group>";
 		};
+		7060399620BA2C2700279F23 /* iOSUpcomingNotificationContentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				7060399720BA2C2700279F23 /* NotificationViewController.swift */,
+				7060399920BA2C2700279F23 /* MainInterface.storyboard */,
+				7060399C20BA2C2700279F23 /* Info.plist */,
+			);
+			path = iOSUpcomingNotificationContentExtension;
+			sourceTree = "<group>";
+		};
 		70C5EF7F1FDBFD2C0068FAC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +462,7 @@
 			children = (
 				B06883721F1EEC9D00831AA6 /* Universal */,
 				B06883561F1EEB2D00831AA6 /* BirthdayReminder */,
+				7060399620BA2C2700279F23 /* iOSUpcomingNotificationContentExtension */,
 				B029294F1F26E79000AD0BC1 /* TodayReminder */,
 				B0990F1B1F27578400D26557 /* WatchReminder */,
 				B0990F2A1F27578400D26557 /* WatchReminder Extension */,
@@ -439,6 +481,7 @@
 				B0990F1A1F27578400D26557 /* WatchReminder.app */,
 				B0990F261F27578400D26557 /* WatchReminder Extension.appex */,
 				523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */,
+				7060399120BA2C2600279F23 /* iOSUpcomingNotificationContentExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -577,6 +620,8 @@
 				661B63C7EE71E9CD1C7726D2 /* Pods_TodayReminder.framework */,
 				723C01758E594FD75BD5EA99 /* Pods_WatchReminder.framework */,
 				1800E9202D3A3F234EA230AA /* Pods_WatchReminder_Extension.framework */,
+				7060399220BA2C2700279F23 /* UserNotifications.framework */,
+				7060399420BA2C2700279F23 /* UserNotificationsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -601,6 +646,23 @@
 			productName = BirthReminderTests;
 			productReference = 523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7060399020BA2C2600279F23 /* iOSUpcomingNotificationContentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 706039A220BA2C2700279F23 /* Build configuration list for PBXNativeTarget "iOSUpcomingNotificationContentExtension" */;
+			buildPhases = (
+				7060398D20BA2C2600279F23 /* Sources */,
+				7060398E20BA2C2600279F23 /* Frameworks */,
+				7060398F20BA2C2600279F23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSUpcomingNotificationContentExtension;
+			productName = iOSNotificationContentExtension;
+			productReference = 7060399120BA2C2600279F23 /* iOSUpcomingNotificationContentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		B029294B1F26E79000AD0BC1 /* TodayReminder */ = {
 			isa = PBXNativeTarget;
@@ -638,6 +700,7 @@
 			dependencies = (
 				B02929571F26E79000AD0BC1 /* PBXTargetDependency */,
 				B0990F391F27578400D26557 /* PBXTargetDependency */,
+				7060399E20BA2C2700279F23 /* PBXTargetDependency */,
 			);
 			name = BirthdayReminder;
 			productName = BirthdayReminder;
@@ -685,7 +748,7 @@
 		B068834C1F1EEB2D00831AA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = CaptainYukinoshitaHachiman;
 				TargetAttributes = {
@@ -693,6 +756,11 @@
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B06883531F1EEB2D00831AA6;
+					};
+					7060399020BA2C2600279F23 = {
+						CreatedOnToolsVersion = 9.4;
+						DevelopmentTeam = F248CK9C8M;
+						ProvisioningStyle = Automatic;
 					};
 					B029294B1F26E79000AD0BC1 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -777,6 +845,7 @@
 				B0990F191F27578400D26557 /* WatchReminder */,
 				B0990F251F27578400D26557 /* WatchReminder Extension */,
 				523235601FDCB8EA00CAB37D /* BirthReminderTests */,
+				7060399020BA2C2600279F23 /* iOSUpcomingNotificationContentExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -786,6 +855,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7060398F20BA2C2600279F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7060399B20BA2C2700279F23 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +1026,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7060398D20BA2C2600279F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				706039A320BA2F5300279F23 /* BirthComputing.swift in Sources */,
+				7060399820BA2C2700279F23 /* NotificationViewController.swift in Sources */,
+				706039A420BA2FF200279F23 /* PeopleToSave.swift in Sources */,
+				706039A520BA301300279F23 /* Protocols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B02929481F26E79000AD0BC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1028,6 +1116,11 @@
 			isa = PBXTargetDependency;
 			target = B06883531F1EEB2D00831AA6 /* BirthdayReminder */;
 			targetProxy = 523235661FDCB8EA00CAB37D /* PBXContainerItemProxy */;
+		};
+		7060399E20BA2C2700279F23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7060399020BA2C2600279F23 /* iOSUpcomingNotificationContentExtension */;
+			targetProxy = 7060399D20BA2C2700279F23 /* PBXContainerItemProxy */;
 		};
 		B02929571F26E79000AD0BC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1115,6 +1208,14 @@
 				52AD432A1F7F1AEC00306D47 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7060399920BA2C2700279F23 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7060399A20BA2C2700279F23 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 		B02929521F26E79000AD0BC1 /* MainInterface.storyboard */ = {
@@ -1205,6 +1306,48 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BirthdayReminder.app/BirthdayReminder";
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		706039A020BA2C2700279F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/iOSUpcomingNotificationContentExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		706039A120BA2C2700279F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F248CK9C8M;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "$(SRCROOT)/iOSUpcomingNotificationContentExtension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -1369,7 +1512,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E8E2A6B24D19E5804BE59DB /* Pods-BirthdayReminder.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1400,7 +1543,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BA622C34FD96AFBF6E0D84F6 /* Pods-BirthdayReminder.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1538,6 +1681,15 @@
 			buildConfigurations = (
 				523235681FDCB8EA00CAB37D /* Debug */,
 				523235691FDCB8EA00CAB37D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		706039A220BA2C2700279F23 /* Build configuration list for PBXNativeTarget "iOSUpcomingNotificationContentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				706039A020BA2C2700279F23 /* Debug */,
+				706039A120BA2C2700279F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

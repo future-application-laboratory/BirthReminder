@@ -96,7 +96,11 @@ Go to Host App to configure</string>
                                 <label alignment="right" text="Label" id="xDs-br-On8"/>
                             </items>
                         </group>
-                        <imageView alignment="center" id="Ruc-0X-gMo"/>
+                        <group width="1" alignment="left" radius="10" id="gWx-nI-HQv">
+                            <items>
+                                <imageView alignment="center" contentMode="scaleAspectFill" id="Ruc-0X-gMo"/>
+                            </items>
+                        </group>
                         <separator alignment="left" id="7YU-BQ-hrM"/>
                         <label alignment="center" text="Let's celebrate!" textAlignment="center" minimumScaleFactor="0.5" id="nzI-Hh-Wzu"/>
                     </items>
