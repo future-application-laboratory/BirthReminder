@@ -17,6 +17,8 @@
 [![Travis](https://img.shields.io/travis/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://www.travis-ci.org/CaptainYukinoshitaHachiman/BirthReminder)
 [![License](https://img.shields.io/github/license/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder/blob/master/LICENSE)
 [![Slack](https://img.shields.io/badge/Slack-BirthReminder-orange.svg?style=for-the-badge)](https://join.slack.com/t/birthreminder/shared_invite/enQtMjgwOTExNDA1MzE2LTkyZDQ3MWVmMmM0OWFhNzIyYzFkMGMwY2ZjMjY0ZGU1M2E2MTNjODlhNWQ1OTEzZmVlMWY4OTc5Njk0Njc1MTc)
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder.svg?type=small)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder?ref=badge_small)
 # Features
 
 ## Supports both iOS and watchOS
@@ -57,3 +59,7 @@ If you would like to add more birth info, please go to Misc -> Contributing and 
 ## APP Bug Report/Feature Suggestion
 
 If you have nice ideas or find a bug in the app, please open an issue or a PR
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder?ref=badge_large)
