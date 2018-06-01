@@ -3,6 +3,7 @@
 > The tool that helps you manage your favorite anime characters' births
 
 ![The index page of this app has a list of people and their birthdays](./GitHubPics/index.png)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder?ref=badge_shield)
 
 [![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 [![Made with Swift](https://forthebadge.com/images/badges/made-with-swift.svg)](https://swift.org/)
@@ -57,3 +58,7 @@ If you would like to add more birth info, please go to Misc -> Contributing and 
 ## APP Bug Report/Feature Suggestion
 
 If you have nice ideas or find a bug in the app, please open an issue or a PR
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FCaptainYukinoshitaHachiman%2FBirthReminder?ref=badge_large)
