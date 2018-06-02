@@ -116,13 +116,14 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     
     override var previewActionItems: [UIPreviewActionItem] {
         let tabbarController: UITabBarController
+        //  swiftlint:disable force_cast
         if let onboardController = UIApplication.shared.keyWindow?.rootViewController as? OnboardViewController {
             tabbarController = onboardController.presentedViewController as! UITabBarController
         } else {
             tabbarController = UIApplication.shared.keyWindow?.rootViewController as! UITabBarController
         }
         let indexController = tabbarController.viewControllers![0] as! UINavigationController
-        
+        //  swiftlint:enable force_cast
         return [
             UIPreviewAction(title: NSLocalizedString("share", comment: "share"), style: .default) { [unowned self] _,_ in
                 self.share(controller: indexController)

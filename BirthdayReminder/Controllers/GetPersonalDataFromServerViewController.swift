@@ -111,15 +111,16 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cellData = tableViewData[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
-        cell.delegate = self
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath)
+        guard let personCell = cell as? PersonalCell else { fatalError() }
+        personCell.delegate = self
         if let picPack = tableViewData[index].picPack {
-            cell.picPack = picPack
+            personCell.picPack = picPack
         }
-        cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
-        cell.picPack = cellData.picPack
-        return cell
+        personCell.nameLabel.text = cellData.name
+        personCell.birthLabel.text = cellData.stringedBirth.toLocalizedDate()
+        personCell.picPack = cellData.picPack
+        return personCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

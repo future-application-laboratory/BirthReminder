@@ -5,6 +5,7 @@
 //  Created by Jacky Yu on 19/07/2017.
 //  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
 //
+//  swiftlint:disable line_length
 
 import UIKit
 import WatchConnectivity
@@ -95,15 +96,19 @@ ManagedObjectContextUsing {
             else { return }
         session.outstandingFileTransfers.forEach { $0.cancel() }
         let request = PeopleToSave.sortedFetchRequest
-        let people = try! context.fetch(request).filterOutNil { person -> PeopleToTransfer? in
-            guard person.shouldSync else { return nil }
-            let picData = person.picData
-            return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
+        do {
+            let people = try context.fetch(request).filterOutNil { person -> PeopleToTransfer? in
+                guard person.shouldSync else { return nil }
+                let picData = person.picData
+                return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
+            }
+            let data = NSKeyedArchiver.archivedData(withRootObject: people)
+            let fileUrl = URL.temporary
+            try? data.write(to: fileUrl)
+            session.transferFile(fileUrl, metadata: ["type":"BR/reload"])
+        } catch {
+            fatalError()
         }
-        let data = NSKeyedArchiver.archivedData(withRootObject: people)
-        let fileUrl = URL.temporary
-        try? data.write(to: fileUrl)
-        session.transferFile(fileUrl, metadata: ["type":"BR/reload"])
     }
     
     func sessionReachabilityDidChange(_ session: WCSession) {

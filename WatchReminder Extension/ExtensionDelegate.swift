@@ -5,12 +5,13 @@
 //  Created by Jacky Yu on 25/07/2017.
 //  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
 //
+//  swiftlint:disable line_length
 
 import WatchKit
 import WatchConnectivity
 import CoreData
 
-class ExtensionDelegate: NSObject , WKExtensionDelegate , WCSessionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     var context = createDataMainContext()
     let request = PeopleToSave.sortedFetchRequest

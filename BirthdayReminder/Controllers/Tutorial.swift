@@ -14,11 +14,19 @@ import SnapKit
 var tutorialController: OnboardViewController {
     let backgroundImage = #imageLiteral(resourceName: "background")
     
-    let page1 = OnboardingContentViewController(title: NSLocalizedString("page1title", comment: "page1 title"), body: NSLocalizedString("page1body", comment: "page1 body"), image: nil, buttonText: nil, action: nil)
-    let page2 = OnboardingContentViewController(title: NSLocalizedString("page2title", comment: "page2 title"), body: NSLocalizedString("page2body", comment: "page2 body"), image: nil, buttonText: nil, action: nil)
-    let page3 = OnboardingContentViewController(title: NSLocalizedString("page3title", comment: "page3 title"), body: NSLocalizedString("page3body", comment: "page3 body"), image: nil, buttonText: nil, action: nil)
-    let page4 = OnboardingContentViewController(title: NSLocalizedString("page4title", comment: "page4 title"), body: NSLocalizedString("page4body", comment: "page4 body"), image: nil, buttonText: NSLocalizedString("setup", comment: "setup"), action: nil)
-    let contentVCs = [page1,page2,page3,page4]
+    let page1 = OnboardingContentViewController(title: NSLocalizedString("page1title", comment: "page1 title"),
+                                                body: NSLocalizedString("page1body", comment: "page1 body"), image: nil,
+                                                buttonText: nil, action: nil)
+    let page2 = OnboardingContentViewController(title: NSLocalizedString("page2title", comment: "page2 title"),
+                                                body: NSLocalizedString("page2body", comment: "page2 body"), image: nil,
+                                                buttonText: nil, action: nil)
+    let page3 = OnboardingContentViewController(title: NSLocalizedString("page3title", comment: "page3 title"),
+                                                body: NSLocalizedString("page3body", comment: "page3 body"), image: nil,
+                                                buttonText: nil, action: nil)
+    let page4 = OnboardingContentViewController(title: NSLocalizedString("page4title", comment: "page4 title"),
+                                                body: NSLocalizedString("page4body", comment: "page4 body"), image: nil,
+                                                buttonText: NSLocalizedString("setup", comment: "setup"), action: nil)
+    let contentVCs = [page1, page2, page3, page4]
     
     let onboardVC = OnboardViewController(backgroundImage: backgroundImage, contents: contentVCs)
     onboardVC?.allowSkipping = true

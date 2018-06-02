@@ -27,7 +27,9 @@ class AnimeGettingFromServerViewController: ViewController {
     }
     private var allAnimes = [Anime]()
     
-    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
+    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero,
+                                                                          size: CGSize(width: 150, height: 150)),
+                                                            type: .orbit, color: .cell, padding: nil)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -39,7 +41,11 @@ class AnimeGettingFromServerViewController: ViewController {
         // Agreement
         let defaults = UserDefaults()
         if !defaults.bool(forKey: "shouldHideAgreement") {
-            let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("about", comment: "about"), body: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"), theme: .warning(.light))
+            //  swiftlint:disable line_length
+            let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("about", comment: "about"),
+                                                body: NSLocalizedString("agreement", comment: "The infomation and pictures are collected from the Internet, and they don't belong to the app's developer.\nPlease email me if you think things here are infringing your right, and I'll remove them. (You may see my contact info in the App Store Page, or the about page from index)"),
+                                                theme: .warning(.light))
+            //  swiftlint:enable line_length
             var config = CFNotify.Config()
             config.initPosition = .top(.center)
             config.appearPosition = .top
@@ -71,10 +77,11 @@ class AnimeGettingFromServerViewController: ViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showAnimeDetail" {
-            let viewController = segue.destination as! GetPersonalDataFromServerViewController
-            viewController.anime = sender as? Anime
-            viewController.navigationItem.title = (sender as! Anime).name.replacingOccurrences(of: "\n", with: "")
+        if segue.identifier == "showAnimeDetail",
+            let viewController = segue.destination as? GetPersonalDataFromServerViewController,
+            let anime = sender as? Anime {
+            viewController.anime = anime
+            viewController.navigationItem.title = anime.name.replacingOccurrences(of: "\n", with: "")
         }
     }
     
@@ -154,11 +161,12 @@ extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell") as! AnimeCell
-        cell.delegate = self
-        cell.picPack = animes[index].picPack
-        cell.nameLabel.text = animes[index].name
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell")
+        guard let animeCell = cell as? AnimeCell else { fatalError() }
+        animeCell.delegate = self
+        animeCell.picPack = animes[index].picPack
+        animeCell.nameLabel.text = animes[index].name
+        return animeCell
     }
     
 }

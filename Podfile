@@ -20,5 +20,6 @@ target 'BirthdayReminder' do
     pod 'IGRPhotoTweaks'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'SwiftLint'
     
 end

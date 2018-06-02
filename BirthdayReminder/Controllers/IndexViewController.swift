@@ -5,6 +5,7 @@
 //  Created by Jacky Yu on 20/07/2017.
 //  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
 //
+//  swiftlint:disable line_length
 
 import UIKit
 import CoreData
@@ -98,13 +99,13 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         floaty.buttonImage = #imageLiteral(resourceName: "add")
         floaty.overlayColor = .clear
         floaty.buttonColor = .flatMintDark
-        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: #imageLiteral(resourceName: "ic_edit")) { item in
+        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: #imageLiteral(resourceName: "ic_edit")) { _ in
             let controller = PersonFormController(with: .new(nil))
             controller.title = NSLocalizedString("new", comment: "New")
             controller.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: #imageLiteral(resourceName: "ic_remote")) { item in
+        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: #imageLiteral(resourceName: "ic_remote")) { _ in
             self.performSegue(withIdentifier: "showAnimes", sender: nil)
         }
         floaty.items.forEach { item in
@@ -119,9 +120,13 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         let request = PeopleToSave.sortedFetchRequest
         frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
-        try! frc.performFetch()
-        data = frc.fetchedObjects!
-        data = BirthComputer.peopleOrderedByBirthday(peopleToReorder: data)
+        do {
+            try frc.performFetch()
+            data = frc.fetchedObjects!
+            data = BirthComputer.peopleOrderedByBirthday(peopleToReorder: data)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
         checkDataAndDisplayPlaceHolder()
     }
     
@@ -218,9 +223,10 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cellData = data[index]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath) as! PersonalCell
-        cell.nameLabel.text = cellData.name
-        cell.birthLabel.text = timeShouldShowAsLocalizedDate ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personalCell", for: indexPath)
+        guard let personCell = cell as? PersonalCell else { fatalError() }
+        personCell.nameLabel.text = cellData.name
+        personCell.birthLabel.text = timeShouldShowAsLocalizedDate ? cellData.birth.toLocalizedDate() : cellData.birth.toLeftDays()
         DispatchQueue.global(qos: .userInteractive).async {
             let picImage: UIImage?
             if let imgData = cellData.picData {
@@ -229,7 +235,7 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
                 picImage = UIImage().imageScaled(to: CGSize(width: 100, height: 100))
             }
             DispatchQueue.main.async {
-                cell.picView.image = picImage
+                personCell.picView.image = picImage
             }
         }
         

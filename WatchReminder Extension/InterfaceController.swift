@@ -17,7 +17,9 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
     private var status = false
     private var tableData: [PeopleToSave]!
     private var delegate: ExtensionDelegate {
+        //  swiftlint:disable force_cast
         return WKExtension.shared().delegate as! ExtensionDelegate
+        //  swiftlint:enable force_cast
     }
     private var context: NSManagedObjectContext {
         return delegate.context

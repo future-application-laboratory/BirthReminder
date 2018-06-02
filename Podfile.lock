@@ -32,6 +32,7 @@ PODS:
   - PAPermissions (0.9.10)
   - Result (3.2.4)
   - SnapKit (4.0.0)
+  - SwiftLint (0.25.1)
   - ViewAnimator (1.0.5)
 
 DEPENDENCIES:
@@ -50,7 +51,28 @@ DEPENDENCIES:
   - Onboard (from `https://github.com/mamaral/Onboard.git`, branch `master`)
   - PAPermissions
   - SnapKit
+  - SwiftLint
   - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AcknowList
+    - Alamofire
+    - CFNotify
+    - Crashlytics
+    - Eureka
+    - Fabric
+    - Floaty
+    - IGRPhotoTweaks
+    - Moya
+    - Moya-ObjectMapper
+    - NVActivityIndicatorView
+    - ObjectMapper
+    - PAPermissions
+    - Result
+    - SnapKit
+    - SwiftLint
+    - ViewAnimator
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -100,8 +122,9 @@ SPEC CHECKSUMS:
   PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   ViewAnimator: d87d691fbcaf994db7ee8fc632afa3073bd3b851
 
-PODFILE CHECKSUM: 489669721edb949bc52e27de51f2bb63ae09e68f
+PODFILE CHECKSUM: b8387b4a6f3943531b50169257447e32d1fdba33
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

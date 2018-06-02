@@ -38,12 +38,12 @@ extension TCWQService: TargetType {
             } else {
                 return "animes"
             }
-        case .animepic(let id):
-            return "image/anime/\(id)"
-        case .people(let id):
-            return "characters/\(id)"
-        case .personalPic(let id):
-            return "image/character/\(id)"
+        case .animepic(let identifier):
+            return "image/anime/\(identifier)"
+        case .people(let identifierd):
+            return "characters/\(identifierd)"
+        case .personalPic(let identifier):
+            return "image/character/\(identifier)"
         case .notification(_):
             return "notification"
         case .contribution(_):
@@ -74,7 +74,9 @@ extension TCWQService: TargetType {
             let defaults = UserDefaults.standard
             let token = defaults.string(forKey: "remoteToken") ?? "nil"
             
-            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution!],"people":people.map{$0.objectForContribution},"contributorInfo":contributorInfo,"token":token]
+            let object:[String:Any] = ["anime":["name":animeName,"picPack":picPack.objectForContribution!],
+                                       "people":people.map{$0.objectForContribution},
+                                       "contributorInfo":contributorInfo,"token":token]
             return .requestParameters(parameters: object, encoding: JSONEncoding.default)
         default:
             return .requestPlain

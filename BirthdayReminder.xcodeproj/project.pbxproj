@@ -690,10 +690,10 @@
 				B06883511F1EEB2D00831AA6 /* Frameworks */,
 				B06883521F1EEB2D00831AA6 /* Resources */,
 				AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */,
-				339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */,
 				B029295C1F26E79000AD0BC1 /* Embed App Extensions */,
 				B0990F421F27578400D26557 /* Embed Watch Content */,
 				705300BE203BF03E00AC1771 /* [Crashlytics] */,
+				70C713C420C359BD008E6029 /* SwiftLint Check */,
 			);
 			buildRules = (
 			);
@@ -916,21 +916,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		339023E7E3118B8AB5D2C8CB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		705300BE203BF03E00AC1771 /* [Crashlytics] */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -944,6 +929,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" ed4f1b934fd6dcf7ca77a061a170b38fa02b95a3 9d3098b0a3d45dbce6b2f4a8c3af65f3d53a34cb5f272af3c2d150db4aff84d7";
+		};
+		70C713C420C359BD008E6029 /* SwiftLint Check */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Check";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 		AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

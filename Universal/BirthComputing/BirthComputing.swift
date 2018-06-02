@@ -114,7 +114,9 @@ extension Date {
 }
 
 extension Array where Element: PeopleToSave {
+    //  swiftlint:disable force_cast
     mutating func sort() {
         self = BirthComputer.peopleOrderedByBirthday(peopleToReorder: (self as [PeopleToSave])) as! Array
     }
+    //  swiftlint:enable force_cast
 }

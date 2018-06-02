@@ -60,10 +60,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func fetchData() {
-        let fetched = try! context.fetch(request)
-        if !fetched.isEmpty {
-            let people = fetched
-            current = BirthComputer.peopleOrderedByBirthday(peopleToReorder: people)[0]
+        do {
+            let fetched = try context.fetch(request)
+            if !fetched.isEmpty {
+                let people = fetched
+                current = BirthComputer.peopleOrderedByBirthday(peopleToReorder: people)[0]
+            }
+        } catch {
+            fatalError(error.localizedDescription)
         }
         nameLabel.isHidden = isEmpty
         birthLabel.isHidden = isEmpty

@@ -5,6 +5,7 @@
 //  Created by Jacky Yu on 25/07/2017.
 //  Copyright © 2017 CaptainYukinoshitaHachiman. All rights reserved.
 //
+//  swiftlint:disable line_length
 
 import ClockKit
 
@@ -14,8 +15,12 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     let context = createDataMainContext()
     let request = PeopleToSave.sortedFetchRequest
     lazy var source: [PeopleToSave] = {
-        let fetched = try! context.fetch(request)
-        return BirthComputer.peopleOrderedByBirthday(peopleToReorder: fetched)
+        do {
+            let fetched = try context.fetch(request)
+            return BirthComputer.peopleOrderedByBirthday(peopleToReorder: fetched)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }()
     
     let supportedComplicationFamilies: [CLKComplicationFamily] = [.utilitarianLarge, .modularLarge]
