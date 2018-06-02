@@ -9,18 +9,18 @@
 import UIKit
 
 class PersonalCell: RoundCornerTableViewCell {
-    
+
     @IBOutlet weak var picView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
-    
+
     weak var picPack: PicPack? {
         didSet {
             picView.image = picPack?.pic
         }
     }
     weak var delegate: CopyrightViewing?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(showCopyright(_:)))
@@ -32,11 +32,11 @@ class PersonalCell: RoundCornerTableViewCell {
         picView.layer.masksToBounds = true
         layer.cornerRadius = 10
         layer.masksToBounds = true
-        
+
         nameLabel.text = ""
         picPack = nil
     }
-    
+
     @objc func showCopyright(_ sender: UIGestureRecognizer) {
         let location = sender.location(in: self)
         if let copyright = picPack?.copyright,
@@ -45,5 +45,5 @@ class PersonalCell: RoundCornerTableViewCell {
             delegate?.showCopyrightInfo(copyright)
         }
     }
-    
+
 }

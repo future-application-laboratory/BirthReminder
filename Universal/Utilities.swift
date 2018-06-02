@@ -10,7 +10,7 @@ import Foundation
 
 extension URL {
     static var temporary: URL {
-        return URL(fileURLWithPath:NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(UUID().uuidString)
+        return URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent(UUID().uuidString)
     }
 }
 

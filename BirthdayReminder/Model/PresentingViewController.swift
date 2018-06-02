@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PresentingViewController {
-    static public var shared: UIViewController? = nil
+    static public var shared: UIViewController?
 }
 
 class ViewController: UIViewController {

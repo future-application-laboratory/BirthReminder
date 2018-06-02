@@ -19,15 +19,15 @@ public protocol ManagedObjectType: class {
 }
 
 extension PeopleToSave: ManagedObjectType {
-    
+
     public static var defaultSortDescriptors: [NSSortDescriptor] {
         return [NSSortDescriptor(key: "name", ascending: false)]
     }
-    
+
     public static var entityName: String {
         return "People"
     }
-    
+
     public static var sortedFetchRequest: NSFetchRequest<PeopleToSave> {
         let request = NSFetchRequest<PeopleToSave>(entityName: "People")
         request.sortDescriptors = defaultSortDescriptors

@@ -13,7 +13,7 @@ import CoreData
 import MobileCoreServices
 
 enum NotificationManager {
-    
+
     static public func reloadNotifications() {
         let notifyQueue = DispatchQueue(label: "notification", qos: .userInitiated)
         notifyQueue.async {
@@ -25,14 +25,14 @@ enum NotificationManager {
                 let fetchRequest = PeopleToSave.sortedFetchRequest
                 let people = try? AppDelegate.context.fetch(fetchRequest)
                 notifyQueue.async {
-                    people?.forEach() { person in
+                    people?.forEach { person in
                         onInsert(person: person)
                     }
                 }
             }
         }
     }
-    
+
     static func onInsert(person: PeopleToSave) {
         let notificationCenter = UNUserNotificationCenter.current()
         let birth = person.birth.toDate()!
@@ -46,7 +46,7 @@ enum NotificationManager {
             person.name)
         content.body = String.localizedStringWithFormat(
             NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
-            person.birth.toLocalizedDate()!,person.name)
+            person.birth.toLocalizedDate()!, person.name)
         content.sound = .default()
         content.categoryIdentifier = "UpcomingBirthday"
         if let pngData = person.picData,
@@ -54,7 +54,7 @@ enum NotificationManager {
             let jpegData = UIImageJPEGRepresentation(image, 1.0) {
             let picUrl = URL.temporary
             if let _ = try? jpegData.write(to: picUrl),
-                let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey:kUTTypeJPEG]) {
+                let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey: kUTTypeJPEG]) {
                 content.attachments.append(attachment)
             }
         }
@@ -64,15 +64,15 @@ enum NotificationManager {
         let notificationRequest = UNNotificationRequest(identifier: person.uuid.uuidString, content: content, trigger: trigger)
         notificationCenter.add(notificationRequest, withCompletionHandler: nil)
     }
-    
+
     static func onRemove(person: PeopleToSave) {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [person.uuid.uuidString])
     }
-    
+
     static func onModify(person: PeopleToSave) {
         onRemove(person: person)
         onInsert(person: person)
     }
-    
+
 }

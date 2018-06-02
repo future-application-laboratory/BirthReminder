@@ -12,10 +12,10 @@ import Eureka
 public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPickerViewDataSource {
     private let pickerView = UIPickerView()
     private let daysInMonth = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    
+
     public override func setup() {
         super.setup()
-        
+
         contentMode = .scaleAspectFit
         contentView.addSubview(pickerView)
         pickerView.snp.makeConstraints { make in
@@ -24,7 +24,7 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
         height = { 200 }
         pickerView.delegate = self
         pickerView.dataSource = self
-        
+
         if let birth = row.value {
             let month = birth[birth.startIndex..<birth.index(birth.startIndex, offsetBy: 2)]
             let day = birth[birth.index(birth.startIndex, offsetBy: 3)..<birth.endIndex]
@@ -32,11 +32,11 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
             pickerView.selectRow(Int(day)! - 1, inComponent: 1, animated: false)
         }
     }
-    
+
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
-    
+
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
@@ -45,7 +45,7 @@ public class DatePickingCell: Cell<String>, CellType, UIPickerViewDelegate, UIPi
             return daysInMonth[pickerView.selectedRow(inComponent: 0)]
         }
     }
-    
+
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0 {
             let formatter = DateFormatter()

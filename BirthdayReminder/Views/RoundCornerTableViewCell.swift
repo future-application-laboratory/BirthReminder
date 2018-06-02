@@ -13,7 +13,7 @@ class RoundCornerTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         selectedBackgroundView = UIView()
         selectedBackgroundView?.backgroundColor = .clear
         let selectedFrontView = UIView()
@@ -24,7 +24,7 @@ class RoundCornerTableViewCell: UITableViewCell {
         selectedFrontView.backgroundColor = #colorLiteral(red: 0.8797392845, green: 0.8797599673, blue: 0.8797488809, alpha: 1)
         selectedFrontView.layer.cornerRadius = 10
         selectedFrontView.layer.masksToBounds = true
-        
+
         backgroundView = UIView()
         let insideBackgroundView = UIView()
         backgroundView?.addSubview(insideBackgroundView)

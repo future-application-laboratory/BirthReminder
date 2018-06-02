@@ -13,11 +13,11 @@ protocol CopyrightViewing: class {
 }
 
 class NetworkController {
-    
+
     static let networkQueue = DispatchQueue(label: "network", qos: .userInitiated)
-    
+
     static let provider = MoyaProvider<TCWQService>()
-    
+
 }
 
 extension URL: ExpressibleByStringLiteral {

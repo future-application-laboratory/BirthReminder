@@ -11,18 +11,18 @@ import UserNotifications
 import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any required interface initialization here.
     }
-    
+
     func didReceive(_ notification: UNNotification) {
-        if let userInfo = notification.request.content.userInfo as? [String:Any],
+        if let userInfo = notification.request.content.userInfo as? [String: Any],
             let name = userInfo["name"] as? String,
             let birth = userInfo["birth"] as? String,
             let picData = userInfo["picData"] as? Data? {
@@ -33,5 +33,5 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
             }
         }
     }
-    
+
 }

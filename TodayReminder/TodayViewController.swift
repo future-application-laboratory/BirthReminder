@@ -11,12 +11,12 @@ import NotificationCenter
 import CoreData
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var emptyLabel: UILabel!
-    
+
     var status = true
     // CoreData
     let context = createDataMainContext()
@@ -25,32 +25,32 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         return current == nil
     }
     let request = PeopleToSave.sortedFetchRequest
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let layer = imageView.layer
         layer.masksToBounds = true
         layer.cornerRadius = 10
 
         upDateContent()
     }
-    
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         completionHandler(.newData)
     }
-    
+
     @IBAction func onChange(_ sender: Any) {
         status = !status
         upDateContent()
     }
-    
+
     func upDateContent() {
         fetchData()
         guard current != nil else {
             return
         }
-        
+
         nameLabel.text = current!.name
         let birth = current!.birth
         birthLabel.text = status ? birth.toLocalizedDate() : birth.toLeftDays()
@@ -58,7 +58,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             imageView.image = UIImage(data: data)
         }
     }
-    
+
     func fetchData() {
         do {
             let fetched = try context.fetch(request)
@@ -74,5 +74,5 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         imageView.isHidden = isEmpty
         emptyLabel.isHidden = !isEmpty
     }
-    
+
 }

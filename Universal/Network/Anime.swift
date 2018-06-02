@@ -12,15 +12,15 @@ final class Anime: Mappable {
     var id = -1
     var name = ""
     var picPack: PicPack?
-    
+
     init(withId id: Int, name: String) {
         self.id = id
         self.name = name
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         name <- map["name"]
         id <- map["id"]

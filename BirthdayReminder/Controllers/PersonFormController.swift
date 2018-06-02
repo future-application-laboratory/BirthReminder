@@ -15,14 +15,14 @@ import CFNotify
 import IGRPhotoTweaks
 
 class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPhotoTweakViewControllerDelegate {
-    
+
     private let formMode: Mode
-    
+
     enum Mode {
         case new(People?)
         case persistent(PeopleToSave)
     }
-    
+
     private lazy var newPerson: People? = {
         switch formMode {
         case .new(let person):
@@ -39,29 +39,28 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
             return nil
         }
     }()
-    
+
     private var imageRow: ImageRow!
-    private var nameRow: TextRow!
-    
+    private var copyrightRow: TextRow!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Form Defination
         form +++ Section(NSLocalizedString("name", comment: "name"))
-            <<< TextRow() { row in
+            <<< TextRow { row in
                 row.tag = "name"
                 row.title = NSLocalizedString("name", comment: "name")
                 row.placeholder = NSLocalizedString("name", comment: "name")
                 row.value = newPerson?.name ?? persistentPerson?.name
-                self.nameRow = row
             }
             +++ Section(NSLocalizedString("birth", comment: "Birth"))
-            <<< DatePickingRow() { row in
+            <<< DatePickingRow { row in
                 row.tag = "birth"
                 row.title = NSLocalizedString("birth", comment: "Birth")
                 row.value = (newPerson?.stringedBirth ?? persistentPerson?.birth) ?? "01-01"
             }
             +++ Section(NSLocalizedString("image", comment: "Image"))
-            <<< ImageRow() { row in
+            <<< ImageRow { row in
                 row.tag = "image"
                 row.title = NSLocalizedString("image", comment: "Image")
                 row.value = UIImage(data: (newPerson?.picPack?.data ?? persistentPerson?.picData) ?? Data())
@@ -69,14 +68,15 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 row.sourceTypes = ImageRowSourceTypes.PhotoLibrary
                 self.imageRow = row
             }
-            <<< TextRow() { row in
+            <<< TextRow { row in
                 row.tag = "imageCopyright"
                 row.title = NSLocalizedString("copyrightInfo", comment: "copyrightInfo")
                 row.placeholder = NSLocalizedString("optional", comment: "optional")
                 row.value = persistentPerson?.picCopyright
+                self.copyrightRow = row
             }
             +++ Section(NSLocalizedString("appleWatchSyncing", comment: "AppleWatchSyncing"))
-            <<< SwitchRow() { row in
+            <<< SwitchRow { row in
                 row.tag = "shouldSync"
                 row.title = NSLocalizedString("syncWithAW", comment: "syncWithAW")
                 row.value = persistentPerson?.shouldSync ?? false
@@ -84,7 +84,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         switch formMode {
         case .persistent(let persistentPerson):
             form +++ Section()
-                <<< DeleteButtonRow() { row in
+                <<< DeleteButtonRow { row in
                     row.context = context
                     row.objectToDelete = persistentPerson
                     row.confirmationParentViewControlelr = self
@@ -93,20 +93,20 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         default:
             break
         }
-        
+
         let barButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSave(sender:)))
         navigationItem.setRightBarButton(barButtonItem, animated: true)
-        
+
         // Drag&Drop Integration
         let dropInteraction = UIDropInteraction(delegate: self)
         view.addInteraction(dropInteraction)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         PresentingViewController.shared = self
     }
-    
+
     @objc private func onSave(sender: UIBarButtonItem) {
         let values = form.values()
         let name = values["name"] as? String
@@ -115,7 +115,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         let imageData = UIImagePNGRepresentation(image ?? UIImage())
         let imageCopyright = values["imageCopyright"] as? String
         let shouldSync = values["shouldSync"] as? Bool
-        
+
         switch formMode {
         case .new:
             PeopleToSave.insert(into: context, name: name ?? "", birth: birth ?? "01-01", picData: imageData, picCopyright: imageCopyright, shouldSync: shouldSync ?? false)
@@ -135,11 +135,11 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
                 CFNotify.present(config: config, view: cfView)
             }
         }
-        
+
         navigationController?.popViewController(animated: true)
         SKStoreReviewController.requestReview()
     }
-    
+
     private func delete() {
         let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { [unowned self] _ in
@@ -160,16 +160,16 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
-    
+
     func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
         imageRow.value = croppedImage
         imageRow.cell.update()
     }
-    
+
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
-        
+
     }
-    
+
     private func didSet(image: UIImage?) {
         if let image = image {
             let controller = SquareImageCroppingViewController()
@@ -179,28 +179,28 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
-    
+
     init(with mode: Mode) {
         formMode = mode
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
 
 extension PersonFormController: UIDropInteractionDelegate {
-    
+
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         return session.canLoadObjects(ofClass: UIImage.self)
     }
-    
+
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
         return UIDropProposal(operation: .copy)
     }
-    
+
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         session.loadObjects(ofClass: UIImage.self) { images in
             if let image = images.first {
@@ -210,20 +210,20 @@ extension PersonFormController: UIDropInteractionDelegate {
         session.loadObjects(ofClass: NSURL.self) { nsurls in
             if let urls = nsurls as? [URL],
                 let url = urls.first,
-                let _ = self.nameRow.value {
-                self.nameRow.value! += url.path
+                self.imageRow.value != nil {
+                self.copyrightRow.value! += url.path
             }
         }
     }
-    
+
 }
 
 final class DeleteButtonRow: _ButtonRowOf<String>, RowType {
-    
+
     weak var objectToDelete: NSManagedObject!
     weak var context: NSManagedObjectContext!
     weak var confirmationParentViewControlelr: UIViewController!
-    
+
     override func customDidSelect() {
         let alertController = UIAlertController(title: NSLocalizedString("deletionConfirm", comment: ""), message: NSLocalizedString("deletionConfirmDetailed", comment: ""), preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("confirm", comment: ""), style: .default) { _ in
@@ -234,10 +234,10 @@ final class DeleteButtonRow: _ButtonRowOf<String>, RowType {
         alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "cancel"), style: .cancel))
         confirmationParentViewControlelr.present(alertController, animated: true, completion: nil)
     }
-    
+
     required init(tag: String?) {
         super.init(tag: tag)
         cell.tintColor = #colorLiteral(red: 0.8881979585, green: 0.3072378635, blue: 0.2069461644, alpha: 1)
     }
-    
+
 }

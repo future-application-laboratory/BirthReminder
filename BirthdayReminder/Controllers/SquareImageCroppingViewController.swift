@@ -13,18 +13,18 @@ class SquareImageCroppingViewController: IGRPhotoTweakViewController {
 
     public var previousController: UIViewController!
     public var misc: (() -> Void)?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         title = NSLocalizedString("cropping", comment: "cropping")
-        
+
         navigationItem.largeTitleDisplayMode = .never
-        
+
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(onDone))
         navigationItem.setRightBarButton(doneBarButtonItem, animated: true)
         navigationItem.hidesBackButton = true
-        
+
         setCropAspectRect(aspect: "1:1")
         lockAspectRatio(true)
     }
@@ -34,5 +34,5 @@ class SquareImageCroppingViewController: IGRPhotoTweakViewController {
         navigationController?.popToViewController(previousController, animated: true)
         misc?()
     }
-    
+
 }

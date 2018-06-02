@@ -10,13 +10,12 @@ import WatchKit
 import Foundation
 import UserNotifications
 
-
 class NotificationController: WKUserNotificationInterfaceController {
 
     @IBOutlet weak var nameLabel: WKInterfaceLabel!
     @IBOutlet weak var birthdayLabel: WKInterfaceLabel!
     @IBOutlet weak var interfaceImage: WKInterfaceImage!
-    
+
     override init() {
         // Initialize variables here.
         super.init()
@@ -33,8 +32,9 @@ class NotificationController: WKUserNotificationInterfaceController {
         super.didDeactivate()
     }
 
+    //  swiftlint:disable line_length
     override func didReceive(_ notification: UNNotification, withCompletion completionHandler: @escaping (WKUserNotificationInterfaceType) -> Swift.Void) {
-        if let userInfo = notification.request.content.userInfo as? [String:Any],
+        if let userInfo = notification.request.content.userInfo as? [String: Any],
             let name = userInfo["name"] as? String,
             let birth = userInfo["birth"] as? String,
             let picData = userInfo["picData"] as? Data? {
@@ -46,5 +46,6 @@ class NotificationController: WKUserNotificationInterfaceController {
             completionHandler(.default)
         }
     }
-    
+    //  swiftlint:enable line_length
+
 }

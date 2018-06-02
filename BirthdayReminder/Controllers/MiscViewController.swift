@@ -12,19 +12,19 @@ import WatchConnectivity
 import Moya
 
 class MiscViewController: UITableViewController, UITextFieldDelegate {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.barTintColor = .bar
         tableView.backgroundColor = .background
         tableView.tableFooterView = UIView()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         PresentingViewController.shared = self
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
@@ -47,8 +47,8 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
             let alertController = UIAlertController(title: NSLocalizedString("Feedback", comment: "feedback"),
                                                     message: NSLocalizedString("Give us suggestions", comment: "Give us Suggestions"),
                                                     preferredStyle: .alert)
-            alertController.addTextField() { _ in }
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("done", comment: "done"), style: .default) { action in
+            alertController.addTextField { _ in }
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("done", comment: "done"), style: .default) { _ in
                 if let field = alertController.textFields?.first {
                     self.submitFeedback(field.text!)
                 }
@@ -69,7 +69,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
             break
         }
     }
-    
+
     private func submitFeedback(_ feedback: String) {
         let defaults = UserDefaults.standard
         let token = defaults.string(forKey: "remoteToken")
@@ -78,19 +78,19 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
         NetworkController.networkQueue.async {
             MoyaProvider<SlackService>().request(service) { [weak self] result in
                 switch result {
-                case .success(_):
+                case .success:
                     break
-                case .failure(_):
+                case .failure:
                     self?.submitFeedback(feedback)
                 }
             }
         }
     }
-    
+
 }
 
 class AcknowsController: AcknowListViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.largeTitleTextAttributes = [
@@ -98,7 +98,7 @@ class AcknowsController: AcknowListViewController {
         ]
         navigationController?.tintColor = .tint
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let acknowledgements = acknowledgements,
             let acknowledgement = acknowledgements[(indexPath as NSIndexPath).row] as Acknow?,
@@ -107,11 +107,11 @@ class AcknowsController: AcknowListViewController {
             navigationController.pushViewController(viewController, animated: true)
         }
     }
-    
+
 }
 
 class AcknowController: AcknowViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
@@ -119,9 +119,9 @@ class AcknowController: AcknowViewController {
         let newBackButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(back))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
-    
+
     @objc func back() {
         navigationController?.popViewController(animated: true)
     }
-    
+
 }

@@ -15,7 +15,7 @@ class ContactViewController: ViewController {
         "https://space.bilibili.com/5766898",
         "https://github.com/CaptainYukinoshitaHachiman"
     ]
-    
+
     @IBAction func didTouch(_ sender: UIButton) {
         let tag = sender.tag
         if urls.indices.contains(sender.tag) {

@@ -17,39 +17,46 @@ import Moya_ObjectMapper
 
 class GetPersonalDataFromServerViewController: ViewController, ManagedObjectContextUsing {
     var tableViewData = [People]()
-    var anime:Anime?
-    
-    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
-    
+    var anime: Anime?
+
+    private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero,
+                                                                          size: CGSize(width: 150, height: 150)),
+                                                            type: .orbit, color: .cell, padding: nil)
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     @IBOutlet weak var addAllButton: UIBarButtonItem!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .background
-        
+
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = .clear
-        
+
         view.addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        
+
         loadPeople()
     }
-    
+
     @IBAction func storeAll(_ sender: Any) {
         tableViewData.forEach { person in
-            PeopleToSave.insert(into: context, name: person.name, birth: person.stringedBirth, picData: person.picPack?.data, picCopyright: person.picPack?.copyright, shouldSync: false)
+            PeopleToSave.insert(into: context,
+                                name: person.name,
+                                birth: person.stringedBirth,
+                                picData: person.picPack?.data,
+                                picCopyright: person.picPack?.copyright,
+                                shouldSync: false)
         }
         navigationController?.popViewController(animated: true)
         SKStoreReviewController.requestReview()
     }
-    
+
     private func loadPeople() {
         activityIndicator.startAnimating()
         NetworkController.networkQueue.async { [weak self] in
@@ -57,7 +64,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
                 switch result {
                 case .success(let response):
                     self?.tableViewData = (try? response.mapArray(People.self)) ?? []
-                    DispatchQueue.main.async{
+                    DispatchQueue.main.async {
                         self?.activityIndicator.stopAnimating()
                         self?.tableView.reloadData()
                         self?.tableView.animate(animations: [AnimationType.from(direction: .bottom, offset: 40)])
@@ -66,7 +73,8 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
                 case .failure(let error):
                     self?.tableViewData = []
                     DispatchQueue.main.async { [weak self] in
-                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
+                        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"),
+                                                            body: error.localizedDescription, theme: .fail(.light))
                         var config = CFNotify.Config()
                         config.initPosition = .top(.center)
                         config.appearPosition = .top
@@ -77,7 +85,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
             }
         }
     }
-    
+
     private func loadPicForPeople() {
         // Load pic for every person
         tableViewData.forEach { person in
@@ -99,15 +107,15 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
             }
         }
     }
-    
+
 }
 
 extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableViewData.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cellData = tableViewData[index]
@@ -122,7 +130,7 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
         personCell.picPack = cellData.picPack
         return personCell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         let person = tableViewData[index]
@@ -130,7 +138,7 @@ extension GetPersonalDataFromServerViewController: UITableViewDataSource, UITabl
         navigationController?.pushViewController(controller, animated: true)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-    
+
 }
 
 extension GetPersonalDataFromServerViewController: CopyrightViewing {

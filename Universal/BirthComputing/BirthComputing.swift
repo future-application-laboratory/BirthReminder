@@ -13,14 +13,14 @@ class BirthComputer {
     static func peopleOrderedByBirthday(peopleToReorder people: [PeopleToSave]) -> [PeopleToSave] {
         return people.sorted { p1, p2 in p1.birth.toDate()! < p2.birth.toDate()! }
     }
-    
+
     fileprivate static func putIntoDate(with monthAndDay: String, year yearType: YearType = .this) -> Date? {
         let formmater = DateFormatter()
         formmater.dateFormat = "yyyy-MM-dd"
         let year = monthAndDay == "02-29" ? leapYear() : simpleYear(yearType)
         return formmater.date(from: "\(year)-\(monthAndDay)")
     }
-    
+
     static func simpleYear(_ yearType: YearType) -> Int {
         switch yearType {
         case .this:
@@ -33,11 +33,10 @@ class BirthComputer {
     static func leapYear(after thisYear: Int = simpleYear(.this)) -> Int {
         var year = thisYear / 4 * 4
         if year < thisYear { year += 4 }
-        if year % 100 == 0 && thisYear % 400 != 0
-        { year += 4 }
+        if year % 100 == 0 && thisYear % 400 != 0 { year += 4 }
         return year
     }
-    
+
     enum YearType {
         case this
         case next
@@ -51,7 +50,7 @@ extension String {
         guard let date = toDate() else { return nil }
         return formatter.string(from: date)
     }
-    
+
     func toLeftDays() -> String? {
         guard let date = toDate(),
             let leftDays = date.daysSince(.now)
@@ -103,11 +102,11 @@ extension Date {
     func daysSince(_ start: Date) -> Int! {
         return Calendar.current.dateComponents([.day], from: start, to: self).day
     }
-    
+
     var day: Int {
         return Calendar.current.dateComponents([.day], from: self).day!
     }
-    
+
     var month: Int {
         return Calendar.current.dateComponents([.month], from: self).month!
     }

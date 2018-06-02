@@ -18,7 +18,7 @@ import NVActivityIndicatorView
 import SafariServices
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
-    
+
     weak var delegate: AppDelegate! {
         let app = UIApplication.shared
         let delegate = app.delegate as? AppDelegate
@@ -26,10 +26,10 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     }
     var frc: NSFetchedResultsController<PeopleToSave>!
     @IBOutlet weak var tableView: UITableView!
-    
+
     private var data = [PeopleToSave]()
     private var timeShouldShowAsLocalizedDate = true
-    
+
     private var isContributing = false {
         didSet {
             floaty.isHidden = isContributing
@@ -45,7 +45,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     private var picCopyright: String!
     private var animeName: String!
     private var contactInfo: String!
-    
+
     private var emptyLabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("emptyLabelText", comment: "emptyLabelText")
@@ -56,12 +56,12 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         label.textAlignment = .center
         return label
     }()
-    
+
     private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
     private let indicatorBackground = UIView()
     private let uploadingLabel = UILabel()
     private let floaty = Floaty()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .background
@@ -73,13 +73,13 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         setupIndicator()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.barTintColor = .bar
         navigationController?.tintColor = .tint
     }
-    
+
     private func setupEmptyLabel() {
         view.addSubview(emptyLabel)
         emptyLabel.snp.makeConstraints { make in
@@ -91,7 +91,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
         emptyLabel.bringSubview(toFront: tableView)
     }
-    
+
     private func setupFloaty() {
         floaty.sticky = true
         floaty.friendlyTap = true
@@ -113,7 +113,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
         tableView.addSubview(floaty)
     }
-    
+
     private func setupTableView() {
         tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
@@ -129,7 +129,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
         checkDataAndDisplayPlaceHolder()
     }
-    
+
     private func setupIndicator() {
         indicatorBackground.backgroundColor = .gray
         indicatorBackground.alpha = 0.5
@@ -152,7 +152,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
             make.top.equalTo(activityIndicator.snp.bottom).offset(5)
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             switch identifier {
@@ -165,12 +165,12 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
             }
         }
     }
-    
+
     @IBAction func changeDateDisplayingType(_ sender: Any) {
         timeShouldShowAsLocalizedDate = !timeShouldShowAsLocalizedDate
         tableView.reloadData()
     }
-    
+
     private func checkDataAndDisplayPlaceHolder() {
         tableView.separatorStyle = .none
         if data.isEmpty {
@@ -180,11 +180,11 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
             emptyLabel.isHidden = true
         }
     }
-    
+
 }
 
 extension IndexViewController: NSFetchedResultsControllerDelegate {
-    
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let person = anObject as? PeopleToSave else { return }
         let index = data.index(of: person)
@@ -207,19 +207,19 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
         checkDataAndDisplayPlaceHolder()
         delegate.syncWithAppleWatch()
     }
-    
+
 }
 
 extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cellData = data[index]
@@ -238,14 +238,14 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
                 personCell.picView.image = picImage
             }
         }
-        
+
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: cell)
         }
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.allowsMultipleSelection {
             let index = indexPath.row
@@ -260,59 +260,57 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         }
     }
-    
+
 }
 
 extension IndexViewController: UIViewControllerPreviewingDelegate {
-    
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let cell = previewingContext.sourceView as? UITableViewCell
-            , let indexPath = tableView.indexPath(for: cell)
-            , let controller = UIStoryboard.main.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController
+        guard let cell = previewingContext.sourceView as? UITableViewCell, let indexPath = tableView.indexPath(for: cell), let controller = UIStoryboard.main.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController
             else { return nil }
         let person = data[indexPath.row]
         controller.person = person
         return controller
     }
-    
+
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         show(viewControllerToCommit, sender: nil)
     }
-    
+
 }
 
 // MARK: - Contributing
 extension IndexViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, IGRPhotoTweakViewControllerDelegate {
-    
+
     public func startContributingIfNotAlready() {
         if isContributing != true {
             isContributing = true
         }
     }
-    
+
     private func onContribute() {
         showContributeInstructions()
         let buttonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done(sender:)))
         navigationItem.setLeftBarButtonItems([buttonItem], animated: true)
     }
-    
+
     private func showContributeInstructions() {
         let alertController = UIAlertController(title: NSLocalizedString("you're entering contributing mode", comment: "You're entering contributing mode"), message: NSLocalizedString("for more details, checkout the contributing guide", comment: "For more details, checkout the contributing guide"), preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: "OK"), style: .default, handler: nil))
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("show the guide", comment: "Show the guide"), style: .default) { action in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("show the guide", comment: "Show the guide"), style: .default) { _ in
             let sfController = SFSafariViewController(url: "https://github.com/CaptainYukinoshitaHachiman/BirthReminder/blob/master/ContributingGuide.md")
             self.present(sfController, animated: true)
         })
         alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .default) { _ in self.isContributing = false })
         present(alertController, animated: true)
     }
-    
+
     private func illegalContributionAlert() {
         let alertController = UIAlertController(title: NSLocalizedString("no pic copyright provided", comment: "No pic copyright provided"), message: NSLocalizedString("Pic copyright is required to contribute, please edit the character before contributing", comment: "pic copyright is required to contribute, please edit the character before contributing"), preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("got it", comment: "Got it"), style: .default))
         present(alertController, animated: true)
     }
-    
+
     @objc private func done(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: NSLocalizedString("end choosing", comment: "End choosing"), message: NSLocalizedString("are you sure to contribute these selected characters?", comment: "Are you sure to contribute these selected characters?"), preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: String.localizedStringWithFormat(
@@ -327,7 +325,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         alertController.popoverPresentationController?.barButtonItem = sender
         present(alertController, animated: true, completion: nil)
     }
-    
+
     private func getAnimeName() {
         let alertController = UIAlertController(title: NSLocalizedString("what's the name of the character set?", comment: "What's the name of the character set?"), message: NSLocalizedString("e.g. Anime names, Galgame names, Lightnovel names...", comment: "e.g. Anime names, Galgame names, Lightnovel names..."), preferredStyle: .alert)
         alertController.addTextField { field in
@@ -340,7 +338,7 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         alertController.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: "Cancel"), style: .cancel) { _ in self.isContributing = false })
         present(alertController, animated: true)
     }
-    
+
     private func askForAnimePic() {
         let alertController = UIAlertController(title: NSLocalizedString("choose the pic for the set", comment: "Choose the pic for the set"), message: NSLocalizedString("its copyright info is also required", comment: "Its copyright info is also required"), preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("choose from album", comment: "Choose from album"), style: .default) { _ in
@@ -354,16 +352,16 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         })
         present(alertController, animated: true)
     }
-    
+
     func photoTweaksController(_ controller: IGRPhotoTweakViewController, didFinishWithCroppedImage croppedImage: UIImage) {
         animePic = croppedImage
     }
-    
+
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
-        
+
     }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         animePic = info[UIImagePickerControllerOriginalImage] as? UIImage
         picker.dismiss(animated: true) {
             // cropping
@@ -375,12 +373,12 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
         isContributing = false
     }
-    
+
     private func askForCopyrightInfo() {
         let alertController = UIAlertController(title: NSLocalizedString("copyright Info", comment: "Copyright Info"), message: NSLocalizedString("enter the copyright info for the pic you've just selected", comment: "Enter the copyright info for the pic you've just selected"), preferredStyle: .alert)
         alertController.addTextField { field in
@@ -392,10 +390,10 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         })
         present(alertController, animated: true, completion: nil)
     }
-    
+
     private func askForContactInfo() {
         let alertController = UIAlertController(title: NSLocalizedString("almost done", comment: "Almost done"), message: NSLocalizedString("finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so.", comment: "Finally, leave your contact info here.\n It's not forced, but we can then express our strong thankfulness through the info if you do so."), preferredStyle: .alert)
-        alertController.addTextField() { field in
+        alertController.addTextField { field in
             field.placeholder = NSLocalizedString("nickname and contact info (optional)", comment: "Nickname and contact info (optional)")
         }
         alertController.addAction(UIAlertAction(title: NSLocalizedString("submit", comment: "Submit"), style: .default) { _ in
@@ -404,10 +402,10 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         })
         present(alertController, animated: true, completion: nil)
     }
-    
+
     private func submit() {
         let animePicPack = PicPack(image: animePic, copyrightInfo: picCopyright)!
-        let people: [People] = (tableView.indexPathsForSelectedRows ?? []).map() { indexPath in
+        let people: [People] = (tableView.indexPathsForSelectedRows ?? []).map { indexPath in
             let index = indexPath.row
             let person =  data[index]
             let name = person.name
@@ -458,5 +456,5 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
             }
         }
     }
-    
+
 }

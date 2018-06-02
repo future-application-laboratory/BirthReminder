@@ -14,25 +14,25 @@ final class People: Mappable {
     var picPack: PicPack?
     var id: Int?
     var status = false
-    
+
     init(withName name: String, birth: String, picData: Data, id: Int?) {
         self.name = name
         self.stringedBirth = birth
         self.picPack = PicPack(picData: picData)
         self.id = id
     }
-    
+
     required init?(map: Map) {
     }
-    
+
     func mapping(map: Map) {
         name <- map["name"]
         stringedBirth <- map["birth"]
         id <- map["id"]
     }
-    
-    var objectForContribution: [String:Any] {
-        return ["name":name,"birth":stringedBirth,"picPack":picPack!.objectForContribution!]
+
+    var objectForContribution: [String: Any] {
+        return ["name": name, "birth": stringedBirth, "picPack": picPack!.objectForContribution!]
     }
-    
+
 }

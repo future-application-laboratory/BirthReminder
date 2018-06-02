@@ -9,7 +9,7 @@
 import UIKit
 
 extension UINavigationController {
-    
+
     var barTintColor: UIColor? {
         get {
             return navigationBar.barTintColor
@@ -18,7 +18,7 @@ extension UINavigationController {
             navigationBar.barTintColor = newValue
         }
     }
-    
+
     func setVisualEffectViewHidden(_ isHidden: Bool = true) {
         navigationBar.subviews.forEach {
             $0.subviews.forEach {
@@ -28,7 +28,7 @@ extension UINavigationController {
             }
         }
     }
-    
+
     /// Tint/text color for bar and title.
     var tintColor: UIColor {
         get {
@@ -40,5 +40,5 @@ extension UINavigationController {
             navigationBar.largeTitleTextAttributes![.foregroundColor] = newValue
         }
     }
-    
+
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    
+
     fileprivate static var lastReload: Date? {
         get {
             let formatter = DateFormatter()
@@ -23,24 +23,24 @@ extension Date {
             UserDefaults.standard.set(formatter.string(from: newValue ?? Date()), forKey: "lastReload")
         }
     }
-    
+
     fileprivate static func updateReloadingRecord() {
         lastReload = Date()
     }
-    
+
 }
 
 extension InterfaceController {
-    
+
     var needToUpdateSorting: Bool {
         if let last = Date.lastReload {
             let calendar = Calendar.current
-            let components = calendar.dateComponents([.year,.month,.day], from: last)
+            let components = calendar.dateComponents([.year, .month, .day], from: last)
             if calendar.date(last, matchesComponents: components) {
                 return false
             }
         }
         return true
     }
-    
+
 }

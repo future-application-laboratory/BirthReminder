@@ -11,7 +11,7 @@ import CFNotify
 import SnapKit
 
 class BirthCardController: ViewController, ManagedObjectContextUsing {
-    
+
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
             imageView.layer.cornerRadius = 10
@@ -20,9 +20,9 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     }
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
-    
+
     public var person: PeopleToSave!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
@@ -53,7 +53,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
                 tabBarController?.tabBar.backgroundImage = UIImage()
                 tabBarController?.tabBar.shadowImage = UIImage()
                 tabBarController?.tabBar.isTranslucent = true
-                
+
                 UIApplication.shared.statusBarStyle = .default
             } else {
                 navigationController?.setVisualEffectViewHidden(false)
@@ -62,7 +62,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
                 tabBarController?.tabBar.barTintColor = .bar
                 tabBarController?.tabBar.shadowImage = nil
                 tabBarController?.tabBar.isTranslucent = false
-                
+
                 UIApplication.shared.statusBarStyle = .lightContent
             }
         }
@@ -77,43 +77,43 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
             make.edges.equalToSuperview()
         }
         view.sendSubview(toBack: blurView)
-        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [.flatGreen,.flatMint])
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [.flatGreen, .flatMint])
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen,.flatMint])
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: CGRect(origin: .zero, size: size), andColors: [.flatGreen, .flatMint])
     }
 
     // MARK: - Functionalities
-    
+
     @IBAction func onEdit(_ sender: UIBarButtonItem) {
         edit(navigationController: navigationController!)
     }
-    
+
     @IBAction func onShare(_ sender: UIBarButtonItem) {
         share(controller: self)
     }
-    
+
     func edit(navigationController rootNavigationController: UINavigationController) {
         let controller = PersonFormController(with: .persistent(person))
         controller.title = NSLocalizedString("edit", comment: "edit")
         rootNavigationController.pushViewController(controller, animated: true)
     }
-    
+
     func share(controller rootController: UIViewController) {
         let text = String.localizedStringWithFormat(
             NSLocalizedString("%1$@ is %2$@'s birthday, let's celebrate!", comment: "%1$@ is %2$@'s birthday, let's celebrate!"),
-            person.birth.toLocalizedDate()!,person.name) + "\n\(NSLocalizedString("fromBirthReminder", comment: "FromBirthReminder"))"
+            person.birth.toLocalizedDate()!, person.name) + "\n\(NSLocalizedString("fromBirthReminder", comment: "FromBirthReminder"))"
         let image = imageView.image ?? UIImage()
-        
-        let controller = UIActivityViewController(activityItems: [text,image], applicationActivities: nil)
-        
+
+        let controller = UIActivityViewController(activityItems: [text, image], applicationActivities: nil)
+
         if let popController = controller.popoverPresentationController {
             popController.barButtonItem = navigationItem.rightBarButtonItem
         }
         rootController.present(controller, animated: true, completion: nil)
     }
-    
+
     override var previewActionItems: [UIPreviewActionItem] {
         let tabbarController: UITabBarController
         //  swiftlint:disable force_cast
@@ -125,13 +125,13 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         let indexController = tabbarController.viewControllers![0] as! UINavigationController
         //  swiftlint:enable force_cast
         return [
-            UIPreviewAction(title: NSLocalizedString("share", comment: "share"), style: .default) { [unowned self] _,_ in
+            UIPreviewAction(title: NSLocalizedString("share", comment: "share"), style: .default) { [unowned self] _, _ in
                 self.share(controller: indexController)
             },
-            UIPreviewAction(title: NSLocalizedString("edit", comment: "edit"), style: .default) { [unowned self] _,_ in
+            UIPreviewAction(title: NSLocalizedString("edit", comment: "edit"), style: .default) { [unowned self] _, _ in
                 self.edit(navigationController: indexController)
             },
-            UIPreviewAction(title: NSLocalizedString("delete", comment: "delete"), style: .destructive) { [context = context!, person = person!] _,_ in
+            UIPreviewAction(title: NSLocalizedString("delete", comment: "delete"), style: .destructive) { [context = context!, person = person!] _, _ in
                 do {
                     context.delete(person)
                     try context.save()
@@ -145,5 +145,5 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
             }
         ]
     }
-    
+
 }

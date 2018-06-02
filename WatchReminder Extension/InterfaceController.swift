@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDelegate, ReloadControllerDelegate {
-    
+
     @IBOutlet var emptyLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
     private var status = false
@@ -25,31 +25,31 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
         return delegate.context
     }
     private let request = PeopleToSave.sortedFetchRequest
-    
+
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         delegate.reloadController.delegate = self
         reload()
     }
-    
+
     override func willActivate() {
         super.willActivate()
         if needToUpdateSorting {
             reload()
         }
     }
-    
+
     private func reloadTable() {
         guard !tableData.isEmpty else {
             emptyLabel.setHidden(false)
             table.setHidden(true)
             return
         }
-        
+
         tableData = BirthComputer.peopleOrderedByBirthday(peopleToReorder: tableData)
-        
+
         table.setNumberOfRows(tableData.count, withRowType: "tableRowController")
-        
+
         for times in 0..<table.numberOfRows {
             if let controller = table.rowController(at: times) as? TableRowController {
                 let currentData = tableData[times]
@@ -58,16 +58,16 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
                 controller.image.setImageData(currentData.picData)
             }
         }
-        
+
         emptyLabel.setHidden(true)
         table.setHidden(false)
     }
-    
+
     func reload() {
         tableData = (try? context.fetch(request)) ?? []
         reloadTable()
     }
-    
+
     @IBAction func switchLeftAndDate() {
         status = !status
         for times in 0..<table.numberOfRows {
@@ -77,9 +77,9 @@ class InterfaceController: WKInterfaceController, NSFetchedResultsControllerDele
             }
         }
     }
-    
+
 }
 
-protocol ReloadControllerDelegate {
+protocol ReloadControllerDelegate: class {
     func reload()
 }

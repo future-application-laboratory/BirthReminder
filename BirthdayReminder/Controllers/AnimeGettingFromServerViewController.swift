@@ -14,30 +14,30 @@ import CFNotify
 import NVActivityIndicatorView
 
 class AnimeGettingFromServerViewController: ViewController {
-    
+
     private var requirements: String?
     private var showsAllAnimes: Bool {
         return requirements?.isEmpty == true
     }
-    
+
     private var animes = [Anime]() {
         didSet {
             loadPicsForAnimes()
         }
     }
     private var allAnimes = [Anime]()
-    
+
     private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero,
                                                                           size: CGSize(width: 150, height: 150)),
                                                             type: .orbit, color: .cell, padding: nil)
-    
+
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = .background
-        
+
         // Agreement
         let defaults = UserDefaults()
         if !defaults.bool(forKey: "shouldHideAgreement") {
@@ -51,20 +51,20 @@ class AnimeGettingFromServerViewController: ViewController {
             config.appearPosition = .top
             config.hideTime = .never
             CFNotify.present(config: config, view: cfView)
-            
+
             defaults.set(true, forKey: "shouldHideAgreement")
         }
-        
+
         tableView.backgroundView?.backgroundColor = .clear
         tableView.backgroundColor = .clear
-        
+
         tableView.separatorStyle = .none
-        
+
         view.addSubview(activityIndicator)
         activityIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        
+
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
@@ -72,10 +72,10 @@ class AnimeGettingFromServerViewController: ViewController {
         searchController.searchBar.tintColor = .white
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
+
         loadAnimes()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAnimeDetail",
             let viewController = segue.destination as? GetPersonalDataFromServerViewController,
@@ -84,7 +84,7 @@ class AnimeGettingFromServerViewController: ViewController {
             viewController.navigationItem.title = anime.name.replacingOccurrences(of: "\n", with: "")
         }
     }
-    
+
     func loadAnimes() {
         activityIndicator.stopAnimating()
         if showsAllAnimes {
@@ -111,7 +111,8 @@ class AnimeGettingFromServerViewController: ViewController {
             case .failure(let error):
                 self?.animes = []
                 DispatchQueue.main.async { [weak self] in
-                    let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"), body: error.localizedDescription, theme: .fail(.light))
+                    let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToLoad", comment: "FailedToLoad"),
+                                                        body: error.localizedDescription, theme: .fail(.light))
                     var config = CFNotify.Config()
                     config.initPosition = .top(.center)
                     config.appearPosition = .top
@@ -121,7 +122,7 @@ class AnimeGettingFromServerViewController: ViewController {
             }
         }
     }
-    
+
     func loadPicsForAnimes() {
         animes.forEach { anime in
             NetworkController.provider.request(.animepic(withID: anime.id)) { [weak self] result in
@@ -148,17 +149,17 @@ class AnimeGettingFromServerViewController: ViewController {
 }
 
 extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         performSegue(withIdentifier: "showAnimeDetail", sender: animes[index])
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return animes.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: "animeCell")
@@ -168,12 +169,13 @@ extension AnimeGettingFromServerViewController: UITableViewDataSource, UITableVi
         animeCell.nameLabel.text = animes[index].name
         return animeCell
     }
-    
+
 }
 
 extension AnimeGettingFromServerViewController: CopyrightViewing {
     func showCopyrightInfo(_ info: String) {
-        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("aboutThePic", comment: "AboutThePic"), body: info, theme: .info(.light))
+        let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("aboutThePic", comment: "AboutThePic"),
+                                            body: info, theme: .info(.light))
         var config = CFNotify.Config()
         config.initPosition = .top(.center)
         config.appearPosition = .top
