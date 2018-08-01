@@ -8,7 +8,7 @@
       location = "group:README.md">
    </FileRef>
    <FileRef
-      location = "group:/Users/CaptainYukinoshitaHachiman/Documents/Xcode/BirthReminder/ContributingGuide.md">
+      location = "group:ContributingGuide.md">
    </FileRef>
    <Group
       location = "container:GitHubPics"
