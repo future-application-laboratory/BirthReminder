@@ -27,7 +27,9 @@ final class PeopleToSave: NSManagedObject {
         }
     }
 
-    static func insert(into context: NSManagedObjectContext, name: String, birth: String, picData: Data?, picCopyright: String? = nil, shouldSync: Bool, identifier: UUID? = nil) {
+    static func insert(into context: NSManagedObjectContext,
+                       name: String, birth: String, picData: Data?, picCopyright: String? = nil,
+                       shouldSync: Bool, identifier: UUID? = nil) {
         let entity = NSEntityDescription.entity(forEntityName: entityName, in: context)
         let person = NSManagedObject(entity: entity!, insertInto: context)
         person.setValue(name, forKey: "name")
@@ -41,6 +43,18 @@ final class PeopleToSave: NSManagedObject {
             try context.save()
         } catch {
             fatalError("Failed to save: \(error)")
+        }
+    }
+
+    /// Fetches the person with the specified UUID
+    static func specified(withID id: UUID, in context: NSManagedObjectContext) -> PeopleToSave? {
+        let request = PeopleToSave.sortedFetchRequest
+        request.predicate = NSPredicate(format: "identifier == %@", id as CVarArg)
+        request.fetchLimit = 1
+        if let fetched = try? context.fetch(request) {
+            return fetched.first
+        } else {
+            return nil
         }
     }
 
