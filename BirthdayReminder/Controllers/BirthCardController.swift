@@ -147,16 +147,3 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
     }
 
 }
-
-extension BirthCardController {
-
-    static func show(for person: PeopleToSave) {
-        if let cardViewController = UIStoryboard.main
-            .instantiateViewController(withIdentifier: "birthCard") as? BirthCardController {
-            cardViewController.person = person
-            let presented = PresentingViewController.shared
-            presented?.navigationController?.pushViewController(cardViewController, animated: true)
-        }
-    }
-
-}
