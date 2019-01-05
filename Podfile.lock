@@ -1,39 +1,39 @@
 PODS:
-  - AcknowList (1.8)
-  - Alamofire (4.8.0)
+  - AcknowList (1.5)
+  - Alamofire (4.6.0)
   - CFNotify (1.0.2)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - Eureka (4.3.1)
-  - Fabric (1.9.0)
-  - Floaty (4.1.0)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
+  - Eureka (4.1.0)
+  - Fabric (1.7.5)
+  - Floaty (4.0.0)
   - IGRPhotoTweaks (1.0.7)
   - ImageRow (3.0.0):
     - Eureka (~> 4.0)
   - InAppNotify (0.1.4)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya-ObjectMapper (2.7):
-    - Moya-ObjectMapper/Core (= 2.7)
-  - Moya-ObjectMapper/Core (2.7):
-    - Moya (~> 11)
-    - ObjectMapper (~> 3.3)
-  - Moya/Core (11.0.2):
+  - Moya (10.0.2):
+    - Moya/Core (= 10.0.2)
+  - Moya-ObjectMapper (2.5):
+    - Moya-ObjectMapper/Core (= 2.5)
+  - Moya-ObjectMapper/Core (2.5):
+    - Moya (~> 10.0.0)
+    - ObjectMapper (~> 3.0.0)
+  - Moya/Core (10.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - NVActivityIndicatorView (4.5.1):
-    - NVActivityIndicatorView/Presenter (= 4.5.1)
-  - NVActivityIndicatorView/Presenter (4.5.1)
-  - ObjectMapper (3.4.2)
-  - Onboard (2.3.3)
-  - PAPermissions (0.9.11)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
+  - ObjectMapper (3.0.0)
+  - Onboard (2.3.1)
+  - PAPermissions (0.9.10)
   - Result (3.2.4)
-  - SnapKit (4.2.0)
-  - SwiftLint (0.29.2)
-  - ViewAnimator (2.2.2)
+  - SnapKit (4.0.0)
+  - SwiftLint (0.25.1)
+  - ViewAnimator (1.0.5)
 
 DEPENDENCIES:
   - AcknowList
@@ -48,7 +48,7 @@ DEPENDENCIES:
   - InAppNotify (from `https://github.com/lucabecchetti/InAppNotify.git`, branch `swift4`)
   - Moya-ObjectMapper
   - NVActivityIndicatorView
-  - Onboard (from `https://github.com/mamaral/Onboard.git`)
+  - Onboard (from `https://github.com/mamaral/Onboard.git`, branch `master`)
   - PAPermissions
   - SnapKit
   - SwiftLint
@@ -85,6 +85,7 @@ EXTERNAL SOURCES:
     :branch: swift4
     :git: https://github.com/lucabecchetti/InAppNotify.git
   Onboard:
+    :branch: master
     :git: https://github.com/mamaral/Onboard.git
 
 CHECKOUT OPTIONS:
@@ -98,32 +99,32 @@ CHECKOUT OPTIONS:
     :commit: 6c197409f43d09abfb5db2a1a9efdb14d194465b
     :git: https://github.com/lucabecchetti/InAppNotify.git
   Onboard:
-    :commit: c982ffd8010023efa31b9e55cd24fd216a671919
+    :commit: fd44e4478e50fe068732ec2995f4135daef4a02e
     :git: https://github.com/mamaral/Onboard.git
 
 SPEC CHECKSUMS:
-  AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AcknowList: 93c5dbde36f37ba7f74c8a92c8d9cfb52ed73e47
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Eureka: 28ea296f06710f6745266b71f17862048941a32d
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
+  Eureka: 5770ef95bbbbe52f8abbc0d9bea6ee8282c50209
+  Fabric: ae7146a5f505ea370a1e44820b4b1dc8890e2890
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   IGRPhotoTweaks: 8fe6b62c6599238d860b19b46a85a454e202f502
   ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
   InAppNotify: e83f6087b82091ec402406eee65afe8f0a84ab87
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
-  Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
-  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
-  PAPermissions: aadc4479c901938f36df2287b5d771fdbb3c2e67
+  Moya: 2b0531a9fef318e0bc484030c3db1e6f279ccb66
+  Moya-ObjectMapper: 167adf69db0298bf3a19ea05cb9a16ee117c8ef5
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
+  PAPermissions: 8f68bbf68f7f50b55ecaf3f3f2959b97fb756767
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
-  ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
+  ViewAnimator: d87d691fbcaf994db7ee8fc632afa3073bd3b851
 
-PODFILE CHECKSUM: 5a350e6d2f5784040862152534163faa970d3466
+PODFILE CHECKSUM: b8387b4a6f3943531b50169257447e32d1fdba33
 
 COCOAPODS: 1.5.3

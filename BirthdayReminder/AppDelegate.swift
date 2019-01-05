@@ -15,7 +15,6 @@ import InAppNotify
 import CoreData
 import Fabric
 import Crashlytics
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate,
@@ -32,9 +31,6 @@ ManagedObjectContextUsing {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Crashlytics Integration
         Fabric.with([Crashlytics.self])
-
-        // Notifications
-        UNUserNotificationCenter.current().delegate = self
 
         // Watch Connectivity Configuration
         if WCSession.isSupported() {
@@ -168,22 +164,4 @@ extension ManagedObjectContextUsing {
     var context: NSManagedObjectContext! {
         return AppDelegate.context
     }
-}
-
-extension AppDelegate: UNUserNotificationCenterDelegate {
-
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        let request = response.notification.request
-        if request.content.categoryIdentifier == "UpcomingBirthday" {
-            if let uuid = UUID(uuidString: request.identifier) {
-                DispatchQueue.main.async {
-                    if let person = PeopleToSave.specified(withID: uuid, in: self.context) {
-                        BirthCardController.show(for: person)
-                    }
-                }
-            }
-        }
-        completionHandler()
-    }
-
 }
