@@ -11,7 +11,7 @@ import PAPermissions
 
 class PermissionController: PAPermissionsViewController {
     let photoCheck = PAPhotoLibraryPermissionsCheck()
-    let notificationCheck = PANotificationsPermissionsCheck()
+    let notificationCheck = PAUNNotificationPermissionsCheck()
 
     override func viewDidLoad() {
         super.viewDidLoad()
