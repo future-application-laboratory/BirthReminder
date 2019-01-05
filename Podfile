@@ -6,7 +6,7 @@ target 'BirthdayReminder' do
     
     pod 'Moya-ObjectMapper'
     pod 'SnapKit'
-    pod 'Onboard', :git=> 'https://github.com/mamaral/Onboard.git', branch: 'master'
+    pod 'Onboard', :git=> 'https://github.com/mamaral/Onboard.git'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'AcknowList'
     pod 'Eureka'
