@@ -42,7 +42,7 @@ The only thing you need is to tap the ADD button
 
 # Download
 
-Available on the App Store
+Coming soon on the App Store
 
 [![Download on the App Store](./GitHubPics/appstore.svg)](https://itunes.apple.com/us/app/birthreminder/id1375252429?ls=1&mt=8)
 
