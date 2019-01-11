@@ -13,7 +13,7 @@
 [![Watchers](https://img.shields.io/github/watchers/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge&label=Watchers)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
 [![Commit Activity](https://img.shields.io/github/commit-activity/y/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder)
 
-[![Platform](https://img.shields.io/badge/Platform-iOS%20watchOS-green.svg?style=for-the-badge)](https://itunes.apple.com/us/app/birth-reminder/id1286497475?ls=1&mt=8)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20watchOS-green.svg?style=for-the-badge)](https://itunes.apple.com/us/app/birthreminder/id1375252429?ls=1&mt=8)
 [![Travis](https://img.shields.io/travis/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://www.travis-ci.org/CaptainYukinoshitaHachiman/BirthReminder)
 [![License](https://img.shields.io/github/license/CaptainYukinoshitaHachiman/BirthReminder.svg?style=for-the-badge)](https://github.com/CaptainYukinoshitaHachiman/BirthReminder/blob/master/LICENSE)
 [![Slack](https://img.shields.io/badge/Slack-BirthReminder-orange.svg?style=for-the-badge)](https://join.slack.com/t/birthreminder/shared_invite/enQtMjgwOTExNDA1MzE2LTkyZDQ3MWVmMmM0OWFhNzIyYzFkMGMwY2ZjMjY0ZGU1M2E2MTNjODlhNWQ1OTEzZmVlMWY4OTc5Njk0Njc1MTc)
