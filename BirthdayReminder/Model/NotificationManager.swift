@@ -47,11 +47,11 @@ enum NotificationManager {
         content.body = String.localizedStringWithFormat(
             NSLocalizedString("%@ is %@'s birthday, let's celebrate!", comment: "%@ is %@'s birthday, let's celebrate!"),
             person.birth.toLocalizedDate()!, person.name)
-        content.sound = .default()
+        content.sound = .default
         content.categoryIdentifier = "UpcomingBirthday"
         if let pngData = person.picData,
             let image = UIImage(data: pngData),
-            let jpegData = UIImageJPEGRepresentation(image, 1.0) {
+            let jpegData = image.jpegData(compressionQuality: 1.0) {
             let picUrl = URL.temporary
             if let _ = try? jpegData.write(to: picUrl),
                 let attachment = try? UNNotificationAttachment(identifier: person.uuid.uuidString, url: picUrl, options: [UNNotificationAttachmentOptionsTypeHintKey: kUTTypeJPEG]) {

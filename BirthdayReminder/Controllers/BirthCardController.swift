@@ -76,7 +76,7 @@ class BirthCardController: ViewController, ManagedObjectContextUsing {
         blurView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        view.sendSubview(toBack: blurView)
+        view.sendSubviewToBack(blurView)
         view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [.flatGreen, .flatMint])
     }
 

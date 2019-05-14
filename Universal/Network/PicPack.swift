@@ -22,7 +22,7 @@ final class PicPack: Mappable {
     }
     var data: Data? {
         guard let pic = pic else { return nil }
-        return UIImagePNGRepresentation(pic)
+        return pic.pngData()
     }
 
     convenience init?(picData: Data) {
@@ -34,7 +34,7 @@ final class PicPack: Mappable {
     }
 
     init?(image: UIImage, copyrightInfo: String) {
-        guard let jpegData = UIImageJPEGRepresentation(image, 1) as NSData? else { return nil }
+        guard let jpegData = image.jpegData(compressionQuality: 1) as NSData? else { return nil }
         base64 = jpegData.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
         copyright = copyrightInfo
     }
@@ -48,7 +48,7 @@ final class PicPack: Mappable {
         guard let image = pic,
             let resizedImage = UIImage(image: image, scaledTo: CGSize(width: 200, height: 200)),
             let resizedPack = PicPack(image: resizedImage, copyrightInfo: copyright) else { return nil }
-        return ["base64": resizedPack.base64, "copyright": copyright]
+        return ["base64": resizedPack.base64!, "copyright": copyright]
     }
 
 }

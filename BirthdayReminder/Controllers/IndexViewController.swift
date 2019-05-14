@@ -89,7 +89,7 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }
-        emptyLabel.bringSubview(toFront: tableView)
+        emptyLabel.bringSubviewToFront(tableView)
     }
 
     private func setupFloaty() {
@@ -187,7 +187,7 @@ extension IndexViewController: NSFetchedResultsControllerDelegate {
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let person = anObject as? PeopleToSave else { return }
-        let index = data.index(of: person)
+        let index = data.firstIndex(of: person)
         switch type {
         case .insert:
             data.append(person)
@@ -361,8 +361,11 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
 
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
-        animePic = info[UIImagePickerControllerOriginalImage] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        animePic = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
         picker.dismiss(animated: true) {
             // cropping
             let controller = SquareImageCroppingViewController()
@@ -457,4 +460,14 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
         }
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

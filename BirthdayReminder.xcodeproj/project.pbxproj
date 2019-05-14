@@ -754,18 +754,20 @@
 				TargetAttributes = {
 					523235601FDCB8EA00CAB37D = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = B06883531F1EEB2D00831AA6;
 					};
 					7060399020BA2C2600279F23 = {
 						CreatedOnToolsVersion = 9.4;
 						DevelopmentTeam = F248CK9C8M;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					B029294B1F26E79000AD0BC1 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -779,7 +781,7 @@
 					B06883531F1EEB2D00831AA6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -810,7 +812,7 @@
 					B0990F251F27578400D26557 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = F248CK9C8M;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -828,7 +830,7 @@
 			};
 			buildConfigurationList = B068834F1F1EEB2D00831AA6 /* Build configuration list for PBXProject "BirthdayReminder" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -1324,7 +1326,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1345,7 +1347,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1365,8 +1367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.TodayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1386,8 +1387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.TodayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1532,8 +1532,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BirthdayReminder/BirthdayReminder-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1561,8 +1560,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "BirthdayReminder/BirthdayReminder-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1639,8 +1637,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1663,8 +1660,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64";
 				VERSIONING_SYSTEM = "apple-generic";
