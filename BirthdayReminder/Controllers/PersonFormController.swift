@@ -112,7 +112,7 @@ class PersonFormController: FormViewController, ManagedObjectContextUsing, IGRPh
         let name = values["name"] as? String
         let birth = values["birth"] as? String
         let image = values["image"] as? UIImage
-        let imageData = (image ?? UIImage()).pngData()
+        let imageData = image?.pngData() ?? Data()
         let imageCopyright = values["imageCopyright"] as? String
         let shouldSync = values["shouldSync"] as? Bool
 

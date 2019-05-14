@@ -21,8 +21,7 @@ final class PicPack: Mappable {
         return UIImage(data: data as Data)
     }
     var data: Data? {
-        guard let pic = pic else { return nil }
-        return pic.pngData()
+        return pic?.pngData()
     }
 
     convenience init?(picData: Data) {
@@ -48,7 +47,7 @@ final class PicPack: Mappable {
         guard let image = pic,
             let resizedImage = UIImage(image: image, scaledTo: CGSize(width: 200, height: 200)),
             let resizedPack = PicPack(image: resizedImage, copyrightInfo: copyright) else { return nil }
-        return ["base64": resizedPack.base64!, "copyright": copyright]
+        return ["base64": resizedPack.base64!, "copyright": copyright!]
     }
 
 }

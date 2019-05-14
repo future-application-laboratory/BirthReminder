@@ -17,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>0.98.2</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>3</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -42,6 +42,10 @@
 	<string>tan90</string>
 	<key>NSCameraUsageDescription</key>
 	<string>To customize the pic</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>tan90</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>tan90</string>
 	<key>NSContactsUsageDescription</key>
 	<string>tan90</string>
 	<key>NSMicrophoneUsageDescription</key>
