@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14838.19" systemVersion="19A487l" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="NO" userDefinedModelVersionIdentifier="">
+    <entity name="People" representedClassName=".PeopleToSave" syncable="YES">
+        <attribute name="birth" attributeType="String" minValueString="5" maxValueString="5" defaultValueString="01-01" regularExpressionString="\d\d-\d\d" spotlightIndexingEnabled="YES"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String" defaultValueString="NAME" spotlightIndexingEnabled="YES"/>
+        <attribute name="picCopyright" optional="YES" attributeType="String"/>
+        <attribute name="picData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="shouldSync" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="People" positionX="-63" positionY="-18" width="128" height="133"/>
+    </elements>
+</model>

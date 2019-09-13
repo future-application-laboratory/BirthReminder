@@ -17,19 +17,25 @@ public func createDataMainContext(with configuration: ((NSPersistentStoreDescrip
     guard let model = NSManagedObjectModel.mergedModel(from: bundles) else {
         fatalError("Model not found")
     }
-    let psc = NSPersistentStoreCoordinator(managedObjectModel: model)
     let storeDescription = NSPersistentStoreDescription(url: storeUrl!)
     storeDescription.shouldMigrateStoreAutomatically = true
     storeDescription.shouldInferMappingModelAutomatically = true
     configuration?(storeDescription, model)
-    psc.addPersistentStore(with: storeDescription) { _, _ in }
-    let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    context.persistentStoreCoordinator = psc
-    return context
-}
-
-extension Data {
-    func toPeopleToTransfer() -> PeopleToTransfer? {
-        return NSKeyedUnarchiver.unarchiveObject(with: self) as? PeopleToTransfer
+    #if os(iOS)
+        let container = NSPersistentCloudKitContainer(name: "BR", managedObjectModel: model)
+        storeDescription.cloudKitContainerOptions = .init(containerIdentifier: "iCloud.tech.TCWQ.BirthReminder")
+    #else
+        let container = NSPersistentContainer(name: "BR", managedObjectModel: model)
+    #endif
+    container.persistentStoreDescriptions = [storeDescription]
+    container.loadPersistentStores { (_, error) in
+        guard error == nil else {
+            fatalError(error!.localizedDescription)
+        }
     }
+    let context = container.viewContext
+    #if os(iOS)
+    context.automaticallyMergesChangesFromParent = true
+    #endif
+    return context
 }

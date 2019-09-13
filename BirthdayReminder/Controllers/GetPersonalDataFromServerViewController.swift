@@ -21,7 +21,7 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
 
     private var activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero,
                                                                           size: CGSize(width: 150, height: 150)),
-                                                            type: .orbit, color: .cell, padding: nil)
+                                                            type: .orbit, color: .tertiarySystemFill, padding: nil)
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -29,8 +29,6 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .background
 
         tableView.separatorStyle = .none
         tableView.tableFooterView = UIView()
@@ -98,7 +96,6 @@ class GetPersonalDataFromServerViewController: ViewController, ManagedObjectCont
                         if (self?.tableViewData.filter { $0.picPack == nil }.count) == 0 {
                             // Enable ‘add all’ button
                             self?.addAllButton.isEnabled = true
-                            self?.addAllButton.image = UIImage(named: "addAll")
                         }
                     }
                 case .failure(let error):

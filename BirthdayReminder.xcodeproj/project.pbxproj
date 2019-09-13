@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5232356C1FDCB96200CAB37D /* BirthComputingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */; };
-		526B5BC1202ED2A700E76FB3 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */; };
 		526B5BC4202EE76A00E76FB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 526B5BC6202EE76A00E76FB3 /* InfoPlist.strings */; };
 		526B5BC9202EE76C00E76FB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 526B5BCB202EE76C00E76FB3 /* InfoPlist.strings */; };
 		526C89C11F7F3E4D006A2E57 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 526C89C51F7F3E4D006A2E57 /* Localizable.stringsdict */; };
@@ -47,6 +46,9 @@
 		706039A320BA2F5300279F23 /* BirthComputing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB99D21F244E79006C8F29 /* BirthComputing.swift */; };
 		706039A420BA2FF200279F23 /* PeopleToSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704A46E32031BF15003218B5 /* PeopleToSave.swift */; };
 		706039A520BA301300279F23 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02FC57D1F596E2400EAB6E6 /* Protocols.swift */; };
+		7070524522CA2CE800FAA515 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7070524422CA2CE800FAA515 /* CloudKit.framework */; };
+		7091646422C0E613002EF056 /* UIImageViewRoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091646322C0E613002EF056 /* UIImageViewRoundCorner.swift */; };
+		7091646622C0E613002EF056 /* UIImageViewRoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7091646322C0E613002EF056 /* UIImageViewRoundCorner.swift */; };
 		7096989B20A6B4CF00E55BC3 /* ShouldReload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */; };
 		70B172701FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */; };
 		70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */; };
@@ -179,7 +181,6 @@
 		523235611FDCB8EA00CAB37D /* BirthReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BirthReminderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		523235651FDCB8EA00CAB37D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5232356B1FDCB96200CAB37D /* BirthComputingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthComputingTests.swift; sourceTree = "<group>"; };
-		526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
 		526B5BC5202EE76A00E76FB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		526B5BCA202EE76C00E76FB3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		526C89C41F7F3E4D006A2E57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -222,9 +223,12 @@
 		7060399720BA2C2700279F23 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		7060399A20BA2C2700279F23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7060399C20BA2C2700279F23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7070524422CA2CE800FAA515 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		7091646322C0E613002EF056 /* UIImageViewRoundCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewRoundCorner.swift; sourceTree = "<group>"; };
 		7096989A20A6B4CF00E55BC3 /* ShouldReload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouldReload.swift; sourceTree = "<group>"; };
 		709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 3.xcdatamodel"; sourceTree = "<group>"; };
 		70B1726F1FF6A41D00FCA499 /* Pods-BirthdayReminder-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-BirthdayReminder-acknowledgements.plist"; path = "Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-acknowledgements.plist"; sourceTree = SOURCE_ROOT; };
+		70B6C59922CA320000D1B49B /* Model 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 4.xcdatamodel"; sourceTree = "<group>"; };
 		70C5EF801FDBFD460068FAC2 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		70C72BEF1FDD20D60079AF2D /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
 		70CE90762028900A004BE48D /* SquareImageCroppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareImageCroppingViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7070524522CA2CE800FAA515 /* CloudKit.framework in Frameworks */,
 				701151B8201ECFD500E34678 /* libACRCloud_IOS_SDK.a in Frameworks */,
 				701FC04E201ECBCC00C72B37 /* AudioToolbox.framework in Frameworks */,
 				701FC04C201ECBC500C72B37 /* AVFoundation.framework in Frameworks */,
@@ -353,7 +358,6 @@
 		526B5BBF202ED27F00E76FB3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				526B5BC0202ED2A700E76FB3 /* UINavigationController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F922D51F64187A0059DFDC /* Constants&Settings.swift */,
+				7091646322C0E613002EF056 /* UIImageViewRoundCorner.swift */,
 				702D2BC21FE3F6E400F30C7B /* Utilities.swift */,
 				52AD43331F7F1C1300306D47 /* Localization */,
 				B0AB99D41F244E7F006C8F29 /* BirthComputing */,
@@ -610,6 +615,7 @@
 		C36CBA21C215B6052304E768 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7070524422CA2CE800FAA515 /* CloudKit.framework */,
 				701FC04D201ECBCB00C72B37 /* AudioToolbox.framework */,
 				701FC04B201ECBC400C72B37 /* AVFoundation.framework */,
 				701FC049201ECBBD00C72B37 /* libc++.tbd */,
@@ -692,8 +698,6 @@
 				AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */,
 				B029295C1F26E79000AD0BC1 /* Embed App Extensions */,
 				B0990F421F27578400D26557 /* Embed Watch Content */,
-				705300BE203BF03E00AC1771 /* [Crashlytics] */,
-				70C713C420C359BD008E6029 /* SwiftLint Check */,
 			);
 			buildRules = (
 			);
@@ -918,50 +922,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		705300BE203BF03E00AC1771 /* [Crashlytics] */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[Crashlytics]";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" ed4f1b934fd6dcf7ca77a061a170b38fa02b95a3 9d3098b0a3d45dbce6b2f4a8c3af65f3d53a34cb5f272af3c2d150db4aff84d7";
-		};
-		70C713C420C359BD008E6029 /* SwiftLint Check */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "SwiftLint Check";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
 		AD353590856FD53846237A21 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CFNotify/CFNotify.framework",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
-				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/IGRPhotoTweaks/IGRPhotoTweaks.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
-				"${BUILT_PRODUCTS_DIR}/InAppNotify/InAppNotify.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
@@ -977,12 +950,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CFNotify.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IGRPhotoTweaks.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InAppNotify.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
@@ -995,7 +965,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BirthdayReminder/Pods-BirthdayReminder-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F40D5D1B16061A1051AD9097 /* [CP] Check Pods Manifest.lock */ = {
@@ -1034,6 +1004,7 @@
 				706039A320BA2F5300279F23 /* BirthComputing.swift in Sources */,
 				7060399820BA2C2700279F23 /* NotificationViewController.swift in Sources */,
 				706039A420BA2FF200279F23 /* PeopleToSave.swift in Sources */,
+				7091646622C0E613002EF056 /* UIImageViewRoundCorner.swift in Sources */,
 				706039A520BA301300279F23 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1061,6 +1032,7 @@
 				B05FB0C91F6E21E70021263D /* ContactViewController.swift in Sources */,
 				B00F7B031F1EEED800496843 /* AnimeGettingFromServerViewController.swift in Sources */,
 				B08060141F820E6B00115399 /* PermissionRequestingController.swift in Sources */,
+				7091646422C0E613002EF056 /* UIImageViewRoundCorner.swift in Sources */,
 				70C5EF811FDBFD460068FAC2 /* NotificationManager.swift in Sources */,
 				702D2BC31FE3F6E400F30C7B /* Utilities.swift in Sources */,
 				B02F096B1F6C524A007EF8C1 /* PersonalCell.swift in Sources */,
@@ -1071,7 +1043,6 @@
 				B060439A1F3C9978007D1016 /* MiscViewController.swift in Sources */,
 				B0F0CE801F890D750055C00A /* DatePickingRow.swift in Sources */,
 				52AD42EF1F7ED83100306D47 /* Model.xcdatamodeld in Sources */,
-				526B5BC1202ED2A700E76FB3 /* UINavigationController+Extensions.swift in Sources */,
 				B068837C1F1EECF100831AA6 /* Misc.swift in Sources */,
 				B031B91F1F81D81D001AE7DC /* Tutorial.swift in Sources */,
 				B0F922D91F6419920059DFDC /* Constants&Settings.swift in Sources */,
@@ -1318,11 +1289,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSUpcomingNotificationContentExtension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1339,11 +1312,13 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSUpcomingNotificationContentExtension/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.iOSUpcomingBirthdayNotificationContentExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1358,11 +1333,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayReminder/TodayReminder.entitlements;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = TodayReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.TodayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1378,11 +1354,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = TodayReminder/TodayReminder.entitlements;
-				CURRENT_PROJECT_VERSION = 13;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = TodayReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.TodayReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1516,17 +1495,20 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 13;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BirthdayReminder",
 				);
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1546,16 +1528,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = BirthdayReminder/BirthdayReminder.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 13;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = BirthdayReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BirthdayReminder",
 				);
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1573,11 +1558,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = WatchReminder/WatchReminder.entitlements;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				IBSC_MODULE = WatchReminder_Extension;
 				INFOPLIST_FILE = WatchReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1590,7 +1576,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64";
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -1602,11 +1588,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = WatchReminder/WatchReminder.entitlements;
-				CURRENT_PROJECT_VERSION = 13;
+				CODE_SIGN_IDENTITY = "Apple Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				IBSC_MODULE = WatchReminder_Extension;
 				INFOPLIST_FILE = WatchReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1618,7 +1607,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64";
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -1628,10 +1617,11 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "WatchReminder Extension/WatchReminder Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = "WatchReminder Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1641,7 +1631,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64 i386";
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Debug;
 		};
@@ -1651,10 +1641,11 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_ENTITLEMENTS = "WatchReminder Extension/WatchReminder Extension.entitlements";
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F248CK9C8M;
 				INFOPLIST_FILE = "WatchReminder Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tech.TCWQ.BirthReminder.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
@@ -1664,7 +1655,7 @@
 				TARGETED_DEVICE_FAMILY = 4;
 				VALID_ARCHS = "armv7k arm64";
 				VERSIONING_SYSTEM = "apple-generic";
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+				WATCHOS_DEPLOYMENT_TARGET = 6.0;
 			};
 			name = Release;
 		};
@@ -1740,11 +1731,12 @@
 		52AD42ED1F7ED82900306D47 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				70B6C59922CA320000D1B49B /* Model 4.xcdatamodel */,
 				709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */,
 				7034F8171FE4025B002F03C7 /* Model 2.xcdatamodel */,
 				52AD42EE1F7ED82900306D47 /* Model.xcdatamodel */,
 			);
-			currentVersion = 709C825E1FF8F68E0054168B /* Model 3.xcdatamodel */;
+			currentVersion = 70B6C59922CA320000D1B49B /* Model 4.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

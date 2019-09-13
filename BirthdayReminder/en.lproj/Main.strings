@@ -37,8 +37,8 @@
 /* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "Contact";
 
-/* Class = "UILabel"; text = "You can find me at"; ObjectID = "RW7-Gs-JQl"; */
-"RW7-Gs-JQl.text" = "You can find me at";
+/* Class = "UILabel"; text = "You can find us at"; ObjectID = "RW7-Gs-JQl"; */
+"RW7-Gs-JQl.text" = "You can find us at";
 
 /* Class = "UIButton"; normalTitle = "Email"; ObjectID = "VC4-VL-MKT"; */
 "VC4-VL-MKT.normalTitle" = "Email";
@@ -85,3 +85,29 @@
 /* Class = "UILabel"; text = "Name"; ObjectID = "yhd-8B-w69"; */
 "yhd-8B-w69.text" = "Name";
 
+/* Class = "UILabel"; text = "Contribute Online Info"; ObjectID = "D72-xj-yss"; */
+"D72-xj-yss.text" = "Contribute Online Info";
+
+/* Class = "UILabel"; text = "Show Tutorial"; ObjectID = "2Tb-ld-rJx"; */
+"2Tb-ld-rJx.text" = "Show Tutorial";
+
+/* Class = "UILabel"; text = "Feedback"; ObjectID = "bf4-fq-FDT"; */
+"bf4-fq-FDT.text" = "Feedback";
+
+/* Class = "UITabBarItem"; title = "Index"; ObjectID = "OID-AM-Gbr"; */
+"OID-AM-Gbr.title" = "Index";
+
+/* Class = "UITabBarItem"; title = "Misc"; ObjectID = "hih-gq-XP3"; */
+"hih-gq-XP3.title" = "Misc";
+
+/* Class = "UITabBarItem"; title = "Misc"; ObjectID = "0oe-eG-MiR"; */
+"0oe-eG-MiR.title" = "Misc";
+
+/* Class = "UILabel"; text = "Happy birthday!"; ObjectID = "sl9-WY-p9z"; */
+"sl9-WY-p9z.text" = "Happy birthday!";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "KJj-8t-b39"; */
+"KJj-8t-b39.text" = "Name";
+
+/* Class = "UILabel"; text = "Birthday"; ObjectID = "exn-ie-9Il"; */
+"exn-ie-9Il.text" = "Birthday";

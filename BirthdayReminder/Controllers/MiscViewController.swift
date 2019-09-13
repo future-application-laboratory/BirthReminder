@@ -15,8 +15,6 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.barTintColor = .bar
-        tableView.backgroundColor = .background
         tableView.tableFooterView = UIView()
     }
 
@@ -39,7 +37,7 @@ class MiscViewController: UITableViewController, UITextFieldDelegate {
                        text: "The Traditional Chinese Localization are converted from Simplefied Chinese by OpenCC, which is licenced under Apache License 2.0 https://github.com/BYVoid/OpenCC",
                        license: "apache-2.0"),
                 Acknow(title: "Pics on the Server",
-                       text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact me at CaptainYukinoshitaHachiman@tcwq.tech")
+                       text: "All the pics on the server are collected from the Internet, if you own the copyright/copyleft and don't want to see it here, please contact us at support@fal.moe")
             ]
             //  swiftlint:enable line_length
             navigationController?.pushViewController(controller, animated: true)
@@ -96,7 +94,6 @@ class AcknowsController: AcknowListViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             .font: UIFont.systemFont(ofSize: 32, weight: .semibold)
         ]
-        navigationController?.tintColor = .tint
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

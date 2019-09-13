@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndex = 0
-        tabBar.barTintColor = .bar
+        //tabBar.barTintColor = .bar
     }
 
 }

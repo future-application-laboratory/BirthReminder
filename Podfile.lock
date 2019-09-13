@@ -1,57 +1,42 @@
 PODS:
-  - AcknowList (1.8)
-  - Alamofire (4.8.0)
-  - CFNotify (1.0.2)
-  - ChameleonFramework/Default (2.1.0)
-  - ChameleonFramework/Swift (2.1.0):
-    - ChameleonFramework/Default
-  - Crashlytics (3.12.0):
-    - Fabric (~> 1.9.0)
-  - Eureka (4.3.1)
-  - Fabric (1.9.0)
-  - Floaty (4.1.0)
-  - IGRPhotoTweaks (1.0.7)
-  - ImageRow (3.0.0):
-    - Eureka (~> 4.0)
-  - InAppNotify (0.1.4)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
-  - Moya-ObjectMapper (2.7):
-    - Moya-ObjectMapper/Core (= 2.7)
-  - Moya-ObjectMapper/Core (2.7):
-    - Moya (~> 11)
-    - ObjectMapper (~> 3.3)
-  - Moya/Core (11.0.2):
+  - AcknowList (1.9)
+  - Alamofire (4.9.0)
+  - CFNotify (1.0.3)
+  - Eureka (5.0.0)
+  - IGRPhotoTweaks (1.0.8)
+  - ImageRow (4.0.0):
+    - Eureka (~> 5.0)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya-ObjectMapper (2.8):
+    - Moya-ObjectMapper/Core (= 2.8)
+  - Moya-ObjectMapper/Core (2.8):
+    - Moya (~> 12.0)
+    - ObjectMapper (~> 3.4)
+  - Moya/Core (12.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - NVActivityIndicatorView (4.5.1):
-    - NVActivityIndicatorView/Presenter (= 4.5.1)
-  - NVActivityIndicatorView/Presenter (4.5.1)
-  - ObjectMapper (3.4.2)
+    - Result (~> 4.0)
+  - NVActivityIndicatorView (4.7.0):
+    - NVActivityIndicatorView/Presenter (= 4.7.0)
+  - NVActivityIndicatorView/Presenter (4.7.0)
+  - ObjectMapper (3.5.1)
   - Onboard (2.3.3)
   - PAPermissions (0.9.11)
-  - Result (3.2.4)
-  - SnapKit (4.2.0)
-  - SwiftLint (0.29.2)
-  - ViewAnimator (2.2.2)
+  - Result (4.1.0)
+  - SnapKit (5.0.1)
+  - ViewAnimator (2.5.1)
 
 DEPENDENCIES:
   - AcknowList
   - CFNotify
-  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
-  - Crashlytics
-  - Eureka
-  - Fabric
-  - Floaty
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `xcode11`)
   - IGRPhotoTweaks
-  - ImageRow (from `https://github.com/CaptainYukinoshitaHachiman/ImageRow.git`, branch `master`)
-  - InAppNotify (from `https://github.com/lucabecchetti/InAppNotify.git`, branch `swift4`)
+  - ImageRow (from `https://github.com/future-application-laboratory/ImageRow`, branch `master`)
   - Moya-ObjectMapper
   - NVActivityIndicatorView
-  - Onboard (from `https://github.com/mamaral/Onboard.git`)
+  - Onboard
   - PAPermissions
   - SnapKit
-  - SwiftLint
   - ViewAnimator
 
 SPEC REPOS:
@@ -59,71 +44,50 @@ SPEC REPOS:
     - AcknowList
     - Alamofire
     - CFNotify
-    - Crashlytics
-    - Eureka
-    - Fabric
-    - Floaty
     - IGRPhotoTweaks
     - Moya
     - Moya-ObjectMapper
     - NVActivityIndicatorView
     - ObjectMapper
+    - Onboard
     - PAPermissions
     - Result
     - SnapKit
-    - SwiftLint
     - ViewAnimator
 
 EXTERNAL SOURCES:
-  ChameleonFramework:
-    :branch: wip/swift4
-    :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :branch: xcode11
+    :git: https://github.com/xmartlabs/Eureka.git
   ImageRow:
     :branch: master
-    :git: https://github.com/CaptainYukinoshitaHachiman/ImageRow.git
-  InAppNotify:
-    :branch: swift4
-    :git: https://github.com/lucabecchetti/InAppNotify.git
-  Onboard:
-    :git: https://github.com/mamaral/Onboard.git
+    :git: https://github.com/future-application-laboratory/ImageRow
 
 CHECKOUT OPTIONS:
-  ChameleonFramework:
-    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
-    :git: https://github.com/ViccAlexander/Chameleon.git
+  Eureka:
+    :commit: 2d4dd97e0b33fb35c8dcf5bae3a4e8fab3958940
+    :git: https://github.com/xmartlabs/Eureka.git
   ImageRow:
-    :commit: 3af4ed52ed3f64f9d3713289bcaa4a99f3983b90
-    :git: https://github.com/CaptainYukinoshitaHachiman/ImageRow.git
-  InAppNotify:
-    :commit: 6c197409f43d09abfb5db2a1a9efdb14d194465b
-    :git: https://github.com/lucabecchetti/InAppNotify.git
-  Onboard:
-    :commit: c982ffd8010023efa31b9e55cd24fd216a671919
-    :git: https://github.com/mamaral/Onboard.git
+    :commit: 4fadb00f53c4b90c9a8ec837f965cd8547f0c416
+    :git: https://github.com/future-application-laboratory/ImageRow
 
 SPEC CHECKSUMS:
-  AcknowList: 5b8820004d019d0a8d6a091ea2392dcb54bd3ad2
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  CFNotify: e32996ad9034b4d64b30d685e456ea4b83fecb49
-  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
-  Eureka: 28ea296f06710f6745266b71f17862048941a32d
-  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
-  IGRPhotoTweaks: 8fe6b62c6599238d860b19b46a85a454e202f502
-  ImageRow: 2683a3b621210ea05c1f3a2fa294d8d14342d24c
-  InAppNotify: e83f6087b82091ec402406eee65afe8f0a84ab87
-  Moya: a725035953bc1c0eb1be505ab903984501d82440
-  Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
-  NVActivityIndicatorView: ec34a7b88c51fab270004a1a1f32116e711010cd
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  AcknowList: 06fde3319971dfd517ea1b1c194d78eb8cd774a2
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  CFNotify: a5f89f0b315a5eceebbdb9913df7da35fac51d74
+  Eureka: e7b9a83e08867f8336176247bdc4c199b1f68e5e
+  IGRPhotoTweaks: e348cec1dfc7afc36ff0f10115637bc3b03836fa
+  ImageRow: 7febb287efaabc760b068df040def9221f8df27b
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Moya-ObjectMapper: c514b5eafcfd5e260f85f7a5bf66895a217e2b37
+  NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
+  ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
   PAPermissions: aadc4479c901938f36df2287b5d771fdbb3c2e67
-  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
-  SwiftLint: 47df60bdea6e7e902b193b6596db8683aafd86a3
-  ViewAnimator: 6eaa112663b6a2d9e6b2573df65b416dd051cbe4
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
 
-PODFILE CHECKSUM: 5a350e6d2f5784040862152534163faa970d3466
+PODFILE CHECKSUM: cb7a33dac0aa5c2c0c0b7fc86162d6fdf033826e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

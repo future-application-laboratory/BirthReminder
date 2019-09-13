@@ -36,9 +36,7 @@ enum NotificationManager {
     static func onInsert(person: PeopleToSave) {
         let notificationCenter = UNUserNotificationCenter.current()
         let birth = person.birth.toDate()!
-        var components = DateComponents()
-        components.month = birth.month
-        components.day = birth.day
+        let components = Calendar.current.dateComponents([.day, .month, .timeZone, .hour], from: birth)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         let content = UNMutableNotificationContent()
         content.title = String.localizedStringWithFormat(

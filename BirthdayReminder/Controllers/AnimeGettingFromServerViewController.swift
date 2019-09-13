@@ -29,14 +29,12 @@ class AnimeGettingFromServerViewController: ViewController {
 
     private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero,
                                                                           size: CGSize(width: 150, height: 150)),
-                                                            type: .orbit, color: .cell, padding: nil)
+                                                            type: .orbit, color: .tertiarySystemFill, padding: nil)
 
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .background
 
         // Agreement
         let defaults = UserDefaults()
@@ -55,9 +53,6 @@ class AnimeGettingFromServerViewController: ViewController {
             defaults.set(true, forKey: "shouldHideAgreement")
         }
 
-        tableView.backgroundView?.backgroundColor = .clear
-        tableView.backgroundColor = .clear
-
         tableView.separatorStyle = .none
 
         view.addSubview(activityIndicator)
@@ -68,8 +63,7 @@ class AnimeGettingFromServerViewController: ViewController {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .white
+        searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
 

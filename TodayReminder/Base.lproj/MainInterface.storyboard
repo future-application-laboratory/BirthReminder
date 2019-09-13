@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="-25" translatesAutoresizingMaskIntoConstraints="NO" id="X5L-A6-OiD">
-                                <rect key="frame" x="16" y="8" width="197" height="94"/>
+                                <rect key="frame" x="16" y="8" width="194" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAJ-An-Tzr">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="59.5"/>
@@ -40,7 +36,7 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTs-mD-hfz">
-                                <rect key="frame" x="213" y="3" width="105" height="105"/>
+                                <rect key="frame" x="210" y="0.0" width="110" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mTs-mD-hfz" secondAttribute="height" multiplier="1:1" id="vFc-jh-edn"/>
                                 </constraints>
@@ -57,13 +53,13 @@ Or tap to refresh</string>
                         </subviews>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="mTs-mD-hfz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="2.5" id="7Sn-of-tx1"/>
+                            <constraint firstItem="mTs-mD-hfz" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="7Sn-of-tx1"/>
                             <constraint firstItem="X5L-A6-OiD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="Elx-lx-aYT"/>
                             <constraint firstItem="1gE-7c-pdR" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="FwY-Rk-hnt"/>
-                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="mTs-mD-hfz" secondAttribute="bottom" constant="2.5" id="NAj-PX-wOV"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="mTs-mD-hfz" secondAttribute="bottom" id="NAj-PX-wOV"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="1gE-7c-pdR" secondAttribute="bottom" id="UN8-aM-HrL"/>
                             <constraint firstItem="mTs-mD-hfz" firstAttribute="leading" secondItem="X5L-A6-OiD" secondAttribute="trailing" id="a8p-pK-wcZ"/>
-                            <constraint firstAttribute="trailing" secondItem="mTs-mD-hfz" secondAttribute="trailing" constant="2.5" id="bEh-rW-RTI"/>
+                            <constraint firstAttribute="trailing" secondItem="mTs-mD-hfz" secondAttribute="trailing" id="bEh-rW-RTI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1gE-7c-pdR" secondAttribute="trailing" id="exc-pR-KWV"/>
                             <constraint firstItem="X5L-A6-OiD" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="fVv-Yo-9wY"/>
                             <constraint firstItem="1gE-7c-pdR" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="r85-by-4zE"/>

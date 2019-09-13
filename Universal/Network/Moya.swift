@@ -27,7 +27,7 @@ extension TCWQService: TargetType {
     }
 
     var baseURL: URL {
-        return "https://www.tcwq.tech/api/BirthReminder/"
+        return "https://br.fal.moe/api/BirthReminder/"
     }
 
     var path: String {

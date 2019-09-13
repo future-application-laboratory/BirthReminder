@@ -28,11 +28,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let layer = imageView.layer
-        layer.masksToBounds = true
-        layer.cornerRadius = 10
-
         upDateContent()
     }
 

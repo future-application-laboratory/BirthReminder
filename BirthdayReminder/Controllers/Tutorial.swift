@@ -33,8 +33,7 @@ var tutorialController: OnboardViewController {
     onboardVC?.skipHandler = {
         let defaults = UserDefaults()
         defaults.set(true, forKey: "beenLaunched")
-        onboardVC?.show(UIStoryboard.main.instantiateInitialViewController()!, sender: nil)
-        UIApplication.shared.statusBarStyle = .lightContent
+        onboardVC?.dismiss(animated: true, completion: nil)
     }
 
     contentVCs.last?.viewDidAppearBlock = {
@@ -47,22 +46,16 @@ var tutorialController: OnboardViewController {
     }
     page4.actionButton.addTarget(nil, action: #selector(onboardVC?.requestPermisson), for: .touchUpInside)
     page4.bottomPadding = 10
-
-    // iPhone 5 screen support
-    onboardVC?.viewControllers.forEach { controller in
-        if let onbordContentController = controller as? OnboardingContentViewController {
-            if UIScreen.main.bounds.height < 665 {
-                onbordContentController.titleLabel.font = UIFont.systemFont(ofSize: 40)
-                onbordContentController.bodyLabel.font = UIFont.systemFont(ofSize: 20)
-            }
-        }
-    }
-
+    
     return onboardVC!
 }
 
 class OnboardViewController: OnboardingViewController {
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         PresentingViewController.shared = self

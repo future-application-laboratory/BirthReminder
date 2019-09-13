@@ -44,10 +44,23 @@ final class PicPack: Mappable {
     }
 
     var objectForContribution: [String: Any]? {
-        guard let image = pic,
-            let resizedImage = UIImage(image: image, scaledTo: CGSize(width: 200, height: 200)),
-            let resizedPack = PicPack(image: resizedImage, copyrightInfo: copyright) else { return nil }
+        guard let image = pic?.scaled(to: 200),
+            let resizedPack = PicPack(image: image, copyrightInfo: copyright) else { return nil }
         return ["base64": resizedPack.base64!, "copyright": copyright!]
     }
 
+}
+
+extension UIImage {
+    
+    func scaled(to width: CGFloat) -> UIImage? {
+        guard let data = pngData() else { return nil }
+        let size = self.size
+        let a = size.width
+        let b = size.height
+        let originalWidth = min(a, b)
+        let scale = originalWidth / width
+        return UIImage(data: data, scale: scale)
+    }
+    
 }

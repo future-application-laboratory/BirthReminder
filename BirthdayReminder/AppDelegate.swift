@@ -11,10 +11,7 @@ import UIKit
 import WatchConnectivity
 import NotificationCenter
 import Moya
-import InAppNotify
 import CoreData
-import Fabric
-import Crashlytics
 import UserNotifications
 
 @UIApplicationMain
@@ -30,9 +27,6 @@ ManagedObjectContextUsing {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Crashlytics Integration
-        Fabric.with([Crashlytics.self])
-
         // Notifications
         UNUserNotificationCenter.current().delegate = self
 
@@ -43,11 +37,7 @@ ManagedObjectContextUsing {
             session.activate()
         }
 
-        // Decide to show tutorial or not
         let defaults = UserDefaults.standard
-        if !defaults.bool(forKey: "beenLaunched") {
-            window?.rootViewController = tutorialController
-        }
         if !defaults.bool(forKey: "notificationLoaded") {
             NotificationManager.reloadNotifications()
             defaults.set(true, forKey: "notificationLoaded")
@@ -104,14 +94,14 @@ ManagedObjectContextUsing {
             let people = try context.fetch(request).filterOutNil { person -> PeopleToTransfer? in
                 guard person.shouldSync else { return nil }
                 let picData = person.picData
-                return PeopleToTransfer(withName: person.name, birth: person.birth, picData: picData)
+                return PeopleToTransfer(name: person.name, birth: person.birth, picData: picData)
             }
-            let data = NSKeyedArchiver.archivedData(withRootObject: people)
+            let data = try JSONEncoder().encode(people)
             let fileUrl = URL.temporary
             try? data.write(to: fileUrl)
             session.transferFile(fileUrl, metadata: ["type": "BR/reload"])
         } catch {
-            fatalError()
+            NSLog("Failed to sync with AW")
         }
     }
 
@@ -121,26 +111,12 @@ ManagedObjectContextUsing {
 
     // Remote notifications
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let token = NSData(data: deviceToken).description.replacingOccurrences(of: "<", with: "").replacingOccurrences(of: ">", with: "").replacingOccurrences(of: " ", with: "")
+        let token = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
         let defaults = UserDefaults.standard
         if let alreadyToken = defaults.string(forKey: "remoteToken") {
             if alreadyToken == token { return }
         }
         sendToken(token)
-    }
-
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        guard let vc = PresentingViewController.shared,
-            let content = userInfo["aps"] as? [String: Any],
-            let alert = content["alert"] as? [String: String],
-            let title = alert["title"],
-            let body = alert["body"],
-            let imageUrl = userInfo["image"] as? String? else { return }
-        let announcement = Announcement(title: title, subtitle: body, image: nil, urlImage: imageUrl, duration: 3, interactionType: .none, userInfo: nil, action: nil)
-        DispatchQueue.main.async {
-            InAppNotify.theme = Themes.light
-            InAppNotify.Show(announcement, to: vc)
-        }
     }
 
     private func sendToken(_ token: String) {

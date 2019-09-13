@@ -6,20 +6,14 @@ target 'BirthdayReminder' do
     
     pod 'Moya-ObjectMapper'
     pod 'SnapKit'
-    pod 'Onboard', :git=> 'https://github.com/mamaral/Onboard.git'
-    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', branch: 'wip/swift4'
     pod 'AcknowList'
-    pod 'Eureka'
-    pod 'ImageRow', :git=> 'https://github.com/CaptainYukinoshitaHachiman/ImageRow.git', branch: 'master'
+    pod 'Eureka', :git=> 'https://github.com/xmartlabs/Eureka.git', branch: 'xcode11'
+    pod 'ImageRow', :git=> 'https://github.com/future-application-laboratory/ImageRow', branch: 'master'
     pod 'PAPermissions'
     pod 'ViewAnimator'
+    pod 'Onboard'
     pod 'CFNotify'
     pod 'NVActivityIndicatorView'
-    pod 'InAppNotify', :git=> 'https://github.com/lucabecchetti/InAppNotify.git', branch: 'swift4'
-    pod 'Floaty'
     pod 'IGRPhotoTweaks'
-    pod 'Fabric'
-    pod 'Crashlytics'
-    pod 'SwiftLint'
     
 end

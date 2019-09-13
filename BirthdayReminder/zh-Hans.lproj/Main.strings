@@ -52,8 +52,8 @@
 /* Class = "UILabel"; text = "Contact"; ObjectID = "QmJ-P1-Na2"; */
 "QmJ-P1-Na2.text" = "联系信息";
 
-/* Class = "UILabel"; text = "You can find me at"; ObjectID = "RW7-Gs-JQl"; */
-"RW7-Gs-JQl.text" = "你能够通过以下方式联系我";
+/* Class = "UILabel"; text = "You can find us at"; ObjectID = "RW7-Gs-JQl"; */
+"RW7-Gs-JQl.text" = "你能够通过以下方式联系我们";
 
 /* Class = "UIButton"; normalTitle = "Email"; ObjectID = "VC4-VL-MKT"; */
 "VC4-VL-MKT.normalTitle" = "电子邮件";

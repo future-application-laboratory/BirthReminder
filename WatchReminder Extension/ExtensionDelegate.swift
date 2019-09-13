@@ -63,11 +63,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
 
     }
-
+    
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
         if let type = file.metadata?["type"] as? String,
             type == "BR/reload" {
-            if let unarchivedPeople = NSKeyedUnarchiver.unarchiveObject(withFile: file.fileURL.path) as? [PeopleToTransfer] {
+            if let data = try? Data(contentsOf: file.fileURL),
+                let unarchivedPeople = try? JSONDecoder().decode([PeopleToTransfer].self, from: data) {
                 try? context.fetch(request).forEach { object in
                     context.delete(object)
                 } //Delete all the previous objects

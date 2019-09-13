@@ -11,11 +11,11 @@ import UIKit
 import CoreData
 import SnapKit
 import ViewAnimator
-import Floaty
 import MobileCoreServices
 import IGRPhotoTweaks
 import NVActivityIndicatorView
 import SafariServices
+import CFNotify
 
 class IndexViewController: ViewController, ManagedObjectContextUsing {
 
@@ -32,7 +32,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
 
     private var isContributing = false {
         didSet {
-            floaty.isHidden = isContributing
             tableView.allowsMultipleSelection = isContributing
             if isContributing {
                 onContribute()
@@ -49,35 +48,31 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
     private var emptyLabel: UILabel = {
         let label = UILabel()
         label.text = NSLocalizedString("emptyLabelText", comment: "emptyLabelText")
-        label.textColor = .white
         label.font = .systemFont(ofSize: 25)
-        label.textColor = .label
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
 
-    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .cell, padding: nil)
+    private let activityIndicator = NVActivityIndicatorView(frame: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)), type: .orbit, color: .tertiarySystemFill, padding: nil)
     private let indicatorBackground = UIView()
     private let uploadingLabel = UILabel()
-    private let floaty = Floaty()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .background
-        navigationController?.hidesNavigationBarHairline = true
-        navigationController?.barTintColor = .bar
         setupEmptyLabel()
         setupTableView()
-        setupFloaty()
         setupIndicator()
         tableView.animate(animations: [AnimationType.zoom(scale: 0.5)])
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.barTintColor = .bar
-        navigationController?.tintColor = .tint
+        // Decide to show tutorial or not
+        let defaults = UserDefaults.standard
+        if !defaults.bool(forKey: "beenLaunched") {
+            present(tutorialController, animated: true, completion: nil)
+        }
     }
 
     private func setupEmptyLabel() {
@@ -92,33 +87,29 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         emptyLabel.bringSubviewToFront(tableView)
     }
 
-    private func setupFloaty() {
-        floaty.sticky = true
-        floaty.friendlyTap = true
-        floaty.hasShadow = false
-        floaty.buttonImage = #imageLiteral(resourceName: "add")
-        floaty.overlayColor = .clear
-        floaty.buttonColor = .flatMintDark
-        floaty.addItem(NSLocalizedString("new", comment: "New"), icon: #imageLiteral(resourceName: "ic_edit")) { _ in
+    @IBAction func onAddTapped(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController()
+        alertController.popoverPresentationController?.barButtonItem = sender
+        let newPersonAction = UIAlertAction(title: NSLocalizedString("new", comment: "New"), style: .default) { _ in
             let controller = PersonFormController(with: .new(nil))
             controller.title = NSLocalizedString("new", comment: "New")
             controller.navigationItem.largeTitleDisplayMode = .never
             self.navigationController?.pushViewController(controller, animated: true)
         }
-        floaty.addItem(NSLocalizedString("remote", comment: "remote"), icon: #imageLiteral(resourceName: "ic_remote")) { _ in
+        newPersonAction.setValue(UIImage(systemName: "square.and.pencil"), forKey: "image")
+        let showRemoteAction = UIAlertAction(title: NSLocalizedString("remote", comment: "remote"), style: .default) { _ in
             self.performSegue(withIdentifier: "showAnimes", sender: nil)
         }
-        floaty.items.forEach { item in
-            item.buttonColor = .flatMint
-        }
-        tableView.addSubview(floaty)
+        showRemoteAction.setValue(UIImage(systemName: "globe"), forKey: "image")
+        alertController.addAction(newPersonAction)
+        alertController.addAction(showRemoteAction)
+        present(alertController, animated: true, completion: nil)
     }
 
     private func setupTableView() {
-        tableView.backgroundColor = .clear
         tableView.tableFooterView = UIView()
         let request = PeopleToSave.sortedFetchRequest
-        frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: "index")
         frc.delegate = self
         do {
             try frc.performFetch()
@@ -145,7 +136,6 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         uploadingLabel.isHidden = true
         uploadingLabel.text = NSLocalizedString("uploading", comment: "Uploading...")
         uploadingLabel.font = UIFont.systemFont(ofSize: 32)
-        uploadingLabel.textColor = .white
         view.addSubview(uploadingLabel)
         uploadingLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -166,15 +156,16 @@ class IndexViewController: ViewController, ManagedObjectContextUsing {
         }
     }
 
-    @IBAction func changeDateDisplayingType(_ sender: Any) {
+    @IBAction func changeDateDisplayingType(_ sender: UIBarButtonItem) {
         timeShouldShowAsLocalizedDate = !timeShouldShowAsLocalizedDate
+        let image = UIImage(systemName: timeShouldShowAsLocalizedDate ? "ellipsis" : "calendar" )
+        sender.image = image
         tableView.reloadData()
     }
 
     private func checkDataAndDisplayPlaceHolder() {
         tableView.separatorStyle = .none
         if data.isEmpty {
-            emptyLabel.textColor = .label2
             emptyLabel.isHidden = false
         } else {
             emptyLabel.isHidden = true
@@ -232,17 +223,13 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
             if let imgData = cellData.picData {
                 picImage = UIImage(data: imgData)
             } else {
-                picImage = UIImage().imageScaled(to: CGSize(width: 100, height: 100))
+                picImage = UIImage().scaled(to: 200)
             }
             DispatchQueue.main.async {
                 personCell.picView.image = picImage
             }
         }
-
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: cell)
-        }
-
+        cell.addInteraction(UIContextMenuInteraction(delegate: self))
         return cell
     }
 
@@ -263,20 +250,43 @@ extension IndexViewController: UITableViewDelegate, UITableViewDataSource {
 
 }
 
-extension IndexViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let cell = previewingContext.sourceView as? UITableViewCell, let indexPath = tableView.indexPath(for: cell), let controller = UIStoryboard.main.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController
+extension IndexViewController: UIContextMenuInteractionDelegate {
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        guard let cell = interaction.view as? PersonalCell,
+            let indexPath = tableView.indexPath(for: cell),
+            let controller = UIStoryboard.main.instantiateViewController(withIdentifier: "birthCard") as? BirthCardController
             else { return nil }
         let person = data[indexPath.row]
         controller.person = person
-        return controller
+        func contextMenuMaker(_ menuElements: [UIMenuElement]) -> UIMenu? {
+            let share = UIAction(title: NSLocalizedString("share", comment: "share"), image: UIImage(systemName: "square.and.arrow.up")) { [unowned self] _ in
+                controller.share(on: self, from: cell.nameLabel)
+            }
+            let edit = UIAction(title: NSLocalizedString("edit", comment: "edit"), image: UIImage(systemName: "pencil")) { [unowned self] _ in
+                let editController = PersonFormController(with: .persistent(person))
+                self.show(editController, sender: nil)
+            }
+            let delete = UIAction(title: NSLocalizedString("delete", comment: "delete"), image: UIImage(systemName: "trash"), attributes: .destructive) { [unowned self] _ in
+                do {
+                    self.context.delete(person)
+                    try self.context.save()
+                } catch {
+                    let cfView = CFNotifyView.cyberWith(title: NSLocalizedString("failedToSave", comment: "FailedToSave"), body: error.localizedDescription, theme: .fail(.light))
+                    var config = CFNotify.Config()
+                    config.initPosition = .top(.center)
+                    config.appearPosition = .top
+                    CFNotify.present(config: config, view: cfView)
+                    self.tableView.reloadData()
+                }
+            }
+            
+            return UIMenu(title: "", children: [share, edit, delete])
+        }
+        let configuration = UIContextMenuConfiguration(identifier: nil, previewProvider: { controller }, actionProvider: contextMenuMaker)
+        return configuration
     }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        show(viewControllerToCommit, sender: nil)
-    }
-
+    
 }
 
 // MARK: - Contributing

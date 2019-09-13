@@ -11,9 +11,8 @@ import SafariServices
 
 class ContactViewController: ViewController {
     let urls: [URL] = [
-        "mailto://CaptainYukinoshitaHachiman@tcwq.tech",
-        "https://space.bilibili.com/5766898",
-        "https://github.com/CaptainYukinoshitaHachiman"
+        "mailto:support@fal.moe",
+        "https://github.com/future-application-laboratory/"
     ]
 
     @IBAction func didTouch(_ sender: UIButton) {

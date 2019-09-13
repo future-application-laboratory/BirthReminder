@@ -19,11 +19,9 @@ class PermissionController: PAPermissionsViewController {
         backgroundImage = UIImage(named: "background")
         tintColor = .white
         let permissions = [
-            PAPermissionsItem.itemForType(.photoLibrary, reason: NSLocalizedString("photoReason", comment: "phtotReason"))!,
             PAPermissionsItem.itemForType(.notifications, reason: NSLocalizedString("notificationReason", comment: "notificationReason"))!
         ]
         let handlers = [
-            PAPermissionsType.photoLibrary.rawValue: photoCheck,
             PAPermissionsType.notifications.rawValue: notificationCheck
         ]
         setupData(permissions, handlers: handlers)

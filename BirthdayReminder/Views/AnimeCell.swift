@@ -25,8 +25,6 @@ class AnimeCell: RoundCornerTableViewCell {
         super.awakeFromNib()
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(showCopyright(_:)))
         addGestureRecognizer(recognizer)
-        backgroundColor = .clear
-        nameLabel.textColor = .label
         picView.layer.cornerRadius = 10
         picView.layer.masksToBounds = true
 
