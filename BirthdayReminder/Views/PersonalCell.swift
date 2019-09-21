@@ -10,7 +10,7 @@ import UIKit
 
 class PersonalCell: RoundCornerTableViewCell {
 
-    @IBOutlet weak var picView: UIImageView!
+    @IBOutlet weak var picView: UIImageViewRoundCorner!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthLabel: UILabel!
 
@@ -28,11 +28,10 @@ class PersonalCell: RoundCornerTableViewCell {
         backgroundColor = .clear
         nameLabel.textColor = .label
         birthLabel.textColor = .label
-        picView.layer.cornerRadius = 10
-        picView.layer.masksToBounds = true
+        picView.radius = 10
+        picView.corners = .init(arrayLiteral: .topLeft, .bottomLeft)
         layer.cornerRadius = 10
         layer.masksToBounds = true
-
         nameLabel.text = ""
         picPack = nil
     }

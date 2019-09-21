@@ -368,7 +368,6 @@ extension IndexViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
 
     func photoTweaksControllerDidCancel(_ controller: IGRPhotoTweakViewController) {
-
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {

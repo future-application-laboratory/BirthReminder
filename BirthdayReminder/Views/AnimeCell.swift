@@ -12,7 +12,7 @@ import SnapKit
 class AnimeCell: RoundCornerTableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var picView: UIImageView!
+    @IBOutlet weak var picView: UIImageViewRoundCorner!
 
     weak var picPack: PicPack? {
         didSet {
@@ -25,8 +25,8 @@ class AnimeCell: RoundCornerTableViewCell {
         super.awakeFromNib()
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(showCopyright(_:)))
         addGestureRecognizer(recognizer)
-        picView.layer.cornerRadius = 10
-        picView.layer.masksToBounds = true
+        picView.radius = 10
+        picView.corners = .init(arrayLiteral: .topLeft, .bottomLeft)
 
         nameLabel.text = ""
         picPack = nil
